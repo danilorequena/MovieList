@@ -19,6 +19,7 @@ class MoviesTableViewController: UITableViewController {
     }()
     
     var total = 0
+    var page = 0
 //MARK: - Properties
     
     
@@ -28,16 +29,19 @@ class MoviesTableViewController: UITableViewController {
         super.viewDidLoad()
         label.text = "Carregando filmes..."
         
-        MoviesRequest.loadMovies { (movie) in
-            if let movie  = movie {
+        MoviesRequest.loadMovies(onComplete: { (movie) in
+            if let movie = movie {
                 self.movies += movie.results
                 self.total = movie.totalResults ?? 0
+                self.page = movie.totalPages ?? 0
                 print("Total: \(self.total)", "Inclusos: \(self.movies.count)" )
                 DispatchQueue.main.async {
                     self.label.text = "Não existem filmes"
                     self.tableView.reloadData()
                 }
             }
+        }) { (error) in
+            print(error)
         }
     }
     
@@ -50,7 +54,7 @@ class MoviesTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! MovieViewController
-//        vc.movie = movies[tableView.indexPathForSelectedRow!.row]
+        vc.movie = movies[tableView.indexPathForSelectedRow!.row]
     }
 
     // MARK: - Table view data source

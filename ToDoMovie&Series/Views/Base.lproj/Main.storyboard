@@ -79,21 +79,57 @@
             </objects>
             <point key="canvasLocation" x="1780" y="274.8768472906404"/>
         </scene>
-        <!--Movie View Controller-->
+        <!--Title-->
         <scene sceneID="Efo-7b-Yih">
             <objects>
                 <viewController id="Q6j-eQ-241" customClass="MovieViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JYe-rV-m9F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yGN-Ze-UO8">
+                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="CD5-jf-dul"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTV-D4-kPt">
+                                <rect key="frame" x="8" y="401.66666666666674" width="359" height="327.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2el-lU-OvA">
+                                        <rect key="frame" x="8" y="14" width="343" height="290"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0401562715323944" green="0.038093111321126798" blue="0.065238366492957792" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0sF-d3-Foh" firstAttribute="trailing" secondItem="kTV-D4-kPt" secondAttribute="trailing" constant="8" id="Mea-BD-sDg"/>
+                            <constraint firstItem="yGN-Ze-UO8" firstAttribute="top" secondItem="0sF-d3-Foh" secondAttribute="top" id="Xz6-6a-rbl"/>
+                            <constraint firstItem="yGN-Ze-UO8" firstAttribute="bottom" secondItem="0sF-d3-Foh" secondAttribute="bottom" id="cKp-Yk-f2k"/>
+                            <constraint firstItem="kTV-D4-kPt" firstAttribute="top" secondItem="0sF-d3-Foh" secondAttribute="top" constant="261.66666666666669" id="kzR-im-3tj"/>
+                            <constraint firstItem="kTV-D4-kPt" firstAttribute="bottom" secondItem="JYe-rV-m9F" secondAttribute="bottom" constant="-83" id="pGH-Zm-9LT"/>
+                            <constraint firstItem="kTV-D4-kPt" firstAttribute="leading" secondItem="0sF-d3-Foh" secondAttribute="leading" constant="8" id="rBP-sj-NAu"/>
+                            <constraint firstItem="yGN-Ze-UO8" firstAttribute="trailing" secondItem="0sF-d3-Foh" secondAttribute="trailing" id="rsE-LY-XnF"/>
+                            <constraint firstItem="yGN-Ze-UO8" firstAttribute="leading" secondItem="0sF-d3-Foh" secondAttribute="leading" id="ymX-S9-LbH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0sF-d3-Foh"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Op-zA-dhD"/>
+                    <navigationItem key="navigationItem" title="Title" id="5Op-zA-dhD"/>
+                    <connections>
+                        <outlet property="ivMovieImage" destination="yGN-Ze-UO8" id="ZAQ-Rb-4mB"/>
+                        <outlet property="lbDescription" destination="2el-lU-OvA" id="Kfi-Df-Jxz"/>
+                        <outlet property="viewDescription" destination="kTV-D4-kPt" id="Hwy-Sd-2UO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VZ-l6-HPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="1014"/>
+            <point key="canvasLocation" x="1780" y="1013.7931034482759"/>
         </scene>
         <!--Séries-->
         <scene sceneID="9Wc-Qe-uTC">
@@ -165,7 +201,7 @@
                 <navigationController id="Zo5-JG-z2l" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Series" id="6iz-Pv-WYL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="WGW-Mb-FfD">
-                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -182,7 +218,7 @@
                 <navigationController id="FgH-iE-H4y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Movies" id="4cb-rf-ykw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="FBV-3P-ZCT">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

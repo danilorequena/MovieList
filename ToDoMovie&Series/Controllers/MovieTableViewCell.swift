@@ -27,14 +27,15 @@ class MovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    func showCustomCell() {
-//        let nib = UINib(nibName: "CustomCell", bundle: nil)
-//        
-//    }
-    
     func prepareCell(with movie: Result) {
-        lbTitleMovie.text = movie.title
-        lbReleaseDate.text = movie.releaseDate
+        self.lbTitleMovie.text = movie.originalTitle
+        self.lbReleaseDate.text = movie.releaseDate
+        
+        if let posterPath = movie.posterPath {
+            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500/" + posterPath)
+            let data = try? Data(contentsOf: posterURL!)
+            self.ivMovie.image = UIImage(data: data!)
+        }
     }
     
 }

@@ -18,7 +18,7 @@
 		FF95B233242ED2B500C5FF83 /* SeriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B232242ED2B500C5FF83 /* SeriesTableViewController.swift */; };
 		FF95B235242ED2FA00C5FF83 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B234242ED2FA00C5FF83 /* MovieViewController.swift */; };
 		FF95B237242ED30C00C5FF83 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B236242ED30C00C5FF83 /* SeriesViewController.swift */; };
-		FF95B23D2431565D00C5FF83 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23C2431565D00C5FF83 /* Model.swift */; };
+		FF95B23D2431565D00C5FF83 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23C2431565D00C5FF83 /* Movie.swift */; };
 		FF95B23F2431582D00C5FF83 /* MoviesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23E2431582D00C5FF83 /* MoviesRequest.swift */; };
 		FFC806842432E10C00402878 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC806822432E10C00402878 /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -37,7 +37,7 @@
 		FF95B232242ED2B500C5FF83 /* SeriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableViewController.swift; sourceTree = "<group>"; };
 		FF95B234242ED2FA00C5FF83 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		FF95B236242ED30C00C5FF83 /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
-		FF95B23C2431565D00C5FF83 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FF95B23C2431565D00C5FF83 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		FF95B23E2431582D00C5FF83 /* MoviesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRequest.swift; sourceTree = "<group>"; };
 		FFC806822432E10C00402878 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,7 +109,7 @@
 		FF95B23B2431562F00C5FF83 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF95B23C2431565D00C5FF83 /* Model.swift */,
+				FF95B23C2431565D00C5FF83 /* Movie.swift */,
 				FF95B23E2431582D00C5FF83 /* MoviesRequest.swift */,
 			);
 			path = Models;
@@ -186,7 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF95B23D2431565D00C5FF83 /* Model.swift in Sources */,
+				FF95B23D2431565D00C5FF83 /* Movie.swift in Sources */,
 				FF95B233242ED2B500C5FF83 /* SeriesTableViewController.swift in Sources */,
 				FF95B23F2431582D00C5FF83 /* MoviesRequest.swift in Sources */,
 				FF95B235242ED2FA00C5FF83 /* MovieViewController.swift in Sources */,
