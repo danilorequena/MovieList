@@ -7,25 +7,43 @@
 //
 
 import UIKit
+import Foundation
 
 class MovieViewController: UIViewController {
 
-    var movie: Movie!
+    @IBOutlet weak var ivMovieImage: UIImageView!
+    @IBOutlet weak var lbDescription: UILabel!
+    @IBOutlet weak var viewDescription: UIView!
+    
+    var movie: Result?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = movie?.title
+        setup()
+        setupViewDescrition()
+    }
+    
+    func setupViewDescrition() {
+        self.viewDescription.clipsToBounds = true
+        let path = UIBezierPath(roundedRect: viewDescription.bounds, byRoundingCorners: [.topRight, .topLeft], cornerRadii: CGSize(width: 10, height: 10))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        self.viewDescription.layer.mask = maskLayer
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setup() {
+        self.lbDescription.text = movie?.overview
+        if let posterPath = movie?.posterPath {
+            guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + posterPath) else {return}
+            do {
+                let data = try Data(contentsOf: posterURL)
+                self.ivMovieImage.image = UIImage(data: data)
+            } catch let jsonErr {
+                print(jsonErr)
+            }
+        }
     }
-    */
-
 }

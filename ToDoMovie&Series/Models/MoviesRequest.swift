@@ -8,6 +8,15 @@
 
 import Foundation
 
+enum MovieError {
+    case url
+    case taskError(error: Error)
+    case noResponse
+    case noData
+    case responseStatusCode(code: Int)
+    case invalidJSON
+}
+
 
 class MoviesRequest {
     private static let apiKey = "ddf20e1d6a0147313cfd3b4ac419e373"
@@ -22,15 +31,16 @@ class MoviesRequest {
     private static let session = URLSession(configuration: configuration)
     
     
-    class func loadMovies(onComplete: @escaping (Movie?) -> Void) {
+    class func loadMovies(onComplete: @escaping (Movie?) -> Void, onError: @escaping (MovieError) -> Void) {
         guard let url = URL(string: basePath + apiKey + "&language=pt-BR&page=1") else {
-            onComplete(nil)
+            onError(.url)
             return
         }
         let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {
-                    onComplete(nil)
+                    onError(.noResponse)
+                    print("No Error")
                     return
                 }
                 if response.statusCode == 200 {
@@ -38,15 +48,18 @@ class MoviesRequest {
                     do {
                         let movies = try JSONDecoder().decode(Movie.self, from: data)
                         onComplete(movies)
-                    } catch {
-                        onComplete(nil)
+                        print("FetchOK")
+                    } catch let jsonErr {
+                        onError(.invalidJSON)
+                        print("Error serializing json:", jsonErr)
                     }
                 } else {
-                    onComplete(nil)
+                   onError(.responseStatusCode(code: response.statusCode))
                     print("Algo deu Errado no servidor")
                 }
             } else {
-                onComplete(nil)
+                onError(.taskError(error: error!))
+                print("Algo errado")
             }
         }
         dataTask.resume()
