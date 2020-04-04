@@ -29,7 +29,7 @@ class MoviesTableViewController: UITableViewController {
         super.viewDidLoad()
         label.text = "Carregando filmes..."
         
-        MoviesRequest.loadMovies(onComplete: { (movie) in
+        RequestAPI.loadMovies(onComplete: { (movie) in
             if let movie = movie {
                 self.movies += movie.results
                 self.total = movie.totalResults ?? 0

@@ -32,7 +32,7 @@ class MovieTableViewCell: UITableViewCell {
         self.lbReleaseDate.text = movie.releaseDate
         
         if let posterPath = movie.posterPath {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500/" + posterPath)
+            let posterURL = URL(string: "https://image.tmdb.org/t/p/w200/" + posterPath)
             let data = try? Data(contentsOf: posterURL!)
             self.ivMovie.image = UIImage(data: data!)
         }

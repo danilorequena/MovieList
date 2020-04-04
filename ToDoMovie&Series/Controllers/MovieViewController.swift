@@ -37,7 +37,7 @@ class MovieViewController: UIViewController {
     func setup() {
         self.lbDescription.text = movie?.overview
         if let posterPath = movie?.posterPath {
-            guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + posterPath) else {return}
+            guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original" + posterPath) else {return}
             do {
                 let data = try Data(contentsOf: posterURL)
                 self.ivMovieImage.image = UIImage(data: data)
