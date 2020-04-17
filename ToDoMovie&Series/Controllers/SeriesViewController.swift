@@ -10,7 +10,8 @@ import UIKit
 
 class SeriesViewController: UIViewController {
 
-    var series: [ResultSeries] = []
+    var seriesPopular: [ResultSeries] = []
+    var seriesTopRated: [ResultTopRated] = []
     var label: UILabel = {
        let label = UILabel()
         label.textAlignment = .center
@@ -19,19 +20,29 @@ class SeriesViewController: UIViewController {
     }()
     var total = 0
     var page = 0
+    
     @IBOutlet weak var collectionViewPopular: UICollectionView!
+    @IBOutlet weak var collectionViewTopRated: UICollectionView!
     
     override func viewDidLoad() {
+        label.text = "Carregando Séries..."
+        
         super.viewDidLoad()
         collectionViewPopular.dataSource = self
         collectionViewPopular.delegate = self
         
-        RequestAPI.loadSeries(onComplete: { (serie) in
+        collectionViewTopRated.dataSource = self
+        collectionViewTopRated.delegate = self
+        
+//        collectionViewPopular.register(SeriesCollectionViewCell.self, forCellWithReuseIdentifier: "SeriesCollectionCell")
+//        collectionViewTopRated.register(TopRatedCollectionViewCell.self, forCellWithReuseIdentifier: "TopRatedCollectionViewCell")
+        
+        RequestAPI.loadPopularSeries(onComplete: { (serie) in
             if let serie = serie {
-                self.series += serie.results
+                self.seriesPopular += serie.results
                 self.total = serie.totalResults ?? 0
                 self.page = serie.totalPages ?? 0
-                print("Total: \(self.total)", "Inclusos: \(self.series.count)" )
+                print("Total: \(self.total)", "Inclusos: \(self.seriesPopular.count)" )
                 DispatchQueue.main.async {
                     self.label.text = "Não existem filmes"
                     self.collectionViewPopular.reloadData()
@@ -41,26 +52,54 @@ class SeriesViewController: UIViewController {
                print(error)
         }
         
+        RequestAPI.loadTopRatedSeries(onComplete: { (serie) in
+            if let serie = serie {
+                self.seriesTopRated += serie.results
+                self.total = serie.totalResults ?? 0
+                self.page = serie.totalPages ?? 0
+                print("Total: \(self.total)")
+                DispatchQueue.main.async {
+                    self.label.text = "Não existem filmes"
+                    self.collectionViewPopular.reloadData()
+                }
+            }
+        }) { (error) in
+            print(error)
+        }
+        
     }
 }
 
 extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return series.count
+        if collectionView == collectionViewPopular{
+            return seriesPopular.count
+        } else {
+            return seriesTopRated.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SeriesCollectionCell", for: indexPath) as! SeriesCollectionViewCell
         
-        let serie = series[indexPath.item]
-        cell.prepareCell(with: serie)
+        if collectionView == collectionViewPopular {
+            let cellSerie = collectionView.dequeueReusableCell(withReuseIdentifier: "SeriesCollectionCell", for: indexPath) as! SeriesCollectionViewCell
+            let serie = seriesPopular[indexPath.item]
+            cellSerie.prepareCell(with: serie)
+            return cellSerie
+        } else {
+            let cellTop = collectionView.dequeueReusableCell(withReuseIdentifier: "TopRatedCollectionViewCell", for: indexPath) as! TopRatedCollectionViewCell
+            let serie = seriesTopRated[indexPath.item]
+            cellTop.prepareCell(with: serie)
+            return cellTop
+        }
+
         
-        return cell
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("toquei aqui")
-        let serie = series[indexPath.item]
+        let serie = seriesPopular[indexPath.item]
         let detailSeries = DetailSeriesViewController(series: serie)
         self.navigationController?.present(detailSeries, animated: true, completion: nil)
     }

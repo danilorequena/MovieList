@@ -10,14 +10,13 @@ import UIKit
 
 class SeriesCollectionViewCell: UICollectionViewCell {
     
-    
-    @IBOutlet weak var ivSeries: UIImageView!
+    @IBOutlet weak var ivSeriesPopular: UIImageView!
     
     func prepareCell(with serie: ResultSeries) {
         if let posterPath = serie.posterPath {
             let posterURL = URL(string: "https://image.tmdb.org/t/p/w200/" + posterPath)
             let data = try? Data(contentsOf: posterURL!)
-            self.ivSeries.image = UIImage(data: data!)
+            self.ivSeriesPopular.image = UIImage(data: data!)
         }
     }
 }

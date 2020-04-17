@@ -1,22 +1,17 @@
 //
-//  Series.swift
+//  LatestSeries.swift
 //  ToDoMovie&Series
 //
-//  Created by Danilo Requena on 02/04/20.
+//  Created by Danilo Requena on 05/04/20.
 //  Copyright © 2020 Danilo Requena. All rights reserved.
 //
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let series = try? newJSONDecoder().decode(Series.self, from: jsonData)
-
 import Foundation
 
-// MARK: - Series
-struct Series: Codable {
+// MARK: - TopRatedSeries
+struct TopRatedSeries: Codable {
     let page, totalResults, totalPages: Int?
-    let results: [ResultSeries]
+    let results: [ResultTopRated]
 
     enum CodingKeys: String, CodingKey {
         case page
@@ -26,15 +21,16 @@ struct Series: Codable {
     }
 }
 
-// MARK: - Result
-struct ResultSeries : Codable {
+// MARK: - ResultTopRated
+struct ResultTopRated: Codable {
     let originalName: String?
     let genreIDS: [Int]?
     let name: String?
     let popularity: Double?
-//    let originCountry: [OriginCountry]
+    let originCountry: [String]?
     let voteCount: Int?
-    let firstAirDate, backdropPath: String?
+    let firstAirDate: String?
+    let backdropPath: String?
 //    let originalLanguage: OriginalLanguage?
     let id: Int?
     let voteAverage: Double?
@@ -44,7 +40,7 @@ struct ResultSeries : Codable {
         case originalName = "original_name"
         case genreIDS = "genre_ids"
         case name, popularity
-//        case originCountry = "origin_country"
+        case originCountry = "origin_country"
         case voteCount = "vote_count"
         case firstAirDate = "first_air_date"
         case backdropPath = "backdrop_path"
@@ -56,19 +52,9 @@ struct ResultSeries : Codable {
     }
 }
 
-//enum OriginCountry: String, Codable {
-//    case be = "BE"
-//    case es = "ES"
-//    case jp = "JP"
-//    case us = "US"
-//    case cn = "CN"
-//}
-//
 //enum OriginalLanguage: String, Codable {
 //    case en = "en"
 //    case es = "es"
 //    case ja = "ja"
-//    case nl = "nl"
-//    case zh = "zh"
+//    case ko = "ko"
 //}
-
