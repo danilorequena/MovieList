@@ -82,6 +82,7 @@
 		FF95B218242ED04300C5FF83 /* ToDoMovie&Series */ = {
 			isa = PBXGroup;
 			children = (
+				FFC4702924D4BCD40046877B /* Service */,
 				FF95B23B2431562F00C5FF83 /* Models */,
 				FF95B238243155ED00C5FF83 /* Views */,
 				FF95B2392431560A00C5FF83 /* Controllers */,
@@ -125,9 +126,16 @@
 				FF95B23C2431565D00C5FF83 /* Movie.swift */,
 				FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */,
 				FF96D59C2436913D006CF3C7 /* PopularSeries.swift */,
-				FF95B23E2431582D00C5FF83 /* RequestAPI.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FFC4702924D4BCD40046877B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FF95B23E2431582D00C5FF83 /* RequestAPI.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -61,6 +61,7 @@ class SeriesViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.label.text = "Não existem filmes"
                     self.collectionViewPopular.reloadData()
+                    self.collectionViewTopRated.reloadData()
                 }
             }
         }) { (error) in
