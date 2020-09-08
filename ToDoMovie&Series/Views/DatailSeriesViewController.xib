@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,23 +22,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-go-q00">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Skb-go-q00">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgt-gQ-nS3">
-                    <rect key="frame" x="16" y="462" width="343" height="350"/>
+                    <rect key="frame" x="8" y="462" width="359" height="350"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-G4-vDF">
-                            <rect key="frame" x="8" y="15.999999999999998" width="327" height="26.333333333333329"/>
+                            <rect key="frame" x="8" y="15.999999999999998" width="343" height="26.333333333333329"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssn-Za-TsA">
-                            <rect key="frame" x="8" y="46" width="327" height="300"/>
+                            <rect key="frame" x="8" y="46" width="343" height="300"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqG-Tq-Abp">
-                                    <rect key="frame" x="0.0" y="0.0" width="327" height="324"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="324"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QC-el-Hmc">
                                             <rect key="frame" x="0.0" y="0.0" width="327" height="74"/>
@@ -80,10 +80,10 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-G9-SpH">
-                    <rect key="frame" x="329" y="64" width="26" height="26"/>
+                    <rect key="frame" x="335" y="64" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="26" id="5xz-R6-Pxv"/>
-                        <constraint firstAttribute="width" constant="26" id="9vy-J3-JLV"/>
+                        <constraint firstAttribute="height" constant="20" id="5xz-R6-Pxv"/>
+                        <constraint firstAttribute="width" constant="20" id="9vy-J3-JLV"/>
                     </constraints>
                     <state key="normal" image="close">
                         <attributedString key="attributedTitle"/>
@@ -98,11 +98,11 @@
                 <constraint firstItem="Skb-go-q00" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8hP-nO-5ue"/>
                 <constraint firstAttribute="bottom" secondItem="Skb-go-q00" secondAttribute="bottom" id="9fx-HQ-Xu2"/>
                 <constraint firstAttribute="bottom" secondItem="jgt-gQ-nS3" secondAttribute="bottom" id="TvD-hL-Dd3"/>
-                <constraint firstItem="jgt-gQ-nS3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Ywf-WL-IcQ"/>
+                <constraint firstItem="jgt-gQ-nS3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Ywf-WL-IcQ"/>
                 <constraint firstItem="KGd-G9-SpH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="abV-Vr-1ke"/>
                 <constraint firstAttribute="trailing" secondItem="Skb-go-q00" secondAttribute="trailing" id="eeg-8H-jEp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KGd-G9-SpH" secondAttribute="trailing" constant="20" id="wjJ-GW-1qV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jgt-gQ-nS3" secondAttribute="trailing" constant="16" id="x65-ut-vS9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jgt-gQ-nS3" secondAttribute="trailing" constant="8" id="x65-ut-vS9"/>
                 <constraint firstItem="Skb-go-q00" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xK6-He-xa3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

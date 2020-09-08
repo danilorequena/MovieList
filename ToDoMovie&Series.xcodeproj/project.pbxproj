@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF08C6C3250723270007F26F /* SeriesOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08C6C1250723270007F26F /* SeriesOnAirViewController.swift */; };
+		FF08C6C4250723270007F26F /* SeriesOnAirViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */; };
+		FF1168982506E2A500F30652 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1168972506E2A500F30652 /* MainViewModel.swift */; };
+		FF11689B2506FEB200F30652 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11689A2506FEB200F30652 /* UIView+Extension.swift */; };
+		FF11689E25070A2200F30652 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11689D25070A2200F30652 /* Constants.swift */; };
+		FF1168A0250710C500F30652 /* SeriesOnAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11689F250710C500F30652 /* SeriesOnAir.swift */; };
 		FF1F836A2438E41300886A67 /* DatailSeriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */; };
 		FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */; };
 		FF6D43E8243ACC84001B3E6F /* TopRatedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6D43E7243ACC84001B3E6F /* TopRatedCollectionViewCell.swift */; };
 		FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B219242ED04300C5FF83 /* AppDelegate.swift */; };
 		FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */; };
-		FF95B21E242ED04300C5FF83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B21D242ED04300C5FF83 /* ViewController.swift */; };
 		FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF95B21F242ED04300C5FF83 /* Main.storyboard */; };
 		FF95B224242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF95B222242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld */; };
 		FF95B226242ED05000C5FF83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF95B225242ED05000C5FF83 /* Assets.xcassets */; };
@@ -29,12 +34,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF08C6C1250723270007F26F /* SeriesOnAirViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeriesOnAirViewController.swift; path = "ToDoMovie&Series/Controllers/SeriesOnAirViewController.swift"; sourceTree = SOURCE_ROOT; };
+		FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SeriesOnAirViewController.xib; path = "ToDoMovie&Series/Controllers/SeriesOnAirViewController.xib"; sourceTree = SOURCE_ROOT; };
+		FF1168972506E2A500F30652 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FF11689A2506FEB200F30652 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FF11689D25070A2200F30652 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FF11689F250710C500F30652 /* SeriesOnAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesOnAir.swift; sourceTree = "<group>"; };
 		FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedSeries.swift; sourceTree = "<group>"; };
 		FF6D43E7243ACC84001B3E6F /* TopRatedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoMovie&Series.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF95B219242ED04300C5FF83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF95B21D242ED04300C5FF83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF95B220242ED04300C5FF83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF95B223242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoMovie_Series.xcdatamodel; sourceTree = "<group>"; };
 		FF95B225242ED05000C5FF83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +73,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF1168962506E28800F30652 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FF1168972506E2A500F30652 /* MainViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FF1168992506FE9500F30652 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FF11689A2506FEB200F30652 /* UIView+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FF11689C25070A1000F30652 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FF11689D25070A2200F30652 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		FF95B20D242ED04300C5FF83 = {
 			isa = PBXGroup;
 			children = (
@@ -82,9 +116,12 @@
 		FF95B218242ED04300C5FF83 /* ToDoMovie&Series */ = {
 			isa = PBXGroup;
 			children = (
+				FF11689C25070A1000F30652 /* Utils */,
+				FF1168992506FE9500F30652 /* Helpers */,
 				FFC4702924D4BCD40046877B /* Service */,
 				FF95B23B2431562F00C5FF83 /* Models */,
 				FF95B238243155ED00C5FF83 /* Views */,
+				FF1168962506E28800F30652 /* ViewModels */,
 				FF95B2392431560A00C5FF83 /* Controllers */,
 				FF95B219242ED04300C5FF83 /* AppDelegate.swift */,
 				FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */,
@@ -100,6 +137,7 @@
 			children = (
 				FF95B21F242ED04300C5FF83 /* Main.storyboard */,
 				FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */,
+				FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */,
 				FF95B227242ED05000C5FF83 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -108,10 +146,10 @@
 		FF95B2392431560A00C5FF83 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FF95B21D242ED04300C5FF83 /* ViewController.swift */,
 				FF95B230242ED2A900C5FF83 /* MoviesTableViewController.swift */,
 				FF95B234242ED2FA00C5FF83 /* MovieViewController.swift */,
 				FFC806822432E10C00402878 /* MovieTableViewCell.swift */,
+				FF08C6C1250723270007F26F /* SeriesOnAirViewController.swift */,
 				FF96D5A02437BF7D006CF3C7 /* DetailSeriesViewController.swift */,
 				FF95B236242ED30C00C5FF83 /* SeriesViewController.swift */,
 				FF6D43E7243ACC84001B3E6F /* TopRatedCollectionViewCell.swift */,
@@ -126,6 +164,7 @@
 				FF95B23C2431565D00C5FF83 /* Movie.swift */,
 				FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */,
 				FF96D59C2436913D006CF3C7 /* PopularSeries.swift */,
+				FF11689F250710C500F30652 /* SeriesOnAir.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +238,7 @@
 				FF95B229242ED05000C5FF83 /* LaunchScreen.storyboard in Resources */,
 				FF95B226242ED05000C5FF83 /* Assets.xcassets in Resources */,
 				FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */,
+				FF08C6C4250723270007F26F /* SeriesOnAirViewController.xib in Resources */,
 				FF1F836A2438E41300886A67 /* DatailSeriesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,14 +250,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF1168A0250710C500F30652 /* SeriesOnAir.swift in Sources */,
 				FF96D5A12437BF7D006CF3C7 /* DetailSeriesViewController.swift in Sources */,
+				FF08C6C3250723270007F26F /* SeriesOnAirViewController.swift in Sources */,
+				FF11689E25070A2200F30652 /* Constants.swift in Sources */,
 				FF95B23D2431565D00C5FF83 /* Movie.swift in Sources */,
+				FF11689B2506FEB200F30652 /* UIView+Extension.swift in Sources */,
 				FF95B23F2431582D00C5FF83 /* RequestAPI.swift in Sources */,
 				FF6D43E8243ACC84001B3E6F /* TopRatedCollectionViewCell.swift in Sources */,
 				FF96D59B24368EAE006CF3C7 /* SeriesCollectionViewCell.swift in Sources */,
+				FF1168982506E2A500F30652 /* MainViewModel.swift in Sources */,
 				FF95B235242ED2FA00C5FF83 /* MovieViewController.swift in Sources */,
 				FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */,
-				FF95B21E242ED04300C5FF83 /* ViewController.swift in Sources */,
 				FF95B224242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld in Sources */,
 				FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */,
 				FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */,
