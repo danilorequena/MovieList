@@ -29,7 +29,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seriesCell" id="wiQ-V4-hUk" customClass="SeriesCollectionViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seriesCell" id="wiQ-V4-hUk" customClass="SeriesPopularCollectionViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TI2-wf-Zhs">
@@ -97,7 +97,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seriesTopCell" id="Vet-BL-1gi" customClass="TopRatedCollectionViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seriesTopCell" id="Vet-BL-1gi" customClass="OnAirCollectionViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="99" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uxX-fU-wXk">
@@ -159,8 +159,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Best Series" largeTitleDisplayMode="always" id="1Sx-q2-aUd"/>
                     <connections>
+                        <outlet property="collectionViewOnAir" destination="enp-Nu-adl" id="9ys-QR-ZLS"/>
                         <outlet property="collectionViewPopular" destination="MCM-6C-ook" id="q7B-6f-RZt"/>
-                        <outlet property="collectionViewTopRated" destination="enp-Nu-adl" id="9ys-QR-ZLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlO-1j-jhv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

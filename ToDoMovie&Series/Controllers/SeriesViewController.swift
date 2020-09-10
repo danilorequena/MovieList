@@ -18,7 +18,7 @@ class SeriesViewController: UIViewController {
     }()
     
     @IBOutlet weak var collectionViewPopular: UICollectionView!
-    @IBOutlet weak var collectionViewTopRated: UICollectionView!
+    @IBOutlet weak var collectionViewOnAir: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +37,8 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
         collectionViewPopular.dataSource = self
         collectionViewPopular.delegate = self
         
-        collectionViewTopRated.dataSource = self
-        collectionViewTopRated.delegate = self
+        collectionViewOnAir.dataSource = self
+        collectionViewOnAir.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,15 +52,15 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == collectionViewPopular {
-            let cellSerie = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.seriesPopular, for: indexPath) as! SeriesCollectionViewCell
+            let cellPopular = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.seriesPopular, for: indexPath) as! SeriesPopularCollectionViewCell
             let serie = mainViewModel?.seriesPopular[indexPath.item]
-            cellSerie.prepareCell(with: serie!)
-            return cellSerie
+            cellPopular.prepareCell(with: serie!)
+            return cellPopular
         } else {
-            let cellTop = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.seriesTop, for: indexPath) as! TopRatedCollectionViewCell
+            let cellOnAir = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.seriesTop, for: indexPath) as! OnAirCollectionViewCell
             let serie = mainViewModel?.seriesOnAir[indexPath.item]
-            cellTop.prepareCell(with: serie!)
-            return cellTop
+            cellOnAir.prepareCell(with: serie!)
+            return cellOnAir
         }
     }
     
@@ -75,21 +75,20 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
             let detailSeries = SeriesOnAirViewController(series: serie!)
             self.navigationController?.present(detailSeries, animated: true, completion: nil)
         }
-        
     }
 }
 
 extension SeriesViewController: MainViewModelDelegate {
     func successList() {
         DispatchQueue.main.async {
-            self.collectionViewTopRated.reloadData()
+            self.collectionViewOnAir.reloadData()
             self.collectionViewPopular.reloadData()
         }
     }
     func errorList() {
         DispatchQueue.main.async {
             self.label.text = "Não existem filmes"
-            self.collectionViewTopRated.reloadData()
+            self.collectionViewOnAir.reloadData()
             self.collectionViewPopular.reloadData()
         }
     }

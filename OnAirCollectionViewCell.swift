@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopRatedCollectionViewCell: UICollectionViewCell {
+class OnAirCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var ivTopSeries: UIImageView!
     
@@ -22,7 +22,7 @@ class TopRatedCollectionViewCell: UICollectionViewCell {
        
     func prepareCell(with serie: ResultSeriesOnAir) {
         if let posterPath = serie.posterPath {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
+            let posterURL = URL(string: "https://image.tmdb.org/t/p/w200" + posterPath)
             let data = try? Data(contentsOf: posterURL!)
             self.ivTopSeries.image = UIImage(data: data!)
             self.ivTopSeries.clipsToBounds = true
