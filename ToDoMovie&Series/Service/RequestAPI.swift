@@ -62,8 +62,8 @@ class RequestAPI {
     }
     
     
-    class func loadPopularSeries(onComplete: @escaping (PopularSeries?) -> Void, onError: @escaping (Err) -> Void) {
-        guard let url = URL(string: Constants.basePathPopularSeries + Constants.apiKey + "&language=pt-BR&page=1") else {
+    class func loadPopularSeries(url: String, onComplete: @escaping (PopularSeries?) -> Void, onError: @escaping (Err) -> Void) {
+        guard let url = URL(string: url) else {
             onError(.url)
             return
         }
@@ -130,11 +130,12 @@ class RequestAPI {
         dataTask.resume()
     }
     
-    class func loadSeriesOnAir(onComplete: @escaping (SeriesOnAir?) -> Void, onError: @escaping (Err) -> Void) {
-        guard let url = URL(string: Constants.basePathSeriesOnAir + Constants.apiKey + "&language=pt-BR&page=1") else {
+    class func loadSeriesOnAir(url: String, onComplete: @escaping (SeriesOnAir?) -> Void, onError: @escaping (Err) -> Void) {
+        guard let url = URL(string: url) else {
             onError(.url)
             return
         }
+        print("URLONAIR", url)
         let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {
