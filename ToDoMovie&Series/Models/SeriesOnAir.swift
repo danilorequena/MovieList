@@ -1,22 +1,17 @@
 //
-//  Series.swift
+//  SeriesOnAir.swift
 //  ToDoMovie&Series
 //
-//  Created by Danilo Requena on 02/04/20.
+//  Created by Danilo Requena on 07/09/20.
 //  Copyright © 2020 Danilo Requena. All rights reserved.
 //
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let series = try? newJSONDecoder().decode(Series.self, from: jsonData)
-
 import Foundation
 
-// MARK: - Series
-struct Series: Codable {
+// MARK: - SeriesOnAir
+struct SeriesOnAir: Codable {
     let page, totalResults, totalPages: Int?
-    let results: [ResultSeries]
+    let results: [ResultSeriesOnAir]
 
     enum CodingKeys: String, CodingKey {
         case page
@@ -27,14 +22,15 @@ struct Series: Codable {
 }
 
 // MARK: - Result
-struct ResultSeries : Codable {
+struct ResultSeriesOnAir: Codable {
     let originalName: String?
     let genreIDS: [Int]?
     let name: String?
     let popularity: Double?
-//    let originCountry: [OriginCountry]
+//    let originCountry: [OriginCountry]?
     let voteCount: Int?
-    let firstAirDate, backdropPath: String?
+    let firstAirDate: String?
+    let backdropPath: String?
 //    let originalLanguage: OriginalLanguage?
     let id: Int?
     let voteAverage: Double?
@@ -57,18 +53,15 @@ struct ResultSeries : Codable {
 }
 
 //enum OriginCountry: String, Codable {
-//    case be = "BE"
-//    case es = "ES"
+//    case ca = "CA"
+//    case de = "DE"
 //    case jp = "JP"
 //    case us = "US"
-//    case cn = "CN"
-//}
-//
-//enum OriginalLanguage: String, Codable {
-//    case en = "en"
-//    case es = "es"
-//    case ja = "ja"
-//    case nl = "nl"
-//    case zh = "zh"
 //}
 
+//enum OriginalLanguage: String, Codable {
+//    case de = "de"
+//    case en = "en"
+//    case fr = "fr"
+//    case ja = "ja"
+//}

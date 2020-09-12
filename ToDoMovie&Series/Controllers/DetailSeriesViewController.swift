@@ -57,4 +57,7 @@ class DetailSeriesViewController: UIViewController {
             }
         }
     }
+    @IBAction func btClose(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
