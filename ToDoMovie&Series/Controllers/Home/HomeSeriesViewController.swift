@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeriesViewController: UIViewController {
+class HomeSeriesViewController: UIViewController {
     var mainViewModel: MainViewModel?
     var label: UILabel = {
        let label = UILabel()
@@ -32,7 +32,7 @@ class SeriesViewController: UIViewController {
     }
 }
 
-extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func setupCollectionView() {
         collectionViewPopular.dataSource = self
         collectionViewPopular.delegate = self
@@ -74,11 +74,11 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
         print("toquei aqui")
         if collectionView == collectionViewPopular {
             let serie = mainViewModel?.seriesPopular[indexPath.item]
-            let detailSeries = DetailSeriesViewController(series: serie!)
+            let detailSeries = DetailPopSeriesViewController(series: serie!)
             self.navigationController?.pushViewController(detailSeries, animated: true)
         } else {
             let serie = mainViewModel?.seriesOnAir[indexPath.item]
-            let detailSeries = SeriesOnAirViewController(series: serie!)
+            let detailSeries = DetailSeriesOnAirViewController(series: serie!)
             self.navigationController?.pushViewController(detailSeries, animated: true)
         }
     }
@@ -98,7 +98,7 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 }
 
-extension SeriesViewController: MainViewModelDelegate {
+extension HomeSeriesViewController: MainViewModelDelegate {
     func successListOnAir() {
         DispatchQueue.main.async {
             self.collectionViewOnAir.reloadData()

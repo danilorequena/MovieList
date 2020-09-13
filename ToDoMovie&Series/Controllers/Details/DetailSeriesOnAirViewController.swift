@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeriesOnAirViewController: UIViewController {
+class DetailSeriesOnAirViewController: UIViewController {
 
     @IBOutlet weak var ivSeriesOnAir: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
@@ -29,7 +29,7 @@ class SeriesOnAirViewController: UIViewController {
     
     required init(series: ResultSeriesOnAir) {
         self.series = series
-        super.init(nibName: seriesOnAirViewController, bundle: Bundle(for: SeriesOnAirViewController.self))
+        super.init(nibName: seriesOnAirViewController, bundle: Bundle(for: DetailSeriesOnAirViewController.self))
     }
     
     required init?(coder aDecoder: NSCoder) {
