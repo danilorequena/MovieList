@@ -22,7 +22,7 @@ class SeriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "TV Shows", preferredLargeTitle: true)
+        configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "TV Shows", preferredLargeTitle: true)
         label.text = "Carregando Séries..."
         setupCollectionView()
         mainViewModel = MainViewModel()
@@ -75,7 +75,7 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
         if collectionView == collectionViewPopular {
             let serie = mainViewModel?.seriesPopular[indexPath.item]
             let detailSeries = DetailSeriesViewController(series: serie!)
-            self.navigationController?.present(detailSeries, animated: true, completion: nil)
+            self.navigationController?.pushViewController(detailSeries, animated: true)
         } else {
             let serie = mainViewModel?.seriesOnAir[indexPath.item]
             let detailSeries = SeriesOnAirViewController(series: serie!)

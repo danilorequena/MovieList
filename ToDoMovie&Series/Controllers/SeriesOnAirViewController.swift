@@ -22,6 +22,7 @@ class SeriesOnAirViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Series OnAir", preferredLargeTitle: true)
         setupOverview()
         setupImage()
     }
@@ -58,12 +59,11 @@ class SeriesOnAirViewController: UIViewController {
             }
         }
     }
-    @IBAction func close(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     
     @IBAction func goToTrailer(_ sender: Any) {
-        let vc = TrailerViewController(series: series)
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = TrailerViewController(videoID: series.id ?? 30)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
 }

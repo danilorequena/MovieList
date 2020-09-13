@@ -10,25 +10,20 @@ import UIKit
 import WebKit
 
 class TrailerViewController: UIViewController {
-
-    @IBOutlet weak var trailerWebView: WKWebView!
     var videos: [ResultVideos] = []
-    var videoKey: ResultSeriesOnAir?
+    var videoKey: Int?
     var videoCode: String?
     let nib = "TrailerViewController"
-    
+
+    @IBOutlet weak var trailerWebView: WKWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchVideo()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        getTrailer(videoCode: videoCode ?? "SmOUBXSVf24")
-//    }
-    
-    required init(series: ResultSeriesOnAir) {
-        self.videoKey = series
+    required init(videoID: Int) {
+        self.videoKey = videoID
         super.init(nibName: nib, bundle: Bundle(for: TrailerViewController.self))
     }
     
@@ -36,8 +31,15 @@ class TrailerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if touch?.view != self.trailerWebView {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func fetchVideo() {
-        let url = "https://api.themoviedb.org/3/tv/\(videoKey?.id ?? 24)/videos?api_key=ddf20e1d6a0147313cfd3b4ac419e373&language=en-US"
+        let url = "https://api.themoviedb.org/3/tv/\(videoKey ?? 0)/videos?api_key=ddf20e1d6a0147313cfd3b4ac419e373&language=en-US"
         RequestAPI.loadVideos(url: url) { (videos) in
             if let videos = videos {
                 self.videos += videos.results ?? []
