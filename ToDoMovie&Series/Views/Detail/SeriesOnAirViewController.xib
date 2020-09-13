@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -68,7 +70,7 @@
                             <viewLayoutGuide key="frameLayoutGuide" id="ijG-6j-bio"/>
                         </scrollView>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="C7E-7Q-taw" secondAttribute="bottom" constant="4" id="56Q-2c-vb4"/>
                         <constraint firstItem="C7E-7Q-taw" firstAttribute="top" secondItem="fHf-xI-Mag" secondAttribute="bottom" constant="3.6666666666666714" id="Jkb-Qj-cDY"/>
@@ -93,8 +95,17 @@
                         <action selector="close:" destination="-1" eventType="touchUpInside" id="CZx-JG-f53"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbZ-hL-6vi">
+                    <rect key="frame" x="16" y="60" width="114" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Assista ao trailer"/>
+                    <connections>
+                        <action selector="goToTrailer:" destination="-1" eventType="touchUpInside" id="eLu-dG-8JJ"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="zUV-XH-vzK"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="iZM-L1-4tO" firstAttribute="top" secondItem="zUV-XH-vzK" secondAttribute="top" constant="20" id="3hg-da-gf3"/>
                 <constraint firstAttribute="bottom" secondItem="Y6e-iK-f2l" secondAttribute="bottom" id="56a-mf-Clp"/>
@@ -107,11 +118,16 @@
                 <constraint firstItem="zUV-XH-vzK" firstAttribute="trailing" secondItem="iZM-L1-4tO" secondAttribute="trailing" constant="20" id="xn3-lu-Wp7"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="zUV-XH-vzK"/>
             <point key="canvasLocation" x="138.40000000000001" y="152.95566502463055"/>
         </view>
     </objects>
     <resources>
         <image name="close" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -79,7 +79,7 @@ extension SeriesViewController: UICollectionViewDataSource, UICollectionViewDele
         } else {
             let serie = mainViewModel?.seriesOnAir[indexPath.item]
             let detailSeries = SeriesOnAirViewController(series: serie!)
-            self.navigationController?.present(detailSeries, animated: true, completion: nil)
+            self.navigationController?.pushViewController(detailSeries, animated: true)
         }
     }
     
