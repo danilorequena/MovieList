@@ -61,4 +61,9 @@ class SeriesOnAirViewController: UIViewController {
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func goToTrailer(_ sender: Any) {
+        let vc = TrailerViewController(series: series)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
