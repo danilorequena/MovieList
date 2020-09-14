@@ -37,7 +37,37 @@
 		FF95B23F2431582D00C5FF83 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23E2431582D00C5FF83 /* RequestAPI.swift */; };
 		FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96D59C2436913D006CF3C7 /* PopularSeries.swift */; };
 		FFC806842432E10C00402878 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC806822432E10C00402878 /* MovieTableViewCell.swift */; };
+		FFCC7ED5250EF31500994F11 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC7ED4250EF31500994F11 /* WidgetKit.framework */; };
+		FFCC7ED7250EF31500994F11 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCC7ED6250EF31500994F11 /* SwiftUI.framework */; };
+		FFCC7EDA250EF31500994F11 /* FirstWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7ED9250EF31500994F11 /* FirstWidget.swift */; };
+		FFCC7EDC250EF31D00994F11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFCC7EDB250EF31D00994F11 /* Assets.xcassets */; };
+		FFCC7EE0250EF31D00994F11 /* FirstWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FFCC7ED2250EF31500994F11 /* FirstWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FFCC7EE6250F031E00994F11 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7EE5250F031E00994F11 /* Movie.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFCC7EDE250EF31D00994F11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF95B20E242ED04300C5FF83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFCC7ED1250EF31500994F11;
+			remoteInfo = FirstWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FFCC7EE1250EF31D00994F11 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FFCC7EE0250EF31D00994F11 /* FirstWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SeriesOnAirViewController.xib; path = "ToDoMovie&Series/Views/Detail/SeriesOnAirViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -72,6 +102,13 @@
 		FF96D59C2436913D006CF3C7 /* PopularSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSeries.swift; sourceTree = "<group>"; };
 		FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatailSeriesViewController.xib; sourceTree = "<group>"; };
 		FFC806822432E10C00402878 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		FFCC7ED2250EF31500994F11 /* FirstWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FirstWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCC7ED4250EF31500994F11 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FFCC7ED6250EF31500994F11 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FFCC7ED9250EF31500994F11 /* FirstWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWidget.swift; sourceTree = "<group>"; };
+		FFCC7EDB250EF31D00994F11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFCC7EDD250EF31D00994F11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFCC7EE5250F031E00994F11 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +116,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFCC7ECF250EF31500994F11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFCC7ED7250EF31500994F11 /* SwiftUI.framework in Frameworks */,
+				FFCC7ED5250EF31500994F11 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				FF95B218242ED04300C5FF83 /* ToDoMovie&Series */,
+				FFCC7ED8250EF31500994F11 /* FirstWidget */,
+				FFCC7ED3250EF31500994F11 /* Frameworks */,
 				FF95B217242ED04300C5FF83 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */,
+				FFCC7ED2250EF31500994F11 /* FirstWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +276,26 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		FFCC7ED3250EF31500994F11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFCC7ED4250EF31500994F11 /* WidgetKit.framework */,
+				FFCC7ED6250EF31500994F11 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFCC7ED8250EF31500994F11 /* FirstWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FFCC7EE5250F031E00994F11 /* Movie.swift */,
+				FFCC7ED9250EF31500994F11 /* FirstWidget.swift */,
+				FFCC7EDB250EF31D00994F11 /* Assets.xcassets */,
+				FFCC7EDD250EF31D00994F11 /* Info.plist */,
+			);
+			path = FirstWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -237,10 +306,12 @@
 				FF95B212242ED04300C5FF83 /* Sources */,
 				FF95B213242ED04300C5FF83 /* Frameworks */,
 				FF95B214242ED04300C5FF83 /* Resources */,
+				FFCC7EE1250EF31D00994F11 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FFCC7EDF250EF31D00994F11 /* PBXTargetDependency */,
 			);
 			name = "ToDoMovie&Series";
 			packageProductDependencies = (
@@ -249,18 +320,38 @@
 			productReference = FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FFCC7ED1250EF31500994F11 /* FirstWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFCC7EE4250EF31D00994F11 /* Build configuration list for PBXNativeTarget "FirstWidgetExtension" */;
+			buildPhases = (
+				FFCC7ECE250EF31500994F11 /* Sources */,
+				FFCC7ECF250EF31500994F11 /* Frameworks */,
+				FFCC7ED0250EF31500994F11 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FirstWidgetExtension;
+			productName = FirstWidgetExtension;
+			productReference = FFCC7ED2250EF31500994F11 /* FirstWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		FF95B20E242ED04300C5FF83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Danilo Requena";
 				TargetAttributes = {
 					FF95B215242ED04300C5FF83 = {
 						CreatedOnToolsVersion = 11.4;
+					};
+					FFCC7ED1250EF31500994F11 = {
+						CreatedOnToolsVersion = 12.0;
 					};
 				};
 			};
@@ -280,6 +371,7 @@
 			projectRoot = "";
 			targets = (
 				FF95B215242ED04300C5FF83 /* ToDoMovie&Series */,
+				FFCC7ED1250EF31500994F11 /* FirstWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -300,6 +392,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FFCC7ED0250EF31500994F11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFCC7EDC250EF31D00994F11 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -310,6 +410,7 @@
 				FF5AC118250D2DE400C780A6 /* OnTheAirCollectionViewCell.swift in Sources */,
 				FF1168A0250710C500F30652 /* SeriesOnAir.swift in Sources */,
 				FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */,
+				FFCC7EE6250F031E00994F11 /* Movie.swift in Sources */,
 				FF80D588250EDC5500A15326 /* DetailPopSeriesViewController.swift in Sources */,
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
 				FF11689E25070A2200F30652 /* Constants.swift in Sources */,
@@ -332,7 +433,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FFCC7ECE250EF31500994F11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFCC7EDA250EF31500994F11 /* FirstWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FFCC7EDF250EF31D00994F11 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FFCC7ED1250EF31500994F11 /* FirstWidgetExtension */;
+			targetProxy = FFCC7EDE250EF31D00994F11 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FF95B21F242ED04300C5FF83 /* Main.storyboard */ = {
@@ -471,6 +588,7 @@
 		FF95B22E242ED05000C5FF83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
@@ -489,6 +607,7 @@
 		FF95B22F242ED05000C5FF83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
@@ -499,6 +618,52 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dobigaster.ToDoMovie-Series";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FFCC7EE2250EF31D00994F11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SM9KCJGMUP;
+				INFOPLIST_FILE = FirstWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dobigaster.ToDoMovie-Series.FirstWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FFCC7EE3250EF31D00994F11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SM9KCJGMUP;
+				INFOPLIST_FILE = FirstWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dobigaster.ToDoMovie-Series.FirstWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,6 +686,15 @@
 			buildConfigurations = (
 				FF95B22E242ED05000C5FF83 /* Debug */,
 				FF95B22F242ED05000C5FF83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFCC7EE4250EF31D00994F11 /* Build configuration list for PBXNativeTarget "FirstWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFCC7EE2250EF31D00994F11 /* Debug */,
+				FFCC7EE3250EF31D00994F11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
