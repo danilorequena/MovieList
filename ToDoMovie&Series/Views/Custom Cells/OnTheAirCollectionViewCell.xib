@@ -11,16 +11,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="OnTheAirCollectionViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lLH-5s-l18">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="170"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="170" id="ety-4e-mCE"/>
+                            <constraint firstAttribute="height" constant="200" id="ety-4e-mCE"/>
                             <constraint firstAttribute="width" constant="150" id="vDX-8D-DT0"/>
                         </constraints>
                     </imageView>

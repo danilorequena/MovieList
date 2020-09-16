@@ -37,13 +37,13 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
         collectionViewPopular.dataSource = self
         collectionViewPopular.delegate = self
         collectionViewPopular.register(PopularCollectionViewCell.loadNib(), forCellWithReuseIdentifier: PopularCollectionViewCell.identifier())
-        (collectionViewPopular.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 170)
+        (collectionViewPopular.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 200)
         collectionViewPopular.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
         
         collectionViewOnAir.dataSource = self
         collectionViewOnAir.delegate = self
         collectionViewOnAir.register(OnTheAirCollectionViewCell.loadNib(), forCellWithReuseIdentifier: OnTheAirCollectionViewCell.identifier())
-        (collectionViewOnAir.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 170)
+        (collectionViewOnAir.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 200)
         collectionViewOnAir.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
     }
     
