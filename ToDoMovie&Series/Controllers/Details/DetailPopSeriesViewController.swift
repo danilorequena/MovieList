@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailSeriesViewController: UIViewController {
+class DetailPopSeriesViewController: UIViewController {
 
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var ivSerie: UIImageView!
@@ -21,13 +21,14 @@ class DetailSeriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Pop Series", preferredLargeTitle: true)
         setupOverview()
         setupImage()
     }
     
     required init(series: ResultSeries) {
         self.series = series
-        super.init(nibName: vcDetailSeriesViewController, bundle: Bundle(for: DetailSeriesViewController.self))
+        super.init(nibName: vcDetailSeriesViewController, bundle: Bundle(for: DetailPopSeriesViewController.self))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +58,11 @@ class DetailSeriesViewController: UIViewController {
             }
         }
     }
-    @IBAction func btClose(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func goToTrailer(_ sender: Any) {
+        let vc = TrailerViewController(videoID: series.id ?? 12)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
+    
 }

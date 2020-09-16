@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailSeriesViewController" customModule="ToDoMovie_Series" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPopSeriesViewController" customModule="ToDoMovie_Series" customModuleProvider="target">
             <connections>
                 <outlet property="ivSerie" destination="Skb-go-q00" id="e2x-oH-coT"/>
                 <outlet property="lbOverview" destination="6QC-el-Hmc" id="dYg-0A-Ya1"/>
@@ -67,7 +69,7 @@
                             <viewLayoutGuide key="frameLayoutGuide" id="KY6-Bh-shy"/>
                         </scrollView>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="cSe-G4-vDF" firstAttribute="top" secondItem="jgt-gQ-nS3" secondAttribute="top" constant="16" id="Fvp-L1-hrx"/>
                         <constraint firstItem="ssn-Za-TsA" firstAttribute="top" secondItem="cSe-G4-vDF" secondAttribute="bottom" constant="3.6666666666666714" id="KRO-dI-wpw"/>
@@ -79,38 +81,36 @@
                         <constraint firstAttribute="height" constant="350" id="xQb-aY-KOY"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-G9-SpH">
-                    <rect key="frame" x="335" y="64" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="5xz-R6-Pxv"/>
-                        <constraint firstAttribute="width" constant="20" id="9vy-J3-JLV"/>
-                    </constraints>
-                    <state key="normal" image="close">
-                        <attributedString key="attributedTitle"/>
-                    </state>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ff-kN-S5h">
+                    <rect key="frame" x="8" y="52" width="106" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Assista o trailer"/>
                     <connections>
-                        <action selector="btClose:" destination="-1" eventType="touchUpInside" id="HD5-Qy-9lu"/>
+                        <action selector="goToTrailer:" destination="-1" eventType="touchUpInside" id="qAJ-9b-qUJ"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Skb-go-q00" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8hP-nO-5ue"/>
                 <constraint firstAttribute="bottom" secondItem="Skb-go-q00" secondAttribute="bottom" id="9fx-HQ-Xu2"/>
                 <constraint firstAttribute="bottom" secondItem="jgt-gQ-nS3" secondAttribute="bottom" id="TvD-hL-Dd3"/>
                 <constraint firstItem="jgt-gQ-nS3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Ywf-WL-IcQ"/>
-                <constraint firstItem="KGd-G9-SpH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="abV-Vr-1ke"/>
                 <constraint firstAttribute="trailing" secondItem="Skb-go-q00" secondAttribute="trailing" id="eeg-8H-jEp"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KGd-G9-SpH" secondAttribute="trailing" constant="20" id="wjJ-GW-1qV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jgt-gQ-nS3" secondAttribute="trailing" constant="8" id="x65-ut-vS9"/>
                 <constraint firstItem="Skb-go-q00" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xK6-He-xa3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="138.40000000000001" y="152.95566502463055"/>
         </view>
     </objects>
     <resources>
-        <image name="close" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
