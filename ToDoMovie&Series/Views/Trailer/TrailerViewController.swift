@@ -10,16 +10,17 @@ import UIKit
 import WebKit
 
 class TrailerViewController: UIViewController {
-    var videos: [ResultVideos] = []
     var videoKey: Int?
-    var videoCode: String?
     let nib = "TrailerViewController"
+    var viewmodel: TrailerViewModel?
 
     @IBOutlet weak var trailerWebView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchVideo()
+        viewmodel = TrailerViewModel()
+        viewmodel?.fetchVideo(videoKey: videoKey ?? 0)
+        viewmodel?.delegate = self
     }
     
     required init(videoID: Int) {
@@ -37,26 +38,13 @@ class TrailerViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    func fetchVideo() {
-        let url = "https://api.themoviedb.org/3/tv/\(videoKey ?? 0)/videos?api_key=ddf20e1d6a0147313cfd3b4ac419e373&language=en-US"
-        RequestAPI.loadVideos(url: url) { (videos) in
-            if let videos = videos {
-                self.videos += videos.results ?? []
-                self.videoCode = videos.results?.first?.key
-                self.getTrailer(videoCode: self.videoCode ?? "SmOUBXSVf24")
-            }
-        } onError: { (error) in
-            print(error)
-        }
+}
 
+extension TrailerViewController: TrailerViewModelDelegate {
+    func successTrailer() {
+        viewmodel?.getTrailer(videoCode: viewmodel?.videoCode ?? "SmOUBXSVf24", webView: trailerWebView)
     }
-    
-    func getTrailer(videoCode: String) {
-        guard let url = URL(string: "https://www.youtube.com/embed/\(videoCode)") else { return }
-        let request = URLRequest(url: url)
-        DispatchQueue.main.async {
-            self.trailerWebView.load(request)
-        }
+    func errorTrailer() {
+        
     }
 }

@@ -44,19 +44,6 @@ class MainViewModel: MainViewModelProtocol {
         }
     }
     
-//    func fetchOnAirSeries() {
-//        RequestAPI.loadTopRatedSeries(onComplete: { (serie) in
-//            if let serie = serie {
-//                self.seriesTopRated += serie.results
-//                self.totalTopRated = serie.totalResults ?? 0
-//                print("Total: \(self.totalTopRated)")
-//                self.delegate?.successListPopular()
-//            }
-//        }) { (error) in
-//            self.delegate?.errorList()
-//        }
-//    }
-    
     func fetchSeriesOnAir() {
         RequestAPI.loadSeriesOnAir(url:"\(Constants.basePathSeriesOnAir)\(seriesOnAirPage)" ,onComplete: { (seriesOnAir) in
             if let seriesOnAir = seriesOnAir {
