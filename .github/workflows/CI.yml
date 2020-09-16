@@ -1,0 +1,17 @@
+name: Swift
+
+on:
+  push:
+    branches: [ V2Develop ]
+  pull_request:
+    branches: [ V2/Refactor ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: xcodebuild -project 'ToDoMovie&Series.xcodeproj' -scheme 'ToDoMovie&Series' -destination 'generic/plataform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
