@@ -22,6 +22,8 @@
 		FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11B250D90F500C780A6 /* TrailerViewController.swift */; };
 		FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */; };
 		FF5AC120250D96C700C780A6 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11F250D96C700C780A6 /* Videos.swift */; };
+		FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */; };
+		FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */; };
 		FF80D587250EDC5500A15326 /* DetailSeriesOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */; };
 		FF80D588250EDC5500A15326 /* DetailPopSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */; };
 		FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */; };
@@ -55,6 +57,8 @@
 		FF5AC11B250D90F500C780A6 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerViewController.xib; sourceTree = "<group>"; };
 		FF5AC11F250D96C700C780A6 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
+		FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
+		FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailSeriesOnAirViewController.swift; path = Details/DetailSeriesOnAirViewController.swift; sourceTree = "<group>"; };
 		FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailPopSeriesViewController.swift; path = Details/DetailPopSeriesViewController.swift; sourceTree = "<group>"; };
 		FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSeriesViewController.swift; path = Home/HomeSeriesViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */,
+				FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */,
+				FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */,
 				FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */,
 			);
 			path = Detail;
@@ -298,6 +304,7 @@
 				FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */,
 				FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */,
 				FF08C6C4250723270007F26F /* SeriesOnAirViewController.xib in Resources */,
+				FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */,
 				FF5AC110250CFA8800C780A6 /* PopularCollectionViewCell.xib in Resources */,
 				FF1F836A2438E41300886A67 /* DatailSeriesViewController.xib in Resources */,
 			);
@@ -325,6 +332,7 @@
 				FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */,
 				FF95B224242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld in Sources */,
 				FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */,
+				FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */,
 				FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */,
 				FF95B231242ED2A900C5FF83 /* MoviesTableViewController.swift in Sources */,
 				FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */,
