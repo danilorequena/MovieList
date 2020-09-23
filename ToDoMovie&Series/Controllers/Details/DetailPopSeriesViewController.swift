@@ -23,6 +23,11 @@ class DetailPopSeriesViewController: UIViewController {
     
     let vcDetailSeriesViewController = "DatailSeriesViewController"
     var series: ResultSeries
+    var createdBy: [CreatedBy] = []
+    var genre: [Genre] = []
+    var networks: [Network] = []
+    var season: [Season] = []
+    
     var nextState: CardState {
         return cardVisible ? .collapsed : .expanded
     }
@@ -40,6 +45,7 @@ class DetailPopSeriesViewController: UIViewController {
         setupOverview()
         setupImage()
         setupCard()
+        fetchDetailsSeries()
     }
     
     required init(series: ResultSeries) {
@@ -49,6 +55,18 @@ class DetailPopSeriesViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func fetchDetailsSeries() {
+        RequestAPI.loadPopularSeriesDetails(id: series.id!) { (series) in
+            self.createdBy += series?.createdBy ?? []
+            self.genre += series?.genres ?? []
+            self.networks += series?.networks ?? []
+            self.season += series?.seasons ?? []
+        } onError: { (error) in
+            print(error)
+        }
+
     }
     
     func setupCard() {
@@ -216,11 +234,4 @@ class DetailPopSeriesViewController: UIViewController {
             }
         }
     }
-    @IBAction func goToTrailer(_ sender: Any) {
-        let vc = TrailerViewController(videoID: series.id ?? 12)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        self.navigationController?.present(vc, animated: true, completion: nil)
-    }
-    
 }

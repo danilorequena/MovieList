@@ -24,6 +24,7 @@
 		FF5AC120250D96C700C780A6 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11F250D96C700C780A6 /* Videos.swift */; };
 		FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */; };
 		FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */; };
+		FF7B6A742518225800DEBA7E /* DetailsSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A732518225800DEBA7E /* DetailsSeries.swift */; };
 		FF80D587250EDC5500A15326 /* DetailSeriesOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */; };
 		FF80D588250EDC5500A15326 /* DetailPopSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */; };
 		FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */; };
@@ -59,6 +60,7 @@
 		FF5AC11F250D96C700C780A6 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
 		FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
+		FF7B6A732518225800DEBA7E /* DetailsSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSeries.swift; sourceTree = "<group>"; };
 		FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailSeriesOnAirViewController.swift; path = Details/DetailSeriesOnAirViewController.swift; sourceTree = "<group>"; };
 		FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailPopSeriesViewController.swift; path = Details/DetailPopSeriesViewController.swift; sourceTree = "<group>"; };
 		FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSeriesViewController.swift; path = Home/HomeSeriesViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		FF5AC111250D007200C780A6 /* Custom Cells */ = {
+		FF5AC111250D007200C780A6 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
 				FF5AC10D250CFA8800C780A6 /* PopularCollectionViewCell.swift */,
@@ -145,7 +147,7 @@
 				FF5AC116250D2DE400C780A6 /* OnTheAirCollectionViewCell.swift */,
 				FF5AC117250D2DE400C780A6 /* OnTheAirCollectionViewCell.xib */,
 			);
-			path = "Custom Cells";
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		FF5AC11A250D90B000C780A6 /* Trailer */ = {
@@ -198,7 +200,7 @@
 				FF5AC11A250D90B000C780A6 /* Trailer */,
 				FF5AC10B250CF9F100C780A6 /* Home */,
 				FF5AC10C250CFA2300C780A6 /* Detail */,
-				FF5AC111250D007200C780A6 /* Custom Cells */,
+				FF5AC111250D007200C780A6 /* Custom Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +226,7 @@
 				FF96D59C2436913D006CF3C7 /* PopularSeries.swift */,
 				FF11689F250710C500F30652 /* SeriesOnAir.swift */,
 				FF5AC11F250D96C700C780A6 /* Videos.swift */,
+				FF7B6A732518225800DEBA7E /* DetailsSeries.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				FFC806842432E10C00402878 /* MovieTableViewCell.swift in Sources */,
 				FF80D587250EDC5500A15326 /* DetailSeriesOnAirViewController.swift in Sources */,
 				FF5AC120250D96C700C780A6 /* Videos.swift in Sources */,
+				FF7B6A742518225800DEBA7E /* DetailsSeries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

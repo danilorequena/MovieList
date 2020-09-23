@@ -80,14 +80,6 @@
                         <constraint firstAttribute="height" constant="350" id="xQb-aY-KOY"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ff-kN-S5h">
-                    <rect key="frame" x="8" y="52" width="106" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Assista o trailer"/>
-                    <connections>
-                        <action selector="goToTrailer:" destination="-1" eventType="touchUpInside" id="qAJ-9b-qUJ"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

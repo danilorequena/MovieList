@@ -14,6 +14,8 @@ class OverlayViewController: UIViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelOverview: UILabel!
     @IBOutlet weak var labelAverage: UILabel!
+    @IBOutlet weak var wereWatchCollectionView: UICollectionView!
+    @IBOutlet weak var castCollectionView: UICollectionView!
     
     let nib = "OverlayViewController"
     var infos: ResultSeries!
@@ -21,7 +23,6 @@ class OverlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLabels()
-
     }
     
     required init(infos: ResultSeries) {
@@ -49,10 +50,15 @@ class OverlayViewController: UIViewController {
             string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
             string.append(NSAttributedString(string: String(infos.voteAverage!), attributes: attributes2))
         }
-        
-        
         labelAverage.attributedText = string
-        
+    }
+    
+    
+    @IBAction func goToTrailerTapped(_ sender: Any) {
+        let vc = TrailerViewController(videoID: infos.id!)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
     
 }
