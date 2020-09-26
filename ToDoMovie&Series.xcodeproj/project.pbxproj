@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		FF1168A0250710C500F30652 /* SeriesOnAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11689F250710C500F30652 /* SeriesOnAir.swift */; };
 		FF1F836A2438E41300886A67 /* DatailSeriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */; };
 		FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */; };
+		FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65B251D6EC700C177AE /* Kingfisher */; };
+		FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */; };
 		FF5AC10F250CFA8800C780A6 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC10D250CFA8800C780A6 /* PopularCollectionViewCell.swift */; };
 		FF5AC110250CFA8800C780A6 /* PopularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5AC10E250CFA8800C780A6 /* PopularCollectionViewCell.xib */; };
 		FF5AC118250D2DE400C780A6 /* OnTheAirCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC116250D2DE400C780A6 /* OnTheAirCollectionViewCell.swift */; };
@@ -28,6 +30,9 @@
 		FF80D587250EDC5500A15326 /* DetailSeriesOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */; };
 		FF80D588250EDC5500A15326 /* DetailPopSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */; };
 		FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */; };
+		FF92EE6A251C38A5006B8E48 /* WereWatchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF92EE68251C38A5006B8E48 /* WereWatchCollectionViewCell.swift */; };
+		FF92EE6B251C38A5006B8E48 /* WereWatchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF92EE69251C38A5006B8E48 /* WereWatchCollectionViewCell.xib */; };
+		FF92EE6E251C3D86006B8E48 /* OverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF92EE6D251C3D86006B8E48 /* OverlayViewModel.swift */; };
 		FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B219242ED04300C5FF83 /* AppDelegate.swift */; };
 		FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */; };
 		FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF95B21F242ED04300C5FF83 /* Main.storyboard */; };
@@ -39,9 +44,23 @@
 		FF95B23D2431565D00C5FF83 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23C2431565D00C5FF83 /* Movie.swift */; };
 		FF95B23F2431582D00C5FF83 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23E2431582D00C5FF83 /* RequestAPI.swift */; };
 		FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96D59C2436913D006CF3C7 /* PopularSeries.swift */; };
+		FFB64F0A251D413200E5C2EA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */; };
 		FFC806842432E10C00402878 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC806822432E10C00402878 /* MovieTableViewCell.swift */; };
 		FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FFB64F20251D6C1400E5C2EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SeriesOnAirViewController.xib; path = "ToDoMovie&Series/Views/Detail/SeriesOnAirViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -64,6 +83,9 @@
 		FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailSeriesOnAirViewController.swift; path = Details/DetailSeriesOnAirViewController.swift; sourceTree = "<group>"; };
 		FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailPopSeriesViewController.swift; path = Details/DetailPopSeriesViewController.swift; sourceTree = "<group>"; };
 		FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSeriesViewController.swift; path = Home/HomeSeriesViewController.swift; sourceTree = "<group>"; };
+		FF92EE68251C38A5006B8E48 /* WereWatchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WereWatchCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF92EE69251C38A5006B8E48 /* WereWatchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WereWatchCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF92EE6D251C3D86006B8E48 /* OverlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewModel.swift; sourceTree = "<group>"; };
 		FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoMovie&Series.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF95B219242ED04300C5FF83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +100,7 @@
 		FF95B23E2431582D00C5FF83 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		FF96D59C2436913D006CF3C7 /* PopularSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSeries.swift; sourceTree = "<group>"; };
 		FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatailSeriesViewController.xib; sourceTree = "<group>"; };
+		FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		FFC806822432E10C00402878 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */,
+				FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +123,7 @@
 			children = (
 				FF1168972506E2A500F30652 /* MainViewModel.swift */,
 				FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */,
+				FF92EE6D251C3D86006B8E48 /* OverlayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -107,6 +133,7 @@
 			children = (
 				FF11689A2506FEB200F30652 /* UIView+Extension.swift */,
 				FF08C6CA250B29920007F26F /* UIViewController+Extension.swift */,
+				FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -131,9 +158,8 @@
 		FF5AC10C250CFA2300C780A6 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FF92EE66251C3813006B8E48 /* CardInfos */,
 				FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */,
-				FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */,
-				FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */,
 				FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */,
 			);
 			path = Detail;
@@ -157,6 +183,25 @@
 				FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */,
 			);
 			path = Trailer;
+			sourceTree = "<group>";
+		};
+		FF92EE66251C3813006B8E48 /* CardInfos */ = {
+			isa = PBXGroup;
+			children = (
+				FF92EE67251C3843006B8E48 /* Custom Views */,
+				FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */,
+				FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */,
+			);
+			path = CardInfos;
+			sourceTree = "<group>";
+		};
+		FF92EE67251C3843006B8E48 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF92EE68251C38A5006B8E48 /* WereWatchCollectionViewCell.swift */,
+				FF92EE69251C38A5006B8E48 /* WereWatchCollectionViewCell.xib */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		FF95B20D242ED04300C5FF83 = {
@@ -249,6 +294,7 @@
 				FF95B212242ED04300C5FF83 /* Sources */,
 				FF95B213242ED04300C5FF83 /* Frameworks */,
 				FF95B214242ED04300C5FF83 /* Resources */,
+				FFB64F20251D6C1400E5C2EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +302,8 @@
 			);
 			name = "ToDoMovie&Series";
 			packageProductDependencies = (
+				FF26C65B251D6EC700C177AE /* Kingfisher */,
+				FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */,
 			);
 			productName = "ToDoMovie&Series";
 			productReference = FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */;
@@ -286,6 +334,7 @@
 			);
 			mainGroup = FF95B20D242ED04300C5FF83;
 			packageReferences = (
+				FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = FF95B217242ED04300C5FF83 /* Products */;
 			projectDirPath = "";
@@ -302,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF95B229242ED05000C5FF83 /* LaunchScreen.storyboard in Resources */,
+				FF92EE6B251C38A5006B8E48 /* WereWatchCollectionViewCell.xib in Resources */,
 				FF95B226242ED05000C5FF83 /* Assets.xcassets in Resources */,
 				FF5AC119250D2DE400C780A6 /* OnTheAirCollectionViewCell.xib in Resources */,
 				FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */,
@@ -322,6 +372,7 @@
 			files = (
 				FF5AC118250D2DE400C780A6 /* OnTheAirCollectionViewCell.swift in Sources */,
 				FF1168A0250710C500F30652 /* SeriesOnAir.swift in Sources */,
+				FF92EE6E251C3D86006B8E48 /* OverlayViewModel.swift in Sources */,
 				FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */,
 				FF80D588250EDC5500A15326 /* DetailPopSeriesViewController.swift in Sources */,
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
@@ -334,11 +385,13 @@
 				FF95B235242ED2FA00C5FF83 /* MovieViewController.swift in Sources */,
 				FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */,
 				FF95B224242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld in Sources */,
+				FFB64F0A251D413200E5C2EA /* UIImage+Extension.swift in Sources */,
 				FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */,
 				FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */,
 				FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */,
 				FF95B231242ED2A900C5FF83 /* MoviesTableViewController.swift in Sources */,
 				FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */,
+				FF92EE6A251C38A5006B8E48 /* WereWatchCollectionViewCell.swift in Sources */,
 				FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */,
 				FF5AC10F250CFA8800C780A6 /* PopularCollectionViewCell.swift in Sources */,
 				FFC806842432E10C00402878 /* MovieTableViewCell.swift in Sources */,
@@ -546,6 +599,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF26C65B251D6EC700C177AE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FF95B222242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld */ = {

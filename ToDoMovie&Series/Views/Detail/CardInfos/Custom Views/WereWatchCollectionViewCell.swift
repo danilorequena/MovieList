@@ -1,17 +1,17 @@
 //
-//  PopularCollectionViewCell.swift
+//  WereWatchCollectionViewCell.swift
 //  ToDoMovie&Series
 //
-//  Created by Danilo Requena on 12/09/20.
+//  Created by Danilo Requena on 23/09/20.
 //  Copyright © 2020 Danilo Requena. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
 
-class PopularCollectionViewCell: UICollectionViewCell {
+class WereWatchCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var popularImage: UIImageView!
+    @IBOutlet weak var wereWatchImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,14 +26,16 @@ class PopularCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    func prepareCell(with serie: ResultSeries) {
-        if let posterPath = serie.posterPath {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w200" + posterPath)
-//            guard let data = try? Data(contentsOf: posterURL!) else { return }
-//            self.popularImage.image = UIImage(data: data)
-            let processor = DownsamplingImageProcessor(size: popularImage.bounds.size)
-            self.popularImage.kf.setImage(
-                with: posterURL,
+    
+    
+    func prepareCell(with serie: Network) {
+        if let logoPath = serie.logoPath {
+            guard let logoURL = URL(string: "https://image.tmdb.org/t/p/w92" + logoPath) else { return }
+//            guard let data = try? Data(contentsOf: logoURL) else { return }
+//            self.wereWatchImage.image = UIImage(data: data)
+            let processor = DownsamplingImageProcessor(size: wereWatchImage.bounds.size)
+            self.wereWatchImage.kf.setImage(
+                with: logoURL,
                 placeholder: UIImage(named: "placeholderImage"),
                 options: [
                     .processor(processor),
@@ -50,8 +52,9 @@ class PopularCollectionViewCell: UICollectionViewCell {
                             print("Job failed: \(error.localizedDescription)")
                         }
                     })
-            self.popularImage.clipsToBounds = true
-            self.popularImage.layer.cornerRadius = 10
+            self.wereWatchImage.kf.indicatorType = .activity
+            self.wereWatchImage.clipsToBounds = true
+//            self.wereWatchImage.layer.cornerRadius = wereWatchImage.frame.size.height / 2
         }
     }
 

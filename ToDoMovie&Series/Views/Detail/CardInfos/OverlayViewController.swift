@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class OverlayViewController: UIViewController {
 
@@ -16,13 +17,19 @@ class OverlayViewController: UIViewController {
     @IBOutlet weak var labelAverage: UILabel!
     @IBOutlet weak var wereWatchCollectionView: UICollectionView!
     @IBOutlet weak var castCollectionView: UICollectionView!
+    @IBOutlet weak var genreCollectionView: UICollectionView!
     
     let nib = "OverlayViewController"
     var infos: ResultSeries!
+    var overlayViewModel: OverlayViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLabels()
+        setupCollections()
+        overlayViewModel = OverlayViewModel()
+        overlayViewModel?.delegate = self
+        overlayViewModel?.fetchDetailsSeries(id: infos.id!)
     }
     
     required init(infos: ResultSeries) {
@@ -60,5 +67,55 @@ class OverlayViewController: UIViewController {
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
     }
+    
+}
+
+extension OverlayViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func setupCollections() {
+        wereWatchCollectionView.dataSource = self
+        wereWatchCollectionView.delegate = self
+        wereWatchCollectionView.register(WereWatchCollectionViewCell.loadNib(), forCellWithReuseIdentifier: WereWatchCollectionViewCell.identifier())
+        (wereWatchCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 65, height: 55)
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == wereWatchCollectionView {
+            return overlayViewModel?.networks.count ?? 0
+        } else {
+            return 1
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WereWatchCollectionViewCell.identifier(), for: indexPath) as! WereWatchCollectionViewCell
+        let serie = (overlayViewModel?.networks[indexPath.item])
+        cell.prepareCell(with: serie!)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let url = URL(string: overlayViewModel?.details?.homepage ?? "https://apple.com") else {
+             return
+        }
+
+        if UIApplication.shared.canOpenURL(url) {
+             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        print("toquei aqui nessa merda")
+    }
+}
+
+extension OverlayViewController: OverlayViewModelDelegate {
+    func successList() {
+        DispatchQueue.main.async {
+            self.wereWatchCollectionView.reloadData()
+        }
+    }
+    
+    func errorList() {
+        
+    }
+    
     
 }
