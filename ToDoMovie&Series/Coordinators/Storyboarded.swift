@@ -1,0 +1,23 @@
+//
+//  Storyboarded.swift
+//  ToDoMovie&Series
+//
+//  Created by Danilo Requena on 26/09/20.
+//  Copyright © 2020 Danilo Requena. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+//protocol Storyboaded {
+//    static func instantiate() -> Self
+//}
+//
+//extension Storyboaded where Self: UIViewController {
+//    static func instantiate() -> Self {
+//        let id = String(describing: self)
+//        let storyboard = UINib(nibName: "DiscoverMoviesViewController", bundle: Bundle.main)
+//        
+//        return storyboard.instantiate(withOwner: <#T##Any?#>, options: <#T##[UINib.OptionsKey : Any]?#>) as! Self
+//    }
+//}
