@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IMk-to-ke9">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,60 +14,65 @@
             <objects>
                 <viewController storyboardIdentifier="DiscoverViewController" id="IMk-to-ke9" customClass="DiscoverViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J6z-sN-kT1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3hu-So-dJc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="533"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="533" id="22b-bL-uS8"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wi4-qW-gyr">
-                                    <size key="itemSize" width="269" height="452"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wi4-qW-gyr">
+                                    <size key="itemSize" width="248" height="369"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CHZ-OC-Y7w">
-                                        <rect key="frame" x="72.5" y="0.0" width="269" height="452"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CHZ-OC-Y7w" customClass="DiscoverCollectViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="141" width="248" height="369"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Aqz-3Q-d3V">
-                                            <rect key="frame" x="0.0" y="0.0" width="269" height="452"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="369"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t71-ew-SV3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="452"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t71-ew-SV3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="369"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="265" id="Dnh-0b-zU7"/>
+                                                        <constraint firstAttribute="height" constant="500" id="tHF-at-BUg"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="t71-ew-SV3" secondAttribute="trailing" id="CU4-H4-rp8"/>
-                                                <constraint firstItem="t71-ew-SV3" firstAttribute="leading" secondItem="Aqz-3Q-d3V" secondAttribute="leading" id="gbb-89-Qx1"/>
-                                                <constraint firstItem="t71-ew-SV3" firstAttribute="top" secondItem="Aqz-3Q-d3V" secondAttribute="top" id="rwe-9S-JON"/>
-                                                <constraint firstAttribute="bottom" secondItem="t71-ew-SV3" secondAttribute="bottom" id="yKd-zT-0Tr"/>
+                                                <constraint firstAttribute="bottom" secondItem="t71-ew-SV3" secondAttribute="bottom" id="0HS-aO-NUA"/>
+                                                <constraint firstAttribute="trailing" secondItem="t71-ew-SV3" secondAttribute="trailing" id="JMn-sF-a25"/>
+                                                <constraint firstItem="t71-ew-SV3" firstAttribute="top" secondItem="Aqz-3Q-d3V" secondAttribute="top" id="SCf-gM-qPg"/>
+                                                <constraint firstItem="t71-ew-SV3" firstAttribute="leading" secondItem="Aqz-3Q-d3V" secondAttribute="leading" id="jBL-AF-Hq2"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="269" height="452"/>
+                                        <size key="customSize" width="248" height="369"/>
+                                        <connections>
+                                            <outlet property="imgDiscoverMovie" destination="t71-ew-SV3" id="P29-y2-2oR"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wQl-sz-6o6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.25919127460000002" green="0.27391442659999998" blue="0.29804286359999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="3hu-So-dJc" firstAttribute="leading" secondItem="wQl-sz-6o6" secondAttribute="leading" id="buM-Vf-iA7"/>
-                            <constraint firstItem="3hu-So-dJc" firstAttribute="top" secondItem="wQl-sz-6o6" secondAttribute="top" id="qgn-PI-u1d"/>
-                            <constraint firstItem="3hu-So-dJc" firstAttribute="trailing" secondItem="wQl-sz-6o6" secondAttribute="trailing" id="xpP-oB-3aD"/>
+                            <constraint firstItem="3hu-So-dJc" firstAttribute="top" secondItem="wQl-sz-6o6" secondAttribute="top" id="9ds-4i-J2K"/>
+                            <constraint firstItem="wQl-sz-6o6" firstAttribute="bottom" secondItem="3hu-So-dJc" secondAttribute="bottom" constant="83" id="S1c-rL-jKF"/>
+                            <constraint firstItem="3hu-So-dJc" firstAttribute="leading" secondItem="wQl-sz-6o6" secondAttribute="leading" id="Z2O-6b-HOP"/>
+                            <constraint firstItem="3hu-So-dJc" firstAttribute="trailing" secondItem="wQl-sz-6o6" secondAttribute="trailing" id="ouu-i0-oRg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="discover" destination="3hu-So-dJc" id="Prf-et-FsY"/>
+                        <outlet property="discovercollectView" destination="3hu-So-dJc" id="Prf-et-FsY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hIu-KK-G7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160.86956521739131" y="135.9375"/>
+            <point key="canvasLocation" x="160.80000000000001" y="135.22167487684729"/>
         </scene>
     </scenes>
     <resources>

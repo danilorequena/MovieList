@@ -11,8 +11,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private var applicationCoordinator: ApplicationCoordinator?
-//    var coordinator: MainCoordinator?
+//    private var applicationCoordinator: ApplicationCoordinator?
+    var coordinator: MainCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,14 +20,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        let applicationCoordinator = ApplicationCoordinator(window: window)
+        let navController = UINavigationController()
+        let coordinator = MainCoordinator(navigationController: navController)
+        coordinator.start()
         
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = navController
         self.window = window
-        self.applicationCoordinator = applicationCoordinator
-        window.windowScene = windowScene
         window.makeKeyAndVisible()
-        applicationCoordinator.start()
+        
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        let applicationCoordinator = ApplicationCoordinator(window: window)
+//        
+//        self.window = window
+//        self.applicationCoordinator = applicationCoordinator
+//        window.windowScene = windowScene
+//        window.makeKeyAndVisible()
+//        applicationCoordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

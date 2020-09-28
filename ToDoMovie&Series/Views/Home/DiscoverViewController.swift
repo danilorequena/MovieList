@@ -8,14 +8,17 @@
 
 import UIKit
 
-class DiscoverViewController: UIViewController {
+class DiscoverViewController: UIViewController, Storyboaded {
 
-    @IBOutlet weak var discover: UICollectionView!
+    @IBOutlet weak var discovercollectView: UICollectionView!
     
     var viewModel: DiscoverViewModel?
+    var centerCell: DiscoverCollectViewCell?
+    let flowLayout = ZoomAndSnapFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Discover", preferredLargeTitle: true)
         setupCollection()
         viewModel = DiscoverViewModel()
         viewModel?.delegate = self
@@ -27,10 +30,12 @@ class DiscoverViewController: UIViewController {
 extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func setupCollection() {
-        self.discover.register(DiscoverCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverCollectionViewCell.identifier())
-        self.discover.delegate = self
-        self.discover.dataSource  = self
-        (self.discover.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 500, height: 750)
+        self.discovercollectView.register(DiscoverCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverCollectionViewCell.identifier())
+        self.discovercollectView.delegate = self
+        self.discovercollectView.dataSource  = self
+        self.discovercollectView.collectionViewLayout = flowLayout
+        self.discovercollectView.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
+        self.discovercollectView.showsHorizontalScrollIndicator = false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -48,13 +53,13 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
 extension DiscoverViewController: DiscoverViewModelDelegate {
     func successDiscoverList() {
         DispatchQueue.main.async {
-            self.discover.reloadData()
+            self.discovercollectView.reloadData()
         }
     }
     
     func errorList() {
         DispatchQueue.main.async {
-            self.discover.reloadData()
+            self.discovercollectView.reloadData()
         }
     }
     
