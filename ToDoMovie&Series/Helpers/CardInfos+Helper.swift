@@ -9,8 +9,13 @@
 import Foundation
 import UIKit
 
+enum CardState {
+    case collapsed
+    case expanded
+}
+
 protocol CardInfosProtocol {
-    func setupCard(mainView: UIView, controller: UIViewController, infos: ResultSeries)
+    func setupCard(mainView: UIView, infos: ResultSeries)
 }
 
 class CardInfos: CardInfosProtocol {
@@ -25,9 +30,9 @@ class CardInfos: CardInfosProtocol {
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted: CGFloat =  0
     
-    func setupCard(mainView: UIView, controller: UIViewController, infos: ResultSeries) {
+    func setupCard(mainView: UIView, infos: ResultSeries) {
         endCardHeight =  mainView.frame.height * 0.8
-        startCardHeight =  mainView.frame.height * 0.3
+        startCardHeight =  mainView.frame.height / 3
         
         visualEffectView = UIVisualEffectView()
         visualEffectView.frame = mainView.frame
@@ -35,19 +40,19 @@ class CardInfos: CardInfosProtocol {
         
         cardViewController = OverlayViewController(infos: infos)
         mainView.addSubview(cardViewController.view)
-        cardViewController.view.frame = CGRect(x: 0, y: mainView.frame.height - startCardHeight, width: mainView.bounds.width, height: endCardHeight)
+        cardViewController.view.frame = CGRect(x: 0, y: mainView.frame.height / 2, width: mainView.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
-        self.cardViewController.view.layer.cornerRadius = 10
-        
-        let tapGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(DetailPopSeriesViewController.handleCardTap(recognzier:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(DetailPopSeriesViewController.handleCardPan(recognizer:)))
-        
+        cardViewController.view.layer.cornerRadius = 10
+
+        let tapGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleCardTap(recognzier:view:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCardPan(recognizer:view:)))
+
         cardViewController.handleView.addGestureRecognizer(tapGestureRecognizer)
         cardViewController.handleView.addGestureRecognizer(panGestureRecognizer)
     }
     
     @objc
-        func handleCardTap(recognzier:UITapGestureRecognizer, view: UIView) {
+    func handleCardTap(recognzier:UITapGestureRecognizer, view: UIView) {
             switch recognzier.state {
                 // Animate card when tap finishes
             case .ended:
@@ -88,12 +93,12 @@ class CardInfos: CardInfosProtocol {
                     switch state {
                     case .expanded:
                         // If expanding set popover y to the ending height and blur background
-                        self.cardViewController.view.frame.origin.y = view.frame.height - self.endCardHeight
+                        self.cardViewController.view.frame.origin.y = view.frame.height
                         self.visualEffectView.effect = UIBlurEffect(style: .dark)
        
                     case .collapsed:
                         // If collapsed set popover y to the starting height and remove background blur
-                        self.cardViewController.view.frame.origin.y = view.frame.height - self.startCardHeight
+                        self.cardViewController.view.frame.origin.y = view.frame.height + 400
                         
                         self.visualEffectView.effect = nil
                     }
