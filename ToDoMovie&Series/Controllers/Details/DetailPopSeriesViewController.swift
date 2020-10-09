@@ -15,11 +15,7 @@ enum CardState {
 
 class DetailPopSeriesViewController: UIViewController {
 
-    @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var ivSerie: UIImageView!
-    @IBOutlet weak var viewOverview: UIView!
-    @IBOutlet weak var lbOverview: UILabel!
-    @IBOutlet weak var scrollOverview: UIScrollView!
     
     let vcDetailSeriesViewController = "DatailSeriesViewController"
     var series: ResultSeries
@@ -31,6 +27,7 @@ class DetailPopSeriesViewController: UIViewController {
     var nextState: CardState {
         return cardVisible ? .collapsed : .expanded
     }
+    var cardInfos: CardInfos?
     var cardViewController: OverlayViewController!
     var visualEffectView: UIVisualEffectView!
     var endCardHeight: CGFloat = 0
@@ -42,10 +39,11 @@ class DetailPopSeriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Pop Series", preferredLargeTitle: true)
-        setupOverview()
         setupImage()
-        setupCard()
+//        setupCard()
         fetchDetailsSeries()
+        cardInfos = CardInfos()
+        cardInfos?.setupCard(mainView: self.view, controller: OverlayViewController(infos: series), infos: series)
     }
     
     required init(series: ResultSeries) {
@@ -210,18 +208,6 @@ class DetailPopSeriesViewController: UIViewController {
                 animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
             }
         }
-    
-    func setupOverview() {
-        lbTitle.text = series.name
-        lbOverview.text = series.overview
-        lbOverview.textColor = .white
-        viewOverview.clipsToBounds = true
-        let path = UIBezierPath(roundedRect: viewOverview.bounds, byRoundingCorners: [.topRight, .topLeft], cornerRadii: CGSize(width: 10, height: 10))
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = path.cgPath
-        viewOverview.layer.mask = maskLayer
-        viewOverview.backgroundColor = #colorLiteral(red: 0.0341934419, green: 0.04082306338, blue: 0.06327024648, alpha: 0.5)
-    }
     
     func setupImage() {
         if let backdropPath = series.backdropPath {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Movies View Controller-->
+        <scene sceneID="tL9-b1-wcc">
+            <objects>
+                <viewController id="iMY-AS-Tkg" customClass="DetailMoviesViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u2A-03-7uh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GXT-Mx-ul7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q7l-rJ-n8h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q7l-rJ-n8h" firstAttribute="trailing" secondItem="GXT-Mx-ul7" secondAttribute="trailing" id="2ET-N7-OYJ"/>
+                            <constraint firstItem="GXT-Mx-ul7" firstAttribute="leading" secondItem="Q7l-rJ-n8h" secondAttribute="leading" id="7o7-Ef-uQl"/>
+                            <constraint firstItem="Q7l-rJ-n8h" firstAttribute="bottom" secondItem="GXT-Mx-ul7" secondAttribute="bottom" constant="-34" id="EB3-9F-AT0"/>
+                            <constraint firstItem="GXT-Mx-ul7" firstAttribute="top" secondItem="Q7l-rJ-n8h" secondAttribute="top" constant="-44" id="w4r-By-X2m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgDetail" destination="GXT-Mx-ul7" id="ZcQ-pY-aoN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tZw-YC-xTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.463768115942031" y="142.63392857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
