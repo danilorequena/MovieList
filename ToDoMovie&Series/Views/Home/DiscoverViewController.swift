@@ -12,6 +12,8 @@ class DiscoverViewController: UIViewController, Storyboaded {
 
     @IBOutlet weak var discovercollectView: UICollectionView!
     
+    weak var coordinator: MainCoordinator?
+    
     var viewModel: DiscoverViewModel?
     var centerCell: DiscoverCollectViewCell?
     let flowLayout = ZoomAndSnapFlowLayout()
@@ -50,9 +52,9 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movie = viewModel?.movies[indexPath.item]
-        let detail = DetailPopSeriesViewController(discoverMovies: movie)
-        self.navigationController?.pushViewController(detail, animated: true)
+        guard let movie = viewModel?.movies[indexPath.item] else { return }
+        let coordinator = MainCoordinator(navigationController: self.navigationController!)
+        coordinator.detail(discoverMovies: movie)
     }
 }
 
@@ -68,6 +70,4 @@ extension DiscoverViewController: DiscoverViewModelDelegate {
             self.discovercollectView.reloadData()
         }
     }
-    
-    
 }

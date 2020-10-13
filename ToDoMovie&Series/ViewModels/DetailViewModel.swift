@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol DetailViewModelProtocol: AnyObject {
-    func fetchDetailsSeries(id: Int)
+    func fetchDetails(id: Int)
 }
 
 class DetailViewModel: DetailViewModelProtocol {
@@ -23,7 +23,7 @@ class DetailViewModel: DetailViewModelProtocol {
     var networks: [Network] = []
     var season: [Season] = []
     
-    func fetchDetailsSeries(id: Int) {
+    func fetchDetails(id: Int) {
         RequestAPI.loadPopularSeriesDetails(id: id) { (series) in
             self.createdBy += series?.createdBy ?? []
             self.genre += series?.genres ?? []

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail Movies View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="tL9-b1-wcc">
             <objects>
-                <viewController id="iMY-AS-Tkg" customClass="DetailMoviesViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="iMY-AS-Tkg" customClass="DetailViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u2A-03-7uh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imgDetail" destination="GXT-Mx-ul7" id="ZcQ-pY-aoN"/>
+                        <outlet property="imgBackdrop" destination="GXT-Mx-ul7" id="jIQ-Du-5e3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZw-YC-xTs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

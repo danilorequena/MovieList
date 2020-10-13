@@ -8,9 +8,11 @@
 
 import UIKit
 
-class DetailPopSeriesViewController: UIViewController, Storyboaded {
+class DetailViewController: UIViewController, Storyboaded {
 
-    @IBOutlet weak var ivSerie: UIImageView!
+    @IBOutlet weak var imgBackdrop: UIImageView!
+    
+    weak var coordinator: DetailCoordinator?
     
     let vcDetailSeriesViewController = "DatailSeriesViewController"
     var seriesPop: ResultSeries?
@@ -24,20 +26,9 @@ class DetailPopSeriesViewController: UIViewController, Storyboaded {
         configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Pop Series", preferredLargeTitle: true)
         setupImage()
         viewModel = DetailViewModel()
-        viewModel?.fetchDetailsSeries(id: viewModel?.seriesPop?.id ?? 0)
+        viewModel?.fetchDetails(id: viewModel?.discoverMovies?.id ?? 0)
         cardInfos = CardInfos()
         cardInfos?.setupCardMovies(mainView: self.view, infos: discoverMovies!)
-    }
-    
-    required init(seriesPop: ResultSeries? = nil, seriesOnAir: ResultSeriesOnAir? = nil, discoverMovies: ResultDiscover? = nil ) {
-        self.seriesPop = seriesPop
-        self.seriesOnAir = seriesOnAir
-        self.discoverMovies = discoverMovies
-        super.init(nibName: vcDetailSeriesViewController, bundle: Bundle(for: DetailPopSeriesViewController.self))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setupImage() {
@@ -46,7 +37,7 @@ class DetailPopSeriesViewController: UIViewController, Storyboaded {
                 guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
                 do {
                     let data = try Data(contentsOf: posterURL)
-                    self.ivSerie.image = UIImage(data: data)
+                    self.imgBackdrop.image = UIImage(data: data)
                 } catch let jsonErr {
                     print(jsonErr)
                 }
@@ -56,7 +47,7 @@ class DetailPopSeriesViewController: UIViewController, Storyboaded {
                 guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
                 do {
                     let data = try Data(contentsOf: posterURL)
-                    self.ivSerie.image = UIImage(data: data)
+                    self.imgBackdrop.image = UIImage(data: data)
                 } catch let jsonErr {
                     print(jsonErr)
                 }

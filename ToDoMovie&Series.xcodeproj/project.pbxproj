@@ -25,7 +25,7 @@
 		FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65B251D6EC700C177AE /* Kingfisher */; };
 		FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */; };
 		FF271612252FD78200370ED1 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF271611252FD78200370ED1 /* DetailCoordinator.swift */; };
-		FF271614252FD87600370ED1 /* DetailMoviesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF271613252FD87600370ED1 /* DetailMoviesStoryboard.storyboard */; };
+		FF271614252FD87600370ED1 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF271613252FD87600370ED1 /* DetailViewController.storyboard */; };
 		FF271616252FE1EE00370ED1 /* DetailMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF271615252FE1EE00370ED1 /* DetailMoviesViewController.swift */; };
 		FF3B31BF252FE87B00C86820 /* CardInfos+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B31BE252FE87B00C86820 /* CardInfos+Helper.swift */; };
 		FF5AC10F250CFA8800C780A6 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC10D250CFA8800C780A6 /* PopularCollectionViewCell.swift */; };
@@ -36,11 +36,11 @@
 		FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */; };
 		FF5AC120250D96C700C780A6 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11F250D96C700C780A6 /* Videos.swift */; };
 		FF6CDB9B25351DAC002DC3B7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */; };
+		FF6CDB9D253532FA002DC3B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */; };
 		FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */; };
 		FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */; };
 		FF7B6A742518225800DEBA7E /* DetailsSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A732518225800DEBA7E /* DetailsSeries.swift */; };
 		FF80D587250EDC5500A15326 /* DetailSeriesOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */; };
-		FF80D588250EDC5500A15326 /* DetailPopSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */; };
 		FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */; };
 		FF92EE6A251C38A5006B8E48 /* WereWatchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF92EE68251C38A5006B8E48 /* WereWatchCollectionViewCell.swift */; };
 		FF92EE6B251C38A5006B8E48 /* WereWatchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF92EE69251C38A5006B8E48 /* WereWatchCollectionViewCell.xib */; };
@@ -96,7 +96,7 @@
 		FF11689F250710C500F30652 /* SeriesOnAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesOnAir.swift; sourceTree = "<group>"; };
 		FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedSeries.swift; sourceTree = "<group>"; };
 		FF271611252FD78200370ED1 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
-		FF271613252FD87600370ED1 /* DetailMoviesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailMoviesStoryboard.storyboard; sourceTree = "<group>"; };
+		FF271613252FD87600370ED1 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		FF271615252FE1EE00370ED1 /* DetailMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMoviesViewController.swift; sourceTree = "<group>"; };
 		FF3B31BE252FE87B00C86820 /* CardInfos+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardInfos+Helper.swift"; sourceTree = "<group>"; };
 		FF5AC10D250CFA8800C780A6 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -107,11 +107,11 @@
 		FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerViewController.xib; sourceTree = "<group>"; };
 		FF5AC11F250D96C700C780A6 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
 		FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Details/DetailViewController.swift; sourceTree = "<group>"; };
 		FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		FF7B6A732518225800DEBA7E /* DetailsSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSeries.swift; sourceTree = "<group>"; };
 		FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailSeriesOnAirViewController.swift; path = Details/DetailSeriesOnAirViewController.swift; sourceTree = "<group>"; };
-		FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailPopSeriesViewController.swift; path = Details/DetailPopSeriesViewController.swift; sourceTree = "<group>"; };
 		FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeSeriesViewController.swift; path = Home/HomeSeriesViewController.swift; sourceTree = "<group>"; };
 		FF92EE68251C38A5006B8E48 /* WereWatchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WereWatchCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF92EE69251C38A5006B8E48 /* WereWatchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WereWatchCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 				FF92EE66251C3813006B8E48 /* CardInfos */,
 				FF08C6C2250723270007F26F /* SeriesOnAirViewController.xib */,
 				FF96D59E2437BE88006CF3C7 /* DatailSeriesViewController.xib */,
-				FF271613252FD87600370ED1 /* DetailMoviesStoryboard.storyboard */,
+				FF271613252FD87600370ED1 /* DetailViewController.storyboard */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				FF80D589250EDC6400A15326 /* HomeSeriesViewController.swift */,
-				FF80D586250EDC5500A15326 /* DetailPopSeriesViewController.swift */,
+				FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */,
 				FF80D585250EDC5500A15326 /* DetailSeriesOnAirViewController.swift */,
 				FF95B230242ED2A900C5FF83 /* MoviesTableViewController.swift */,
 				FF95B234242ED2FA00C5FF83 /* MovieViewController.swift */,
@@ -417,7 +417,7 @@
 				FF95B226242ED05000C5FF83 /* Assets.xcassets in Resources */,
 				FF0D4601252009300069A74A /* Discover.storyboard in Resources */,
 				FF5AC119250D2DE400C780A6 /* OnTheAirCollectionViewCell.xib in Resources */,
-				FF271614252FD87600370ED1 /* DetailMoviesStoryboard.storyboard in Resources */,
+				FF271614252FD87600370ED1 /* DetailViewController.storyboard in Resources */,
 				FFA8EA1E2520414A00FA6117 /* DiscoverMoviesViewController.xib in Resources */,
 				FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */,
 				FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */,
@@ -444,7 +444,6 @@
 				FF92EE6E251C3D86006B8E48 /* OverlayViewModel.swift in Sources */,
 				FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */,
 				FF271616252FE1EE00370ED1 /* DetailMoviesViewController.swift in Sources */,
-				FF80D588250EDC5500A15326 /* DetailPopSeriesViewController.swift in Sources */,
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
 				FF11689E25070A2200F30652 /* Constants.swift in Sources */,
 				FF3B31BF252FE87B00C86820 /* CardInfos+Helper.swift in Sources */,
@@ -464,6 +463,7 @@
 				FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */,
 				FFA8EA28252185C400FA6117 /* UICollectionView+Helper.swift in Sources */,
 				FFA8EA1D2520414A00FA6117 /* DiscoverMoviesViewController.swift in Sources */,
+				FF6CDB9D253532FA002DC3B7 /* DetailViewController.swift in Sources */,
 				FF95B231242ED2A900C5FF83 /* MoviesTableViewController.swift in Sources */,
 				FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */,
 				FF0D4614252035EC0069A74A /* MainCoordinator.swift in Sources */,

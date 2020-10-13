@@ -11,7 +11,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-//    private var applicationCoordinator: ApplicationCoordinator?
     var coordinator: MainCoordinator?
 
 
@@ -28,16 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = navController
         self.window = window
         window.makeKeyAndVisible()
-        
-//        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        let applicationCoordinator = ApplicationCoordinator(window: window)
-//        
-//        self.window = window
-//        self.applicationCoordinator = applicationCoordinator
-//        window.windowScene = windowScene
-//        window.makeKeyAndVisible()
-//        applicationCoordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -10,15 +10,22 @@ import Foundation
 import UIKit
 
 class DetailCoordinator: Coordinator {
+    weak var parentCoordinator: MainCoordinator?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    var seriesPop: ResultSeries?
+    var seriesOnAir: ResultSeriesOnAir?
+    var discoverMovies: ResultDiscover?
     
-    init(navigationController: UINavigationController) {
+    
+    init(navigationController: UINavigationController, discoverMovies: ResultDiscover?) {
         self.navigationController = navigationController
+        self.discoverMovies = discoverMovies
     }
     
     func start() {
-        let vc = DetailMoviesViewController.instantiate()
-        navigationController.pushViewController(vc, animated: false)
+        let vc = DetailViewController.instantiateDetail()
+        vc.discoverMovies = discoverMovies
+        navigationController.pushViewController(vc, animated: true)
     }
 }
