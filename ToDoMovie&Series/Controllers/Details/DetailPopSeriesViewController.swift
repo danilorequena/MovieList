@@ -8,36 +8,31 @@
 
 import UIKit
 
-class DetailPopSeriesViewController: UIViewController {
+class DetailPopSeriesViewController: UIViewController, Storyboaded {
 
     @IBOutlet weak var ivSerie: UIImageView!
     
     let vcDetailSeriesViewController = "DatailSeriesViewController"
-    var series: ResultSeries
-    var createdBy: [CreatedBy] = []
-    var genre: [Genre] = []
-    var networks: [Network] = []
-    var season: [Season] = []
+    var seriesPop: ResultSeries?
+    var seriesOnAir: ResultSeriesOnAir?
+    var discoverMovies: ResultDiscover?
     var cardInfos: CardInfos?
-    var cardViewController: OverlayViewController!
-    var visualEffectView: UIVisualEffectView!
-    var endCardHeight: CGFloat = 0
-    var startCardHeight: CGFloat = 0
-    var cardVisible = false
-    var runningAnimations = [UIViewPropertyAnimator]()
-    var animationProgressWhenInterrupted: CGFloat =  0
+    var viewModel: DetailViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Pop Series", preferredLargeTitle: true)
         setupImage()
-        fetchDetailsSeries()
+        viewModel = DetailViewModel()
+        viewModel?.fetchDetailsSeries(id: viewModel?.seriesPop?.id ?? 0)
         cardInfos = CardInfos()
-        cardInfos?.setupCard(mainView: self.view, infos: series)
+        cardInfos?.setupCardMovies(mainView: self.view, infos: discoverMovies!)
     }
     
-    required init(series: ResultSeries) {
-        self.series = series
+    required init(seriesPop: ResultSeries? = nil, seriesOnAir: ResultSeriesOnAir? = nil, discoverMovies: ResultDiscover? = nil ) {
+        self.seriesPop = seriesPop
+        self.seriesOnAir = seriesOnAir
+        self.discoverMovies = discoverMovies
         super.init(nibName: vcDetailSeriesViewController, bundle: Bundle(for: DetailPopSeriesViewController.self))
     }
     
@@ -45,26 +40,26 @@ class DetailPopSeriesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func fetchDetailsSeries() {
-        RequestAPI.loadPopularSeriesDetails(id: series.id!) { (series) in
-            self.createdBy += series?.createdBy ?? []
-            self.genre += series?.genres ?? []
-            self.networks += series?.networks ?? []
-            self.season += series?.seasons ?? []
-        } onError: { (error) in
-            print(error)
-        }
-
-    }
-    
     func setupImage() {
-        if let backdropPath = series.backdropPath {
-            guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
-            do {
-                let data = try Data(contentsOf: posterURL)
-                self.ivSerie.image = UIImage(data: data)
-            } catch let jsonErr {
-                print(jsonErr)
+        if seriesPop?.backdropPath != nil {
+            if let backdropPath = viewModel?.seriesPop?.backdropPath {
+                guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
+                do {
+                    let data = try Data(contentsOf: posterURL)
+                    self.ivSerie.image = UIImage(data: data)
+                } catch let jsonErr {
+                    print(jsonErr)
+                }
+            }
+        } else {
+            if let backdropPath = discoverMovies?.backdropPath {
+                guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
+                do {
+                    let data = try Data(contentsOf: posterURL)
+                    self.ivSerie.image = UIImage(data: data)
+                } catch let jsonErr {
+                    print(jsonErr)
+                }
             }
         }
     }

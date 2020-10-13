@@ -20,7 +20,9 @@ class OverlayViewController: UIViewController {
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
     let nib = "OverlayViewController"
-    var infos: ResultSeries!
+    var seriesPop: ResultSeries!
+    var seriesOnAir: ResultSeriesOnAir!
+    var discoverMovies: ResultDiscover!
     var overlayViewModel: OverlayViewModel?
     
     override func viewDidLoad() {
@@ -29,12 +31,14 @@ class OverlayViewController: UIViewController {
         setupCollections()
         overlayViewModel = OverlayViewModel()
         overlayViewModel?.delegate = self
-        overlayViewModel?.fetchDetailsSeries(id: infos.id!)
+        overlayViewModel?.fetchDetailsSeries(id: discoverMovies.id!)
     }
     
-    required init(infos: ResultSeries) {
+    required init(seriesPop: ResultSeries? = nil, seriesOnAir: ResultSeriesOnAir? = nil, discoverMovies: ResultDiscover? = nil ) {
         super.init(nibName: nib, bundle: Bundle(for: OverlayViewController.self))
-        self.infos = infos
+        self.seriesPop = seriesPop
+        self.seriesOnAir = seriesOnAir
+        self.discoverMovies = discoverMovies
     }
     
     required init?(coder: NSCoder) {
@@ -42,30 +46,58 @@ class OverlayViewController: UIViewController {
     }
     
     func setupLabels() {
-        labelTitle.text = infos.name
-        labelOverview.text = infos.overview
-        
-        let string = NSMutableAttributedString()
-        let attributes1 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.blue]
-        let attributes2 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red]
-        let attributes3 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.black]
-        
-        if infos.voteAverage! > 5 {
-            string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
-            string.append(NSAttributedString(string: String(infos.voteAverage!), attributes: attributes1))
+        if seriesPop != nil {
+            labelTitle.text = seriesPop.name
+            labelOverview.text = seriesPop.overview
+            
+            let string = NSMutableAttributedString()
+            let attributes1 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.blue]
+            let attributes2 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red]
+            let attributes3 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.black]
+            
+            if seriesPop.voteAverage! > 5 {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(seriesPop.voteAverage!), attributes: attributes1))
+            } else {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(seriesPop.voteAverage!), attributes: attributes2))
+            }
+            labelAverage.attributedText = string
         } else {
-            string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
-            string.append(NSAttributedString(string: String(infos.voteAverage!), attributes: attributes2))
+            labelTitle.text = discoverMovies.title
+            labelOverview.text = discoverMovies.overview
+            
+            let string = NSMutableAttributedString()
+            let attributes1 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.blue]
+            let attributes2 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red]
+            let attributes3 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.black]
+            
+            if discoverMovies.voteAverage! > 5 {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(discoverMovies.voteAverage!), attributes: attributes1))
+            } else {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(discoverMovies.voteAverage!), attributes: attributes2))
+            }
+            labelAverage.attributedText = string
         }
-        labelAverage.attributedText = string
+        
     }
     
     
     @IBAction func goToTrailerTapped(_ sender: Any) {
-        let vc = TrailerViewController(videoID: infos.id!)
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true, completion: nil)
+        if seriesPop != nil {
+            let vc = TrailerViewController(videoID: seriesPop.id!)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true, completion: nil)
+        } else {
+            let vc = TrailerViewController(videoID: discoverMovies.id!)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true, completion: nil)
+        }
+        
     }
     
 }

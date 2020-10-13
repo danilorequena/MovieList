@@ -35,6 +35,7 @@
 		FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11B250D90F500C780A6 /* TrailerViewController.swift */; };
 		FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */; };
 		FF5AC120250D96C700C780A6 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11F250D96C700C780A6 /* Videos.swift */; };
+		FF6CDB9B25351DAC002DC3B7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */; };
 		FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */; };
 		FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */; };
 		FF7B6A742518225800DEBA7E /* DetailsSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A732518225800DEBA7E /* DetailsSeries.swift */; };
@@ -105,6 +106,7 @@
 		FF5AC11B250D90F500C780A6 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerViewController.xib; sourceTree = "<group>"; };
 		FF5AC11F250D96C700C780A6 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
+		FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		FF7B6A732518225800DEBA7E /* DetailsSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSeries.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */,
 				FF92EE6D251C3D86006B8E48 /* OverlayViewModel.swift */,
 				FF0D460625200CF40069A74A /* DiscoverViewModel.swift */,
+				FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				FF5AC10F250CFA8800C780A6 /* PopularCollectionViewCell.swift in Sources */,
 				FFC806842432E10C00402878 /* MovieTableViewCell.swift in Sources */,
 				FF80D587250EDC5500A15326 /* DetailSeriesOnAirViewController.swift in Sources */,
+				FF6CDB9B25351DAC002DC3B7 /* DetailViewModel.swift in Sources */,
 				FF0D460725200CF40069A74A /* DiscoverViewModel.swift in Sources */,
 				FF5AC120250D96C700C780A6 /* Videos.swift in Sources */,
 				FFA8EA2425215B4000FA6117 /* DiscoverCollectViewCell.swift in Sources */,

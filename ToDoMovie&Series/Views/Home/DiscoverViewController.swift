@@ -48,6 +48,12 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
         cell.setupCell(movie: movies!)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = viewModel?.movies[indexPath.item]
+        let detail = DetailPopSeriesViewController(discoverMovies: movie)
+        self.navigationController?.pushViewController(detail, animated: true)
+    }
 }
 
 extension DiscoverViewController: DiscoverViewModelDelegate {

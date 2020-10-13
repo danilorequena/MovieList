@@ -15,7 +15,8 @@ enum CardState {
 }
 
 protocol CardInfosProtocol {
-    func setupCard(mainView: UIView, infos: ResultSeries)
+    func setupCardPop(mainView: UIView, infos: ResultSeries)
+    func setupCardMovies(mainView: UIView, infos: ResultDiscover)
 }
 
 class CardInfos: CardInfosProtocol {
@@ -30,7 +31,7 @@ class CardInfos: CardInfosProtocol {
     var runningAnimations = [UIViewPropertyAnimator]()
     var animationProgressWhenInterrupted: CGFloat =  0
     
-    func setupCard(mainView: UIView, infos: ResultSeries) {
+    func setupCardPop(mainView: UIView, infos: ResultSeries) {
         endCardHeight =  mainView.frame.height * 0.8
         startCardHeight =  mainView.frame.height / 3
         
@@ -38,7 +39,28 @@ class CardInfos: CardInfosProtocol {
         visualEffectView.frame = mainView.frame
         mainView.addSubview(visualEffectView)
         
-        cardViewController = OverlayViewController(infos: infos)
+        cardViewController = OverlayViewController(seriesPop: infos)
+        mainView.addSubview(cardViewController.view)
+        cardViewController.view.frame = CGRect(x: 0, y: mainView.frame.height / 2, width: mainView.bounds.width, height: endCardHeight)
+        cardViewController.view.clipsToBounds = true
+        cardViewController.view.layer.cornerRadius = 10
+
+        let tapGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleCardTap(recognzier:view:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCardPan(recognizer:view:)))
+
+        cardViewController.handleView.addGestureRecognizer(tapGestureRecognizer)
+        cardViewController.handleView.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    func setupCardMovies(mainView: UIView, infos: ResultDiscover) {
+        endCardHeight =  mainView.frame.height * 0.8
+        startCardHeight =  mainView.frame.height / 3
+        
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = mainView.frame
+        mainView.addSubview(visualEffectView)
+        
+        cardViewController = OverlayViewController(discoverMovies: infos)
         mainView.addSubview(cardViewController.view)
         cardViewController.view.frame = CGRect(x: 0, y: mainView.frame.height / 2, width: mainView.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
