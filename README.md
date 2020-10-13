@@ -11,6 +11,8 @@ Features em Construção:
 - Tela de favoritos (Core Data).
 - implemetação de coordinator. [x]
 
+OBS. Branch com as novas features: V2/Refactor
+
 Consome API do TMDb.
 
 <img src="https://github.com/danilorequena/MovieList/blob/master/imgs/img1.png" width="300">, <img src="https://github.com/danilorequena/MovieList/blob/master/imgs/movies.gif" width="300">
