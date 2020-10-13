@@ -2,14 +2,14 @@
 TV Shows iOS
 
 
-Projeto em Swift 5 MVVM (Coordinator em construção), lista alguns TV Shows, populares e atuais no ar, e apresenta algumas informações sobre a Série escolhida.
+Projeto em Swift 5 MVVM - C, lista alguns TV Shows, populares e atuais no ar, e apresenta algumas informações sobre a Série escolhida.
 
 Features em Construção:
 
 - Trailers.
 - Tela de Filmes.
 - Tela de favoritos (Core Data).
-- implemetação de coordinator.
+- implemetação de coordinator. [x]
 
 Consome API do TMDb.
 
