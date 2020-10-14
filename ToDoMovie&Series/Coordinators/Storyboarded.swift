@@ -30,7 +30,7 @@ extension Storyboaded where Self: UIViewController {
     
     static func instantiateSeries() -> Self {
         let id = String(describing: self)
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Series", bundle: Bundle.main)
         
         return storyboard.instantiateViewController(withIdentifier: id) as! Self
     }

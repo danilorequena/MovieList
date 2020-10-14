@@ -24,13 +24,6 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func series() { 
-//        navigationController.delegate = self
-        let vc = HomeSeriesViewController.instantiateSeries()
-        vc.tabBarItem = UITabBarItem(title: "Tv Shows", image: UIImage(named: "serie"), tag: 1)
-//        navigationController.pushViewController(vc, animated: false)
-    }
-    
     func detail(discoverMovies: ResultDiscover) {
         let child = DetailCoordinator(navigationController: navigationController, discoverMovies: discoverMovies)
         child.parentCoordinator = self

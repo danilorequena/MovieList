@@ -47,7 +47,7 @@
 		FF92EE6E251C3D86006B8E48 /* OverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF92EE6D251C3D86006B8E48 /* OverlayViewModel.swift */; };
 		FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B219242ED04300C5FF83 /* AppDelegate.swift */; };
 		FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */; };
-		FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF95B21F242ED04300C5FF83 /* Main.storyboard */; };
+		FF95B221242ED04300C5FF83 /* Series.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF95B21F242ED04300C5FF83 /* Series.storyboard */; };
 		FF95B224242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF95B222242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld */; };
 		FF95B226242ED05000C5FF83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF95B225242ED05000C5FF83 /* Assets.xcassets */; };
 		FF95B229242ED05000C5FF83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF95B227242ED05000C5FF83 /* LaunchScreen.storyboard */; };
@@ -121,7 +121,7 @@
 		FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoMovie&Series.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF95B219242ED04300C5FF83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF95B220242ED04300C5FF83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF95B220242ED04300C5FF83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Series.storyboard; sourceTree = "<group>"; };
 		FF95B223242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoMovie_Series.xcdatamodel; sourceTree = "<group>"; };
 		FF95B225242ED05000C5FF83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF95B228242ED05000C5FF83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		FF5AC10B250CF9F100C780A6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				FF95B21F242ED04300C5FF83 /* Main.storyboard */,
+				FF95B21F242ED04300C5FF83 /* Series.storyboard */,
 				FF95B227242ED05000C5FF83 /* LaunchScreen.storyboard */,
 				FF0D4600252009300069A74A /* Discover.storyboard */,
 				FF0D460225200B7F0069A74A /* DiscoverViewController.swift */,
@@ -425,7 +425,7 @@
 				FF5AC119250D2DE400C780A6 /* OnTheAirCollectionViewCell.xib in Resources */,
 				FF271614252FD87600370ED1 /* DetailViewController.storyboard in Resources */,
 				FFA8EA1E2520414A00FA6117 /* DiscoverMoviesViewController.xib in Resources */,
-				FF95B221242ED04300C5FF83 /* Main.storyboard in Resources */,
+				FF95B221242ED04300C5FF83 /* Series.storyboard in Resources */,
 				FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */,
 				FF08C6C4250723270007F26F /* SeriesOnAirViewController.xib in Resources */,
 				FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */,
@@ -492,12 +492,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FF95B21F242ED04300C5FF83 /* Main.storyboard */ = {
+		FF95B21F242ED04300C5FF83 /* Series.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FF95B220242ED04300C5FF83 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Series.storyboard;
 			sourceTree = "<group>";
 		};
 		FF95B227242ED05000C5FF83 /* LaunchScreen.storyboard */ = {
