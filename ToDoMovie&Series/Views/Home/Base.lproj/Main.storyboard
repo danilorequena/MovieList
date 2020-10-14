@@ -11,13 +11,13 @@
         <!--Best Series-->
         <scene sceneID="R86-AN-fcp">
             <objects>
-                <viewController storyboardIdentifier="SeriesViewController" id="PG5-CR-soE" customClass="HomeSeriesViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeSeriesViewController" id="PG5-CR-soE" customClass="HomeSeriesViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zd0-dB-rY3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdv-YX-cdx">
-                                <rect key="frame" x="0.0" y="140" width="375" height="672"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="AMT-hb-Fhn">
                                         <rect key="frame" x="0.0" y="20" width="375" height="542"/>
@@ -132,23 +132,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlO-1j-jhv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3452" y="1013.7931034482759"/>
-        </scene>
-        <!--Series-->
-        <scene sceneID="79L-oT-tz3">
-            <objects>
-                <navigationController id="Zo5-JG-z2l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Series" id="6iz-Pv-WYL"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="WGW-Mb-FfD">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="PG5-CR-soE" kind="relationship" relationship="rootViewController" id="QPh-9X-Gjm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jpD-ZQ-cHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2268" y="1014"/>
         </scene>
     </scenes>
     <resources>

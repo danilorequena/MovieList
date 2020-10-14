@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeSeriesViewController: UIViewController {
+class HomeSeriesViewController: UIViewController, Storyboaded {
     var mainViewModel: MainViewModel?
     var label: UILabel = {
        let label = UILabel()

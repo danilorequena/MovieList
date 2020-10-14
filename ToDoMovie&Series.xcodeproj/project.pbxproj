@@ -66,6 +66,7 @@
 		FFC806842432E10C00402878 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC806822432E10C00402878 /* MovieTableViewCell.swift */; };
 		FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */; };
 		FFDC28EE253553F0003B58B5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */; };
+		FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,6 +142,7 @@
 		FFC806822432E10C00402878 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 		FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				FF0D460B252019060069A74A /* Coordinator.swift */,
 				FF0D46112520345B0069A74A /* Storyboarded.swift */,
 				FF0D4613252035EC0069A74A /* MainCoordinator.swift */,
+				FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */,
 				FF271611252FD78200370ED1 /* DetailCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -468,6 +471,7 @@
 				FFA8EA28252185C400FA6117 /* UICollectionView+Helper.swift in Sources */,
 				FFA8EA1D2520414A00FA6117 /* DiscoverMoviesViewController.swift in Sources */,
 				FF6CDB9D253532FA002DC3B7 /* DetailViewController.swift in Sources */,
+				FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */,
 				FF95B231242ED2A900C5FF83 /* MoviesTableViewController.swift in Sources */,
 				FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */,
 				FF0D4614252035EC0069A74A /* MainCoordinator.swift in Sources */,

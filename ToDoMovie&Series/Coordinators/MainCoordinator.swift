@@ -21,8 +21,14 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.delegate = self
         let vc = DiscoverViewController.instantiate()
         vc.tabBarItem = UITabBarItem(title: "Discover", image: UIImage(named: "movie"), tag: 0)
-        vc.tabBarItem = UITabBarItem(title: "Tv Shows", image: UIImage(named: "serie"), tag: 1) //Colocar a tela de Series aqui
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func series() { 
+//        navigationController.delegate = self
+        let vc = HomeSeriesViewController.instantiateSeries()
+        vc.tabBarItem = UITabBarItem(title: "Tv Shows", image: UIImage(named: "serie"), tag: 1)
+//        navigationController.pushViewController(vc, animated: false)
     }
     
     func detail(discoverMovies: ResultDiscover) {
