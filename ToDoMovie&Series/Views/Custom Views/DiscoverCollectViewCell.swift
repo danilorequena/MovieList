@@ -1,21 +1,21 @@
 //
-//  PopularCollectionViewCell.swift
+//  DiscoverCollectViewCell.swift
 //  ToDoMovie&Series
 //
-//  Created by Danilo Requena on 12/09/20.
+//  Created by Danilo Requena on 27/09/20.
 //  Copyright © 2020 Danilo Requena. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
 
-class PopularCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var popularImage: UIImageView!
+class DiscoverCollectViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imgDiscoverMovie: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.shadowDefault()
+        shadowDefault()
     }
     
     class func loadNib() -> UINib {
@@ -26,13 +26,27 @@ class PopularCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    func prepareCell(with serie: ResultSeries) {
-        if let posterPath = serie.posterPath {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w200" + posterPath)
+    func transformToLarge() {
+        UIView.animate(withDuration: 0.2) {
+            self.transform = CGAffineTransform(scaleX: 1.50, y: 1.50)
+        }
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+    }
+    
+    func transformToStandard() {
+        UIView.animate(withDuration: 0.2) {
+            self.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func setupCell(movie: ResultDiscover) {
+        if let posterPath = movie.posterPath {
+            let posterURL = URL(string: "https://image.tmdb.org/t/p/original" + posterPath)
 //            guard let data = try? Data(contentsOf: posterURL!) else { return }
 //            self.popularImage.image = UIImage(data: data)
-            let processor = DownsamplingImageProcessor(size: popularImage.bounds.size)
-            self.popularImage.kf.setImage(
+            let processor = DownsamplingImageProcessor(size: imgDiscoverMovie.bounds.size)
+            self.imgDiscoverMovie.kf.setImage(
                 with: posterURL,
                 placeholder: UIImage(named: "placeholderImage"),
                 options: [
@@ -50,9 +64,9 @@ class PopularCollectionViewCell: UICollectionViewCell {
                             print("Job failed: \(error.localizedDescription)")
                         }
                     })
-            self.popularImage.clipsToBounds = true
-            self.popularImage.layer.cornerRadius = 10
+            self.imgDiscoverMovie.clipsToBounds = true
+            self.imgDiscoverMovie.layer.cornerRadius = 10
         }
     }
-
+    
 }

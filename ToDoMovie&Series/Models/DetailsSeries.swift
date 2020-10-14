@@ -21,7 +21,7 @@ struct PopularSeriesDetails: Codable {
     let inProduction: Bool?
     let languages: [String]?
     let lastAirDate: String?
-    let lastEpisodeToAir: TEpisodeToAir?
+//    let lastEpisodeToAir: TEpisodeToAir?
     let name: String?
     let nextEpisodeToAir: TEpisodeToAir?
     let networks: [Network]?
@@ -45,7 +45,7 @@ struct PopularSeriesDetails: Codable {
         case inProduction = "in_production"
         case languages
         case lastAirDate = "last_air_date"
-        case lastEpisodeToAir = "last_episode_to_air"
+//        case lastEpisodeToAir = "last_episode_to_air"
         case name
         case nextEpisodeToAir = "next_episode_to_air"
         case networks

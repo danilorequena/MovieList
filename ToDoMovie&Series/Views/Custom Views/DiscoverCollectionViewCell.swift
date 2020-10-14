@@ -1,21 +1,22 @@
 //
-//  PopularCollectionViewCell.swift
+//  DiscoverCollectionViewCell.swift
 //  ToDoMovie&Series
 //
-//  Created by Danilo Requena on 12/09/20.
+//  Created by Danilo Requena on 27/09/20.
 //  Copyright © 2020 Danilo Requena. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
 
-class PopularCollectionViewCell: UICollectionViewCell {
+class DiscoverCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var popularImage: UIImageView!
+    @IBOutlet weak var imgDiscover: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.shadowDefault()
+        shadowDefault()
     }
     
     class func loadNib() -> UINib {
@@ -26,13 +27,13 @@ class PopularCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    func prepareCell(with serie: ResultSeries) {
-        if let posterPath = serie.posterPath {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w200" + posterPath)
+    func setupCell(movie: ResultDiscover) {
+        if let posterPath = movie.posterPath {
+            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
 //            guard let data = try? Data(contentsOf: posterURL!) else { return }
 //            self.popularImage.image = UIImage(data: data)
-            let processor = DownsamplingImageProcessor(size: popularImage.bounds.size)
-            self.popularImage.kf.setImage(
+            let processor = DownsamplingImageProcessor(size: imgDiscover.bounds.size)
+            self.imgDiscover.kf.setImage(
                 with: posterURL,
                 placeholder: UIImage(named: "placeholderImage"),
                 options: [
@@ -50,8 +51,8 @@ class PopularCollectionViewCell: UICollectionViewCell {
                             print("Job failed: \(error.localizedDescription)")
                         }
                     })
-            self.popularImage.clipsToBounds = true
-            self.popularImage.layer.cornerRadius = 10
+            self.imgDiscover.clipsToBounds = true
+            self.imgDiscover.layer.cornerRadius = 10
         }
     }
 
