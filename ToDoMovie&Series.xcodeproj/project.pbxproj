@@ -67,6 +67,8 @@
 		FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */; };
 		FFDC28EE253553F0003B58B5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */; };
 		FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */; };
+		FFDC28F42536A2F8003B58B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFDC28F32536A2F8003B58B5 /* Localizable.strings */; };
+		FFDC28F62536A3BF003B58B5 /* String+LocalizableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -143,6 +145,8 @@
 		FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 		FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCoordinator.swift; sourceTree = "<group>"; };
+		FFDC28F32536A2F8003B58B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizableHelper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				FF0D460B252019060069A74A /* Coordinator.swift */,
-				FF0D46112520345B0069A74A /* Storyboarded.swift */,
 				FF0D4613252035EC0069A74A /* MainCoordinator.swift */,
 				FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */,
 				FF271611252FD78200370ED1 /* DetailCoordinator.swift */,
@@ -186,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				FF11689A2506FEB200F30652 /* UIView+Extension.swift */,
+				FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */,
 				FF08C6CA250B29920007F26F /* UIViewController+Extension.swift */,
 				FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */,
 				FFA8EA27252185C400FA6117 /* UICollectionView+Helper.swift */,
@@ -198,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				FF11689D25070A2200F30652 /* Constants.swift */,
+				FFDC28F32536A2F8003B58B5 /* Localizable.strings */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				FF0D460A252018DD0069A74A /* Coordinators */,
 				FF11689C25070A1000F30652 /* Utils */,
 				FF1168992506FE9500F30652 /* Helpers */,
+				FF0D46112520345B0069A74A /* Storyboarded.swift */,
 				FFC4702924D4BCD40046877B /* Service */,
 				FF95B23B2431562F00C5FF83 /* Models */,
 				FF95B238243155ED00C5FF83 /* Views */,
@@ -428,6 +434,7 @@
 				FF95B221242ED04300C5FF83 /* Series.storyboard in Resources */,
 				FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */,
 				FF08C6C4250723270007F26F /* SeriesOnAirViewController.xib in Resources */,
+				FFDC28F42536A2F8003B58B5 /* Localizable.strings in Resources */,
 				FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */,
 				FFA8EA22252046EC00FA6117 /* DiscoverCollectionViewCell.xib in Resources */,
 				FF5AC110250CFA8800C780A6 /* PopularCollectionViewCell.xib in Resources */,
@@ -453,6 +460,7 @@
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
 				FF11689E25070A2200F30652 /* Constants.swift in Sources */,
 				FF3B31BF252FE87B00C86820 /* CardInfos+Helper.swift in Sources */,
+				FFDC28F62536A3BF003B58B5 /* String+LocalizableHelper.swift in Sources */,
 				FF95B23D2431565D00C5FF83 /* Movie.swift in Sources */,
 				FF11689B2506FEB200F30652 /* UIView+Extension.swift in Sources */,
 				FF95B23F2431582D00C5FF83 /* RequestAPI.swift in Sources */,

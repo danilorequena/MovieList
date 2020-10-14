@@ -16,21 +16,21 @@ protocol Storyboaded {
 extension Storyboaded where Self: UIViewController {
     static func instantiate() -> Self {
         let id = String(describing: self)
-        let storyboard = UIStoryboard(name: "Discover", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "home.discover".loalized, bundle: Bundle.main)
         
         return storyboard.instantiateViewController(withIdentifier: id) as! Self
     }
     
     static func instantiateDetail() -> Self {
         let id = String(describing: self)
-        let storyboard = UIStoryboard(name: "DetailViewController", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "home.detail".loalized, bundle: Bundle.main)
         
         return storyboard.instantiateViewController(withIdentifier: id) as! Self
     }
     
     static func instantiateSeries() -> Self {
         let id = String(describing: self)
-        let storyboard = UIStoryboard(name: "Series", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "home.series".loalized, bundle: Bundle.main)
         
         return storyboard.instantiateViewController(withIdentifier: id) as! Self
     }
