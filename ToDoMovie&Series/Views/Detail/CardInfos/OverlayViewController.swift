@@ -87,12 +87,12 @@ class OverlayViewController: UIViewController {
     
     @IBAction func goToTrailerTapped(_ sender: Any) {
         if seriesPop != nil {
-            let vc = TrailerViewController(videoID: seriesPop.id!)
+            let vc = TrailerViewController(videoID: seriesPop.id!, media: "tv")
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true, completion: nil)
         } else {
-            let vc = TrailerViewController(videoID: discoverMovies.id!)
+            let vc = TrailerViewController(videoID: discoverMovies.id!, media: "movie")
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true, completion: nil)

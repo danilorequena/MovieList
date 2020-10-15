@@ -10,6 +10,7 @@ import Foundation
 
 protocol OverlayViewModelProtocol: AnyObject {
     func fetchDetailsSeries(id: Int)
+    func fetchDiscoverMovies(id: Int)
 }
 
 protocol OverlayViewModelDelegate: AnyObject {
@@ -37,7 +38,10 @@ class OverlayViewModel: OverlayViewModelProtocol {
         } onError: { (error) in
             self.delegate?.errorList()
         }
-
+    }
+    
+    func fetchDiscoverMovies(id: Int) {
+        
     }
 }
 
