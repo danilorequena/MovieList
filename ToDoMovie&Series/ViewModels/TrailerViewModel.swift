@@ -10,7 +10,7 @@ import Foundation
 import WebKit
 
 protocol TrailerViewModelProtocol: AnyObject {
-    func fetchVideo(videoKey: Int)
+    func fetchVideo(videoKey: Int, media: String)
     func getTrailer(videoCode: String, webView: WKWebView)
 }
 
@@ -24,8 +24,8 @@ class TrailerViewModel: TrailerViewModelProtocol {
     var videos: [ResultVideos] = []
     var videoCode: String?
     
-    func fetchVideo(videoKey: Int) {
-        let url = "https://api.themoviedb.org/3/tv/\(videoKey)/videos?api_key=ddf20e1d6a0147313cfd3b4ac419e373&language=en-US"
+    func fetchVideo(videoKey: Int, media: String) {
+        let url = "https://api.themoviedb.org/3/\(media)/\(videoKey)/videos?api_key=ddf20e1d6a0147313cfd3b4ac419e373&language=en-US"
         RequestAPI.loadVideos(url: url) { (videos) in
             if let videos = videos {
                 self.videos += videos.results ?? []

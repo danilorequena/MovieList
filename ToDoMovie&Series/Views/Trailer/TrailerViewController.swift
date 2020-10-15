@@ -11,6 +11,7 @@ import WebKit
 
 class TrailerViewController: UIViewController {
     var videoKey: Int?
+    var media: String?
     let nib = "TrailerViewController"
     var viewmodel: TrailerViewModel?
 
@@ -19,12 +20,13 @@ class TrailerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewmodel = TrailerViewModel()
-        viewmodel?.fetchVideo(videoKey: videoKey ?? 0)
+        viewmodel?.fetchVideo(videoKey: videoKey ?? 0, media: media ?? String())
         viewmodel?.delegate = self
     }
     
-    required init(videoID: Int) {
+    required init(videoID: Int, media: String) {
         self.videoKey = videoID
+        self.media = media
         super.init(nibName: nib, bundle: Bundle(for: TrailerViewController.self))
     }
     
