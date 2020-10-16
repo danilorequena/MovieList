@@ -54,7 +54,7 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let movie = viewModel?.movies[indexPath.item] else { return }
         let coordinator = MainCoordinator(navigationController: self.navigationController!)
-        coordinator.detail(discoverMovies: movie)
+        coordinator.detailDiscover(discoverMovies: movie)
     }
 }
 

@@ -31,8 +31,6 @@ class WereWatchCollectionViewCell: UICollectionViewCell {
     func prepareCell(with serie: Network) {
         if let logoPath = serie.logoPath {
             guard let logoURL = URL(string: "https://image.tmdb.org/t/p/w92" + logoPath) else { return }
-//            guard let data = try? Data(contentsOf: logoURL) else { return }
-//            self.wereWatchImage.image = UIImage(data: data)
             let processor = DownsamplingImageProcessor(size: wereWatchImage.bounds.size)
             self.wereWatchImage.kf.setImage(
                 with: logoURL,

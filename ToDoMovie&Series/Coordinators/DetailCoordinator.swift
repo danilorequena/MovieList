@@ -18,14 +18,18 @@ class DetailCoordinator: Coordinator {
     var discoverMovies: ResultDiscover?
     
     
-    init(navigationController: UINavigationController, discoverMovies: ResultDiscover?) {
+    init(navigationController: UINavigationController, discoverMovies: ResultDiscover? = nil, popSeries: ResultSeries? = nil, onAirSeries: ResultSeriesOnAir? = nil ) {
         self.navigationController = navigationController
         self.discoverMovies = discoverMovies
+        self.seriesPop = popSeries
     }
     
     func start() {
         let vc = DetailViewController.instantiateDetail()
         vc.discoverMovies = discoverMovies
+        vc.seriesPop = seriesPop
+        //TODO: - Resolver o Bug que não estå carregando o detalhe de series onAir
+        vc.seriesOnAir = seriesOnAir
         navigationController.pushViewController(vc, animated: true)
     }
 }
