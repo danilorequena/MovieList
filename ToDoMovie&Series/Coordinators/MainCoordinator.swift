@@ -24,8 +24,22 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func detail(discoverMovies: ResultDiscover) {
+    func detailDiscover(discoverMovies: ResultDiscover) {
         let child = DetailCoordinator(navigationController: navigationController, discoverMovies: discoverMovies)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
+    }
+    
+    func detailSeries(popSeries: ResultSeries) {
+        let child = DetailCoordinator(navigationController: navigationController, popSeries: popSeries)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
+    }
+    
+    func detailSeriesOnAir(onAirSeries: ResultSeriesOnAir) {
+        let child = DetailCoordinator(navigationController: navigationController, onAirSeries: onAirSeries)
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()

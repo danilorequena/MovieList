@@ -17,6 +17,7 @@ enum CardState {
 protocol CardInfosProtocol {
     func setupCardPop(mainView: UIView, infos: ResultSeries)
     func setupCardMovies(mainView: UIView, infos: ResultDiscover)
+    func setupCardOnAir(mainView: UIView, infos: ResultSeriesOnAir)
 }
 
 class CardInfos: CardInfosProtocol {
@@ -40,6 +41,27 @@ class CardInfos: CardInfosProtocol {
         mainView.addSubview(visualEffectView)
         
         cardViewController = OverlayViewController(seriesPop: infos)
+        mainView.addSubview(cardViewController.view)
+        cardViewController.view.frame = CGRect(x: 0, y: mainView.frame.height / 2, width: mainView.bounds.width, height: endCardHeight)
+        cardViewController.view.clipsToBounds = true
+        cardViewController.view.layer.cornerRadius = 10
+
+        let tapGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleCardTap(recognzier:view:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCardPan(recognizer:view:)))
+
+        cardViewController.handleView.addGestureRecognizer(tapGestureRecognizer)
+        cardViewController.handleView.addGestureRecognizer(panGestureRecognizer)
+    }
+    
+    func setupCardOnAir(mainView: UIView, infos: ResultSeriesOnAir) {
+        endCardHeight =  mainView.frame.height * 0.8
+        startCardHeight =  mainView.frame.height / 3
+        
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = mainView.frame
+        mainView.addSubview(visualEffectView)
+        
+        cardViewController = OverlayViewController(seriesOnAir: infos)
         mainView.addSubview(cardViewController.view)
         cardViewController.view.frame = CGRect(x: 0, y: mainView.frame.height / 2, width: mainView.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
