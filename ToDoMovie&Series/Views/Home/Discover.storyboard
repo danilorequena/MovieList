@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,35 +25,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CHZ-OC-Y7w" customClass="DiscoverCollectViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="141" width="248" height="369"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Aqz-3Q-d3V">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="369"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t71-ew-SV3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="248" height="369"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="265" id="Dnh-0b-zU7"/>
-                                                        <constraint firstAttribute="height" constant="500" id="tHF-at-BUg"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="t71-ew-SV3" secondAttribute="bottom" id="0HS-aO-NUA"/>
-                                                <constraint firstAttribute="trailing" secondItem="t71-ew-SV3" secondAttribute="trailing" id="JMn-sF-a25"/>
-                                                <constraint firstItem="t71-ew-SV3" firstAttribute="top" secondItem="Aqz-3Q-d3V" secondAttribute="top" id="SCf-gM-qPg"/>
-                                                <constraint firstItem="t71-ew-SV3" firstAttribute="leading" secondItem="Aqz-3Q-d3V" secondAttribute="leading" id="jBL-AF-Hq2"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="248" height="369"/>
-                                        <connections>
-                                            <outlet property="imgDiscoverMovie" destination="t71-ew-SV3" id="P29-y2-2oR"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wQl-sz-6o6"/>
