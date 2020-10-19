@@ -13,8 +13,8 @@ class DetailViewController: UIViewController, Storyboaded {
     @IBOutlet weak var imgBackdrop: UIImageView!
     
     weak var coordinator: DetailCoordinator?
-    
-    let vcDetailSeriesViewController = "DatailSeriesViewController"
+    var titleNavigation: String?
+    var titleSeriesNav: String?
     var seriesPop: ResultSeries?
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
@@ -23,9 +23,9 @@ class DetailViewController: UIViewController, Storyboaded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Pop Series", preferredLargeTitle: true)
         viewModel = DetailViewModel()
         viewModel?.fetchDetails(id: viewModel?.discoverMovies?.id ?? 0)
+        viewModel?.setNavigation(controller: self, title: titleNavigation ?? "")
         cardInfos = CardInfos()
         loadCard()
     }

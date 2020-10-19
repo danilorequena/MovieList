@@ -28,6 +28,11 @@ class DetailCoordinator: Coordinator {
         let vc = DetailViewController.instantiateDetail()
         vc.discoverMovies = discoverMovies
         vc.seriesPop = seriesPop
+        if discoverMovies != nil {
+            vc.titleNavigation = discoverMovies?.originalTitle
+        } else {
+            vc.titleNavigation = seriesPop?.originalName
+        }
         //TODO: - Resolver o Bug que não estå carregando o detalhe de series onAir
         vc.seriesOnAir = seriesOnAir
         navigationController.pushViewController(vc, animated: true)

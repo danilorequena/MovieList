@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol DiscoverProtocol: AnyObject {
@@ -29,6 +30,9 @@ class DiscoverViewModel: DiscoverProtocol {
         } onError: { (error) in
             self.delegate?.errorList()
         }
-
+    }
+    
+    func configureNavigate(controller: UIViewController) {
+        controller.configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Discover", preferredLargeTitle: true)
     }
 }
