@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ToDoMovie&Series
+
+  Created by Danilo Requena on 14/10/20.
+  Copyright © 2020 Danilo Requena. All rights reserved.
+*/
+
+//Storyboards Names
+"home.discover" = "Discover";
+"home.series" = "Series";
+"home.detail" = "DetailViewController";
+
+//TabBarItems Names
+"tab.discover" = "Discover";
+"tab.tvShows" = "Tv Shows";
