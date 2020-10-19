@@ -20,10 +20,10 @@ class DiscoverViewController: UIViewController, Storyboaded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Discover", preferredLargeTitle: true)
         setupCollection()
         viewModel = DiscoverViewModel()
         viewModel?.delegate = self
+        viewModel?.configureNavigate(controller: self)
         viewModel?.fetchDiscoverMovies()
     }
 
