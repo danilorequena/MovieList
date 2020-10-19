@@ -51,7 +51,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor dos Movies")
                 }
             } else {
                 onError(.taskError(error: error!))
@@ -61,6 +61,74 @@ class RequestAPI {
         dataTask.resume()
     }
     
+    class func loadDiscoverMovies(onComplete: @escaping (DiscoverMovies?) -> Void, onError: @escaping (Err) -> Void) {
+        guard let url = URL(string: Constants.basePathMovies + Constants.apiKey + "&language=pt-BR&page=1") else {
+            onError(.url)
+            return
+        }
+        let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {
+                    onError(.noResponse)
+                    print("No Error")
+                    return
+                }
+                if response.statusCode == 200 {
+                    guard let data = data else { return }
+                    do {
+                        let movies = try JSONDecoder().decode(DiscoverMovies.self, from: data)
+                        onComplete(movies)
+                        print("FetchOK")
+                    } catch let jsonErr {
+                        onError(.invalidJSON)
+                        print("Error serializing json:", jsonErr)
+                    }
+                } else {
+                   onError(.responseStatusCode(code: response.statusCode))
+                    print("Algo deu Errado no servidor DiscoverMovies")
+                }
+            } else {
+                onError(.taskError(error: error!))
+                print("Algo errado")
+            }
+        }
+        dataTask.resume()
+    }
+    
+    class func loadDiscoverMoviesDetails(id: Int, onComplete: @escaping (PopularSeriesDetails?) -> Void, onError: @escaping (Err) -> Void) {
+        let stringURL = "https://api.themoviedb.org/3/tv/\(id)?api_key=\(Constants.apiKey)&language=en-US"
+        guard let url = URL(string: stringURL) else {
+            onError(.url)
+            return
+        }
+        let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {
+                    onError(.noResponse)
+                    print("No Error")
+                    return
+                }
+                if response.statusCode == 200 {
+                    guard let data = data else { return }
+                    do {
+                        let serie = try JSONDecoder().decode(PopularSeriesDetails.self, from: data)
+                        onComplete(serie)
+                        print("FetchOK")
+                    } catch let jsonErr {
+                        onError(.invalidJSON)
+                        print("Error serializing json:", jsonErr)
+                    }
+                } else {
+                   onError(.responseStatusCode(code: response.statusCode))
+                    print("Algo deu Errado no servidor dos detalhes DiscoverMovies")
+                }
+            } else {
+                onError(.taskError(error: error!))
+                print("Algo errado")
+            }
+        }
+        dataTask.resume()
+    }
     
     class func loadPopularSeries(url: String, onComplete: @escaping (PopularSeries?) -> Void, onError: @escaping (Err) -> Void) {
         guard let url = URL(string: url) else {
@@ -86,7 +154,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor das series populares")
                 }
             } else {
                 onError(.taskError(error: error!))
@@ -155,7 +223,42 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor das seriesOnAir")
+                }
+            } else {
+                onError(.taskError(error: error!))
+                print("Algo errado")
+            }
+        }
+        dataTask.resume()
+    }
+    
+    class func loadPopularSeriesDetails(id: Int, onComplete: @escaping (PopularSeriesDetails?) -> Void, onError: @escaping (Err) -> Void) {
+        let stringURL = "https://api.themoviedb.org/3/tv/\(id)?api_key=\(Constants.apiKey)&language=en-US"
+        guard let url = URL(string: stringURL) else {
+            onError(.url)
+            return
+        }
+        let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {
+                    onError(.noResponse)
+                    print("No Error")
+                    return
+                }
+                if response.statusCode == 200 {
+                    guard let data = data else { return }
+                    do {
+                        let serie = try JSONDecoder().decode(PopularSeriesDetails.self, from: data)
+                        onComplete(serie)
+                        print("FetchOK")
+                    } catch let jsonErr {
+                        onError(.invalidJSON)
+                        print("Error serializing json:", jsonErr)
+                    }
+                } else {
+                   onError(.responseStatusCode(code: response.statusCode))
+                    print("Algo deu Errado no servidor detalhes das series populares")
                 }
             } else {
                 onError(.taskError(error: error!))

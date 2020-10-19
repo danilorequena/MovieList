@@ -61,7 +61,7 @@ class DetailSeriesOnAirViewController: UIViewController {
     }
     
     @IBAction func goToTrailer(_ sender: Any) {
-        let vc = TrailerViewController(videoID: series.id ?? 30)
+        let vc = TrailerViewController(videoID: series.id ?? 30, media: "tv")
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.navigationController?.present(vc, animated: true, completion: nil)

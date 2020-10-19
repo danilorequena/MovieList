@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeSeriesViewController: UIViewController {
+class HomeSeriesViewController: UIViewController, Storyboaded {
     var mainViewModel: MainViewModel?
     var label: UILabel = {
        let label = UILabel()
@@ -37,13 +37,13 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
         collectionViewPopular.dataSource = self
         collectionViewPopular.delegate = self
         collectionViewPopular.register(PopularCollectionViewCell.loadNib(), forCellWithReuseIdentifier: PopularCollectionViewCell.identifier())
-        (collectionViewPopular.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 170)
+        (collectionViewPopular.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 200)
         collectionViewPopular.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
         
         collectionViewOnAir.dataSource = self
         collectionViewOnAir.delegate = self
         collectionViewOnAir.register(OnTheAirCollectionViewCell.loadNib(), forCellWithReuseIdentifier: OnTheAirCollectionViewCell.identifier())
-        (collectionViewOnAir.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 170)
+        (collectionViewOnAir.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 200)
         collectionViewOnAir.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
     }
     
@@ -73,13 +73,13 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("toquei aqui")
         if collectionView == collectionViewPopular {
-            let serie = mainViewModel?.seriesPopular[indexPath.item]
-            let detailSeries = DetailPopSeriesViewController(series: serie!)
-            self.navigationController?.pushViewController(detailSeries, animated: true)
+            guard let serie = mainViewModel?.seriesPopular[indexPath.item] else { return }
+            let coordinator = MainCoordinator(navigationController: self.navigationController!)
+            coordinator.detailSeries(popSeries: serie)
         } else {
-            let serie = mainViewModel?.seriesOnAir[indexPath.item]
-            let detailSeries = DetailSeriesOnAirViewController(series: serie!)
-            self.navigationController?.pushViewController(detailSeries, animated: true)
+            guard let serie = mainViewModel?.seriesOnAir[indexPath.item] else { return }
+            let coordinator = MainCoordinator(navigationController: self.navigationController!)
+            coordinator.detailSeriesOnAir(onAirSeries: serie)
         }
     }
     

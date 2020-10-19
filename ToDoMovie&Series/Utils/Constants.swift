@@ -16,5 +16,10 @@ struct Constants {
     static let basePathPopularSeries = "https://api.themoviedb.org/3/tv/popular?api_key=\(apiKey)&language=pt-BR&page="
     static let basePathLatestSeries = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=pt-BR&page="
     static let basePathSeriesOnAir = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(apiKey)&language=pt-BR&page="
-//    static let basePathVideos = "https://api.themoviedb.org/3/tv/76479/videos?api_key=ddf20e1d6a0147313cfd3b4ac419e373&language=pt-BR"
+    static let baseDiscover = "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&primary_release_date.gte=2018-01-01"
+    
+    //Screen Titles
+    
+    static let discover = "Discover"
+    static let detail = "Detail"
 }
