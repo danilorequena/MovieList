@@ -63,7 +63,7 @@ class OverlayViewController: UIViewController {
                 string.append(NSAttributedString(string: String(seriesPop?.voteAverage ?? 0.0), attributes: attributes2))
             }
             labelAverage.attributedText = string
-        } else {
+        } else if discoverMovies != nil {
             labelTitle.text = discoverMovies.title
             labelOverview.text = discoverMovies.overview
             
@@ -80,8 +80,24 @@ class OverlayViewController: UIViewController {
                 string.append(NSAttributedString(string: String(discoverMovies.voteAverage!), attributes: attributes2))
             }
             labelAverage.attributedText = string
+        } else if seriesOnAir != nil {
+            labelTitle.text = seriesOnAir.name
+            labelOverview.text = seriesOnAir.overview
+            
+            let string = NSMutableAttributedString()
+            let attributes1 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.blue]
+            let attributes2 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red]
+            let attributes3 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.black]
+            
+            if seriesOnAir.voteAverage! > 5 {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(seriesOnAir.voteAverage!), attributes: attributes1))
+            } else {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(seriesOnAir.voteAverage!), attributes: attributes2))
+            }
+            labelAverage.attributedText = string
         }
-        
     }
     
     
@@ -91,8 +107,13 @@ class OverlayViewController: UIViewController {
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true, completion: nil)
-        } else {
-            let vc = TrailerViewController(videoID: discoverMovies.id!, media: "movie")
+        } else if discoverMovies != nil {
+            let vc = TrailerViewController(videoID: discoverMovies?.id ?? 0, media: "movie")
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true, completion: nil)
+        } else if seriesOnAir != nil {
+            let vc = TrailerViewController(videoID: seriesOnAir?.id ?? 0, media: "tv")
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true, completion: nil)

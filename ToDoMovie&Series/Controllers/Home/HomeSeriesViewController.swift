@@ -77,14 +77,9 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
             let coordinator = MainCoordinator(navigationController: self.navigationController!)
             coordinator.detailSeries(popSeries: serie)
         } else {
-//            let serie = mainViewModel?.seriesOnAir[indexPath.item]
-//            let detailSeries = DetailSeriesOnAirViewController(series: serie!)
-//            self.navigationController?.pushViewController(detailSeries, animated: true)
-            
-            //TODO: - Resolver o Bug que não estå carregando o detalhe de series onAir
             guard let serie = mainViewModel?.seriesOnAir[indexPath.item] else { return }
             let coordinator = MainCoordinator(navigationController: self.navigationController!)
-//            coordinator.detailSeriesOnAir(onAirSeries: serie)
+            coordinator.detailSeriesOnAir(onAirSeries: serie)
         }
     }
     
