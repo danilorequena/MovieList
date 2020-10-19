@@ -51,7 +51,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor dos Movies")
                 }
             } else {
                 onError(.taskError(error: error!))
@@ -85,7 +85,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor DiscoverMovies")
                 }
             } else {
                 onError(.taskError(error: error!))
@@ -120,7 +120,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor dos detalhes DiscoverMovies")
                 }
             } else {
                 onError(.taskError(error: error!))
@@ -154,7 +154,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor das series populares")
                 }
             } else {
                 onError(.taskError(error: error!))
@@ -223,7 +223,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor das seriesOnAir")
                 }
             } else {
                 onError(.taskError(error: error!))
@@ -258,7 +258,7 @@ class RequestAPI {
                     }
                 } else {
                    onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor")
+                    print("Algo deu Errado no servidor detalhes das series populares")
                 }
             } else {
                 onError(.taskError(error: error!))

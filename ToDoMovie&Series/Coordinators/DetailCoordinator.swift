@@ -22,6 +22,7 @@ class DetailCoordinator: Coordinator {
         self.navigationController = navigationController
         self.discoverMovies = discoverMovies
         self.seriesPop = popSeries
+        self.seriesOnAir = onAirSeries
     }
     
     func start() {
@@ -30,10 +31,11 @@ class DetailCoordinator: Coordinator {
         vc.seriesPop = seriesPop
         if discoverMovies != nil {
             vc.titleNavigation = discoverMovies?.originalTitle
-        } else {
+        } else if seriesPop != nil {
             vc.titleNavigation = seriesPop?.originalName
+        } else if seriesOnAir != nil {
+            vc.titleNavigation = seriesOnAir?.originalName
         }
-        //TODO: - Resolver o Bug que não estå carregando o detalhe de series onAir
         vc.seriesOnAir = seriesOnAir
         navigationController.pushViewController(vc, animated: true)
     }

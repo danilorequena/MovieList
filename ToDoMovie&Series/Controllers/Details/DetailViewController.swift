@@ -24,7 +24,7 @@ class DetailViewController: UIViewController, Storyboaded {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = DetailViewModel()
-        viewModel?.fetchDetails(id: viewModel?.discoverMovies?.id ?? 0)
+//        viewModel?.fetchDetails(id: viewModel?.discoverMovies?.id ?? 0)
         viewModel?.setNavigation(controller: self, title: titleNavigation ?? "")
         cardInfos = CardInfos()
         loadCard()
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController, Storyboaded {
             cardInfos?.setupCardMovies(mainView: self.view, infos: discoverMovies!)
         } else if seriesPop != nil {
             cardInfos?.setupCardPop(mainView: self.view, infos: seriesPop!)
-        } else {
+        } else if seriesOnAir != nil {
             cardInfos?.setupCardOnAir(mainView: self.view, infos: seriesOnAir!)
         }
         setupImage()
@@ -52,8 +52,18 @@ class DetailViewController: UIViewController, Storyboaded {
                     print(jsonErr)
                 }
             }
-        } else {
+        } else if discoverMovies?.backdropPath != nil {
             if let backdropPath = discoverMovies?.backdropPath {
+                guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
+                do {
+                    let data = try Data(contentsOf: posterURL)
+                    self.imgBackdrop.image = UIImage(data: data)
+                } catch let jsonErr {
+                    print(jsonErr)
+                }
+            }
+        } else if seriesOnAir?.backdropPath != nil {
+            if let backdropPath = seriesOnAir?.backdropPath {
                 guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
                 do {
                     let data = try Data(contentsOf: posterURL)
