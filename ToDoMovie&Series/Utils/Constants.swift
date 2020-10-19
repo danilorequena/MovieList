@@ -19,7 +19,6 @@ struct Constants {
     static let baseDiscover = "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&primary_release_date.gte=2018-01-01"
     
     //Screen Titles
-    
     static let discover = "Discover"
     static let detail = "Detail"
 }
