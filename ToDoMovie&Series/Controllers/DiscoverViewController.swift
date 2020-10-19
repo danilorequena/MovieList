@@ -15,7 +15,6 @@ class DiscoverViewController: UIViewController, Storyboaded {
     weak var coordinator: MainCoordinator?
     
     var viewModel: DiscoverViewModel?
-    var centerCell: DiscoverCollectViewCell?
     let flowLayout = ZoomAndSnapFlowLayout()
     
     override func viewDidLoad() {
