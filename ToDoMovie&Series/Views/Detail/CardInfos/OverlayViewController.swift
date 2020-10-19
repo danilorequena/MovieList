@@ -155,7 +155,6 @@ extension OverlayViewController: UICollectionViewDataSource, UICollectionViewDel
         if UIApplication.shared.canOpenURL(url) {
              UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        print("toquei aqui nessa merda")
     }
 }
 
