@@ -32,6 +32,7 @@ class OverlayViewController: UIViewController {
         overlayViewModel = OverlayViewModel()
         overlayViewModel?.delegate = self
         overlayViewModel?.fetchDetailsSeries(id: seriesPop?.id ?? 0)
+        overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
     }
     
     required init(seriesPop: ResultSeries? = nil, seriesOnAir: ResultSeriesOnAir? = nil, discoverMovies: ResultDiscover? = nil ) {
@@ -129,6 +130,10 @@ extension OverlayViewController: UICollectionViewDataSource, UICollectionViewDel
         wereWatchCollectionView.delegate = self
         wereWatchCollectionView.register(WereWatchCollectionViewCell.loadNib(), forCellWithReuseIdentifier: WereWatchCollectionViewCell.identifier())
         (wereWatchCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 65, height: 55)
+        castCollectionView.delegate = self
+        castCollectionView.dataSource = self
+        castCollectionView.register(CastCollectionViewCell.loadNib(), forCellWithReuseIdentifier: CastCollectionViewCell.identifier())
+        (castCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 65, height: 75)
 
     }
     
@@ -136,21 +141,26 @@ extension OverlayViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == wereWatchCollectionView {
             return overlayViewModel?.networks.count ?? 0
         } else {
-            return 1
+            return overlayViewModel?.cast.count ?? 0
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WereWatchCollectionViewCell.identifier(), for: indexPath) as! WereWatchCollectionViewCell
-        let serie = (overlayViewModel?.networks[indexPath.item])
-        cell.prepareCell(with: serie!)
-        return cell
+        if collectionView == wereWatchCollectionView {
+            let cellWereWatch = collectionView.dequeueReusableCell(withReuseIdentifier: WereWatchCollectionViewCell.identifier(), for: indexPath) as! WereWatchCollectionViewCell
+            let serie = (overlayViewModel?.networks[indexPath.item])
+            cellWereWatch.prepareCell(with: serie!)
+            return cellWereWatch
+        } else {
+            let cellCast = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier(), for: indexPath) as! CastCollectionViewCell
+            let cast = (overlayViewModel?.cast[indexPath.item])
+            cellCast.prepareCell(with: cast!)
+            return cellCast
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let url = URL(string: overlayViewModel?.details?.homepage ?? "https://apple.com") else {
-             return
-        }
+        guard let url = URL(string: overlayViewModel?.details?.homepage ?? "https://apple.com") else { return }
 
         if UIApplication.shared.canOpenURL(url) {
              UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -162,6 +172,7 @@ extension OverlayViewController: OverlayViewModelDelegate {
     func successList() {
         DispatchQueue.main.async {
             self.wereWatchCollectionView.reloadData()
+            self.castCollectionView.reloadData()
         }
     }
     

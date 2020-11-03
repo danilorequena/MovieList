@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CastCollectionViewCell" customModule="ToDoMovie_Series" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWE-hw-2hD">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FsB-FO-BV3">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRA-bu-CiW">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="4Rt-q0-rLz">
+                                        <rect key="frame" x="0.0" y="50" width="50" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FsB-FO-BV3" secondAttribute="trailing" id="T50-HI-YrE"/>
+                            <constraint firstAttribute="bottom" secondItem="FsB-FO-BV3" secondAttribute="bottom" id="q32-3b-Ebw"/>
+                            <constraint firstItem="FsB-FO-BV3" firstAttribute="leading" secondItem="WWE-hw-2hD" secondAttribute="leading" id="rGg-fa-usu"/>
+                            <constraint firstItem="FsB-FO-BV3" firstAttribute="top" secondItem="WWE-hw-2hD" secondAttribute="top" id="xjw-ns-jTR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="WWE-hw-2hD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PAa-RM-1wc"/>
+                <constraint firstAttribute="bottom" secondItem="WWE-hw-2hD" secondAttribute="bottom" id="RsZ-jR-f0j"/>
+                <constraint firstAttribute="trailing" secondItem="WWE-hw-2hD" secondAttribute="trailing" id="Wyq-mi-6R4"/>
+                <constraint firstItem="WWE-hw-2hD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fGx-bd-xzS"/>
+            </constraints>
+            <size key="customSize" width="50" height="70"/>
+            <connections>
+                <outlet property="castImage" destination="QRA-bu-CiW" id="HpB-Mf-AWG"/>
+                <outlet property="castName" destination="4Rt-q0-rLz" id="gh6-59-7Ew"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="64.285714285714278"/>
+        </collectionViewCell>
+    </objects>
+</document>
