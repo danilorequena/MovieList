@@ -32,7 +32,13 @@ class OverlayViewController: UIViewController {
         overlayViewModel = OverlayViewModel()
         overlayViewModel?.delegate = self
         overlayViewModel?.fetchDetailsSeries(id: seriesPop?.id ?? 0)
-        overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
+        if discoverMovies != nil {
+            overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
+        } else if seriesPop != nil {
+            overlayViewModel?.fetchSeriesCast(id: seriesPop?.id ?? 0)
+        } else {
+            overlayViewModel?.fetchSeriesCast(id: seriesOnAir.id ?? 0)
+        }
     }
     
     required init(seriesPop: ResultSeries? = nil, seriesOnAir: ResultSeriesOnAir? = nil, discoverMovies: ResultDiscover? = nil ) {
@@ -155,6 +161,7 @@ extension OverlayViewController: UICollectionViewDataSource, UICollectionViewDel
             let cellCast = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier(), for: indexPath) as! CastCollectionViewCell
             let cast = (overlayViewModel?.cast[indexPath.item])
             cellCast.prepareCell(with: cast!)
+            
             return cellCast
         }
     }

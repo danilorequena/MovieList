@@ -49,5 +49,15 @@ class OverlayViewModel: OverlayViewModelProtocol {
             self.delegate?.errorList()
         }
     }
+    
+    func fetchSeriesCast(id: Int) {
+        RequestAPI.loadSeriesCast(serieID: id) { (series) in
+            self.cast += series?.cast ?? []
+            self.delegate?.successList()
+        } onError: { (error) in
+            self.delegate?.errorList()
+        }
+
+    }
 }
 
