@@ -20,7 +20,7 @@ class SeriesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     func start() {
         navigationController.delegate = self
         let vc = HomeSeriesViewController.instantiateSeries()
-        vc.tabBarItem = UITabBarItem(title: "tab.tvShows".loalized, image: UIImage(named: "serie"), tag: 1)
+        vc.tabBarItem = UITabBarItem(title: "tab.tvShows".localized, image: UIImage(named: "serie"), tag: 1)
         navigationController.pushViewController(vc, animated: false)
     }
 }
