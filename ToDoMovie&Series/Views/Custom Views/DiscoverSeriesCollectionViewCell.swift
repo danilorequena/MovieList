@@ -1,23 +1,21 @@
 //
-//  CastCollectionViewCell.swift
+//  DiscoverSeriesCollectionViewCell.swift
 //  ToDoMovie&Series
 //
-//  Created by Danilo Requena on 02/11/20.
+//  Created by Danilo Requena on 10/11/20.
 //  Copyright © 2020 Danilo Requena. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
 
-class CastCollectionViewCell: UICollectionViewCell {
+class DiscoverSeriesCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var castImage: UIImageView!
-    @IBOutlet weak var castName: UILabel!
-    
+    @IBOutlet weak var imageDisSeries: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.shadowDefault()
+        shadowDefault()
     }
     
     class func loadNib() -> UINib {
@@ -28,14 +26,13 @@ class CastCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    
-    
-    func prepareCell(with serie: CastElement) {
-        if let logoPath = serie.profilePath {
-            guard let logoURL = URL(string: "https://image.tmdb.org/t/p/w92" + logoPath) else { return }
-            let processor = DownsamplingImageProcessor(size: castImage.bounds.size)
-            self.castImage.kf.setImage(
-                with: logoURL,
+    func setupCell(movie: ResultDiscoverSeries) {
+        //TODO: - Mudar o modelo acima
+        if let posterPath = movie.posterPath {
+            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
+            let processor = DownsamplingImageProcessor(size: imageDisSeries.bounds.size)
+            self.imageDisSeries.kf.setImage(
+                with: posterURL,
                 placeholder: UIImage(named: "placeholderImage"),
                 options: [
                     .processor(processor),
@@ -49,14 +46,12 @@ class CastCollectionViewCell: UICollectionViewCell {
                         case .success(let value):
                             print("Task done for: \(value.source.url?.absoluteString ?? "")")
                         case .failure(let error):
-                            self.castImage.image = UIImage(named: "noImage")
                             print("Job failed: \(error.localizedDescription)")
                         }
                     })
-            self.castImage.kf.indicatorType = .activity
-            self.castImage.clipsToBounds = true
-            self.castImage.layer.cornerRadius = castImage.frame.size.height / 2
-            self.castName.text = serie.name
+            self.imageDisSeries.clipsToBounds = true
+            self.imageDisSeries.layer.cornerRadius = 10
         }
     }
+
 }
