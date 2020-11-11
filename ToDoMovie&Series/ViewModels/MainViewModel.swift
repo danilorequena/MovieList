@@ -16,6 +16,7 @@ protocol MainViewModelProtocol: AnyObject {
 protocol MainViewModelDelegate: AnyObject {
     func successListPopular()
     func successListOnAir()
+    func successDiscoverSeries()
     func errorList()
 }
 
@@ -23,8 +24,11 @@ class MainViewModel: MainViewModelProtocol {
     var seriesPopular: [ResultSeries] = []
     var seriesTopRated: [ResultTopRated] = []
     var seriesOnAir: [ResultSeriesOnAir] = []
+    var discoverSeries: [ResultDiscoverSeries] = []
     weak var delegate: MainViewModelDelegate?
     var totalPopular = 0
+    var totalDiscover = 0
+    var discoverPage = 1
     var totalTopRated = 0
     var totalSeriesOnAir = 0
     var popularPage = 1
@@ -53,6 +57,15 @@ class MainViewModel: MainViewModelProtocol {
                 self.delegate?.successListOnAir()
             }
         }) { (error) in
+            self.delegate?.errorList()
+        }
+    }
+    
+    func fetchDiscoverSeries() {
+        RequestAPI.loadDiscoverSeries { (series) in
+            self.discoverSeries += series?.results ?? []
+            self.delegate?.successDiscoverSeries()
+        } onError: { (error) in
             self.delegate?.errorList()
         }
     }

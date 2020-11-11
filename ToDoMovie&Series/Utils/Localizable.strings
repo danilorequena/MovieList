@@ -12,5 +12,5 @@
 "home.detail" = "DetailViewController";
 
 //TabBarItems Names
-"tab.discover" = "Discover";
+"tab.discover" = "Movies";
 "tab.tvShows" = "Tv Shows";
