@@ -57,11 +57,14 @@
 		FFA8EA22252046EC00FA6117 /* DiscoverCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8EA20252046EC00FA6117 /* DiscoverCollectionViewCell.xib */; };
 		FFA8EA28252185C400FA6117 /* UICollectionView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8EA27252185C400FA6117 /* UICollectionView+Helper.swift */; };
 		FFB64F0A251D413200E5C2EA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */; };
+		FFBC3CEB255B228B00E059F6 /* DiscoverSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */; };
 		FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */; };
 		FFDC28EE253553F0003B58B5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */; };
 		FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */; };
 		FFDC28F42536A2F8003B58B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFDC28F32536A2F8003B58B5 /* Localizable.strings */; };
 		FFDC28F62536A3BF003B58B5 /* String+LocalizableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */; };
+		FFF9C8F0255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9C8EE255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift */; };
+		FFF9C8F1255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF9C8EF255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,11 +131,14 @@
 		FFA8EA20252046EC00FA6117 /* DiscoverCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverCollectionViewCell.xib; sourceTree = "<group>"; };
 		FFA8EA27252185C400FA6117 /* UICollectionView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Helper.swift"; sourceTree = "<group>"; };
 		FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSeries.swift; sourceTree = "<group>"; };
 		FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 		FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCoordinator.swift; sourceTree = "<group>"; };
 		FFDC28F32536A2F8003B58B5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizableHelper.swift"; sourceTree = "<group>"; };
+		FFF9C8EE255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSeriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFF9C8EF255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscoverSeriesCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +229,8 @@
 				FF5AC117250D2DE400C780A6 /* OnTheAirCollectionViewCell.xib */,
 				FFA8EA1F252046EC00FA6117 /* DiscoverCollectionViewCell.swift */,
 				FFA8EA20252046EC00FA6117 /* DiscoverCollectionViewCell.xib */,
+				FFF9C8EE255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift */,
+				FFF9C8EF255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -325,6 +333,7 @@
 				FF11689F250710C500F30652 /* SeriesOnAir.swift */,
 				FF5AC11F250D96C700C780A6 /* Videos.swift */,
 				FF7B6A732518225800DEBA7E /* DetailsSeries.swift */,
+				FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,6 +418,7 @@
 				FF94486D2550D9E700BE8510 /* CastCollectionViewCell.xib in Resources */,
 				FF0D4601252009300069A74A /* Discover.storyboard in Resources */,
 				FF5AC119250D2DE400C780A6 /* OnTheAirCollectionViewCell.xib in Resources */,
+				FFF9C8F1255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib in Resources */,
 				FF271614252FD87600370ED1 /* DetailViewController.storyboard in Resources */,
 				FF95B221242ED04300C5FF83 /* Series.storyboard in Resources */,
 				FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */,
@@ -431,6 +441,7 @@
 				FF1168A0250710C500F30652 /* SeriesOnAir.swift in Sources */,
 				FF271612252FD78200370ED1 /* DetailCoordinator.swift in Sources */,
 				FFA8EA21252046EC00FA6117 /* DiscoverCollectionViewCell.swift in Sources */,
+				FFBC3CEB255B228B00E059F6 /* DiscoverSeries.swift in Sources */,
 				FF92EE6E251C3D86006B8E48 /* OverlayViewModel.swift in Sources */,
 				FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */,
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
@@ -454,6 +465,7 @@
 				FF95B21A242ED04300C5FF83 /* AppDelegate.swift in Sources */,
 				FFA8EA28252185C400FA6117 /* UICollectionView+Helper.swift in Sources */,
 				FF6CDB9D253532FA002DC3B7 /* DetailViewController.swift in Sources */,
+				FFF9C8F0255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift in Sources */,
 				FF2030FB253FA1AC0038DD56 /* MovieCast.swift in Sources */,
 				FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */,
 				FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */,

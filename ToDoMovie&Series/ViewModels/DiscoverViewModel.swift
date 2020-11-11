@@ -33,6 +33,6 @@ class DiscoverViewModel: DiscoverProtocol {
     }
     
     func configureNavigate(controller: UIViewController) {
-        controller.configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Discover", preferredLargeTitle: true)
+        controller.configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: "Movies", preferredLargeTitle: true)
     }
 }
