@@ -17,6 +17,7 @@ class HomeSeriesViewController: UIViewController, Storyboaded {
         return label
     }()
     
+    @IBOutlet weak var discoverSeriesCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewPopular: UICollectionView!
     @IBOutlet weak var collectionViewOnAir: UICollectionView!
     
@@ -29,6 +30,7 @@ class HomeSeriesViewController: UIViewController, Storyboaded {
         mainViewModel?.delegate = self
         mainViewModel?.fetchPopularSeries()
         mainViewModel?.fetchSeriesOnAir()
+        mainViewModel?.fetchDiscoverSeries()
     }
 }
 
@@ -45,13 +47,21 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
         collectionViewOnAir.register(OnTheAirCollectionViewCell.loadNib(), forCellWithReuseIdentifier: OnTheAirCollectionViewCell.identifier())
         (collectionViewOnAir.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 150, height: 200)
         collectionViewOnAir.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
+        
+        discoverSeriesCollectionView.delegate = self
+        discoverSeriesCollectionView.dataSource = self
+        discoverSeriesCollectionView.register(DiscoverSeriesCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier())
+        (discoverSeriesCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 182, height: 261)
+        discoverSeriesCollectionView.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionViewPopular{
             return mainViewModel?.seriesPopular.count ?? 0
-        } else {
+        } else if collectionView == collectionViewOnAir {
             return mainViewModel?.seriesOnAir.count ?? 0
+        } else {
+            return mainViewModel?.discoverSeries.count ?? 0
         }
     }
     
@@ -62,11 +72,16 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
             let serie = mainViewModel?.seriesPopular[indexPath.item]
             cellPopular.prepareCell(with: serie!)
             return cellPopular
-        } else {
+        } else if collectionView == collectionViewOnAir {
             let cellOnAir = collectionView.dequeueReusableCell(withReuseIdentifier: OnTheAirCollectionViewCell.identifier(), for: indexPath) as! OnTheAirCollectionViewCell
             let serieOnAir = mainViewModel?.seriesOnAir[indexPath.item]
             cellOnAir.prepareCell(with: serieOnAir!)
             return cellOnAir
+        } else {
+            let discoverCell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier(), for: indexPath) as! DiscoverSeriesCollectionViewCell
+            let discoverSeries = mainViewModel?.discoverSeries[indexPath.item]
+            discoverCell.setupCell(movie: discoverSeries!)
+            return discoverCell
         }
     }
     
@@ -99,6 +114,12 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
 }
 
 extension HomeSeriesViewController: MainViewModelDelegate {
+    func successDiscoverSeries() {
+        DispatchQueue.main.async {
+            self.discoverSeriesCollectionView.reloadData()
+        }
+    }
+    
     func successListOnAir() {
         DispatchQueue.main.async {
             self.collectionViewOnAir.reloadData()
