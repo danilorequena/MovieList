@@ -171,9 +171,6 @@
                             </constraints>
                         </scrollView>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="7Ae-O8-goN" firstAttribute="height" secondItem="gyw-ba-87I" secondAttribute="height" multiplier="0.878558" id="DE7-2x-TFv"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
