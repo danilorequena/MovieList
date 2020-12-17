@@ -116,7 +116,7 @@
 		FF92EE6D251C3D86006B8E48 /* OverlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewModel.swift; sourceTree = "<group>"; };
 		FF94486A2550D9E700BE8510 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF94486B2550D9E700BE8510 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
-		FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoMovie&Series.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF95B216242ED04300C5FF83 /* CinemaTv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaTv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF95B219242ED04300C5FF83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF95B220242ED04300C5FF83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Series.storyboard; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 		FF95B20D242ED04300C5FF83 = {
 			isa = PBXGroup;
 			children = (
-				FF95B218242ED04300C5FF83 /* ToDoMovie&Series */,
+				FF95B218242ED04300C5FF83 /* CinemaTv */,
 				FF95B217242ED04300C5FF83 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -276,12 +276,12 @@
 		FF95B217242ED04300C5FF83 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */,
+				FF95B216242ED04300C5FF83 /* CinemaTv.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FF95B218242ED04300C5FF83 /* ToDoMovie&Series */ = {
+		FF95B218242ED04300C5FF83 /* CinemaTv */ = {
 			isa = PBXGroup;
 			children = (
 				FF0D460A252018DD0069A74A /* Coordinators */,
@@ -298,7 +298,7 @@
 				FF95B22A242ED05000C5FF83 /* Info.plist */,
 				FF95B222242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld */,
 			);
-			path = "ToDoMovie&Series";
+			path = CinemaTv;
 			sourceTree = "<group>";
 		};
 		FF95B238243155ED00C5FF83 /* Views */ = {
@@ -349,9 +349,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FF95B215242ED04300C5FF83 /* ToDoMovie&Series */ = {
+		FF95B215242ED04300C5FF83 /* CinemaTv */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF95B22D242ED05000C5FF83 /* Build configuration list for PBXNativeTarget "ToDoMovie&Series" */;
+			buildConfigurationList = FF95B22D242ED05000C5FF83 /* Build configuration list for PBXNativeTarget "CinemaTv" */;
 			buildPhases = (
 				FF95B212242ED04300C5FF83 /* Sources */,
 				FF95B213242ED04300C5FF83 /* Frameworks */,
@@ -362,13 +362,13 @@
 			);
 			dependencies = (
 			);
-			name = "ToDoMovie&Series";
+			name = CinemaTv;
 			packageProductDependencies = (
 				FF26C65B251D6EC700C177AE /* Kingfisher */,
 				FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */,
 			);
 			productName = "ToDoMovie&Series";
-			productReference = FF95B216242ED04300C5FF83 /* ToDoMovie&Series.app */;
+			productReference = FF95B216242ED04300C5FF83 /* CinemaTv.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -386,7 +386,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FF95B211242ED04300C5FF83 /* Build configuration list for PBXProject "ToDoMovie&Series" */;
+			buildConfigurationList = FF95B211242ED04300C5FF83 /* Build configuration list for PBXProject "CinemaTv" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -402,7 +402,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FF95B215242ED04300C5FF83 /* ToDoMovie&Series */,
+				FF95B215242ED04300C5FF83 /* CinemaTv */,
 			);
 		};
 /* End PBXProject section */
@@ -625,13 +625,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
-				INFOPLIST_FILE = "ToDoMovie&Series/Info.plist";
+				INFOPLIST_FILE = CinemaTv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dobigaster.ToDoMovie-Series";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dobigaster.CinemaTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -644,13 +644,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
-				INFOPLIST_FILE = "ToDoMovie&Series/Info.plist";
+				INFOPLIST_FILE = CinemaTv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dobigaster.ToDoMovie-Series";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dobigaster.CinemaTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -660,7 +660,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FF95B211242ED04300C5FF83 /* Build configuration list for PBXProject "ToDoMovie&Series" */ = {
+		FF95B211242ED04300C5FF83 /* Build configuration list for PBXProject "CinemaTv" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FF95B22B242ED05000C5FF83 /* Debug */,
@@ -669,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF95B22D242ED05000C5FF83 /* Build configuration list for PBXNativeTarget "ToDoMovie&Series" */ = {
+		FF95B22D242ED05000C5FF83 /* Build configuration list for PBXNativeTarget "CinemaTv" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FF95B22E242ED05000C5FF83 /* Debug */,
