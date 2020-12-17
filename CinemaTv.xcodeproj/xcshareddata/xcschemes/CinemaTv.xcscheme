@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FF95B215242ED04300C5FF83"
-               BuildableName = "ToDoMovie&amp;Series.app"
-               BlueprintName = "ToDoMovie&amp;Series"
-               ReferencedContainer = "container:ToDoMovie&amp;Series.xcodeproj">
+               BuildableName = "CinemaTv.app"
+               BlueprintName = "CinemaTv"
+               ReferencedContainer = "container:CinemaTv.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF95B215242ED04300C5FF83"
-            BuildableName = "ToDoMovie&amp;Series.app"
-            BlueprintName = "ToDoMovie&amp;Series"
-            ReferencedContainer = "container:ToDoMovie&amp;Series.xcodeproj">
+            BuildableName = "CinemaTv.app"
+            BlueprintName = "CinemaTv"
+            ReferencedContainer = "container:CinemaTv.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF95B215242ED04300C5FF83"
-            BuildableName = "ToDoMovie&amp;Series.app"
-            BlueprintName = "ToDoMovie&amp;Series"
-            ReferencedContainer = "container:ToDoMovie&amp;Series.xcodeproj">
+            BuildableName = "CinemaTv.app"
+            BlueprintName = "CinemaTv"
+            ReferencedContainer = "container:CinemaTv.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
