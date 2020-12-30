@@ -36,7 +36,7 @@ class MainViewModel: MainViewModelProtocol {
     var seriesOnAirPage = 1
     
     func fetchPopularSeries() {
-        RequestAPI.loadPopularSeries(url: "\(Constants.basePathPopularSeries)\(popularPage)", onComplete: { (serie) in
+        RequestAPITVShows.loadPopularSeries(url: "\(Constants.basePathPopularSeries)\(popularPage)", onComplete: { (serie) in
             if let serie = serie {
                 self.seriesPopular += serie.results
                 self.totalPopular = serie.totalResults ?? 0
@@ -49,7 +49,7 @@ class MainViewModel: MainViewModelProtocol {
     }
     
     func fetchSeriesOnAir() {
-        RequestAPI.loadSeriesOnAir(url:"\(Constants.basePathSeriesOnAir)\(seriesOnAirPage)" ,onComplete: { (seriesOnAir) in
+        RequestAPITVShows.loadSeriesOnAir(url:"\(Constants.basePathSeriesOnAir)\(seriesOnAirPage)" ,onComplete: { (seriesOnAir) in
             if let seriesOnAir = seriesOnAir {
                 self.seriesOnAir += seriesOnAir.results
                 self.totalSeriesOnAir = seriesOnAir.totalResults ?? 0
@@ -62,7 +62,7 @@ class MainViewModel: MainViewModelProtocol {
     }
     
     func fetchDiscoverSeries() {
-        RequestAPI.loadDiscoverSeries { (series) in
+        RequestAPITVShows.loadDiscoverSeries { (series) in
             self.discoverSeries += series?.results ?? []
             self.delegate?.successDiscoverSeries()
         } onError: { (error) in

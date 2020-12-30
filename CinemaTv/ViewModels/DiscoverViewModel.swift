@@ -24,7 +24,7 @@ class DiscoverViewModel: DiscoverProtocol {
     var movies: [ResultDiscover] = []
     
     func fetchDiscoverMovies() {
-        RequestAPI.loadDiscoverMovies { (movies) in
+        RequestAPIMovies.loadDiscoverMovies { (movies) in
             self.movies += movies?.results ?? []
             self.delegate?.successDiscoverList()
         } onError: { (error) in

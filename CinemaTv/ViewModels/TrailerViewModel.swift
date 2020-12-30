@@ -26,7 +26,7 @@ class TrailerViewModel: TrailerViewModelProtocol {
     
     func fetchVideo(videoKey: Int, media: String) {
         let url = "https://api.themoviedb.org/3/\(media)/\(videoKey)/videos?api_key=ddf20e1d6a0147313cfd3b4ac419e373&language=en-US"
-        RequestAPI.loadVideos(url: url) { (videos) in
+        RequestAPIMovies.loadVideos(url: url) { (videos) in
             if let videos = videos {
                 self.videos += videos.results ?? []
                 self.videoCode = videos.results?.first?.key
