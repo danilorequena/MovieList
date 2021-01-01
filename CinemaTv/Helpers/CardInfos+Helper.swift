@@ -53,6 +53,27 @@ class CardInfos: CardInfosProtocol {
         cardViewController.handleView.addGestureRecognizer(panGestureRecognizer)
     }
     
+    func setupCardDiscoverSeries(mainView: UIView, infos: ResultDiscoverSeries) {
+        endCardHeight =  mainView.frame.height * 0.8
+        startCardHeight =  mainView.frame.height / 3
+        
+        visualEffectView = UIVisualEffectView()
+        visualEffectView.frame = mainView.frame
+        mainView.addSubview(visualEffectView)
+        
+        cardViewController = OverlayViewController(discoverSeries: infos)
+        mainView.addSubview(cardViewController.view)
+        cardViewController.view.frame = CGRect(x: 0, y: mainView.frame.height / 2, width: mainView.bounds.width, height: endCardHeight)
+        cardViewController.view.clipsToBounds = true
+        cardViewController.view.layer.cornerRadius = 10
+
+        let tapGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleCardTap(recognzier:view:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleCardPan(recognizer:view:)))
+
+        cardViewController.handleView.addGestureRecognizer(tapGestureRecognizer)
+        cardViewController.handleView.addGestureRecognizer(panGestureRecognizer)
+    }
+    
     func setupCardOnAir(mainView: UIView, infos: ResultSeriesOnAir) {
         endCardHeight =  mainView.frame.height * 0.8
         startCardHeight =  mainView.frame.height / 3

@@ -23,6 +23,7 @@ class OverlayViewController: UIViewController {
     var seriesPop: ResultSeries?
     var seriesOnAir: ResultSeriesOnAir!
     var discoverMovies: ResultDiscover!
+    var discoverSeries: ResultDiscoverSeries!
     var overlayViewModel: OverlayViewModel?
     
     override func viewDidLoad() {
@@ -36,16 +37,22 @@ class OverlayViewController: UIViewController {
             overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
         } else if seriesPop != nil {
             overlayViewModel?.fetchSeriesCast(id: seriesPop?.id ?? 0)
-        } else {
+        } else if seriesOnAir != nil {
             overlayViewModel?.fetchSeriesCast(id: seriesOnAir.id ?? 0)
+        } else if discoverSeries != nil {
+            overlayViewModel?.fetchSeriesCast(id: discoverSeries?.id ?? 0)
         }
     }
     
-    required init(seriesPop: ResultSeries? = nil, seriesOnAir: ResultSeriesOnAir? = nil, discoverMovies: ResultDiscover? = nil ) {
+    required init(seriesPop: ResultSeries? = nil,
+                  seriesOnAir: ResultSeriesOnAir? = nil,
+                  discoverMovies: ResultDiscover? = nil,
+                  discoverSeries: ResultDiscoverSeries? = nil ) {
         super.init(nibName: nib, bundle: Bundle(for: OverlayViewController.self))
         self.seriesPop = seriesPop
         self.seriesOnAir = seriesOnAir
         self.discoverMovies = discoverMovies
+        self.discoverSeries = discoverSeries
     }
     
     required init?(coder: NSCoder) {
@@ -87,6 +94,7 @@ class OverlayViewController: UIViewController {
                 string.append(NSAttributedString(string: String(discoverMovies.voteAverage!), attributes: attributes2))
             }
             labelAverage.attributedText = string
+            
         } else if seriesOnAir != nil {
             labelTitle.text = seriesOnAir.name
             labelOverview.text = seriesOnAir.overview
@@ -102,6 +110,24 @@ class OverlayViewController: UIViewController {
             } else {
                 string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
                 string.append(NSAttributedString(string: String(seriesOnAir.voteAverage!), attributes: attributes2))
+            }
+            labelAverage.attributedText = string
+            
+        } else if discoverSeries != nil {
+            labelTitle.text = discoverSeries?.name
+            labelOverview.text = discoverSeries?.overview
+            
+            let string = NSMutableAttributedString()
+            let attributes1 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.blue]
+            let attributes2 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red]
+            let attributes3 = [NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 14), NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.black]
+            
+            if discoverSeries.voteAverage! > 5 {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(discoverSeries.voteAverage!), attributes: attributes1))
+            } else {
+                string.append(NSAttributedString(string: "Average: ", attributes: attributes3))
+                string.append(NSAttributedString(string: String(discoverSeries.voteAverage!), attributes: attributes2))
             }
             labelAverage.attributedText = string
         }
