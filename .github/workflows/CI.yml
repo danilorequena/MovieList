@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild -project 'ToDoMovie&Series.xcodeproj' -scheme 'ToDoMovie&Series' -destination 'generic/platform=iOS Simulator,name=iPhone 12' -configuration Release build CODE_SIGNING_ALLOWED=NO
+      run: xcodebuild -project 'CinemaTv.xcodeproj' -scheme 'CinemaTv' -destination 'generic/platform=iOS Simulator,name=iPhone 12' -configuration Release build CODE_SIGNING_ALLOWED=NO
