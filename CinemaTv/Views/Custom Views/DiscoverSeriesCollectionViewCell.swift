@@ -26,9 +26,8 @@ class DiscoverSeriesCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    func setupCell(movie: ResultDiscoverSeries) {
-        //TODO: - Mudar o modelo acima
-        if let posterPath = movie.posterPath {
+    func setupCell(tvShow: ResultDiscoverSeries) {
+        if let posterPath = tvShow.posterPath {
             let posterURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
             let processor = DownsamplingImageProcessor(size: imageDisSeries.bounds.size)
             self.imageDisSeries.kf.setImage(
