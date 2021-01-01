@@ -34,6 +34,7 @@
 		FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11B250D90F500C780A6 /* TrailerViewController.swift */; };
 		FF5AC11E250D90F500C780A6 /* TrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */; };
 		FF5AC120250D96C700C780A6 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC11F250D96C700C780A6 /* Videos.swift */; };
+		FF6C37B6259F81A100EAFECE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6C37B5259F81A100EAFECE /* AboutViewController.swift */; };
 		FF6CDB9B25351DAC002DC3B7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */; };
 		FF6CDB9D253532FA002DC3B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */; };
 		FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */; };
@@ -108,6 +109,7 @@
 		FF5AC11B250D90F500C780A6 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		FF5AC11C250D90F500C780A6 /* TrailerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerViewController.xib; sourceTree = "<group>"; };
 		FF5AC11F250D96C700C780A6 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
+		FF6C37B5259F81A100EAFECE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Details/DetailViewController.swift; sourceTree = "<group>"; };
 		FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +250,14 @@
 			path = Trailer;
 			sourceTree = "<group>";
 		};
+		FF6C37B2259F817C00EAFECE /* About */ = {
+			isa = PBXGroup;
+			children = (
+				FF6C37B5259F81A100EAFECE /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		FF92EE66251C3813006B8E48 /* CardInfos */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +318,7 @@
 		FF95B238243155ED00C5FF83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF6C37B2259F817C00EAFECE /* About */,
 				FF5AC11A250D90B000C780A6 /* Trailer */,
 				FF5AC10B250CF9F100C780A6 /* Home */,
 				FF5AC10C250CFA2300C780A6 /* Detail */,
@@ -467,6 +478,7 @@
 				FF95B224242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld in Sources */,
 				FFB64F0A251D413200E5C2EA /* UIImage+Extension.swift in Sources */,
 				FF0D460C252019060069A74A /* Coordinator.swift in Sources */,
+				FF6C37B6259F81A100EAFECE /* AboutViewController.swift in Sources */,
 				FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */,
 				FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */,
 				FF0D460325200B7F0069A74A /* DiscoverViewController.swift in Sources */,

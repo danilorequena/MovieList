@@ -25,6 +25,13 @@ class DiscoverViewController: UIViewController, Storyboaded {
         viewModel?.configureNavigate(controller: self)
         viewModel?.fetchDiscoverMovies()
     }
+    
+    @IBAction func showAbout(_ sender: UIButton) {
+        let vc = AboutViewController()
+        navigationController?.present(vc, animated: true, completion: nil)
+        
+    }
+    
 
 }
 
@@ -55,6 +62,8 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
         let coordinator = MainCoordinator(navigationController: self.navigationController!)
         coordinator.detailDiscover(discoverMovies: movie)
     }
+    
+    
 }
 
 extension DiscoverViewController: DiscoverViewModelDelegate {
