@@ -64,6 +64,7 @@
 		FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */; };
 		FFDC28F42536A2F8003B58B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFDC28F32536A2F8003B58B5 /* Localizable.strings */; };
 		FFDC28F62536A3BF003B58B5 /* String+LocalizableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */; };
+		FFEDD5E7259F661800489639 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFEDD5E6259F661800489639 /* SnapKit */; };
 		FFF9C8F0255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9C8EE255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift */; };
 		FFF9C8F1255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF9C8EF255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFEDD5E7259F661800489639 /* SnapKit in Frameworks */,
 				FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */,
 				FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */,
 			);
@@ -369,6 +371,7 @@
 			packageProductDependencies = (
 				FF26C65B251D6EC700C177AE /* Kingfisher */,
 				FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */,
+				FFEDD5E6259F661800489639 /* SnapKit */,
 			);
 			productName = "ToDoMovie&Series";
 			productReference = FF95B216242ED04300C5FF83 /* CinemaTv.app */;
@@ -400,6 +403,7 @@
 			mainGroup = FF95B20D242ED04300C5FF83;
 			packageReferences = (
 				FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FF95B217242ED04300C5FF83 /* Products */;
 			projectDirPath = "";
@@ -693,6 +697,14 @@
 				minimumVersion = 5.15.4;
 			};
 		};
+		FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -705,6 +717,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
+		};
+		FFEDD5E6259F661800489639 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 

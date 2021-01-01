@@ -80,7 +80,7 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
         } else {
             let discoverCell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier(), for: indexPath) as! DiscoverSeriesCollectionViewCell
             let discoverSeries = mainViewModel?.discoverSeries[indexPath.item]
-            discoverCell.setupCell(movie: discoverSeries!)
+            discoverCell.setupCell(tvShow: discoverSeries!)
             return discoverCell
         }
     }
