@@ -29,7 +29,7 @@ class OverlayViewModel: OverlayViewModelProtocol {
     weak var delegate: OverlayViewModelDelegate?
     
     func fetchDetailsSeries(id: Int) {
-        RequestAPI.loadPopularSeriesDetails(id: id) { (series) in
+        RequestAPITVShows.loadPopularSeriesDetails(id: id) { (series) in
             self.createdBy += series?.createdBy ?? []
             self.genre += series?.genres ?? []
             self.networks += series?.networks ?? []
@@ -42,7 +42,7 @@ class OverlayViewModel: OverlayViewModelProtocol {
     }
     
     func fetchCastMovies(id: Int) {
-        RequestAPI.loadMovieCast(movieID: id) { (movie) in
+        RequestAPIMovies.loadMovieCast(movieID: id) { (movie) in
             self.cast += movie?.cast ?? []
             self.delegate?.successList()
         } onError: { (error) in
@@ -51,7 +51,7 @@ class OverlayViewModel: OverlayViewModelProtocol {
     }
     
     func fetchSeriesCast(id: Int) {
-        RequestAPI.loadSeriesCast(serieID: id) { (series) in
+        RequestAPITVShows.loadSeriesCast(serieID: id) { (series) in
             self.cast += series?.cast ?? []
             self.delegate?.successList()
         } onError: { (error) in

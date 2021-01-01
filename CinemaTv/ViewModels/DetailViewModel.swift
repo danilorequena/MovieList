@@ -24,7 +24,7 @@ class DetailViewModel: DetailViewModelProtocol {
     var season: [Season] = []
     
     func fetchDetails(id: Int) {
-        RequestAPI.loadPopularSeriesDetails(id: id) { (series) in
+        RequestAPITVShows.loadPopularSeriesDetails(id: id) { (series) in
             self.createdBy += series?.createdBy ?? []
             self.genre += series?.genres ?? []
             self.networks += series?.networks ?? []
