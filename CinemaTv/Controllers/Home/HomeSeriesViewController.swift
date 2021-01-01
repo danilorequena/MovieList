@@ -91,10 +91,14 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
             guard let serie = mainViewModel?.seriesPopular[indexPath.item] else { return }
             let coordinator = MainCoordinator(navigationController: self.navigationController!)
             coordinator.detailSeries(popSeries: serie)
-        } else {
+        } else if collectionView == collectionViewOnAir {
             guard let serie = mainViewModel?.seriesOnAir[indexPath.item] else { return }
             let coordinator = MainCoordinator(navigationController: self.navigationController!)
             coordinator.detailSeriesOnAir(onAirSeries: serie)
+        } else {
+            guard let serie = mainViewModel?.discoverSeries[indexPath.item] else { return }
+            let coordinator = MainCoordinator(navigationController: self.navigationController!)
+            coordinator.detailDiscoverSeries(discoverSeries: serie)
         }
     }
     
