@@ -19,14 +19,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G4j-b2-UNd">
                                 <rect key="frame" x="0.0" y="44" width="390" height="703.33333333333337"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tva-92-LtC">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="30"/>
-                                        <connections>
-                                            <action selector="showAbout:" destination="IMk-to-ke9" eventType="touchUpInside" id="G8s-zm-kE8"/>
-                                        </connections>
-                                    </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3hu-So-dJc">
-                                        <rect key="frame" x="0.0" y="30" width="390" height="673.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="703.33333333333337"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wi4-qW-gyr">
                                             <size key="itemSize" width="248" height="369"/>

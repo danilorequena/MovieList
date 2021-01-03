@@ -19,6 +19,7 @@ class DiscoverViewController: UIViewController, Storyboaded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "about", style: .plain, target: self, action: #selector(showAboutMe))
         setupCollection()
         viewModel = DiscoverViewModel()
         viewModel?.delegate = self
@@ -26,10 +27,10 @@ class DiscoverViewController: UIViewController, Storyboaded {
         viewModel?.fetchDiscoverMovies()
     }
     
-    @IBAction func showAbout(_ sender: UIButton) {
+    @objc func showAboutMe() {
+        print("tapped")
         let vc = AboutViewController()
         navigationController?.present(vc, animated: true, completion: nil)
-        
     }
     
 

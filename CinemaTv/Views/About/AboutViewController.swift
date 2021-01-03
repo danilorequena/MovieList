@@ -40,7 +40,7 @@ final class AboutViewController: UIViewController, Storyboaded {
        let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 0
-        label.text = "Esse sou eu, e esse é meu APP!!!"
+        label.text = "about_message".localized
         
         return label
     }()
@@ -86,7 +86,7 @@ final class AboutViewController: UIViewController, Storyboaded {
         
         aboutLabel.snp.makeConstraints { (make) in
             make.top.equalTo(20)
-            make.left.right.equalTo(16)
+            make.trailingMargin.leftMargin.equalTo(aboutView).inset(20)
         }
         
         closeButton.snp.makeConstraints { (make) in
