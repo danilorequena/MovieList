@@ -95,8 +95,8 @@ final class RequestAPIMovies {
         dataTask.resume()
     }
     
-    class func loadDiscoverMovies(onComplete: @escaping (DiscoverMovies?) -> Void, onError: @escaping (Err) -> Void) {
-        guard let url = URL(string: Constants.basePathMovies + Constants.apiKey + "&language=pt-BR&page=1") else {
+    class func loadDiscoverMovies(page: Int, onComplete: @escaping (DiscoverMovies?) -> Void, onError: @escaping (Err) -> Void) {
+        guard let url = URL(string: Constants.basePathMovies + "\(page)") else {
             onError(.url)
             return
         }
