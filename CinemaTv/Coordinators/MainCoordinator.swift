@@ -45,6 +45,13 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         child.start()
     }
     
+    func detailDiscoverSeries(discoverSeries: ResultDiscoverSeries) {
+        let child = DetailCoordinator(navigationController: navigationController, discoverSeries: discoverSeries)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
+    }
+    
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in
             childCoordinators.enumerated() {
