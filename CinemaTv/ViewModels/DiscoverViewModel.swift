@@ -22,9 +22,10 @@ protocol DiscoverViewModelDelegate: AnyObject {
 class DiscoverViewModel: DiscoverProtocol {
     var delegate: DiscoverViewModelDelegate?
     var movies: [ResultDiscover] = []
+    private var page = 1
     
     func fetchDiscoverMovies() {
-        RequestAPIMovies.loadDiscoverMovies { (movies) in
+        RequestAPIMovies.loadDiscoverMovies(page: page) { (movies) in
             self.movies += movies?.results ?? []
             self.delegate?.successDiscoverList()
         } onError: { (error) in
