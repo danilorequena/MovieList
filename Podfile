@@ -6,6 +6,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'CinemaTv' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+     pod 'Firebase/Core'
+     pod 'Firebase/Auth'	
 
   # Pods for CinemaTv
     target 'CinemaTvTests' do 
