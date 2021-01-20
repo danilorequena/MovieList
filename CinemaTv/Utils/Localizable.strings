@@ -6,11 +6,15 @@
   Copyright © 2020 Danilo Requena. All rights reserved.
 */
 
-//Storyboards Names
+// MARK: - Storyboards Names
 "home.discover" = "Discover";
 "home.series" = "Series";
 "home.detail" = "DetailViewController";
 
-//TabBarItems Names
+// MARK: - TabBarItems Names
 "tab.discover" = "Movies";
 "tab.tvShows" = "Tv Shows";
+
+// MARK: - About
+"about_title" = "About";
+"about_message" = "Olá, me chamo Danilo Requena e esse é meu app para te ajudar a achar seus Filmes e Séries!\n\n Este app foi desenvolvido para que você possa achar informações sobre seu filme e série favoritos!";

@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FFAA339325A24B19007B402F"
+               BuildableName = "CinemaTvUITests.xctest"
+               BlueprintName = "CinemaTvUITests"
+               ReferencedContainer = "container:CinemaTv.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FF34C61725A25C05004337C2"
+               BuildableName = "CinemaTvTests.xctest"
+               BlueprintName = "CinemaTvTests"
+               ReferencedContainer = "container:CinemaTv.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

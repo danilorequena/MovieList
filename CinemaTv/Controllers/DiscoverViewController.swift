@@ -19,12 +19,20 @@ class DiscoverViewController: UIViewController, Storyboaded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "about", style: .plain, target: self, action: #selector(showAboutMe))
         setupCollection()
         viewModel = DiscoverViewModel()
         viewModel?.delegate = self
         viewModel?.configureNavigate(controller: self)
         viewModel?.fetchDiscoverMovies()
     }
+    
+    @objc func showAboutMe() {
+        print("tapped")
+        let vc = AboutViewController()
+        navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
 
 }
 
@@ -55,6 +63,8 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
         let coordinator = MainCoordinator(navigationController: self.navigationController!)
         coordinator.detailDiscover(discoverMovies: movie)
     }
+    
+    
 }
 
 extension DiscoverViewController: DiscoverViewModelDelegate {
