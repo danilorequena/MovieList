@@ -8,8 +8,18 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController, Storyboaded {
+    private let loginView = LoginView()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+    
+    func setupView() {
+        view.addSubview(loginView)
+    }
 }

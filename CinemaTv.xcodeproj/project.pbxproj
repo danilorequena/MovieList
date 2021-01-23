@@ -24,10 +24,11 @@
 		FF164E55259CF6DC001536DA /* RequestAPITvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF164E54259CF6DC001536DA /* RequestAPITvShows.swift */; };
 		FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */; };
 		FF2030FB253FA1AC0038DD56 /* MovieCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2030FA253FA1AC0038DD56 /* MovieCast.swift */; };
-		FF26C65C251D6EC700C177AE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65B251D6EC700C177AE /* SwiftPackageProductDependency */; };
-		FF26C65E251D6EC700C177AE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65D251D6EC700C177AE /* SwiftPackageProductDependency */; };
+		FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65B251D6EC700C177AE /* Kingfisher */; };
+		FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */; };
 		FF271612252FD78200370ED1 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF271611252FD78200370ED1 /* DetailCoordinator.swift */; };
 		FF271614252FD87600370ED1 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF271613252FD87600370ED1 /* DetailViewController.storyboard */; };
+		FF2EC46C25BB8F9900144DB3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EC46B25BB8F9900144DB3 /* LoginView.swift */; };
 		FF34C61B25A25C05004337C2 /* CinemaTvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34C61A25A25C05004337C2 /* CinemaTvTests.swift */; };
 		FF3B31BF252FE87B00C86820 /* CardInfos+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B31BE252FE87B00C86820 /* CardInfos+Helper.swift */; };
 		FF5AC10F250CFA8800C780A6 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC10D250CFA8800C780A6 /* PopularCollectionViewCell.swift */; };
@@ -72,7 +73,7 @@
 		FFDC28F62536A3BF003B58B5 /* String+LocalizableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */; };
 		FFE05A9225A35230005DD7C6 /* AboutViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA339F25A24B37007B402F /* AboutViewControllerSpec.swift */; };
 		FFE30A7625B5EC4D00E29825 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE30A7525B5EC4D00E29825 /* LoginViewController.swift */; };
-		FFEDD5E7259F661800489639 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = FFEDD5E6259F661800489639 /* SwiftPackageProductDependency */; };
+		FFEDD5E7259F661800489639 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFEDD5E6259F661800489639 /* SnapKit */; };
 		FFF9C8F0255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9C8EE255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift */; };
 		FFF9C8F1255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF9C8EF255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -138,6 +139,7 @@
 		FF2030FA253FA1AC0038DD56 /* MovieCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCast.swift; sourceTree = "<group>"; };
 		FF271611252FD78200370ED1 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		FF271613252FD87600370ED1 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
+		FF2EC46B25BB8F9900144DB3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF34C61825A25C05004337C2 /* CinemaTvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CinemaTvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF34C61A25A25C05004337C2 /* CinemaTvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaTvTests.swift; sourceTree = "<group>"; };
 		FF34C61C25A25C05004337C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -205,9 +207,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFEDD5E7259F661800489639 /* BuildFile in Frameworks */,
-				FF26C65E251D6EC700C177AE /* BuildFile in Frameworks */,
-				FF26C65C251D6EC700C177AE /* BuildFile in Frameworks */,
+				FFEDD5E7259F661800489639 /* SnapKit in Frameworks */,
+				FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */,
+				FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */,
 				28EDEAE4BE6B561BC1E61357 /* Pods_CinemaTv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				FFE30A7525B5EC4D00E29825 /* LoginViewController.swift */,
+				FF2EC46B25BB8F9900144DB3 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -520,9 +523,9 @@
 			);
 			name = CinemaTv;
 			packageProductDependencies = (
-				FF26C65B251D6EC700C177AE /* SwiftPackageProductDependency */,
-				FF26C65D251D6EC700C177AE /* SwiftPackageProductDependency */,
-				FFEDD5E6259F661800489639 /* SwiftPackageProductDependency */,
+				FF26C65B251D6EC700C177AE /* Kingfisher */,
+				FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */,
+				FFEDD5E6259F661800489639 /* SnapKit */,
 			);
 			productName = "ToDoMovie&Series";
 			productReference = FF95B216242ED04300C5FF83 /* CinemaTv.app */;
@@ -579,8 +582,8 @@
 			);
 			mainGroup = FF95B20D242ED04300C5FF83;
 			packageReferences = (
-				FF26C65A251D6EC700C177AE /* RemoteSwiftPackageReference */,
-				FFEDD5E5259F661800489639 /* RemoteSwiftPackageReference */,
+				FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FF95B217242ED04300C5FF83 /* Products */;
 			projectDirPath = "";
@@ -761,6 +764,7 @@
 				FF6CDB9D253532FA002DC3B7 /* DetailViewController.swift in Sources */,
 				FFF9C8F0255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift in Sources */,
 				FF2030FB253FA1AC0038DD56 /* MovieCast.swift in Sources */,
+				FF2EC46C25BB8F9900144DB3 /* LoginView.swift in Sources */,
 				FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */,
 				FF95B21C242ED04300C5FF83 /* SceneDelegate.swift in Sources */,
 				FF0D4614252035EC0069A74A /* MainCoordinator.swift in Sources */,
@@ -1105,7 +1109,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FF26C65A251D6EC700C177AE /* RemoteSwiftPackageReference */ = {
+		FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -1113,7 +1117,7 @@
 				minimumVersion = 5.15.4;
 			};
 		};
-		FFEDD5E5259F661800489639 /* RemoteSwiftPackageReference */ = {
+		FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1124,19 +1128,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FF26C65B251D6EC700C177AE /* SwiftPackageProductDependency */ = {
+		FF26C65B251D6EC700C177AE /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF26C65A251D6EC700C177AE /* RemoteSwiftPackageReference */;
+			package = FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		FF26C65D251D6EC700C177AE /* SwiftPackageProductDependency */ = {
+		FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF26C65A251D6EC700C177AE /* RemoteSwiftPackageReference */;
+			package = FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
 		};
-		FFEDD5E6259F661800489639 /* SwiftPackageProductDependency */ = {
+		FFEDD5E6259F661800489639 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FFEDD5E5259F661800489639 /* RemoteSwiftPackageReference */;
+			package = FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
