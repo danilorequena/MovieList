@@ -41,6 +41,8 @@
 		FF6C37B6259F81A100EAFECE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6C37B5259F81A100EAFECE /* AboutViewController.swift */; };
 		FF6CDB9B25351DAC002DC3B7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */; };
 		FF6CDB9D253532FA002DC3B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */; };
+		FF77501125BE02D000C5B65A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF77501025BE02D000C5B65A /* LoginViewModel.swift */; };
+		FF77501B25BE101800C5B65A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF77501A25BE101800C5B65A /* GoogleService-Info.plist */; };
 		FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */; };
 		FF7B6A6F2517052100DEBA7E /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */; };
 		FF7B6A742518225800DEBA7E /* DetailsSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B6A732518225800DEBA7E /* DetailsSeries.swift */; };
@@ -154,6 +156,8 @@
 		FF6C37B5259F81A100EAFECE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Details/DetailViewController.swift; sourceTree = "<group>"; };
+		FF77501025BE02D000C5B65A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FF77501A25BE101800C5B65A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF7B6A6C2517052100DEBA7E /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		FF7B6A6D2517052100DEBA7E /* OverlayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		FF7B6A732518225800DEBA7E /* DetailsSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSeries.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				FF92EE6D251C3D86006B8E48 /* OverlayViewModel.swift */,
 				FF0D460625200CF40069A74A /* DiscoverViewModel.swift */,
 				FF6CDB9A25351DAC002DC3B7 /* DetailViewModel.swift */,
+				FF77501025BE02D000C5B65A /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				FF95B21B242ED04300C5FF83 /* SceneDelegate.swift */,
 				FF95B225242ED05000C5FF83 /* Assets.xcassets */,
 				FF95B22A242ED05000C5FF83 /* Info.plist */,
+				FF77501A25BE101800C5B65A /* GoogleService-Info.plist */,
 				FF95B222242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld */,
 			);
 			path = CinemaTv;
@@ -610,6 +616,7 @@
 			files = (
 				FF95B229242ED05000C5FF83 /* LaunchScreen.storyboard in Resources */,
 				FF92EE6B251C38A5006B8E48 /* WereWatchCollectionViewCell.xib in Resources */,
+				FF77501B25BE101800C5B65A /* GoogleService-Info.plist in Resources */,
 				FF95B226242ED05000C5FF83 /* Assets.xcassets in Resources */,
 				FF94486D2550D9E700BE8510 /* CastCollectionViewCell.xib in Resources */,
 				FF0D4601252009300069A74A /* Discover.storyboard in Resources */,
@@ -749,6 +756,7 @@
 				FF1168982506E2A500F30652 /* MainViewModel.swift in Sources */,
 				FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */,
 				FFBBACC425A503A200A4FAE8 /* Endpoint.swift in Sources */,
+				FF77501125BE02D000C5B65A /* LoginViewModel.swift in Sources */,
 				FF94486C2550D9E700BE8510 /* CastCollectionViewCell.swift in Sources */,
 				FFDC28EE253553F0003B58B5 /* MainTabBarController.swift in Sources */,
 				FF95B224242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld in Sources */,
