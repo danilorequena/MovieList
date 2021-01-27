@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28EDEAE4BE6B561BC1E61357 /* Pods_CinemaTv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B423AE2846B12C27DF52A200 /* Pods_CinemaTv.framework */; };
 		C08BE05052EAFC2364C7A59F /* Pods_CinemaTv_CinemaTvTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DD4547369CDD92BFE47E57 /* Pods_CinemaTv_CinemaTvTests.framework */; };
 		FF08C6CB250B29920007F26F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08C6CA250B29920007F26F /* UIViewController+Extension.swift */; };
 		FF0D4601252009300069A74A /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0D4600252009300069A74A /* Discover.storyboard */; };
@@ -24,8 +23,6 @@
 		FF164E55259CF6DC001536DA /* RequestAPITvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF164E54259CF6DC001536DA /* RequestAPITvShows.swift */; };
 		FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F8371243A8EFD00886A67 /* TopRatedSeries.swift */; };
 		FF2030FB253FA1AC0038DD56 /* MovieCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2030FA253FA1AC0038DD56 /* MovieCast.swift */; };
-		FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65B251D6EC700C177AE /* Kingfisher */; };
-		FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */; };
 		FF271612252FD78200370ED1 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF271611252FD78200370ED1 /* DetailCoordinator.swift */; };
 		FF271614252FD87600370ED1 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF271613252FD87600370ED1 /* DetailViewController.storyboard */; };
 		FF2EC46C25BB8F9900144DB3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EC46B25BB8F9900144DB3 /* LoginView.swift */; };
@@ -61,13 +58,15 @@
 		FF95B23D2431565D00C5FF83 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23C2431565D00C5FF83 /* Movie.swift */; };
 		FF95B23F2431582D00C5FF83 /* RequestAPIMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95B23E2431582D00C5FF83 /* RequestAPIMovies.swift */; };
 		FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96D59C2436913D006CF3C7 /* PopularSeries.swift */; };
-		FFA8EA21252046EC00FA6117 /* DiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8EA1F252046EC00FA6117 /* DiscoverCollectionViewCell.swift */; };
 		FFA8EA22252046EC00FA6117 /* DiscoverCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8EA20252046EC00FA6117 /* DiscoverCollectionViewCell.xib */; };
 		FFA8EA28252185C400FA6117 /* UICollectionView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8EA27252185C400FA6117 /* UICollectionView+Helper.swift */; };
 		FFAA339725A24B19007B402F /* CinemaTvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA339625A24B19007B402F /* CinemaTvUITests.swift */; };
 		FFB64F0A251D413200E5C2EA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */; };
 		FFBBACC425A503A200A4FAE8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBBACC325A503A200A4FAE8 /* Endpoint.swift */; };
 		FFBC3CEB255B228B00E059F6 /* DiscoverSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */; };
+		FFBE1D7225BFD81A00BDA4CB /* DiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8EA1F252046EC00FA6117 /* DiscoverCollectionViewCell.swift */; };
+		FFBE1DB725BFD91600BDA4CB /* Pods_CinemaTv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B423AE2846B12C27DF52A200 /* Pods_CinemaTv.framework */; };
+		FFBE1DB825BFD91600BDA4CB /* Pods_CinemaTv.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B423AE2846B12C27DF52A200 /* Pods_CinemaTv.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */; };
 		FFDC28EE253553F0003B58B5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */; };
 		FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */; };
@@ -75,7 +74,6 @@
 		FFDC28F62536A3BF003B58B5 /* String+LocalizableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F52536A3BF003B58B5 /* String+LocalizableHelper.swift */; };
 		FFE05A9225A35230005DD7C6 /* AboutViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA339F25A24B37007B402F /* AboutViewControllerSpec.swift */; };
 		FFE30A7625B5EC4D00E29825 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE30A7525B5EC4D00E29825 /* LoginViewController.swift */; };
-		FFEDD5E7259F661800489639 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FFEDD5E6259F661800489639 /* SnapKit */; };
 		FFF9C8F0255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF9C8EE255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift */; };
 		FFF9C8F1255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF9C8EF255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -111,6 +109,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FFBE1DB825BFD91600BDA4CB /* Pods_CinemaTv.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +187,7 @@
 		FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		FFBBACC325A503A200A4FAE8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSeries.swift; sourceTree = "<group>"; };
+		FFBE1D8A25BFD8F900BDA4CB /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 		FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCoordinator.swift; sourceTree = "<group>"; };
@@ -211,10 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFEDD5E7259F661800489639 /* SnapKit in Frameworks */,
-				FF26C65E251D6EC700C177AE /* KingfisherSwiftUI in Frameworks */,
-				FF26C65C251D6EC700C177AE /* Kingfisher in Frameworks */,
-				28EDEAE4BE6B561BC1E61357 /* Pods_CinemaTv.framework in Frameworks */,
+				FFBE1DB725BFD91600BDA4CB /* Pods_CinemaTv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +239,7 @@
 		80C9E6576C78AC9474F02B80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFBE1D8A25BFD8F900BDA4CB /* Kingfisher.framework */,
 				B423AE2846B12C27DF52A200 /* Pods_CinemaTv.framework */,
 				44DD4547369CDD92BFE47E57 /* Pods_CinemaTv_CinemaTvTests.framework */,
 			);
@@ -529,9 +527,6 @@
 			);
 			name = CinemaTv;
 			packageProductDependencies = (
-				FF26C65B251D6EC700C177AE /* Kingfisher */,
-				FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */,
-				FFEDD5E6259F661800489639 /* SnapKit */,
 			);
 			productName = "ToDoMovie&Series";
 			productReference = FF95B216242ED04300C5FF83 /* CinemaTv.app */;
@@ -588,8 +583,6 @@
 			);
 			mainGroup = FF95B20D242ED04300C5FF83;
 			packageReferences = (
-				FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FF95B217242ED04300C5FF83 /* Products */;
 			projectDirPath = "";
@@ -740,7 +733,6 @@
 				FF0D4609252013230069A74A /* DiscoverMovies.swift in Sources */,
 				FF1168A0250710C500F30652 /* SeriesOnAir.swift in Sources */,
 				FF271612252FD78200370ED1 /* DetailCoordinator.swift in Sources */,
-				FFA8EA21252046EC00FA6117 /* DiscoverCollectionViewCell.swift in Sources */,
 				FFBC3CEB255B228B00E059F6 /* DiscoverSeries.swift in Sources */,
 				FF92EE6E251C3D86006B8E48 /* OverlayViewModel.swift in Sources */,
 				FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */,
@@ -755,6 +747,7 @@
 				FF08C6CB250B29920007F26F /* UIViewController+Extension.swift in Sources */,
 				FF1168982506E2A500F30652 /* MainViewModel.swift in Sources */,
 				FF1F8372243A8EFE00886A67 /* TopRatedSeries.swift in Sources */,
+				FFBE1D7225BFD81A00BDA4CB /* DiscoverCollectionViewCell.swift in Sources */,
 				FFBBACC425A503A200A4FAE8 /* Endpoint.swift in Sources */,
 				FF77501125BE02D000C5B65A /* LoginViewModel.swift in Sources */,
 				FF94486C2550D9E700BE8510 /* CastCollectionViewCell.swift in Sources */,
@@ -916,6 +909,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -977,6 +971,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -988,6 +983,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1008,6 +1004,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dobigaster.CinemaTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1028,6 +1025,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dobigaster.CinemaTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1115,43 +1113,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.15.4;
-			};
-		};
-		FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FF26C65B251D6EC700C177AE /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		FF26C65D251D6EC700C177AE /* KingfisherSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF26C65A251D6EC700C177AE /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
-		};
-		FFEDD5E6259F661800489639 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FFEDD5E5259F661800489639 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FF95B222242ED04300C5FF83 /* ToDoMovie_Series.xcdatamodeld */ = {

@@ -7,7 +7,9 @@ target 'CinemaTv' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
      pod 'Firebase/Core'
-     pod 'Firebase/Auth'	
+     pod 'Firebase/Auth'
+     pod 'Kingfisher', '~> 6.0'		
+     pod 'SnapKit', '~> 5.0.0'
 
   # Pods for CinemaTv
     target 'CinemaTvTests' do 
