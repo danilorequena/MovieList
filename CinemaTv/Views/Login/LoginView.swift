@@ -11,13 +11,27 @@ import UIKit
 import SnapKit
 import FirebaseAuth
 
+protocol LoginViewDelegate: AnyObject {
+    func didTapLogin()
+    func didTapGoToRegistration()
+}
+
 final class LoginView: UIView {
+    
+    weak var delegate: LoginViewDelegate?
+    
     public var emailText: String? {
         get { emailField.text }
+        set { emailField.text = newValue
+            emailField.sendActions(for: .editingChanged)
+        }
     }
     
     public var passwordText: String? {
         get { passwordField.text }
+        set { passwordField.text = newValue
+            passwordField.sendActions(for: .editingChanged)
+        }
     }
     
     
@@ -44,7 +58,7 @@ final class LoginView: UIView {
        return label
     }()
     
-    private let emailField: UITextField = {
+    private(set) lazy var emailField: UITextField = {
        let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(string: "e-mail",
                                                              attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
@@ -60,7 +74,7 @@ final class LoginView: UIView {
         return textField
     }()
     
-    private let passwordField: UITextField = {
+    private(set) lazy var passwordField: UITextField = {
        let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(string: "password",
                                                              attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
@@ -166,29 +180,16 @@ final class LoginView: UIView {
 
         
         buttonGo.addTarget(self, action: #selector(signin), for: .touchUpInside)
+        buttonRegistration.addTarget(self, action: #selector(goToRegistration), for: .touchUpInside)
     }
 
     @objc
     func signin() {
-        guard let email = emailField.text, !email.isEmpty,
-              let password = passwordField.text, !password.isEmpty  else {
-            print("missing filed data")
-            let alert = UIAlertController(title: "Atenção!", message: "Os campos e-mail e password são obrigatórios!", preferredStyle: .alert)
-            alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
-            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-            return
-        }
-        
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: {[weak self] result, error in
-            guard let strongSelf = self else { return }
-            
-            guard error == nil else {
-                print("Without registration")
-                let alert = UIAlertController(title: "Desculpe!", message: "Você ainda não tem um registro, para entrar no app, por favor crie ", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self?.window?.rootViewController?.present(alert, animated: true, completion: nil)
-                return
-            }
-        })
+        delegate?.didTapLogin()
+    }
+    
+    @objc
+    func goToRegistration() {
+        delegate?.didTapGoToRegistration()
     }
 }

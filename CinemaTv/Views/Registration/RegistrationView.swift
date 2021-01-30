@@ -10,6 +10,20 @@ import Foundation
 import SnapKit
 
 final class RegistrationView: UIView {
+    private let mainView: UIView = {
+       let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        return view
+    }()
+    
+    private let stack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.distribution = .fillProportionally
+        
+        return stackView
+    }()
     
     private let image: UIImageView = {
         let image = UIImageView()
@@ -20,7 +34,7 @@ final class RegistrationView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Login"
+        label.text = "Registration"
         label.font = UIFont.systemFont(ofSize: 27)
         label.textAlignment = .center
         label.textColor = .white
@@ -30,8 +44,10 @@ final class RegistrationView: UIView {
     
     private let emailField: UITextField = {
        let textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "e-mail",
-                                                             attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "e-mail",
+            attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray]
+        )
         textField.textColor = .lightGray
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.white.cgColor
@@ -46,8 +62,10 @@ final class RegistrationView: UIView {
     
     private let passwordField: UITextField = {
        let textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "password",
-                                                             attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "password",
+            attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray]
+        )
         textField.textColor = .lightGray
         textField.isSecureTextEntry = true
         textField.layer.borderWidth = 1
@@ -61,11 +79,11 @@ final class RegistrationView: UIView {
         return textField
     }()
     
-    private let buttonRegister: UIButton = {
+    private let buttonRegistration: UIButton = {
         let button = UIButton()
         button.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
          button.setTitleColor(.white, for: .normal)
-         button.setTitle("Continue", for: .normal)
+         button.setTitle("register", for: .normal)
          button.layer.cornerRadius = 10
         
          return button
@@ -83,17 +101,32 @@ final class RegistrationView: UIView {
 
 extension RegistrationView: CodeView {
     func buildViewHierarchy() {
-        addSubview(image)
+        let arrangedViews = [titleLabel, emailField, passwordField, buttonRegistration]
+        addSubview(mainView)
+        mainView.addSubview(image)
+        mainView.addSubview(stack)
+        arrangedViews.forEach(stack.addArrangedSubview)
     }
     
     func setupConstraints() {
-        image.anchor(
-            top: topAnchor,
-            leading: leadingAnchor,
-            bottom: bottomAnchor,
-            trailing: trailingAnchor,
-            insets: .init(top: 16, left: 42, bottom: 16, right: 42)
+        mainView.bindFrameToSuperviewSafeBounds()
+        image.anchor(height: 180, width: 180)
+        image.anchorCenterXTo(view: stack)
+        stack.anchor(
+            top: image.bottomAnchor,
+            leading: mainView.leadingAnchor,
+            trailing: mainView.trailingAnchor,
+            insets: .init(top: 16, left: 16, bottom: 0, right: 16)
         )
+        titleLabel.anchor(height: 50, width: 50)
+        emailField.anchor(height: 52)
+        passwordField.anchor(height: 52)
+        buttonRegistration.anchor(height: 52)
+        
+    }
+    
+    func setupAdditionalConfiguration() {
+        self.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
     }
     
     

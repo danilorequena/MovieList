@@ -13,10 +13,16 @@ import SnapKit
 
 
 final class LoginViewController: UIViewController, Storyboaded {
-    private let loginView = LoginView()
     weak var coordinator: MainCoordinator?
     
     var viewModel: LoginViewModel!
+    
+    private lazy var loginView: LoginView = {
+       let view = LoginView()
+        view.delegate = self
+        
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,11 @@ final class LoginViewController: UIViewController, Storyboaded {
         tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     private func setupView() {
         view.addSubview(loginView)
         
@@ -33,8 +44,33 @@ final class LoginViewController: UIViewController, Storyboaded {
             make.edges.equalToSuperview()
         }
     }
-    
-    private func signin() {
+}
+
+extension LoginViewController: LoginViewDelegate {
+    func didTapLogin() {
+        guard let email = loginView.emailField.text, !email.isEmpty,
+              let password = loginView.passwordField.text, !password.isEmpty  else {
+            print("missing filed data")
+            let alert = UIAlertController(title: "Atenção!", message: "Os campos e-mail e password são obrigatórios!", preferredStyle: .alert)
+            alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
         
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: {[weak self] result, error in
+            guard error == nil else {
+                print("Without registration")
+                let alert = UIAlertController(title: "Desculpe!", message: "Você ainda não tem um registro, para entrar no app, por favor crie ", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+                return
+            }
+        })
     }
+    
+    func didTapGoToRegistration() {
+        let vc = RegistrationViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
