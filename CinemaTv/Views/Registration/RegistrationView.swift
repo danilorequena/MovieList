@@ -7,9 +7,16 @@
 //
 
 import Foundation
-import SnapKit
+import UIKit
+
+protocol RegistrationViewDelegate: AnyObject {
+    func didTapRegister()
+}
 
 final class RegistrationView: UIView {
+    
+    weak var delegate: RegistrationViewDelegate?
+    
     private let mainView: UIView = {
        let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
@@ -42,7 +49,7 @@ final class RegistrationView: UIView {
        return label
     }()
     
-    private let emailField: UITextField = {
+    private(set) lazy var emailField: UITextField = {
        let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "e-mail",
@@ -60,7 +67,7 @@ final class RegistrationView: UIView {
         return textField
     }()
     
-    private let passwordField: UITextField = {
+    private(set) lazy var passwordField: UITextField = {
        let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "password",
@@ -82,11 +89,12 @@ final class RegistrationView: UIView {
     private let buttonRegistration: UIButton = {
         let button = UIButton()
         button.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-         button.setTitleColor(.white, for: .normal)
-         button.setTitle("register", for: .normal)
-         button.layer.cornerRadius = 10
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("register", for: .normal)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(register), for: .touchUpInside)
         
-         return button
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -96,6 +104,11 @@ final class RegistrationView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func register() {
+        delegate?.didTapRegister()
     }
 }
 

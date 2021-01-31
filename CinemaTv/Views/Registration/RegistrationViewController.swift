@@ -8,11 +8,13 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 final class RegistrationViewController: UIViewController {
     
-    private let registrationView: RegistrationView = {
+    private lazy var registrationView: RegistrationView = {
         let view = RegistrationView()
+        view.delegate = self
         
         return view
     }()
@@ -33,6 +35,41 @@ extension RegistrationViewController: CodeView {
     func setupConstraints() {
         registrationView.bindFrameToSuperviewBounds()
     }
-    
-    
+}
+
+extension RegistrationViewController: RegistrationViewDelegate {
+    func didTapRegister() {
+        guard let email = registrationView.emailField.text, !email.isEmpty,
+              let password = registrationView.passwordField.text, !password.isEmpty  else {
+            print("missing filed data")
+            let alert = UIAlertController(title: "Atenção!", message: "Os campos e-mail e password são obrigatórios!", preferredStyle: .alert)
+            alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            guard error == nil else {
+                // show account creation
+                print("Account creation failed")
+                let alert = UIAlertController(title: "Desculpe!", message: "Algo falhou, por favor tente novamente.", preferredStyle: .alert)
+                alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            print("You have signed in")
+            let alert = UIAlertController(title: "Sucesso!", message: "Seu login foi criado, agora você já pode se entrar no app.", preferredStyle: .alert)
+            alert.addAction(.init(title: "Ok", style: .cancel, handler: { (action) in
+                self?.navigationController?.popViewController(animated: true)
+            }))
+            self?.present(alert, animated: true, completion: nil)
+        })
+                                           
+    }
 }

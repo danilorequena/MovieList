@@ -60,11 +60,16 @@ extension LoginViewController: LoginViewDelegate {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: {[weak self] result, error in
             guard error == nil else {
                 print("Without registration")
-                let alert = UIAlertController(title: "Desculpe!", message: "Você ainda não tem um registro, para entrar no app, por favor crie ", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                let alert = UIAlertController(title: "Desculpe!", message: "Você ainda não tem um registro, para entrar no app, por favor crie o seu registro ", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
+                    self?.navigationController?.pushViewController(RegistrationViewController(), animated: true)
+                }))
                 self?.present(alert, animated: true, completion: nil)
                 return
             }
+            print("You have signed in")
+            let coordinator = MainCoordinator(navigationController: (self?.navigationController)!)
+            coordinator.userLogged()
         })
     }
     

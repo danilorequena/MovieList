@@ -94,21 +94,23 @@ final class LoginView: UIView {
     private let buttonGo: UIButton = {
         let button = UIButton()
         button.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-         button.setTitleColor(.white, for: .normal)
-         button.setTitle("Continue", for: .normal)
-         button.layer.cornerRadius = 10
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Continue", for: .normal)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(signin), for: .touchUpInside)
         
-         return button
+        return button
     }()
     
     private let buttonRegistration: UIButton = {
         let button = UIButton()
-         button.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
-         button.setTitleColor(.white, for: .normal)
-         button.setTitle("SignUp", for: .normal)
-         button.layer.cornerRadius = 10
+        button.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("SignUp", for: .normal)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(goToRegistration), for: .touchUpInside)
         
-         return button
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -177,10 +179,6 @@ final class LoginView: UIView {
             make.bottomMargin.equalTo(mainView.snp.bottomMargin).inset(16)
             make.height.equalTo(52)
         }
-
-        
-        buttonGo.addTarget(self, action: #selector(signin), for: .touchUpInside)
-        buttonRegistration.addTarget(self, action: #selector(goToRegistration), for: .touchUpInside)
     }
 
     @objc
