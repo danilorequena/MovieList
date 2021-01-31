@@ -68,6 +68,7 @@ PODS:
   - iOSSnapshotTestCase/Core (6.2.0)
   - iOSSnapshotTestCase/SwiftSupport (6.2.0):
     - iOSSnapshotTestCase/Core
+  - Kingfisher (6.0.1)
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
     - nanopb/encode (= 2.30906.0)
@@ -81,13 +82,16 @@ PODS:
     - Nimble
   - PromisesObjC (1.2.12)
   - Quick (3.0.0)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
+  - Kingfisher (~> 6.0)
   - Nimble
   - Nimble-Snapshots
   - Quick
+  - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -102,11 +106,13 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - iOSSnapshotTestCase
+    - Kingfisher
     - nanopb
     - Nimble
     - Nimble-Snapshots
     - PromisesObjC
     - Quick
+    - SnapKit
 
 SPEC CHECKSUMS:
   Firebase: 26223c695fe322633274198cb19dca8cb7e54416
@@ -120,12 +126,14 @@ SPEC CHECKSUMS:
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
+  Kingfisher: adde87a4f74f6a3845395769354efff593581740
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
   Nimble-Snapshots: 6605431525245f967ca9d558bb12a49da3d040e3
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: ee1217dbc3d23681839816de5edf21e272dd95c7
+PODFILE CHECKSUM: 86d84a9926c1c35ee03da2a1afd4af6109a0a1bd
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
