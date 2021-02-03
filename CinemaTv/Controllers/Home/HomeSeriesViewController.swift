@@ -56,11 +56,12 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == collectionViewPopular{
+        switch collectionView {
+        case collectionViewPopular:
             return mainViewModel?.seriesPopular.count ?? 0
-        } else if collectionView == collectionViewOnAir {
+        case collectionViewOnAir:
             return mainViewModel?.seriesOnAir.count ?? 0
-        } else {
+        default:
             return mainViewModel?.discoverSeries.count ?? 0
         }
     }
@@ -108,10 +109,15 @@ extension HomeSeriesViewController: UICollectionViewDataSource, UICollectionView
                 mainViewModel?.popularPage += 1
                 mainViewModel?.fetchPopularSeries()
             }
-        } else {
+        } else if collectionView == collectionViewOnAir {
             if indexPath.item == (mainViewModel?.seriesOnAir.count ?? 0) - 10 {
                 mainViewModel?.seriesOnAirPage += 1
                 mainViewModel?.fetchSeriesOnAir()
+            }
+        } else {
+            if indexPath.item == (mainViewModel?.discoverSeries.count ?? 0) - 10 {
+                mainViewModel?.discoverPage += 1
+                mainViewModel?.fetchDiscoverSeries()
             }
         }
     }

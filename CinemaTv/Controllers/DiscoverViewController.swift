@@ -67,6 +67,15 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
         coordinator.detailDiscover(discoverMovies: movie)
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == discovercollectView {
+            if indexPath.item == (viewModel?.movies.count ?? 0) - 10 {
+                viewModel?.page += 1
+                viewModel?.fetchDiscoverMovies()
+            }
+        }
+    }
+    
     
 }
 
