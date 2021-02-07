@@ -9,19 +9,36 @@
 import SwiftUI
 
 struct SocialViews: View {
+    @Environment(\.openURL) var openURL
     var body: some View {
         HStack {
-            Image("twitter")
-                .resizable()
-                .frame(width: 50, height: 50)
-                .padding(.trailing, 26)
+            Button(action: {
+                print("twitter")
+                openURL(URL(string: "https://twitter.com/nilodobi")!)
+            }) {
+                Image("twitter")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .padding(.trailing, 26)
+            }
+            
+            Button(action: {
+                print("github")
+                openURL(URL(string: "https://github.com/danilorequena")!)
+            }) {
             Image("github")
                 .resizable()
                 .frame(width: 50, height: 50)
+            }
+            Button(action: {
+                print("linkedin")
+                openURL(URL(string: "https://www.linkedin.com/in/danilorequena/")!)
+            }) {
             Image("linkedin")
                 .resizable()
                 .frame(width: 50, height: 50)
                 .padding(.leading, 26)
+            }
         }
     }
 }
