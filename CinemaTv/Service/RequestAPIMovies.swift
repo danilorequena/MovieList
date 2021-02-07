@@ -20,12 +20,15 @@ import Foundation
     private static let session = URLSession(configuration: configuration)
     
     
-    class func loadMovies<T: Decodable>(page: String, endPoint: MoviesEndpoint, onComplete: @escaping (T) -> Void, onError: @escaping (APIServiceError) -> Void) {
+    class func loadMovies<T: Decodable>(page: String,
+                                        endPoint: MoviesEndpoint,
+                                        onComplete: @escaping (T) -> Void, onError: @escaping (APIServiceError) -> Void) {
         guard let queryURL = Constants.baseUrl?.appendingPathComponent(endPoint.path()) else {
             onError(.url)
             return
         }
-        var components = URLComponents(url: queryURL, resolvingAgainstBaseURL: true)!
+        var components = URLComponents(url: queryURL,
+                                       resolvingAgainstBaseURL: true)!
         components.queryItems = [
             URLQueryItem(name: "api_key", value: Constants.apiKey),
             URLQueryItem(name: "language", value: Locale.preferredLanguages[0]),
