@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class DiscoverViewController: UIViewController, Storyboaded {
 
@@ -32,7 +33,9 @@ class DiscoverViewController: UIViewController, Storyboaded {
     
     @objc func showAboutMe() {
         print("tapped")
-        let vc = AboutViewController()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let contentView = NewAbout().environment(\.managedObjectContext, context)
+        let vc = UIHostingController(rootView: contentView)
         navigationController?.present(vc, animated: true, completion: nil)
     }
     

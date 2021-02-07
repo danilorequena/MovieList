@@ -13,6 +13,9 @@
 		7D5870F725C3935E00DE8D38 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5870F625C3935E00DE8D38 /* CodeView.swift */; };
 		7DABFFAC25C7311E00FCAF94 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABFFAB25C7311E00FCAF94 /* NetworkProtocol.swift */; };
 		7DABFFDE25C7525F00FCAF94 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABFFDD25C7525F00FCAF94 /* APIService.swift */; };
+		7DB75AF325CEDAE200E80A57 /* NewAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AF225CEDAE200E80A57 /* NewAbout.swift */; };
+		7DB75AF725CEE89900E80A57 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AF625CEE89900E80A57 /* MyImage.swift */; };
+		7DB75B0025CEF77800E80A57 /* SocialViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AFF25CEF77800E80A57 /* SocialViews.swift */; };
 		7DD3FE0325CA0E4600A101AC /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3FE0225CA0E4600A101AC /* APIServiceError.swift */; };
 		7DD3FE0725CA153800A101AC /* SeriesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3FE0625CA153800A101AC /* SeriesEndpoint.swift */; };
 		C08BE05052EAFC2364C7A59F /* Pods_CinemaTv_CinemaTvTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DD4547369CDD92BFE47E57 /* Pods_CinemaTv_CinemaTvTests.framework */; };
@@ -134,6 +137,9 @@
 		7D5870F625C3935E00DE8D38 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		7DABFFAB25C7311E00FCAF94 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		7DABFFDD25C7525F00FCAF94 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		7DB75AF225CEDAE200E80A57 /* NewAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAbout.swift; sourceTree = "<group>"; };
+		7DB75AF625CEE89900E80A57 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
+		7DB75AFF25CEF77800E80A57 /* SocialViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViews.swift; sourceTree = "<group>"; };
 		7DD3FE0225CA0E4600A101AC /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		7DD3FE0625CA153800A101AC /* SeriesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesEndpoint.swift; sourceTree = "<group>"; };
 		B051E08EDE7562A1807570F8 /* Pods-CinemaTv-CinemaTvTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv-CinemaTvTests.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -268,6 +274,16 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		7DB75AFA25CEF75800E80A57 /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				7DB75AF225CEDAE200E80A57 /* NewAbout.swift */,
+				7DB75AF625CEE89900E80A57 /* MyImage.swift */,
+				7DB75AFF25CEF77800E80A57 /* SocialViews.swift */,
+			);
+			path = SwiftUIViews;
+			sourceTree = "<group>";
+		};
 		80C9E6576C78AC9474F02B80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				FF6C37B5259F81A100EAFECE /* AboutViewController.swift */,
+				7DB75AFA25CEF75800E80A57 /* SwiftUIViews */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -772,6 +789,8 @@
 				FF271612252FD78200370ED1 /* DetailCoordinator.swift in Sources */,
 				FFBC3CEB255B228B00E059F6 /* DiscoverSeries.swift in Sources */,
 				FF92EE6E251C3D86006B8E48 /* OverlayViewModel.swift in Sources */,
+				7DB75AF325CEDAE200E80A57 /* NewAbout.swift in Sources */,
+				7DB75B0025CEF77800E80A57 /* SocialViews.swift in Sources */,
 				FF80D58A250EDC6400A15326 /* HomeSeriesViewController.swift in Sources */,
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
 				FF11689E25070A2200F30652 /* Constants.swift in Sources */,
@@ -796,6 +815,7 @@
 				FF0D460C252019060069A74A /* Coordinator.swift in Sources */,
 				7D044F7F25C75F4B00E8A4C9 /* MoviesEndpoint.swift in Sources */,
 				FF6C37B6259F81A100EAFECE /* AboutViewController.swift in Sources */,
+				7DB75AF725CEE89900E80A57 /* MyImage.swift in Sources */,
 				FFE30A7625B5EC4D00E29825 /* LoginViewController.swift in Sources */,
 				FF96D59D2436913D006CF3C7 /* PopularSeries.swift in Sources */,
 				FF7B6A6E2517052100DEBA7E /* OverlayViewController.swift in Sources */,
