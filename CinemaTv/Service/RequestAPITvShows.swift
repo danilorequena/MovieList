@@ -103,38 +103,4 @@ final class RequestAPITVShows {
         }
         dataTask.resume()
     }
-    
-    class func loadSeriesCast(serieID: Int, onComplete: @escaping (Cast?) -> Void, onError: @escaping (APIServiceError) -> Void) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/tv/\(serieID)/credits?api_key=\(Constants.apiKey)&language=en-US") else {
-            onError(.url)
-            return
-        }
-        let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-            if error == nil {
-                guard let response = response as? HTTPURLResponse else {
-                    onError(.noResponse)
-                    print("No Error")
-                    return
-                }
-                if response.statusCode == 200 {
-                    guard let data = data else { return }
-                    do {
-                        let series = try JSONDecoder().decode(Cast.self, from: data)
-                        onComplete(series)
-                        print("FetchOK")
-                    } catch let jsonErr {
-                        onError(.invalidJSON)
-                        print("Error serializing json:", jsonErr)
-                    }
-                } else {
-                   onError(.responseStatusCode(code: response.statusCode))
-                    print("Algo deu Errado no servidor dos Movies")
-                }
-            } else {
-                onError(.taskError(error: error!))
-                print("Algo errado")
-            }
-        }
-        dataTask.resume()
-    }
 }

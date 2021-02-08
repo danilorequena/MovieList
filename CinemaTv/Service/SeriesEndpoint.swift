@@ -10,8 +10,8 @@ import Foundation
 
 enum SeriesEndpoint {
     case popular, onAir, topRated, nowPlaying
-    case detail(movie: Int), recommended(movie: Int), similar(movie: Int)
-    case credits(movie: Int), review(movie: Int)
+    case detail(tvID: Int), recommended(tvID: Int), similar(tvID: Int)
+    case credits(tvID: Int), review(tvID: Int)
     case searchMovie, searchKeyword
     case genres
     case discover
@@ -25,23 +25,23 @@ enum SeriesEndpoint {
         case .topRated:
             return "tv/top_rated"
         case .nowPlaying:
-            return "movie/now_playing"
-        case let .detail(movie):
-            return "movie/\(String(movie))"
-        case let .credits(movie):
-            return "movie/\(String(movie))/credits"
-        case let .review(movie):
-            return "movie/\(String(movie))/reviews"
-        case let .recommended(movie):
-            return "movie/\(String(movie))/recommendations"
-        case let .similar(movie):
-            return "movie/\(String(movie))/similar"
+            return "tv/now_playing"
+        case let .detail(tvID):
+            return "tv/\(String(tvID))"
+        case let .credits(tvID):
+            return "tv/\(String(tvID))/credits"
+        case let .review(tvID):
+            return "tv/\(String(tvID))/reviews"
+        case let .recommended(tvID):
+            return "tv/\(String(tvID))/recommendations"
+        case let .similar(tvID):
+            return "tv/\(String(tvID))/similar"
         case .searchMovie:
-            return "search/movie"
+            return "search/tv"
         case .searchKeyword:
             return "search/keyword"
         case .genres:
-            return "genre/movie/list"
+            return "genre/tv/list"
         case .discover:
             return "discover/tv"
         }
