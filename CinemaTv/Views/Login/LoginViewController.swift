@@ -29,7 +29,7 @@ final class LoginViewController: UIViewController, Storyboaded {
         setupView()
         viewModel = LoginViewModel()
         navigationController?.navigationBar.isHidden = true
-//        tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +50,7 @@ extension LoginViewController: LoginViewDelegate {
     func didTapLogin() {
         guard let email = loginView.emailField.text, !email.isEmpty,
               let password = loginView.passwordField.text, !password.isEmpty  else {
-            print("missing filed data")
+            print("missing failed data")
             let alert = UIAlertController(title: "Atenção!", message: "Os campos e-mail e password são obrigatórios!", preferredStyle: .alert)
             alert.addAction(.init(title: "Ok", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
