@@ -10,7 +10,10 @@ import SwiftUI
 
 struct SocialViews: View {
     @Environment(\.openURL) var openURL
+    @State private var isActive: Bool = false
+    
     var body: some View {
+        
         HStack {
             Button(action: {
                 print("twitter")

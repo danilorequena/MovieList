@@ -19,9 +19,9 @@ protocol DiscoverViewModelDelegate: AnyObject {
     func errorList()
 }
 
-class DiscoverViewModel: DiscoverProtocol {
+class DiscoverViewModel: DiscoverProtocol, ObservableObject {
     var delegate: DiscoverViewModelDelegate?
-    var movies: [ResultDiscover] = []
+    @Published var movies: [ResultDiscover] = []
     var page = 1
     
     func fetchDiscoverMovies() {
