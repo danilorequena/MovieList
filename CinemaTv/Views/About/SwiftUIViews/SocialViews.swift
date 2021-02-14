@@ -13,7 +13,6 @@ struct SocialViews: View {
     @State private var isActive: Bool = false
     
     var body: some View {
-        
         HStack {
             Button(action: {
                 print("twitter")

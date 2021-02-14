@@ -20,7 +20,7 @@ protocol DiscoverViewModelDelegate: AnyObject {
 }
 
 class DiscoverViewModel: DiscoverProtocol, ObservableObject {
-    var delegate: DiscoverViewModelDelegate?
+    weak var delegate: DiscoverViewModelDelegate?
     @Published var movies: [ResultDiscover] = []
     var page = 1
     

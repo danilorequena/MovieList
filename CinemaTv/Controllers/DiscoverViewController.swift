@@ -27,7 +27,7 @@ class DiscoverViewController: UIViewController, Storyboaded {
         setupCollection()
         viewModel = DiscoverViewModel()
         viewModel?.delegate = self
-        viewModel?.configureNavigate(controller: self)
+//        viewModel?.configureNavigate(controller: self)
         viewModel?.fetchDiscoverMovies()
     }
     

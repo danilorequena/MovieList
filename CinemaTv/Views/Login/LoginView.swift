@@ -71,6 +71,8 @@ final class LoginView: UIView {
         textField.leftViewMode = .always
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         
+        textField.text = "danilo.requena26@gmail.com"
+        
         return textField
     }()
     
@@ -87,6 +89,8 @@ final class LoginView: UIView {
         textField.autocapitalizationType = .none
         textField.leftViewMode = .always
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        
+        textField.text = "123456"
         
         return textField
     }()
