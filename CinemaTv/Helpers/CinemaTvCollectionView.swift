@@ -100,7 +100,7 @@ public final class CinemaTvCollectionView: UIView {
         }
     }
 
-    private let dataSource: BrMCollectionViewDataSource
+    private let dataSource: CinemaTvCollectionViewDataSource
     private var sections: [Section]
 
     private lazy var collectionView: UICollectionView = {
@@ -124,7 +124,7 @@ public final class CinemaTvCollectionView: UIView {
         self.flowLayout = flowLayout
         self.flowLayout.minimumInteritemSpacing = minimumInterItemSpacing
         self.flowLayout.minimumLineSpacing = minimumCellSpacing
-        dataSource = BrMCollectionViewDataSource(sections: sections)
+        dataSource = CinemaTvCollectionViewDataSource(sections: sections)
         super.init(frame: .zero)
         setupView()
         collectionView.delegate = dataSource
@@ -179,7 +179,7 @@ public final class CinemaTvCollectionView: UIView {
         collectionView.backgroundView = view
     }
 
-    public func setDataSourceProtocol(_ collectionViewDataSource: BrMCollectionViewDataSourceProtocol) {
+    public func setDataSourceProtocol(_ collectionViewDataSource: CinemaTvCollectionViewDataSourceProtocol) {
         dataSource.collectionViewDataSource = collectionViewDataSource
     }
 

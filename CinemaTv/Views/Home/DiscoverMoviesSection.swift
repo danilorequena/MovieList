@@ -23,12 +23,21 @@ final class DiscoverMoviesSection: Section {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header: HeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, forIndexPath: indexPath)
+        header.titleText = "Discover"
+        header.titleColor = .white
+        
+        return header
+    }
+    
     func numberOfItemsInSection() -> Int {
         movies.count
     }
     
     func register(_ collectionView: UICollectionView) {
         collectionView.register(DiscoverCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverCollectionViewCell.identifier())
+//        collectionView.register(DiscoverCollectionViewCell.self)
     }
     
     func cellSize(with collectionViewBounds: CGRect, at indexPath: IndexPath) -> CGSize {

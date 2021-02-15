@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import FirebaseAuth
-import SnapKit
 
 
 final class LoginViewController: UIViewController, Storyboaded {

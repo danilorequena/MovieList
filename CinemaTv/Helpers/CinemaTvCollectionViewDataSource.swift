@@ -64,15 +64,15 @@ extension Section {
     }
 }
 
-public protocol BrMCollectionViewDataSourceProtocol: AnyObject {
+public protocol CinemaTvCollectionViewDataSourceProtocol: AnyObject {
     func scrollViewDidScroll(_ scrollView: UIScrollView)
 }
 
-public class BrMCollectionViewDataSource: NSObject,
+public class CinemaTvCollectionViewDataSource: NSObject,
     UICollectionViewDataSource,
     UICollectionViewDelegate,
     UICollectionViewDelegateFlowLayout {
-    public weak var collectionViewDataSource: BrMCollectionViewDataSourceProtocol?
+    public weak var collectionViewDataSource: CinemaTvCollectionViewDataSourceProtocol?
 
     var sections: [Section]
 
@@ -157,7 +157,7 @@ public class BrMCollectionViewDataSource: NSObject,
 }
 
 // Animation on touch
-extension BrMCollectionViewDataSource {
+extension CinemaTvCollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         if !animateOnTouch(at: indexPath) { return }
         UIView.animate(withDuration: 0.25) {

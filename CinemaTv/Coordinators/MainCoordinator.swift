@@ -30,7 +30,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
 //        vc.tabBarItem = UITabBarItem(title: "tab.discover".localized, image: UIImage(named: "movie"), tag: 0)
 //        navigationController.pushViewController(vc, animated: false)
         navigationController.delegate = self
-        let vc = NewDiscoverMoviesView()
+        let vc = NewDiscoverMoviesViewController()
         vc.tabBarItem = UITabBarItem(title: "tab.discover".localized, image: UIImage(named: "movie"), tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }
