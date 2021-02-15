@@ -28,8 +28,6 @@ class CastCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    
-    
     func prepareCell(with serie: CastElement) {
         if let logoPath = serie.profilePath {
             guard let logoURL = URL(string: "https://image.tmdb.org/t/p/w92" + logoPath) else { return }

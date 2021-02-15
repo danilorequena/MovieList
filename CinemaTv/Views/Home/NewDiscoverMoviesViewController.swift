@@ -107,11 +107,11 @@ extension NewDiscoverMoviesViewController: MovieViewControllerProtocol{
 
 extension NewDiscoverMoviesViewController: DiscoverViewModelDelegate {
     func successDiscoverList() {
-        hud.textLabel.text = "Loading..."
-        hud.show(in: self.view)
+//        hud.textLabel.text = "Loading..."
+//        hud.show(in: self.view)
         DispatchQueue.main.async {
             self.showMovies(self.viewModel?.movies ?? [])
-            hud.dismiss()
+//            self.hud.dismiss()
         }
     }
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import UIKit
 
 protocol LoginProtocol: AnyObject {
     func signin(buttonLogin: UIButton, user: String, password: String)

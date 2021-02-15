@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BB5BE055C166E0885572416 /* Pods_CinemaTv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05EAA125EC25A6941995D783 /* Pods_CinemaTv.framework */; };
 		7D044F7F25C75F4B00E8A4C9 /* MoviesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D044F7E25C75F4B00E8A4C9 /* MoviesEndpoint.swift */; };
 		7D0F9C4825D0BFCC00E0A129 /* RequestCastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F9C4725D0BFCC00E0A129 /* RequestCastService.swift */; };
 		7D0F9C5825D0DB4200E0A129 /* CinemaTvCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0F9C5725D0DB4200E0A129 /* CinemaTvCollectionViewDataSource.swift */; };
@@ -18,9 +17,11 @@
 		7D5870E725C3918B00DE8D38 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5870E625C3918B00DE8D38 /* RegistrationViewController.swift */; };
 		7D5870EB25C392A000DE8D38 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5870EA25C392A000DE8D38 /* RegistrationView.swift */; };
 		7D5870F725C3935E00DE8D38 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5870F625C3935E00DE8D38 /* CodeView.swift */; };
+		7D60ADA125DB14550064E3E6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7D60ADA025DB14550064E3E6 /* Kingfisher */; };
 		7D67C40225DA26FB00530E17 /* DiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8EA1F252046EC00FA6117 /* DiscoverCollectionViewCell.swift */; };
 		7D67C46025DA289C00530E17 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF77501025BE02D000C5B65A /* LoginViewModel.swift */; };
 		7D94F20125DAF0E500E77DF8 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF94486A2550D9E700BE8510 /* CastCollectionViewCell.swift */; };
+		7DA6FC7A25DB1CCA0022300E /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7DA6FC7925DB1CCA0022300E /* JGProgressHUD */; };
 		7DABFFAC25C7311E00FCAF94 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABFFAB25C7311E00FCAF94 /* NetworkProtocol.swift */; };
 		7DABFFDE25C7525F00FCAF94 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABFFDD25C7525F00FCAF94 /* APIService.swift */; };
 		7DB75AF325CEDAE200E80A57 /* NewAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AF225CEDAE200E80A57 /* NewAbout.swift */; };
@@ -39,17 +40,16 @@
 		7DD373A825D9F088001472B7 /* UIimage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD373A725D9F088001472B7 /* UIimage+Extension.swift */; };
 		7DD3FE0325CA0E4600A101AC /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3FE0225CA0E4600A101AC /* APIServiceError.swift */; };
 		7DD3FE0725CA153800A101AC /* SeriesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3FE0625CA153800A101AC /* SeriesEndpoint.swift */; };
-		7DE2B11725DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11625DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B11925DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11825DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B11B25DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11A25DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B11D25DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11C25DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B11F25DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11E25DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B12125DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12025DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B12325DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12225DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B12525DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12425DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B12725DAD38500FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12625DAD38500FE65FB /* SwiftPackageProductDependency */; };
-		7DE2B13725DAD56B00FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B13625DAD56B00FE65FB /* SwiftPackageProductDependency */; };
-		C7DAAC76A7F6EB6C339D2456 /* Pods_CinemaTv_CinemaTvTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A898EB1B7853D19EE598E0 /* Pods_CinemaTv_CinemaTvTests.framework */; };
+		7DE2B11725DAD38500FE65FB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11625DAD38500FE65FB /* FirebaseFirestore */; };
+		7DE2B11925DAD38500FE65FB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11825DAD38500FE65FB /* FirebaseDatabase */; };
+		7DE2B11B25DAD38500FE65FB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11A25DAD38500FE65FB /* FirebaseAnalytics */; };
+		7DE2B11D25DAD38500FE65FB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11C25DAD38500FE65FB /* FirebaseStorage */; };
+		7DE2B11F25DAD38500FE65FB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B11E25DAD38500FE65FB /* FirebaseCrashlytics */; };
+		7DE2B12125DAD38500FE65FB /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12025DAD38500FE65FB /* FirebaseRemoteConfig */; };
+		7DE2B12325DAD38500FE65FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12225DAD38500FE65FB /* FirebaseAuth */; };
+		7DE2B12525DAD38500FE65FB /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12425DAD38500FE65FB /* FirebaseDynamicLinks */; };
+		7DE2B12725DAD38500FE65FB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B12625DAD38500FE65FB /* FirebaseMessaging */; };
+		7DE2B13725DAD56B00FE65FB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B13625DAD56B00FE65FB /* SnapKit */; };
 		FF08C6CB250B29920007F26F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08C6CA250B29920007F26F /* UIViewController+Extension.swift */; };
 		FF0D4601252009300069A74A /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0D4600252009300069A74A /* Discover.storyboard */; };
 		FF0D460325200B7F0069A74A /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D460225200B7F0069A74A /* DiscoverViewController.swift */; };
@@ -103,7 +103,7 @@
 		FFAA339725A24B19007B402F /* CinemaTvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA339625A24B19007B402F /* CinemaTvUITests.swift */; };
 		FFB64F0A251D413200E5C2EA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */; };
 		FFBC3CEB255B228B00E059F6 /* DiscoverSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */; };
-		FFBE1DB825BFD91600BDA4CB /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFBE1DB825BFD91600BDA4CB /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */; };
 		FFDC28EE253553F0003B58B5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */; };
 		FFDC28F225369DA0003B58B5 /* SeriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */; };
@@ -146,7 +146,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FFBE1DB825BFD91600BDA4CB /* BuildFile in Embed Frameworks */,
+				FFBE1DB825BFD91600BDA4CB /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,8 +154,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05EAA125EC25A6941995D783 /* Pods_CinemaTv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E87AB9D99F43C29463CE49E /* Pods-CinemaTv-CinemaTvTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv-CinemaTvTests.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D044F7E25C75F4B00E8A4C9 /* MoviesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesEndpoint.swift; sourceTree = "<group>"; };
 		7D0F9C4725D0BFCC00E0A129 /* RequestCastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCastService.swift; sourceTree = "<group>"; };
 		7D0F9C5725D0DB4200E0A129 /* CinemaTvCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaTvCollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -184,10 +182,6 @@
 		7DD373A725D9F088001472B7 /* UIimage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+Extension.swift"; sourceTree = "<group>"; };
 		7DD3FE0225CA0E4600A101AC /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		7DD3FE0625CA153800A101AC /* SeriesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesEndpoint.swift; sourceTree = "<group>"; };
-		9F32634FE44FEC8027EB833D /* Pods-CinemaTv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTv/Pods-CinemaTv.debug.xcconfig"; sourceTree = "<group>"; };
-		A1A898EB1B7853D19EE598E0 /* Pods_CinemaTv_CinemaTvTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTv_CinemaTvTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6560E7EE70D6F39BA9DBCAB /* Pods-CinemaTv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv.release.xcconfig"; path = "Target Support Files/Pods-CinemaTv/Pods-CinemaTv.release.xcconfig"; sourceTree = "<group>"; };
-		ED06EBC3A0C29FBA37E7359F /* Pods-CinemaTv-CinemaTvTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv-CinemaTvTests.release.xcconfig"; path = "Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests.release.xcconfig"; sourceTree = "<group>"; };
 		FF08C6CA250B29920007F26F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		FF0D4600252009300069A74A /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		FF0D460225200B7F0069A74A /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +245,6 @@
 		FFAA339F25A24B37007B402F /* AboutViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewControllerSpec.swift; sourceTree = "<group>"; };
 		FFB64F09251D413200E5C2EA /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSeries.swift; sourceTree = "<group>"; };
-		FFBE1D8A25BFD8F900BDA4CB /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCC7EE825100D6B00994F11 /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 		FFDC28ED253553F0003B58B5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCoordinator.swift; sourceTree = "<group>"; };
@@ -267,7 +260,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7DAAC76A7F6EB6C339D2456 /* Pods_CinemaTv_CinemaTvTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,17 +267,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DE2B11925DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B12725DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B11B25DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B12125DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B11F25DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B12525DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B11D25DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B11725DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B12325DAD38500FE65FB /* BuildFile in Frameworks */,
-				7DE2B13725DAD56B00FE65FB /* BuildFile in Frameworks */,
-				4BB5BE055C166E0885572416 /* Pods_CinemaTv.framework in Frameworks */,
+				7D60ADA125DB14550064E3E6 /* Kingfisher in Frameworks */,
+				7DA6FC7A25DB1CCA0022300E /* JGProgressHUD in Frameworks */,
+				7DE2B11925DAD38500FE65FB /* FirebaseDatabase in Frameworks */,
+				7DE2B12725DAD38500FE65FB /* FirebaseMessaging in Frameworks */,
+				7DE2B11B25DAD38500FE65FB /* FirebaseAnalytics in Frameworks */,
+				7DE2B12125DAD38500FE65FB /* FirebaseRemoteConfig in Frameworks */,
+				7DE2B11F25DAD38500FE65FB /* FirebaseCrashlytics in Frameworks */,
+				7DE2B12525DAD38500FE65FB /* FirebaseDynamicLinks in Frameworks */,
+				7DE2B11D25DAD38500FE65FB /* FirebaseStorage in Frameworks */,
+				7DE2B11725DAD38500FE65FB /* FirebaseFirestore in Frameworks */,
+				7DE2B12325DAD38500FE65FB /* FirebaseAuth in Frameworks */,
+				7DE2B13725DAD56B00FE65FB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,17 +292,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04A0B137132193ED3814E90F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9F32634FE44FEC8027EB833D /* Pods-CinemaTv.debug.xcconfig */,
-				D6560E7EE70D6F39BA9DBCAB /* Pods-CinemaTv.release.xcconfig */,
-				1E87AB9D99F43C29463CE49E /* Pods-CinemaTv-CinemaTvTests.debug.xcconfig */,
-				ED06EBC3A0C29FBA37E7359F /* Pods-CinemaTv-CinemaTvTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7D3A0EFF25D20D6F00D8BC5E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,16 +352,6 @@
 				7DD373A725D9F088001472B7 /* UIimage+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		80C9E6576C78AC9474F02B80 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FFBE1D8A25BFD8F900BDA4CB /* Kingfisher.framework */,
-				05EAA125EC25A6941995D783 /* Pods_CinemaTv.framework */,
-				A1A898EB1B7853D19EE598E0 /* Pods_CinemaTv_CinemaTvTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FF0D460A252018DD0069A74A /* Coordinators */ = {
@@ -525,8 +497,6 @@
 				FFAA339525A24B19007B402F /* CinemaTvUITests */,
 				FF34C61925A25C05004337C2 /* CinemaTvTests */,
 				FF95B217242ED04300C5FF83 /* Products */,
-				04A0B137132193ED3814E90F /* Pods */,
-				80C9E6576C78AC9474F02B80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -642,11 +612,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF34C62125A25C05004337C2 /* Build configuration list for PBXNativeTarget "CinemaTvTests" */;
 			buildPhases = (
-				8101684A9B2A5B88180D4590 /* [CP] Check Pods Manifest.lock */,
 				FF34C61425A25C05004337C2 /* Sources */,
 				FF34C61525A25C05004337C2 /* Frameworks */,
 				FF34C61625A25C05004337C2 /* Resources */,
-				5D39FF3E33EA9696EE5D5626 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -663,12 +631,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF95B22D242ED05000C5FF83 /* Build configuration list for PBXNativeTarget "CinemaTv" */;
 			buildPhases = (
-				AEBBA7A931BE12EFD1F7365D /* [CP] Check Pods Manifest.lock */,
 				FF95B212242ED04300C5FF83 /* Sources */,
 				FF95B213242ED04300C5FF83 /* Frameworks */,
 				FF95B214242ED04300C5FF83 /* Resources */,
 				FFB64F20251D6C1400E5C2EA /* Embed Frameworks */,
-				6D2DA5919D379CB51EE64DC2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -676,16 +642,18 @@
 			);
 			name = CinemaTv;
 			packageProductDependencies = (
-				7DE2B11625DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B11825DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B11A25DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B11C25DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B11E25DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B12025DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B12225DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B12425DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B12625DAD38500FE65FB /* SwiftPackageProductDependency */,
-				7DE2B13625DAD56B00FE65FB /* SwiftPackageProductDependency */,
+				7DE2B11625DAD38500FE65FB /* FirebaseFirestore */,
+				7DE2B11825DAD38500FE65FB /* FirebaseDatabase */,
+				7DE2B11A25DAD38500FE65FB /* FirebaseAnalytics */,
+				7DE2B11C25DAD38500FE65FB /* FirebaseStorage */,
+				7DE2B11E25DAD38500FE65FB /* FirebaseCrashlytics */,
+				7DE2B12025DAD38500FE65FB /* FirebaseRemoteConfig */,
+				7DE2B12225DAD38500FE65FB /* FirebaseAuth */,
+				7DE2B12425DAD38500FE65FB /* FirebaseDynamicLinks */,
+				7DE2B12625DAD38500FE65FB /* FirebaseMessaging */,
+				7DE2B13625DAD56B00FE65FB /* SnapKit */,
+				7D60ADA025DB14550064E3E6 /* Kingfisher */,
+				7DA6FC7925DB1CCA0022300E /* JGProgressHUD */,
 			);
 			productName = "ToDoMovie&Series";
 			productReference = FF95B216242ED04300C5FF83 /* CinemaTv.app */;
@@ -742,8 +710,10 @@
 			);
 			mainGroup = FF95B20D242ED04300C5FF83;
 			packageReferences = (
-				7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */,
-				7DE2B13525DAD56B00FE65FB /* RemoteSwiftPackageReference */,
+				7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7DE2B13525DAD56B00FE65FB /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7D60AD9F25DB14550064E3E6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7DA6FC7825DB1CCA0022300E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = FF95B217242ED04300C5FF83 /* Products */;
 			projectDirPath = "";
@@ -794,87 +764,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5D39FF3E33EA9696EE5D5626 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D2DA5919D379CB51EE64DC2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CinemaTv/Pods-CinemaTv-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CinemaTv/Pods-CinemaTv-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTv/Pods-CinemaTv-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8101684A9B2A5B88180D4590 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CinemaTv-CinemaTvTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AEBBA7A931BE12EFD1F7365D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CinemaTv-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF34C61425A25C05004337C2 /* Sources */ = {
@@ -1018,11 +907,12 @@
 /* Begin XCBuildConfiguration section */
 		FF34C61F25A25C05004337C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E87AB9D99F43C29463CE49E /* Pods-CinemaTv-CinemaTvTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CinemaTvTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1040,11 +930,12 @@
 		};
 		FF34C62025A25C05004337C2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED06EBC3A0C29FBA37E7359F /* Pods-CinemaTv-CinemaTvTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CinemaTvTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1183,11 +1074,14 @@
 		};
 		FF95B22E242ED05000C5FF83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F32634FE44FEC8027EB833D /* Pods-CinemaTv.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CinemaTv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1199,27 +1093,32 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(inherited) i386 x86_64";
 			};
 			name = Debug;
 		};
 		FF95B22F242ED05000C5FF83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6560E7EE70D6F39BA9DBCAB /* Pods-CinemaTv.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SM9KCJGMUP;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CinemaTv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dobigaster.CinemaTv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(inherited) i386 x86_64";
 			};
 			name = Release;
 		};
@@ -1305,7 +1204,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */ = {
+		7D60AD9F25DB14550064E3E6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+		7DA6FC7825DB1CCA0022300E /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -1313,7 +1228,7 @@
 				minimumVersion = 7.6.0;
 			};
 		};
-		7DE2B13525DAD56B00FE65FB /* RemoteSwiftPackageReference */ = {
+		7DE2B13525DAD56B00FE65FB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -1324,54 +1239,64 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7DE2B11625DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7D60ADA025DB14550064E3E6 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7D60AD9F25DB14550064E3E6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		7DA6FC7925DB1CCA0022300E /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DA6FC7825DB1CCA0022300E /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		7DE2B11625DAD38500FE65FB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		7DE2B11825DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B11825DAD38500FE65FB /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		7DE2B11A25DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B11A25DAD38500FE65FB /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
-		7DE2B11C25DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B11C25DAD38500FE65FB /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		7DE2B11E25DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B11E25DAD38500FE65FB /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
-		7DE2B12025DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B12025DAD38500FE65FB /* FirebaseRemoteConfig */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
 		};
-		7DE2B12225DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B12225DAD38500FE65FB /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		7DE2B12425DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B12425DAD38500FE65FB /* FirebaseDynamicLinks */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDynamicLinks;
 		};
-		7DE2B12625DAD38500FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B12625DAD38500FE65FB /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B11525DAD38500FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B11525DAD38500FE65FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
 		};
-		7DE2B13625DAD56B00FE65FB /* SwiftPackageProductDependency */ = {
+		7DE2B13625DAD56B00FE65FB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7DE2B13525DAD56B00FE65FB /* RemoteSwiftPackageReference */;
+			package = 7DE2B13525DAD56B00FE65FB /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
