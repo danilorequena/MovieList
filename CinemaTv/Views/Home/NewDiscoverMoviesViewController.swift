@@ -14,8 +14,8 @@ protocol MovieViewControllerProtocol: AnyObject {
     func showMovies(_ movieList: [ResultDiscover])
 }
 
-final class NewDiscoverMoviesViewController: UIViewController {
-    let hud = JGProgressHUD()
+final class NewDiscoverMoviesViewController: UIViewController, UITableViewDelegate {
+    private let hud = JGProgressHUD()
     
     private let bgView: UIView = {
         let view = UIView()
@@ -29,16 +29,15 @@ final class NewDiscoverMoviesViewController: UIViewController {
         return view
     }()
     
-    private let  titleLabel = UILabel.Factory.build(
-        text: "Discover",
-        textAlignment: .left,
-        textStyle: .title1,
-        numberOfLines: 1,
-        accessibilityIdentifier: "",
-        textColor: .white,
-        adjustsFontSizeToFitWidth: true,
-        minimumScaleFactor: 12
-    )
+    private let titleLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.textColor = .white
+        label.numberOfLines = 1
+        label.text = "Discover"
+    
+        return label
+    }()
     
     private lazy var discoverCollection: CinemaTvCollectionView = {
        let collectionView = CinemaTvCollectionView(
@@ -62,7 +61,18 @@ final class NewDiscoverMoviesViewController: UIViewController {
         viewModel?.fetchDiscoverMovies()
         viewModel?.delegate = self
         viewModel?.configureNavigate(controller: self)
+        tabBarController?.tabBar.isHidden = false
         setupView()
+    }
+    
+    private func showSimpleHUD() {
+        DispatchQueue.main.async {
+            self.hud.vibrancyEnabled = true
+            self.hud.textLabel.text = "Loading..."
+            self.hud.detailTextLabel.text = ""
+            self.hud.shadow = JGProgressHUDShadow(color: .black, offset: .zero, radius: 5.0, opacity: 0.2)
+            self.hud.show(in: self.view)
+        }
     }
 }
 
@@ -87,7 +97,7 @@ extension NewDiscoverMoviesViewController: CodeView {
             top: titleLabel.topAnchor,
             leading: contentView.leadingAnchor,
             trailing: contentView.trailingAnchor,
-            insets: .init(top: 22, left: 8, bottom: 0, right: 8)
+            insets: .init(top: 16, left: 8, bottom: 0, right: 8)
         )
         discoverCollection.anchor(height: UIScreen.main.bounds.height / 2)
     }
@@ -107,11 +117,10 @@ extension NewDiscoverMoviesViewController: MovieViewControllerProtocol{
 
 extension NewDiscoverMoviesViewController: DiscoverViewModelDelegate {
     func successDiscoverList() {
-//        hud.textLabel.text = "Loading..."
-//        hud.show(in: self.view)
+        showSimpleHUD()
         DispatchQueue.main.async {
             self.showMovies(self.viewModel?.movies ?? [])
-//            self.hud.dismiss()
+            self.hud.dismiss()
         }
     }
     

@@ -41,7 +41,8 @@ final class DiscoverMoviesSection: Section {
     }
     
     func cellSize(with collectionViewBounds: CGRect, at indexPath: IndexPath) -> CGSize {
-        .init(width: collectionViewBounds.width - 132, height: collectionViewBounds.height - 32 )
+//        .init(width: collectionViewBounds.width - 132, height: collectionViewBounds.height - 32 )
+        .init(width: 280, height: 400)
     }
     
     func headerSize(width: CGFloat, in section: Int) -> CGSize {.zero}
