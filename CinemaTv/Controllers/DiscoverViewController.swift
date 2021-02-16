@@ -54,26 +54,26 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.movies.count ?? 0
+        return viewModel?.discoverMovies.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverCollectionViewCell.identifier(), for: indexPath) as! DiscoverCollectionViewCell
-        let movies = viewModel?.movies[indexPath.item]
+        let movies = viewModel?.discoverMovies[indexPath.item]
         cell.setupCell(movie: movies!)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let movie = viewModel?.movies[indexPath.item] else { return }
+        guard let movie = viewModel?.discoverMovies[indexPath.item] else { return }
         let coordinator = MainCoordinator(navigationController: self.navigationController!)
         coordinator.detailDiscover(discoverMovies: movie)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == discovercollectView {
-            if indexPath.item == (viewModel?.movies.count ?? 0) - 10 {
-                viewModel?.page += 1
+            if indexPath.item == (viewModel?.discoverMovies.count ?? 0) - 10 {
+                viewModel?.discoverPage += 1
                 viewModel?.fetchDiscoverMovies()
             }
         }

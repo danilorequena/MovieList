@@ -29,6 +29,7 @@
 		7DB75B0025CEF77800E80A57 /* SocialViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AFF25CEF77800E80A57 /* SocialViews.swift */; };
 		7DBDC77425DC3217005540F5 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDC77325DC3217005540F5 /* MovieTableViewCell.swift */; };
 		7DBDC77825DC390E005540F5 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDC77725DC390E005540F5 /* UITableView+Extension.swift */; };
+		7DBDC79E25DC6C35005540F5 /* TopRatedMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDC79D25DC6C35005540F5 /* TopRatedMovieCell.swift */; };
 		7DD3735C25D84948001472B7 /* DiscoverMoviesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3735B25D84948001472B7 /* DiscoverMoviesSection.swift */; };
 		7DD3736025D84E47001472B7 /* CinemaTvCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3735F25D84E47001472B7 /* CinemaTvCollectionView.swift */; };
 		7DD3736425D85311001472B7 /* NewDiscoverMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3736325D85311001472B7 /* NewDiscoverMoviesViewController.swift */; };
@@ -173,6 +174,7 @@
 		7DB75AFF25CEF77800E80A57 /* SocialViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViews.swift; sourceTree = "<group>"; };
 		7DBDC77325DC3217005540F5 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		7DBDC77725DC390E005540F5 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		7DBDC79D25DC6C35005540F5 /* TopRatedMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedMovieCell.swift; sourceTree = "<group>"; };
 		7DD3735B25D84948001472B7 /* DiscoverMoviesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMoviesSection.swift; sourceTree = "<group>"; };
 		7DD3735F25D84E47001472B7 /* CinemaTvCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaTvCollectionView.swift; sourceTree = "<group>"; };
 		7DD3736325D85311001472B7 /* NewDiscoverMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiscoverMoviesViewController.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				FF5AC116250D2DE400C780A6 /* OnTheAirCollectionViewCell.swift */,
 				FF5AC117250D2DE400C780A6 /* OnTheAirCollectionViewCell.xib */,
 				FFA8EA1F252046EC00FA6117 /* DiscoverCollectionViewCell.swift */,
+				7DBDC79D25DC6C35005540F5 /* TopRatedMovieCell.swift */,
 				FFA8EA20252046EC00FA6117 /* DiscoverCollectionViewCell.xib */,
 				FFF9C8EE255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.swift */,
 				FFF9C8EF255B1EE300E53CBD /* DiscoverSeriesCollectionViewCell.xib */,
@@ -856,6 +859,7 @@
 				FF92EE6A251C38A5006B8E48 /* WereWatchCollectionViewCell.swift in Sources */,
 				FFCC7EE925100D6B00994F11 /* TrailerViewModel.swift in Sources */,
 				FF0D46122520345B0069A74A /* Storyboarded.swift in Sources */,
+				7DBDC79E25DC6C35005540F5 /* TopRatedMovieCell.swift in Sources */,
 				7DD3739625D9E01B001472B7 /* UIImageView+Extension.swift in Sources */,
 				FF5AC10F250CFA8800C780A6 /* PopularCollectionViewCell.swift in Sources */,
 				FF6CDB9B25351DAC002DC3B7 /* DetailViewModel.swift in Sources */,

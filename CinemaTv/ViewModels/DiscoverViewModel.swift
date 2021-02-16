@@ -21,18 +21,32 @@ protocol DiscoverViewModelDelegate: AnyObject {
 
 class DiscoverViewModel: DiscoverProtocol, ObservableObject {
     weak var delegate: DiscoverViewModelDelegate?
-    @Published var movies: [ResultDiscover] = []
-    var page = 1
+    @Published var discoverMovies: [ResultDiscover] = []
+    @Published var topRatedMovies: [Result] = []
+    var discoverPage = 1
+    var topRatedPage = 1
+    
+    func fetchMovies() {
+        fetchDiscoverMovies()
+        fetchTopRatedMovies()
+    }
     
     func fetchDiscoverMovies() {
-        RequestAPIMovies.loadMovies(page: "\(page)",endPoint: .discover) { (movies: DiscoverMovies) in
-            self.movies += movies.results ?? []
+        RequestAPIMovies.loadMovies(page: "\(discoverPage)",endPoint: .discover) { (movies: DiscoverMovies) in
+            self.discoverMovies += movies.results ?? []
             self.delegate?.successDiscoverList()
         } onError: { (error) in
             self.delegate?.errorList()
         }
-
-
+    }
+    
+    func fetchTopRatedMovies() {
+        RequestAPIMovies.loadMovies(page: "\(topRatedPage)",endPoint: .toRated) { (movies: Movie) in
+            self.topRatedMovies += movies.results
+            self.delegate?.successDiscoverList()
+        } onError: { (error) in
+            self.delegate?.errorList()
+        }
     }
     
     func configureNavigate(controller: UIViewController) {
