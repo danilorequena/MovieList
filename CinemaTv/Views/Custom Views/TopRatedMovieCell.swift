@@ -38,7 +38,7 @@ final class TopRatedMovieCell: UICollectionViewCell {
     
     func setupCell(movie: Result) {
         if let posterPath = movie.posterPath {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w200" + posterPath)
+            let posterURL = URL(string: Constants.basePosters + posterPath)
             imgMovie.kf.setImage(with: posterURL)
             self.imgMovie.clipsToBounds = true
             self.imgMovie.layer.cornerRadius = 10

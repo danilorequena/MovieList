@@ -31,11 +31,6 @@ final class LoginViewController: UIViewController, Storyboaded {
         tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-    
     private func setupView() {
         view.addSubview(loginView)
         
