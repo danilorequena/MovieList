@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 extension UIViewController {
     func configureNavigationBar(largeTitleColor: UIColor, backgoundColor: UIColor, tintColor: UIColor, title: String, preferredLargeTitle: Bool) {
@@ -33,5 +34,10 @@ extension UIViewController {
             navigationController?.navigationBar.isTranslucent = false
             navigationItem.title = title
         }
+    }
+    
+    var context: NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
     }
 }

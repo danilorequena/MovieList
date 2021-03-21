@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UIImageView {
     public enum Factory {
@@ -42,5 +43,39 @@ extension UIImageView {
         ).insetBy(dx: -0.5 * bounds.size.width, dy: -0.5 * bounds.size.height)
         gradientLayer.position = center
         layer.addSublayer(gradientLayer)
+    }
+    
+    public func download(from url: String, placeHolder: UIImage? = nil) {
+        download(from: URL(string: url), placeHolder: placeHolder)
+    }
+
+    public func download(from url: String?, placeHolder: UIImage? = nil) {
+        guard let url = url else { return }
+        download(from: URL(string: url), placeHolder: placeHolder)
+    }
+
+    public func download(from url: String, placeHolder: UIImage? = nil, completion: @escaping (Bool) -> Void) {
+        image = placeHolder
+
+        guard let url = URL(string: url) else {
+            return
+        }
+
+        kf.setImage(with: url, placeholder: placeHolder, completionHandler: { result in
+            switch result {
+            case .success:
+                completion(true)
+            case .failure:
+                completion(false)
+            }
+        })
+    }
+
+    public func download(from url: URL?, placeHolder: UIImage? = nil) {
+        image = placeHolder
+
+        if let url = url {
+            kf.setImage(with: url, placeholder: placeHolder)
+        }
     }
 }

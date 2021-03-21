@@ -185,8 +185,8 @@ extension OverlayViewController: UICollectionViewDataSource, UICollectionViewDel
             return cellWereWatch
         } else {
             let cellCast = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier(), for: indexPath) as! CastCollectionViewCell
-            let cast = (overlayViewModel?.cast[indexPath.item])
-            cellCast.prepareCell(with: cast!)
+            let cast = overlayViewModel?.cast[indexPath.item]
+            cellCast.prepareCell(with: cast!)   
             
             return cellCast
         }
@@ -210,7 +210,10 @@ extension OverlayViewController: OverlayViewModelDelegate {
     }
     
     func errorList() {
-        
+        DispatchQueue.main.async {
+            self.wereWatchCollectionView.reloadData()
+            self.castCollectionView.reloadData()
+        }
     }
     
     

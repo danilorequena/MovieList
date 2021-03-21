@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MovieDataModel" representedClassName="MovieDataModel" syncable="YES" codeGenerationType="class">
+        <attribute name="movieDescription" optional="YES" attributeType="String"/>
+        <attribute name="movieImage" optional="YES" attributeType="String"/>
+        <attribute name="movieName" optional="YES" attributeType="String"/>
+        <attribute name="movieVotes" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SerieDataModel" representedClassName="SerieDataModel" syncable="YES" codeGenerationType="class">
+        <attribute name="serieDescription" optional="YES" attributeType="String"/>
+        <attribute name="serieImage" optional="YES" attributeType="String"/>
+        <attribute name="serieName" optional="YES" attributeType="String"/>
+        <attribute name="serieVotes" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="MovieDataModel" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="SerieDataModel" positionX="249.9453125" positionY="-22.32421875" width="128" height="89"/>
+    </elements>
 </model>

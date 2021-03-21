@@ -10,6 +10,8 @@ import UIKit
 
 class HomeSeriesViewController: UIViewController, Storyboaded {
     var mainViewModel: MainViewModel?
+    var favoriteMovies: MoviesDataModel!
+    
     var label: UILabel = {
        let label = UILabel()
         label.textAlignment = .center
@@ -31,6 +33,19 @@ class HomeSeriesViewController: UIViewController, Storyboaded {
         mainViewModel?.fetchPopularSeries()
         mainViewModel?.fetchSeriesOnAir()
         mainViewModel?.fetchDiscoverSeries()
+    }
+    
+    func saveSerieFavorite(indexPath: IndexPath) {
+        let data = mainViewModel?.discoverSeries[indexPath.row]
+        favoriteMovies = MoviesDataModel(context: context)
+        favoriteMovies?.movieName = data?.name
+        favoriteMovies?.movieImage = data?.backdropPath
+        favoriteMovies?.movieDescription = data?.overview
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 

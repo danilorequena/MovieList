@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import JGProgressHUD
+import SwiftUI
 
 protocol MovieViewControllerProtocol: AnyObject {
     func showMovies(_ movieList: [ResultDiscover])
@@ -17,6 +18,8 @@ protocol MovieViewControllerProtocol: AnyObject {
 final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewDelegate {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Result>
     typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Result>
+    
+    weak var coordinator: MainCoordinator?
 
     enum Section {
         case main
@@ -25,8 +28,9 @@ final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewD
     private let hud = JGProgressHUD()
     private var dataSource: DataSource!
     private var snapshot: DataSourceSnapshot!
+    private var favoriteMovies: MoviesDataModel?
     
-    private var viewModel: DiscoverViewModel?
+    private var viewModel =  DiscoverViewModel()
     private var newDiscoverView = NewDiscoverMoviesView()
     private var loading = ErrorViewController()
 
@@ -35,11 +39,18 @@ final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewD
         newDiscoverView.topRatedCollection.delegate = self
         newDiscoverView.topRatedCollection.dataSource = dataSource
         viewModel = DiscoverViewModel()
-        viewModel?.fetchMovies()
-        viewModel?.delegate = self
-        viewModel?.configureNavigate(controller: self)
+        viewModel.fetchMovies()
+        viewModel.delegate = self
+        viewModel.configureNavigate(controller: self)
         tabBarController?.tabBar.isHidden = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(goToFavorites))
         setupView()
+    }
+    
+    @objc func goToFavorites() {
+        print("tapped")
+        let coordinator = MainCoordinator(navigationController: self.navigationController ?? UINavigationController())
+        coordinator.favoritesMovies()
     }
 
     private func configureCollectionDataSource() {
@@ -54,7 +65,7 @@ final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewD
             cell.setupCell(movie: result)
             return cell
         })
-        applySnapshot(result: viewModel?.topRatedMovies ?? [])
+        applySnapshot(result: viewModel.topRatedMovies )
     }
 
     private func applySnapshot(result: [Result]) {
@@ -71,6 +82,19 @@ final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewD
             self.hud.detailTextLabel.text = ""
             self.hud.shadow = JGProgressHUDShadow(color: .black, offset: .zero, radius: 5.0, opacity: 0.2)
             self.hud.show(in: self.view)
+        }
+    }
+    
+    func saveSerieFavorite(indexPath: IndexPath) {
+        let data = viewModel.discoverMovies[indexPath.item]
+        favoriteMovies = MoviesDataModel(context: context)
+        favoriteMovies?.movieName = data.title
+        favoriteMovies?.movieImage = data.backdropPath
+        favoriteMovies?.movieDescription = data.overview
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
@@ -92,8 +116,22 @@ extension NewDiscoverMoviesViewController: CodeView {
 
 extension NewDiscoverMoviesViewController: MovieViewControllerProtocol{
     func showMovies(_ movieList: [ResultDiscover]) {
-            let section = DiscoverMoviesSection(movies: self.viewModel?.discoverMovies ?? [])
-            newDiscoverView.discoverCollection.update(sections: [section])
+        let section = DiscoverMoviesSection(movies: self.viewModel.discoverMovies )
+        section.delegate = self
+        newDiscoverView.discoverCollection.update(sections: [section])
+    }
+}
+
+extension NewDiscoverMoviesViewController: DiscoverMoviesSectionDelegate {
+    func didTapCell(indexPath: IndexPath) {
+        let movie = viewModel.discoverMovies[indexPath.item]
+        let coordinator = MainCoordinator(navigationController: self.navigationController!)
+        coordinator.detailDiscover(discoverMovies: movie)
+//        saveSerieFavorite(indexPath: indexPath)
+//        let alert = UIAlertController(title: "atenção", message: "Filme gravado nos favoritos", preferredStyle: .alert)
+//        alert.addAction(.init(title: "Ok", style: .default, handler: nil))
+//        present(alert, animated: true, completion: nil)
+        
     }
 }
 
@@ -101,7 +139,7 @@ extension NewDiscoverMoviesViewController: DiscoverViewModelDelegate {
     func successDiscoverList() {
         self.showSimpleHUD()
         DispatchQueue.main.async {
-            self.showMovies(self.viewModel?.discoverMovies ?? [])
+            self.showMovies(self.viewModel.discoverMovies )
             self.configureCollectionDataSource()
             self.hud.dismiss()
         }

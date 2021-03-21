@@ -42,19 +42,18 @@ class OverlayViewModel: OverlayViewModelProtocol {
     }
     
     func fetchCastMovies(id: Int) {
-        
         RequestCastService.loadMoviesCast(endpoint: .credits(movie: id)) { (movies: Cast) in
             self.cast += movies.cast ?? []
             self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }
-
     }
     
     func fetchSeriesCast(id: Int) {
         RequestCastService.loadSeriesCast(endpoint: .credits(tvID: id)) { (series: Cast) in
             self.cast += series.cast ?? []
+            self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }

@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk.git",
         "state": {
           "branch": null,
-          "revision": "0dd2ad1054177670dfa5bb1bbc6767e2a965095d",
+          "revision": "14dff7e19375288c7e34df8444c85d314f26d7cf",
           "version": "7.6.0"
         }
       },
@@ -71,6 +71,15 @@
           "branch": null,
           "revision": "91ed3d188eb95705fef3c249453b81f32dc557d1",
           "version": "1.5.0"
+        }
+      },
+      {
+        "package": "JGProgressHUD",
+        "repositoryURL": "https://github.com/JonasGessner/JGProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "78d7cd35f1d90ff74fd82e486f2cbe4b24be8cf9",
+          "version": "2.2.0"
         }
       },
       {

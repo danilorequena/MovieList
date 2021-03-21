@@ -35,6 +35,12 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.pushViewController(vc, animated: false)
     }
     
+    func favoritesMovies() {
+        let child = FavoritesCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        child.start()
+    }
+    
     func detailDiscover(discoverMovies: ResultDiscover) {
         let child = DetailCoordinator(navigationController: navigationController, discoverMovies: discoverMovies)
         child.parentCoordinator = self

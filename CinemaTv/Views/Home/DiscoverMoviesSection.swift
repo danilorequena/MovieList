@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
+protocol DiscoverMoviesSectionDelegate: AnyObject {
+    func didTapCell(indexPath: IndexPath)
+}
+
 final class DiscoverMoviesSection: Section {
+    weak var delegate: DiscoverMoviesSectionDelegate?
+    
     let movies: [ResultDiscover]
     
     init(movies: [ResultDiscover]) {
@@ -31,18 +37,20 @@ final class DiscoverMoviesSection: Section {
         return header
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didTapCell(indexPath: indexPath)
+    }
+    
     func numberOfItemsInSection() -> Int {
         movies.count
     }
     
     func register(_ collectionView: UICollectionView) {
         collectionView.register(DiscoverCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverCollectionViewCell.identifier())
-//        collectionView.register(DiscoverCollectionViewCell.self)
     }
     
     func cellSize(with collectionViewBounds: CGRect, at indexPath: IndexPath) -> CGSize {
         .init(width: collectionViewBounds.width - 132, height: collectionViewBounds.height - 32 )
-//        .init(width: 80, height: 100)
     }
     
     func headerSize(width: CGFloat, in section: Int) -> CGSize {.zero}

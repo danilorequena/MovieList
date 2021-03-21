@@ -23,7 +23,7 @@ class DiscoverViewController: UIViewController, Storyboaded {
         navigationController?.navigationBar.isHidden = false
         navigationItem.hidesBackButton = true
         tabBarController?.tabBar.isHidden = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "about", style: .plain, target: self, action: #selector(showAboutMe))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "about", style: .plain, target: self, action: #selector(goToFavorites))
         setupCollection()
         viewModel = DiscoverViewModel()
         viewModel?.delegate = self
