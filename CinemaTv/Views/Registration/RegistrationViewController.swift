@@ -23,17 +23,12 @@ final class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         navigationController?.navigationBar.isHidden = false
-        setupView()
-    }
-}
-
-extension RegistrationViewController: CodeView {
-    func buildViewHierarchy() {
-        view.addSubview(registrationView)
     }
     
-    func setupConstraints() {
-        registrationView.bindFrameToSuperviewBounds()
+    override func loadView() {
+        view = registrationView
+        view.accessibilityIdentifier = "registrationViewController"
+        registrationView.accessibilityIdentifier = "registrationView"
     }
 }
 

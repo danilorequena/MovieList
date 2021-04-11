@@ -47,7 +47,7 @@ final class FavoritesMoviesViewController: UIViewController {
         setupTableView()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
@@ -79,6 +79,16 @@ extension FavoritesMoviesViewController: CodeView {
         tableView.bindFrameToSuperviewBounds()
     }
     
+    func setupAdditionalConfiguration() {
+        configureNavigationBar(
+            largeTitleColor: .white,
+            backgoundColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1),
+            tintColor: .white,
+            title: "Favorites",
+            preferredLargeTitle: true
+        )
+    }
+    
     
 }
 
@@ -105,7 +115,7 @@ extension FavoritesMoviesViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesMoviesCell.identifier, for: indexPath) as! FavoritesMoviesCell
-        guard let model = fetchedResultsController.fetchedObjects?[indexPath.row] else {
+        guard let model = fetchedResultsController.fetchedObjects?[indexPath.section] else {
             return cell
         }
         cell.model = model
@@ -122,6 +132,4 @@ extension FavoritesMoviesViewController: UITableViewDelegate, UITableViewDataSou
         let config = UISwipeActionsConfiguration(actions: [delete])
         return config
     }
-    
-    
 }

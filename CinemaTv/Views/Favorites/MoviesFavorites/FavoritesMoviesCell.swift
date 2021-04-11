@@ -92,13 +92,6 @@ extension FavoritesMoviesCell: CodeView {
     }
     
     func setupConstraints() {
-        contentView.anchor(
-            top: topAnchor,
-            leading: leadingAnchor,
-            bottom: bottomAnchor,
-            trailing: trailingAnchor,
-            insets: .init(top: 8, left: 8, bottom: 8, right: 8)
-        )
         imageFavorite.anchor(
             top: contentView.topAnchor,
             leading: contentView.leadingAnchor,
@@ -125,23 +118,16 @@ extension FavoritesMoviesCell: CodeView {
             leading: imageFavorite.trailingAnchor,
             bottom: contentView.bottomAnchor,
             trailing: contentView.trailingAnchor,
-            insets: .init(top: 4, left: 8, bottom: 2, right: 8)
+            insets: .init(top: 4, left: 8, bottom: 8, right: 8)
         )
     }
     
     func setupAdditionalConfiguration() {
+        backgroundColor = UIColor.white
+        layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
-        layer.borderColor = UIColor.gray.cgColor
-        layer.cornerRadius = 5
-        selectionStyle = .none
-        
-//        contentView.dropShadow(
-//            offset: CGSize.init(width: 0, height: 3),
-//            radius: 10,
-//            opacity: 0.2,
-//            color: UIColor.black.cgColor
-//        )
-//        contentView.shadowDefault()
+        layer.cornerRadius = 8
+        clipsToBounds = true
     }
     
     

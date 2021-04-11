@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SnapKit
 import FirebaseAuth
 
 protocol LoginViewDelegate: AnyObject {
@@ -119,70 +118,11 @@ final class LoginView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupLayout() {
-        addSubview(mainView)
-        mainView.addSubview(imageLogin)
-        mainView.addSubview(titleLabel)
-        mainView.addSubview(emailField)
-        mainView.addSubview(passwordField)
-        mainView.addSubview(buttonGo)
-        mainView.addSubview(buttonRegistration)
-        
-        mainView.snp.makeConstraints { (make) in
-            make.top.leftMargin.rightMargin.bottom.equalToSuperview()
-        }
-        
-        imageLogin.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(mainView.snp.topMargin).inset(16)
-            make.leftMargin.equalTo(mainView.snp.leftMargin).inset(16)
-            make.rightMargin.equalTo(mainView.snp.rightMargin).inset(16)
-            make.height.width.equalTo(180)
-            make.centerX.equalTo(mainView)
-        }
-        
-        titleLabel.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(imageLogin.snp.bottomMargin).offset(16)
-            make.leftMargin.equalTo(mainView.snp.leftMargin).inset(16)
-            make.rightMargin.equalTo(mainView.snp.rightMargin).inset(16)
-            make.height.equalTo(50)
-        }
-        
-        emailField.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(titleLabel.snp.bottom).offset(42)
-            make.leftMargin.equalTo(mainView.snp.leftMargin).inset(16)
-            make.rightMargin.equalTo(mainView.snp.rightMargin).inset(16)
-            make.height.equalTo(52)
-        }
-        
-        passwordField.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(emailField.snp.bottom).offset(22)
-            make.leftMargin.equalTo(mainView.snp.leftMargin).inset(16)
-            make.rightMargin.equalTo(mainView.snp.rightMargin).inset(16)
-            make.height.equalTo(52)
-        }
-        
-        buttonGo.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(passwordField.snp.bottom).offset(48)
-            make.leftMargin.equalTo(mainView.snp.leftMargin).inset(16)
-            make.rightMargin.equalTo(mainView.snp.rightMargin).inset(16)
-            make.bottomMargin.equalTo(buttonRegistration.snp.bottomMargin).inset(16)
-            make.height.equalTo(52)
-        }
-        
-        buttonRegistration.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(buttonGo.snp.bottom).offset(22)
-            make.leftMargin.equalTo(mainView.snp.leftMargin).inset(16)
-            make.rightMargin.equalTo(mainView.snp.rightMargin).inset(16)
-            make.bottomMargin.equalTo(mainView.snp.bottomMargin).inset(16)
-            make.height.equalTo(52)
-        }
     }
 
     @objc
@@ -193,5 +133,73 @@ final class LoginView: UIView {
     @objc
     func goToRegistration() {
         delegate?.didTapGoToRegistration()
+    }
+}
+
+extension LoginView: CodeView {
+    func buildViewHierarchy() {
+        addSubview(mainView)
+        mainView.addSubviews(
+            imageLogin,
+            titleLabel,
+            emailField,
+            passwordField,
+            buttonGo,
+            buttonRegistration
+        )
+    }
+    
+    func setupConstraints() {
+        mainView.bindFrameToSuperviewBounds()
+        
+        imageLogin.anchor(
+            top: mainView.topAnchor,
+            leading: mainView.leadingAnchor,
+            trailing: mainView.trailingAnchor,
+            insets: .init(inset: 16)
+        )
+        imageLogin.anchor(height: 180, width: 180)
+        imageLogin.anchorCenterXTo(view: mainView)
+        
+        titleLabel.anchor(
+            top: imageLogin.bottomAnchor,
+            leading: mainView.leadingAnchor,
+            trailing: mainView.trailingAnchor,
+            insets: .init(inset: 16)
+        )
+        titleLabel.anchor(height: 42)
+        
+        emailField.anchor(
+            top: titleLabel.bottomAnchor,
+            leading: mainView.leadingAnchor,
+            trailing: mainView.trailingAnchor,
+            insets: .init(top: 42, left: 16, bottom: 0, right: 16)
+        )
+        emailField.anchor(height: 52)
+        
+        passwordField.anchor(
+            top: emailField.bottomAnchor,
+            leading: mainView.leadingAnchor,
+            trailing: mainView.trailingAnchor,
+            insets: .init(top: 22, left: 16, bottom: 0, right: 16)
+        )
+        passwordField.anchor(height: 52)
+        
+        buttonGo.anchor(
+            top: passwordField.bottomAnchor,
+            leading: mainView.leadingAnchor,
+            trailing: mainView.trailingAnchor,
+            insets: .init(top: 48, left: 16, bottom: 0, right: 16)
+        )
+        buttonGo.anchor(height: 52)
+        
+        buttonRegistration.anchor(
+            top: buttonGo.bottomAnchor,
+            leading: mainView.leadingAnchor,
+            bottom: mainView.bottomAnchor,
+            trailing: mainView.trailingAnchor,
+            insets: .init(top: 22, left: 16, bottom: 16, right: 16)
+        )
+        buttonRegistration.anchor(height: 52)
     }
 }

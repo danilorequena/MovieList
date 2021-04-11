@@ -23,20 +23,25 @@ final class LoginViewController: UIViewController, Storyboaded {
         return view
     }()
     
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        viewModel = LoginViewModel()
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
     }
     
-    private func setupView() {
-        view.addSubview(loginView)
-        
-        loginView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+    override func loadView() {
+        view = loginView
+        view.accessibilityIdentifier = "registrationViewController"
+        loginView.accessibilityIdentifier = "registrationView"
     }
 }
 

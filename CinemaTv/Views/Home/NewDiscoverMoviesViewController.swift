@@ -33,12 +33,20 @@ final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewD
     private var viewModel =  DiscoverViewModel()
     private var newDiscoverView = NewDiscoverMoviesView()
     private var loading = ErrorViewController()
-
+    
+    init(viewModel: DiscoverViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newDiscoverView.topRatedCollection.delegate = self
         newDiscoverView.topRatedCollection.dataSource = dataSource
-        viewModel = DiscoverViewModel()
         viewModel.fetchMovies()
         viewModel.delegate = self
         viewModel.configureNavigate(controller: self)

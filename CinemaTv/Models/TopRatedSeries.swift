@@ -31,7 +31,6 @@ struct ResultTopRated: Codable {
     let voteCount: Int?
     let firstAirDate: String?
     let backdropPath: String?
-//    let originalLanguage: OriginalLanguage?
     let id: Int?
     let voteAverage: Double?
     let overview, posterPath: String?
@@ -44,17 +43,9 @@ struct ResultTopRated: Codable {
         case voteCount = "vote_count"
         case firstAirDate = "first_air_date"
         case backdropPath = "backdrop_path"
-//        case originalLanguage = "original_language"
         case id
         case voteAverage = "vote_average"
         case overview
         case posterPath = "poster_path"
     }
 }
-
-//enum OriginalLanguage: String, Codable {
-//    case en = "en"
-//    case es = "es"
-//    case ja = "ja"
-//    case ko = "ko"
-//}
