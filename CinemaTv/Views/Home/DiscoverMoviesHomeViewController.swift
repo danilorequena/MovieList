@@ -11,11 +11,11 @@ import UIKit
 import JGProgressHUD
 import SwiftUI
 
-protocol MovieViewControllerProtocol: AnyObject {
+protocol DiscoverMoviesHomeViewControllerProtocol: AnyObject {
     func showMovies(_ movieList: [ResultDiscover])
 }
 
-final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewDelegate {
+final class DiscoverMoviesHomeViewController: UIViewController, UICollectionViewDelegate {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Result>
     typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Result>
     
@@ -30,7 +30,7 @@ final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewD
     private var snapshot: DataSourceSnapshot!
     private var favoriteMovies: MoviesDataModel?
     
-    private var viewModel =  DiscoverViewModel()
+    private var viewModel: DiscoverViewModel
     private var newDiscoverView = NewDiscoverMoviesView()
     private var loading = ErrorViewController()
     
@@ -107,7 +107,7 @@ final class NewDiscoverMoviesViewController: UIViewController, UICollectionViewD
     }
 }
 
-extension NewDiscoverMoviesViewController: CodeView {
+extension DiscoverMoviesHomeViewController: CodeView {
     func buildViewHierarchy() {
         view.addSubview(newDiscoverView)
     }
@@ -122,7 +122,7 @@ extension NewDiscoverMoviesViewController: CodeView {
     }
 }
 
-extension NewDiscoverMoviesViewController: MovieViewControllerProtocol{
+extension DiscoverMoviesHomeViewController: DiscoverMoviesHomeViewControllerProtocol{
     func showMovies(_ movieList: [ResultDiscover]) {
         let section = DiscoverMoviesSection(movies: self.viewModel.discoverMovies )
         section.delegate = self
@@ -130,7 +130,7 @@ extension NewDiscoverMoviesViewController: MovieViewControllerProtocol{
     }
 }
 
-extension NewDiscoverMoviesViewController: DiscoverMoviesSectionDelegate {
+extension DiscoverMoviesHomeViewController: DiscoverMoviesSectionDelegate {
     func didTapCell(indexPath: IndexPath) {
         let movie = viewModel.discoverMovies[indexPath.item]
         let coordinator = MainCoordinator(navigationController: self.navigationController!)
@@ -143,7 +143,7 @@ extension NewDiscoverMoviesViewController: DiscoverMoviesSectionDelegate {
     }
 }
 
-extension NewDiscoverMoviesViewController: DiscoverViewModelDelegate {
+extension DiscoverMoviesHomeViewController: DiscoverViewModelDelegate {
     func successDiscoverList() {
         self.showSimpleHUD()
         DispatchQueue.main.async {

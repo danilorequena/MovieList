@@ -88,8 +88,6 @@ extension FavoritesMoviesViewController: CodeView {
             preferredLargeTitle: true
         )
     }
-    
-    
 }
 
 extension FavoritesMoviesViewController: NSFetchedResultsControllerDelegate {

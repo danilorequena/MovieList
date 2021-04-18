@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MainViewModelProtocol: AnyObject {
+protocol SeriesViewModelProtocol: AnyObject {
     func fetchPopularSeries()
     func fetchSeriesOnAir()
 }
@@ -20,7 +20,7 @@ protocol MainViewModelDelegate: AnyObject {
     func errorList()
 }
 
-class MainViewModel: MainViewModelProtocol {
+class SeriesViewModel: SeriesViewModelProtocol {
     var seriesPopular: [ResultSeries] = []
     var seriesTopRated: [ResultTopRated] = []
     var seriesOnAir: [ResultSeriesOnAir] = []

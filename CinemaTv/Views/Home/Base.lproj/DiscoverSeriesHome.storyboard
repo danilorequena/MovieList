@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
         <!--Best Series-->
         <scene sceneID="R86-AN-fcp">
             <objects>
-                <viewController storyboardIdentifier="HomeSeriesViewController" id="PG5-CR-soE" customClass="HomeSeriesViewController" customModule="ToDoMovie_Series" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverSeriesHomeViewController" id="PG5-CR-soE" customClass="DiscoverSeriesHomeViewController" customModule="CinemaTv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zd0-dB-rY3">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,9 +165,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Best Series" largeTitleDisplayMode="always" id="1Sx-q2-aUd"/>
                     <connections>
-                        <outlet property="collectionViewOnAir" destination="enp-Nu-adl" id="9ys-QR-ZLS"/>
-                        <outlet property="collectionViewPopular" destination="MCM-6C-ook" id="q7B-6f-RZt"/>
-                        <outlet property="discoverSeriesCollectionView" destination="LIM-S3-MMd" id="dsh-sV-aDU"/>
+                        <outlet property="discoverCollectionView" destination="LIM-S3-MMd" id="cAF-gk-Jul"/>
+                        <outlet property="onAirCollectionView" destination="enp-Nu-adl" id="RGL-jx-cdu"/>
+                        <outlet property="popularCollectionView" destination="MCM-6C-ook" id="fFc-YK-Oim"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlO-1j-jhv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

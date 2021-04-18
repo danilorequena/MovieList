@@ -28,7 +28,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     func userLogged() {
         navigationController.delegate = self
         let viewModel = DiscoverViewModel()
-        let vc = NewDiscoverMoviesViewController(viewModel: viewModel)
+        let vc = DiscoverMoviesHomeViewController(viewModel: viewModel)
         vc.tabBarItem = UITabBarItem(title: "tab.discover".localized, image: UIImage(named: "movie"), tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }

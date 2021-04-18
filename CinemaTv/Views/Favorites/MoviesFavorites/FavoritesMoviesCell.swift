@@ -129,6 +129,4 @@ extension FavoritesMoviesCell: CodeView {
         layer.cornerRadius = 8
         clipsToBounds = true
     }
-    
-    
 }

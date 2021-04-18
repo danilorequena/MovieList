@@ -23,11 +23,11 @@ extension Storyboaded where Self: UIViewController {
     
 //    static func instantiate() -> Self {
 //        let id = String(describing: self)
-////        let storyboard = UIStoryboard(name: "home.discover".localized, bundle: Bundle.main)
+//        let storyboard = UIStoryboard(name: "home.discover".localized, bundle: Bundle.main)
 //        let vc = UIViewController(nibName: "LoginViewController", bundle: Bundle.main)
 //        return 
 //        
-////        return storyboard.instantiateViewController(withIdentifier: id) as! Self
+//        return storyboard.instantiateViewController(withIdentifier: id) as! Self
 //    }
     
     static func instantiateDetail() -> Self {
@@ -39,14 +39,7 @@ extension Storyboaded where Self: UIViewController {
     
     static func instantiateSeries() -> Self {
         let id = String(describing: self)
-        let storyboard = UIStoryboard(name: "home.series".localized, bundle: Bundle.main)
-        
-        return storyboard.instantiateViewController(withIdentifier: id) as! Self
-    }
-    
-    static func instantiateLogin() -> Self {
-        let id = String(describing: self)
-        let storyboard = UIStoryboard(name: "home.series".localized, bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "DiscoverSeriesHome", bundle: Bundle.main)
         
         return storyboard.instantiateViewController(withIdentifier: id) as! Self
     }

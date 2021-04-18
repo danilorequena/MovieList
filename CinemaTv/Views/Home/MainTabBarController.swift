@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabBarController: UITabBarController {
+final class MainTabBarController: UITabBarController {
     let main = MainCoordinator(navigationController: UINavigationController())
     let serieCoord = SeriesCoordinator(navigationController: UINavigationController())
     let favoriteCoord = FavoritesCoordinator(navigationController: UINavigationController())
