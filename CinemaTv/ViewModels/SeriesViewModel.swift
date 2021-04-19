@@ -20,7 +20,7 @@ protocol MainViewModelDelegate: AnyObject {
     func errorList()
 }
 
-class SeriesViewModel: SeriesViewModelProtocol {
+final class SeriesViewModel: SeriesViewModelProtocol {
     var seriesPopular: [ResultSeries] = []
     var seriesTopRated: [ResultTopRated] = []
     var seriesOnAir: [ResultSeriesOnAir] = []
@@ -37,11 +37,14 @@ class SeriesViewModel: SeriesViewModelProtocol {
     
     func fetchPopularSeries() {
         RequestAPITVShows.loadSeries(
-            params: ["page" : "\(popularPage)"],
+            params: ["page" : "\(popularPage)",
+                     "include_adult" : "false",
+                     "include_video" : "true",
+                     "primary_release_date.gte" : "2018-01-01",
+                     "language" : "pt-BR"],
             endpoint: .popular) { (series: PopularSeries) in
             self.seriesPopular += series.results
             self.totalPopular = series.totalResults ?? 0
-            print("Total: \(self.totalPopular)", "Inclusos: \(self.seriesPopular.count)" )
             self.delegate?.successListPopular()
         } onError: { (error) in
             self.delegate?.errorList()
@@ -51,11 +54,14 @@ class SeriesViewModel: SeriesViewModelProtocol {
     
     func fetchSeriesOnAir() {
         RequestAPITVShows.loadSeries(
-            params: ["page" : "\(seriesOnAirPage)"],
+            params: ["page" : "\(seriesOnAirPage)",
+                     "include_adult" : "false",
+                     "include_video" : "true",
+                     "primary_release_date.gte" : "2018-01-01",
+                     "language" : "pt-BR"],
             endpoint: .onAir) { (series: SeriesOnAir) in
             self.seriesOnAir += series.results
             self.totalSeriesOnAir = series.totalResults ?? 0
-            print("Total: \(self.totalSeriesOnAir)")
             self.delegate?.successListOnAir()
         } onError: { (error) in
             self.delegate?.errorList()
@@ -68,7 +74,8 @@ class SeriesViewModel: SeriesViewModelProtocol {
                      "include_adult" : "false",
                      "include_video" : "true",
                      "page" : "\(discoverPage)",
-                     "primary_release_date.gte" : "2018-01-01"],
+                     "primary_release_date.gte" : "2018-01-01",
+                     "language" : "pt-BR"],
             endpoint: .discover) { (series: DiscoverSeries) in
             self.discoverSeries += series.results ?? []
             self.delegate?.successDiscoverSeries()

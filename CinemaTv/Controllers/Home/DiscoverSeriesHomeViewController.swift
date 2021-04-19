@@ -11,6 +11,7 @@ import UIKit
 final class DiscoverSeriesHomeViewController: UIViewController, Storyboaded {
     var mainViewModel: SeriesViewModel!
     var favoriteMovies: MoviesDataModel!
+    var dataSource: DiscoverSeriesHomeManager?
     
     var label: UILabel = {
        let label = UILabel()
@@ -27,7 +28,6 @@ final class DiscoverSeriesHomeViewController: UIViewController, Storyboaded {
         super.viewDidLoad()
         label.text = "Carregando Séries..."
         configureNavbar()
-        setupCollectionView()
         mainViewModel = SeriesViewModel()
         mainViewModel.delegate = self
         mainViewModel.fetchPopularSeries()
@@ -57,10 +57,14 @@ final class DiscoverSeriesHomeViewController: UIViewController, Storyboaded {
             preferredLargeTitle: true
         )
     }
+    
+    private func configCollections() {
+        setupCollectionView(series: mainViewModel.discoverSeries)
+    }
 }
 
 extension DiscoverSeriesHomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func setupCollectionView() {
+    func setupCollectionView(series: [ResultDiscoverSeries]) {
         popularCollectionView.dataSource = self
         popularCollectionView.delegate = self
         popularCollectionView.register(PopularCollectionViewCell.loadNib(), forCellWithReuseIdentifier: PopularCollectionViewCell.identifier())
@@ -74,7 +78,8 @@ extension DiscoverSeriesHomeViewController: UICollectionViewDataSource, UICollec
         onAirCollectionView.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
         
         discoverCollectionView.delegate = self
-        discoverCollectionView.dataSource = self
+        dataSource = DiscoverSeriesHomeManager(discoverSeries: series)
+        discoverCollectionView.dataSource = dataSource
         discoverCollectionView.register(DiscoverSeriesCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier())
         (discoverCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 182, height: 261)
         discoverCollectionView.backgroundColor = #colorLiteral(red: 0.2557122409, green: 0.2745354176, blue: 0.3005027473, alpha: 1)
@@ -93,18 +98,25 @@ extension DiscoverSeriesHomeViewController: UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == popularCollectionView {
-            let cellPopular = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCollectionViewCell.identifier(), for: indexPath) as! PopularCollectionViewCell
+        switch collectionView {
+        case popularCollectionView:
+            let cellPopular = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PopularCollectionViewCell.identifier(),
+                for: indexPath) as! PopularCollectionViewCell
             let serie = mainViewModel.seriesPopular[indexPath.item]
             cellPopular.prepareCell(with: serie)
             return cellPopular
-        } else if collectionView == onAirCollectionView {
-            let cellOnAir = collectionView.dequeueReusableCell(withReuseIdentifier: OnTheAirCollectionViewCell.identifier(), for: indexPath) as! OnTheAirCollectionViewCell
+        case onAirCollectionView:
+            let cellOnAir = collectionView.dequeueReusableCell(
+                withReuseIdentifier: OnTheAirCollectionViewCell.identifier(),
+                for: indexPath) as! OnTheAirCollectionViewCell
             let serieOnAir = mainViewModel.seriesOnAir[indexPath.item]
             cellOnAir.prepareCell(with: serieOnAir)
             return cellOnAir
-        } else {
-            let discoverCell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier(), for: indexPath) as! DiscoverSeriesCollectionViewCell
+        default:
+            let discoverCell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier(),
+                for: indexPath) as! DiscoverSeriesCollectionViewCell
             let discoverSeries = mainViewModel.discoverSeries[indexPath.item]
             discoverCell.setupCell(tvShow: discoverSeries)
             return discoverCell
@@ -112,16 +124,16 @@ extension DiscoverSeriesHomeViewController: UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("toquei aqui")
-        if collectionView == popularCollectionView {
+        switch collectionView {
+        case popularCollectionView:
             let serie = mainViewModel.seriesPopular[indexPath.item]
             let coordinator = MainCoordinator(navigationController: self.navigationController!)
             coordinator.detailSeries(popSeries: serie)
-        } else if collectionView == onAirCollectionView {
+        case onAirCollectionView:
             let serie = mainViewModel.seriesOnAir[indexPath.item]
             let coordinator = MainCoordinator(navigationController: self.navigationController!)
             coordinator.detailSeriesOnAir(onAirSeries: serie)
-        } else {
+        default:
             let serie = mainViewModel.discoverSeries[indexPath.item]
             let coordinator = MainCoordinator(navigationController: self.navigationController!)
             coordinator.detailDiscoverSeries(discoverSeries: serie)
@@ -129,17 +141,18 @@ extension DiscoverSeriesHomeViewController: UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if collectionView == popularCollectionView {
+        switch collectionView {
+        case popularCollectionView:
             if indexPath.item == (mainViewModel.seriesPopular.count ) - 10 {
                 mainViewModel.popularPage += 1
                 mainViewModel.fetchPopularSeries()
             }
-        } else if collectionView == onAirCollectionView {
+        case onAirCollectionView:
             if indexPath.item == (mainViewModel.seriesOnAir.count ) - 10 {
                 mainViewModel.seriesOnAirPage += 1
                 mainViewModel.fetchSeriesOnAir()
             }
-        } else {
+        default:
             if indexPath.item == (mainViewModel.discoverSeries.count ) - 10 {
                 mainViewModel.discoverPage += 1
                 mainViewModel.fetchDiscoverSeries()
@@ -151,18 +164,24 @@ extension DiscoverSeriesHomeViewController: UICollectionViewDataSource, UICollec
 extension DiscoverSeriesHomeViewController: MainViewModelDelegate {
     func successDiscoverSeries() {
         DispatchQueue.main.async {
+            //TODO: - implementar direito
+            self.configCollections()
             self.discoverCollectionView.reloadData()
         }
     }
     
     func successListOnAir() {
         DispatchQueue.main.async {
+            //TODO: - implementar direito
+            self.configCollections()
             self.onAirCollectionView.reloadData()
         }
     }
     
     func successListPopular() {
         DispatchQueue.main.async {
+            //TODO: - implementar direito
+            self.configCollections()
             self.popularCollectionView.reloadData()
         }
     }

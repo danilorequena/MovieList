@@ -26,6 +26,7 @@
 		7D60ADA125DB14550064E3E6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7D60ADA025DB14550064E3E6 /* Kingfisher */; };
 		7D67C40225DA26FB00530E17 /* DiscoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8EA1F252046EC00FA6117 /* DiscoverCollectionViewCell.swift */; };
 		7D67C46025DA289C00530E17 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF77501025BE02D000C5B65A /* LoginViewModel.swift */; };
+		7D784412262CF5CA0046423B /* DiscoverSeriesHomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D784411262CF5CA0046423B /* DiscoverSeriesHomeManager.swift */; };
 		7D94F20125DAF0E500E77DF8 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF94486A2550D9E700BE8510 /* CastCollectionViewCell.swift */; };
 		7DA6FC7A25DB1CCA0022300E /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 7DA6FC7925DB1CCA0022300E /* JGProgressHUD */; };
 		7DABFFAC25C7311E00FCAF94 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABFFAB25C7311E00FCAF94 /* NetworkProtocol.swift */; };
@@ -182,6 +183,7 @@
 		7D5870E625C3918B00DE8D38 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7D5870EA25C392A000DE8D38 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		7D5870F625C3935E00DE8D38 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
+		7D784411262CF5CA0046423B /* DiscoverSeriesHomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverSeriesHomeManager.swift; sourceTree = "<group>"; };
 		7DABFFAB25C7311E00FCAF94 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		7DABFFDD25C7525F00FCAF94 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		7DB75AF225CEDAE200E80A57 /* NewAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAbout.swift; sourceTree = "<group>"; };
@@ -376,6 +378,14 @@
 				7DFEFEE7260FAF390052D8E5 /* TableViewManager.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7D784410262CF5BB0046423B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7D784411262CF5CA0046423B /* DiscoverSeriesHomeManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		7DB75AFA25CEF75800E80A57 /* SwiftUIViews */ = {
@@ -618,6 +628,7 @@
 		FF95B2392431560A00C5FF83 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D784410262CF5BB0046423B /* Manager */,
 				FF0D460225200B7F0069A74A /* DiscoverViewController.swift */,
 				FF80D589250EDC6400A15326 /* DiscoverSeriesHomeViewController.swift */,
 				FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */,
@@ -863,6 +874,7 @@
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
 				FF11689E25070A2200F30652 /* Constants.swift in Sources */,
 				7DBDC77425DC3217005540F5 /* MovieTableViewCell.swift in Sources */,
+				7D784412262CF5CA0046423B /* DiscoverSeriesHomeManager.swift in Sources */,
 				FFDC28F62536A3BF003B58B5 /* String+LocalizableHelper.swift in Sources */,
 				7DD3737825D9DC26001472B7 /* UIViewController+Identifier.swift in Sources */,
 				7D3A0F2225D21E4E00D8BC5E /* ImageLoader.swift in Sources */,
