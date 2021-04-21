@@ -15,7 +15,7 @@ final class DetailViewController: UIViewController, Storyboaded {
     weak var coordinator: DetailCoordinator?
     var titleNavigation: String?
     var titleSeriesNav: String?
-    var seriesPop: ResultSeries?
+    var seriesPop: ResultPopularSeries?
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
     var discoverSeries: ResultDiscoverSeries?

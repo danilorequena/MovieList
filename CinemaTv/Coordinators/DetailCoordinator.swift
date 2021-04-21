@@ -13,7 +13,7 @@ class DetailCoordinator: Coordinator {
     weak var parentCoordinator: MainCoordinator?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    var seriesPop: ResultSeries?
+    var seriesPop: ResultPopularSeries?
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
     var discoverSeries: ResultDiscoverSeries?
@@ -21,7 +21,7 @@ class DetailCoordinator: Coordinator {
     
     init(navigationController: UINavigationController,
          discoverMovies: ResultDiscover? = nil,
-         popSeries: ResultSeries? = nil,
+         popSeries: ResultPopularSeries? = nil,
          onAirSeries: ResultSeriesOnAir? = nil,
          discoverSeries: ResultDiscoverSeries? = nil) {
         self.navigationController = navigationController

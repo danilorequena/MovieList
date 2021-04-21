@@ -46,7 +46,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         child.start()
     }
     
-    func detailSeries(popSeries: ResultSeries) {
+    func detailPopularSeries(popSeries: ResultPopularSeries) {
         let child = DetailCoordinator(navigationController: navigationController, popSeries: popSeries)
         child.parentCoordinator = self
         childCoordinators.append(child)

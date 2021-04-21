@@ -15,7 +15,7 @@ protocol DetailViewModelProtocol: AnyObject {
 
 final class DetailViewModel: DetailViewModelProtocol {
     
-    var seriesPop: ResultSeries?
+    var seriesPop: ResultPopularSeries?
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
     var createdBy: [CreatedBy] = []

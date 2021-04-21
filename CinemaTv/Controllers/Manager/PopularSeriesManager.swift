@@ -1,54 +1,54 @@
 //
-//  DiscoverSeriesHomeManager.swift
+//  PopularSeriesManager.swift
 //  CinemaTv
 //
-//  Created by Danilo Requena on 18/04/21.
+//  Created by Danilo Requena on 21/04/21.
 //  Copyright © 2021 Danilo Requena. All rights reserved.
 //
 
 import UIKit
 
-final class DiscoverSeriesHomeManager: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
-    var discoverSeries: [ResultDiscoverSeries]
+final class PopularSeriesManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+    var popularSeries: [ResultPopularSeries]
     var navigationController: UINavigationController
     var viewModel: SeriesViewModel
     
     init(
-        discoverSeries: [ResultDiscoverSeries],
+        popularSeries: [ResultPopularSeries],
         navigationController: UINavigationController,
         viewModel: SeriesViewModel
     ) {
-        self.discoverSeries = discoverSeries
+        self.popularSeries = popularSeries
         self.navigationController = navigationController
         self.viewModel = viewModel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        discoverSeries.count
+        popularSeries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.register(DiscoverSeriesCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier())
-        let series = discoverSeries[indexPath.item]
-        let cell: DiscoverSeriesCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.setupCell(tvShow: series)
+        collectionView.register(PopularCollectionViewCell.loadNib(), forCellWithReuseIdentifier: PopularCollectionViewCell.identifier())
+        let serie = popularSeries[indexPath.item]
+        let cell: PopularCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.prepareCell(with: serie)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let series = discoverSeries[indexPath.item]
+        let serie = popularSeries[indexPath.item]
         let coordinator = MainCoordinator(navigationController: navigationController)
-        coordinator.detailDiscoverSeries(discoverSeries: series)
+        coordinator.detailPopularSeries(popSeries: serie)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == (discoverSeries.count) - 10 {
-            viewModel.discoverPage += 1
-            viewModel.fetchDiscoverSeries()
+        if indexPath.item == (popularSeries.count) - 10 {
+            viewModel.popularPage += 1
+            viewModel.fetchPopularSeries()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: 182, height: 261)
+        .init(width: 150, height: 200)
     }
 }

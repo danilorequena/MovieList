@@ -6,7 +6,6 @@
 //  Copyright © 2021 Danilo Requena. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import JGProgressHUD
 import SwiftUI

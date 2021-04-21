@@ -14,14 +14,12 @@ protocol SeriesViewModelProtocol: AnyObject {
 }
 
 protocol MainViewModelDelegate: AnyObject {
-    func successListPopular()
-    func successListOnAir()
-    func successDiscoverSeries()
+    func successList()
     func errorList()
 }
 
 final class SeriesViewModel: SeriesViewModelProtocol {
-    var seriesPopular: [ResultSeries] = []
+    var seriesPopular: [ResultPopularSeries] = []
     var seriesTopRated: [ResultTopRated] = []
     var seriesOnAir: [ResultSeriesOnAir] = []
     var discoverSeries: [ResultDiscoverSeries] = []
@@ -45,7 +43,7 @@ final class SeriesViewModel: SeriesViewModelProtocol {
             endpoint: .popular) { (series: PopularSeries) in
             self.seriesPopular += series.results
             self.totalPopular = series.totalResults ?? 0
-            self.delegate?.successListPopular()
+            self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }
@@ -62,7 +60,7 @@ final class SeriesViewModel: SeriesViewModelProtocol {
             endpoint: .onAir) { (series: SeriesOnAir) in
             self.seriesOnAir += series.results
             self.totalSeriesOnAir = series.totalResults ?? 0
-            self.delegate?.successListOnAir()
+            self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }
@@ -78,7 +76,7 @@ final class SeriesViewModel: SeriesViewModelProtocol {
                      "language" : "pt-BR"],
             endpoint: .discover) { (series: DiscoverSeries) in
             self.discoverSeries += series.results ?? []
-            self.delegate?.successDiscoverSeries()
+            self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }

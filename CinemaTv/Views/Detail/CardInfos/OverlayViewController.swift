@@ -20,7 +20,7 @@ class OverlayViewController: UIViewController {
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
     let nib = "OverlayViewController"
-    var seriesPop: ResultSeries?
+    var seriesPop: ResultPopularSeries?
     var seriesOnAir: ResultSeriesOnAir!
     var discoverMovies: ResultDiscover!
     var discoverSeries: ResultDiscoverSeries!
@@ -44,7 +44,7 @@ class OverlayViewController: UIViewController {
         }
     }
     
-    required init(seriesPop: ResultSeries? = nil,
+    required init(seriesPop: ResultPopularSeries? = nil,
                   seriesOnAir: ResultSeriesOnAir? = nil,
                   discoverMovies: ResultDiscover? = nil,
                   discoverSeries: ResultDiscoverSeries? = nil ) {

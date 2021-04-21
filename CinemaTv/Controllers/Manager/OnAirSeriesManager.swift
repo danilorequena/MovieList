@@ -1,54 +1,54 @@
 //
-//  DiscoverSeriesHomeManager.swift
+//  OnAirSeriesManager.swift
 //  CinemaTv
 //
-//  Created by Danilo Requena on 18/04/21.
+//  Created by Danilo Requena on 21/04/21.
 //  Copyright © 2021 Danilo Requena. All rights reserved.
 //
 
 import UIKit
 
-final class DiscoverSeriesHomeManager: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
-    var discoverSeries: [ResultDiscoverSeries]
+final class OnAirSeriesManager: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+    var onAirSeries: [ResultSeriesOnAir]
     var navigationController: UINavigationController
     var viewModel: SeriesViewModel
     
     init(
-        discoverSeries: [ResultDiscoverSeries],
+        onAirSeries: [ResultSeriesOnAir],
         navigationController: UINavigationController,
         viewModel: SeriesViewModel
     ) {
-        self.discoverSeries = discoverSeries
+        self.onAirSeries = onAirSeries
         self.navigationController = navigationController
         self.viewModel = viewModel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        discoverSeries.count
+        onAirSeries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.register(DiscoverSeriesCollectionViewCell.loadNib(), forCellWithReuseIdentifier: DiscoverSeriesCollectionViewCell.identifier())
-        let series = discoverSeries[indexPath.item]
-        let cell: DiscoverSeriesCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.setupCell(tvShow: series)
+        collectionView.register(OnTheAirCollectionViewCell.loadNib(), forCellWithReuseIdentifier: OnTheAirCollectionViewCell.identifier())
+        let series = onAirSeries[indexPath.item]
+        let cell: OnTheAirCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.prepareCell(with: series)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let series = discoverSeries[indexPath.item]
+        let series = onAirSeries[indexPath.item]
         let coordinator = MainCoordinator(navigationController: navigationController)
-        coordinator.detailDiscoverSeries(discoverSeries: series)
+        coordinator.detailSeriesOnAir(onAirSeries: series)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == (discoverSeries.count) - 10 {
-            viewModel.discoverPage += 1
-            viewModel.fetchDiscoverSeries()
+        if indexPath.item == (onAirSeries.count) - 10 {
+            viewModel.seriesOnAirPage += 1
+            viewModel.fetchSeriesOnAir()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: 182, height: 261)
+        CGSize(width: 150, height: 200)
     }
 }

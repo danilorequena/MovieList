@@ -16,7 +16,7 @@ import Foundation
 // MARK: - Series
 struct PopularSeries: Codable {
     let page, totalResults, totalPages: Int?
-    let results: [ResultSeries]
+    let results: [ResultPopularSeries]
 
     enum CodingKeys: String, CodingKey {
         case page
@@ -27,7 +27,7 @@ struct PopularSeries: Codable {
 }
 
 // MARK: - Result
-struct ResultSeries : Codable {
+struct ResultPopularSeries : Codable {
     let originalName: String?
     let genreIDS: [Int]?
     let name: String?

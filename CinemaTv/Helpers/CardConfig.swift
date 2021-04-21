@@ -51,7 +51,7 @@ final class CardConfig {
         cardViewController.handleView.addGestureRecognizer(panGestureRecognizer)
     }
     
-    func setupCardPop(mainView: UIView, infos: ResultSeries) {
+    func setupCardPop(mainView: UIView, infos: ResultPopularSeries) {
         endCardHeight =  view.frame.height * 0.8
         startCardHeight =  view.frame.height * 0.3
         

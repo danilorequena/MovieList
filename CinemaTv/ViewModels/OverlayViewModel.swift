@@ -19,7 +19,7 @@ protocol OverlayViewModelDelegate: AnyObject {
 }
 
 class OverlayViewModel: OverlayViewModelProtocol {
-    var infos: ResultSeries?
+    var infos: ResultPopularSeries?
     var details: PopularSeriesDetails?
     var createdBy: [CreatedBy] = []
     var genre: [Genre] = []
