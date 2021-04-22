@@ -448,6 +448,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7DFA1E972631B04E00B803F7 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				7D044F7E25C75F4B00E8A4C9 /* MoviesEndpoint.swift */,
+				7DD3FE0625CA153800A101AC /* SeriesEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		FF0D460A252018DD0069A74A /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -681,11 +690,10 @@
 		FFC4702924D4BCD40046877B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7DFA1E972631B04E00B803F7 /* Endpoints */,
 				FF95B23E2431582D00C5FF83 /* RequestAPIMovies.swift */,
 				7DABFFDD25C7525F00FCAF94 /* APIService.swift */,
 				FF164E54259CF6DC001536DA /* RequestAPITvShows.swift */,
-				7D044F7E25C75F4B00E8A4C9 /* MoviesEndpoint.swift */,
-				7DD3FE0625CA153800A101AC /* SeriesEndpoint.swift */,
 				7DD3FE0225CA0E4600A101AC /* APIServiceError.swift */,
 				7D0F9C4725D0BFCC00E0A129 /* RequestCastService.swift */,
 			);
