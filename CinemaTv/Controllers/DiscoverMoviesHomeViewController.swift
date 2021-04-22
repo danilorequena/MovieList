@@ -31,7 +31,6 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
     
     private var viewModel: DiscoverViewModel
     private var newDiscoverView = NewDiscoverMoviesView()
-    private var loading = ErrorViewController()
     
     init(viewModel: DiscoverViewModel) {
         self.viewModel = viewModel

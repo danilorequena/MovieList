@@ -17,25 +17,34 @@ class DetailCoordinator: Coordinator {
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
     var discoverSeries: ResultDiscoverSeries?
+    var viewModel: DetailViewModel
     
     
-    init(navigationController: UINavigationController,
-         discoverMovies: ResultDiscover? = nil,
-         popSeries: ResultPopularSeries? = nil,
-         onAirSeries: ResultSeriesOnAir? = nil,
-         discoverSeries: ResultDiscoverSeries? = nil) {
+    init(
+        navigationController: UINavigationController,
+        discoverMovies: ResultDiscover? = nil,
+        popSeries: ResultPopularSeries? = nil,
+        onAirSeries: ResultSeriesOnAir? = nil,
+        discoverSeries: ResultDiscoverSeries? = nil,
+        viewModel: DetailViewModel
+    ) {
         self.navigationController = navigationController
         self.discoverMovies = discoverMovies
         self.seriesPop = popSeries
         self.seriesOnAir = onAirSeries
         self.discoverSeries = discoverSeries
+        self.viewModel = viewModel
     }
     
     func start() {
-        let vc = DetailViewController.instantiateDetail()
-        vc.discoverMovies = discoverMovies
-        vc.seriesPop = seriesPop
-        vc.discoverSeries = discoverSeries
+        let vc = DetailViewController(
+            discoverMovies: discoverMovies,
+            seriesPop: seriesPop,
+            seriesOnAir: seriesOnAir,
+            discoverSeries: discoverSeries,
+            viewModel: viewModel
+        )
+        
         if discoverMovies != nil {
             vc.titleNavigation = discoverMovies?.originalTitle
         } else if seriesPop != nil {
@@ -45,7 +54,6 @@ class DetailCoordinator: Coordinator {
         } else if discoverSeries != nil {
             vc.titleNavigation = discoverSeries?.originalName
         }
-        vc.seriesOnAir = seriesOnAir
         navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -40,28 +40,45 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     }
     
     func detailDiscover(discoverMovies: ResultDiscover) {
-        let child = DetailCoordinator(navigationController: navigationController, discoverMovies: discoverMovies)
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            discoverMovies: discoverMovies,
+            viewModel: DetailViewModel())
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
     }
     
     func detailPopularSeries(popSeries: ResultPopularSeries) {
-        let child = DetailCoordinator(navigationController: navigationController, popSeries: popSeries)
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            popSeries: popSeries,
+            viewModel: DetailViewModel()
+        )
+        
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
     }
     
     func detailSeriesOnAir(onAirSeries: ResultSeriesOnAir) {
-        let child = DetailCoordinator(navigationController: navigationController, onAirSeries: onAirSeries)
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            onAirSeries: onAirSeries,
+            viewModel: DetailViewModel()
+        )
+        
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
     }
     
     func detailDiscoverSeries(discoverSeries: ResultDiscoverSeries) {
-        let child = DetailCoordinator(navigationController: navigationController, discoverSeries: discoverSeries)
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            discoverSeries: discoverSeries,
+            viewModel: DetailViewModel()
+        )
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()

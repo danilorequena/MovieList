@@ -23,8 +23,17 @@ final class FavoritesMoviesViewController: UIViewController {
     
     var fetchedResultsController: NSFetchedResultsController<MoviesDataModel>!
     var moviesData: [MoviesDataModel]?
+    private var manager: FavoritesManager?
+    private var emptyMessage = UILabel.Factory.build(
+        text: "Você ainda não tem nenhum favorito",
+        textAlignment: .center,
+        textStyle: .headline,
+        numberOfLines: 0,
+        accessibilityIdentifier: "emptyMessage",
+        textColor: .white
+    )
     
-    private let tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(FavoritesMoviesCell.self)
         tableView.separatorStyle = .none
@@ -38,7 +47,6 @@ final class FavoritesMoviesViewController: UIViewController {
         setupView()
         loadFavorites()
         moviesData = [MoviesDataModel]()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,9 +56,24 @@ final class FavoritesMoviesViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        manager = FavoritesManager(
+            moviesData: moviesData ?? [],
+            fetchedResultsController: fetchedResultsController
+        )
+        tableView.delegate = manager
+        tableView.dataSource = manager
         tableView.reloadData()
+    }
+    
+    private func showEmptyMessage() {
+        let items = fetchedResultsController.fetchedObjects?.count
+        if items == 0 {
+            tableView.isHidden = true
+            emptyMessage.isHidden = false
+        } else {
+            tableView.isHidden = false
+            emptyMessage.isHidden = true
+        }
     }
     
     func loadFavorites() {
@@ -58,13 +81,19 @@ final class FavoritesMoviesViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "movieName", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
         fetchedResultsController.delegate = self
         do {
         try fetchedResultsController.performFetch()
         } catch {
             print(error.localizedDescription)
         }
+        showEmptyMessage()
     }
 }
 
@@ -72,11 +101,12 @@ final class FavoritesMoviesViewController: UIViewController {
 
 extension FavoritesMoviesViewController: CodeView {
     func buildViewHierarchy() {
-        view.addSubview(tableView)
+        view.addSubviews(tableView, emptyMessage)
     }
     
     func setupConstraints() {
         tableView.bindFrameToSuperviewBounds()
+        emptyMessage.bindFrameToSuperviewSafeBounds()
     }
     
     func setupAdditionalConfiguration() {
@@ -87,6 +117,7 @@ extension FavoritesMoviesViewController: CodeView {
             title: "Favorites",
             preferredLargeTitle: true
         )
+        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
     }
 }
 
@@ -102,32 +133,5 @@ extension FavoritesMoviesViewController: NSFetchedResultsControllerDelegate {
             default:
                 tableView.reloadData()
         }
-    }
-}
-
-extension FavoritesMoviesViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = fetchedResultsController.fetchedObjects?.count ?? 0
-        return count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesMoviesCell.identifier, for: indexPath) as! FavoritesMoviesCell
-        guard let model = fetchedResultsController.fetchedObjects?[indexPath.section] else {
-            return cell
-        }
-        cell.model = model
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "delete") { (action, view, actionPerformed: (Bool) -> ()) in
-            guard let favorite = self.fetchedResultsController.fetchedObjects?[indexPath.row] else { return }
-            self.context.delete(favorite)
-            actionPerformed(true)
-        }
-        delete.image = UIImage(systemName: "trash")
-        let config = UISwipeActionsConfiguration(actions: [delete])
-        return config
     }
 }

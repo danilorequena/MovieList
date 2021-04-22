@@ -18,6 +18,17 @@ target 'CinemaTv' do
       pod 'Quick' # if you want to use it with Quick
       pod 'Nimble'
     end
+end
 
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+    end
+  end
 
+  # Este trecho são alterações para rodar no Apple Silicon
+  installer.pods_project.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
 end

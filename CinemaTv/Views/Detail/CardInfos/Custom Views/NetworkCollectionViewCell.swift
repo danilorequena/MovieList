@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class WereWatchCollectionViewCell: UICollectionViewCell {
+class NetworkCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var wereWatchImage: UIImageView!
     override func awakeFromNib() {
