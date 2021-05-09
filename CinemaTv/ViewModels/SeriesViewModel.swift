@@ -9,8 +9,10 @@
 import Foundation
 
 protocol SeriesViewModelProtocol: AnyObject {
+    func fetchSeries()
     func fetchPopularSeries()
     func fetchSeriesOnAir()
+    func fetchDiscoverSeries()
 }
 
 protocol MainViewModelDelegate: AnyObject {
@@ -32,6 +34,20 @@ final class SeriesViewModel: SeriesViewModelProtocol {
     var popularPage = 1
     var topRatedPage = 0
     var seriesOnAirPage = 1
+    let group = DispatchGroup()
+    
+    func fetchSeries() {
+        group.enter()
+        fetchPopularSeries()
+        group.leave()
+        
+        group.enter()
+        fetchDiscoverSeries()
+        
+        group.enter()
+        fetchSeriesOnAir()
+        group.leave()
+    }
     
     func fetchPopularSeries() {
         RequestAPITVShows.loadSeries(

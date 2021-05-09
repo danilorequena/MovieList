@@ -67,6 +67,15 @@ final class DetailViewController: UIViewController {
         setupImage()
     }
     
+    private func setupBarButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.up.heart.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(saveSerieFavorite)
+        )
+    }
+    
     @objc
     private func saveSerieFavorite() {
         favoriteMovies = MoviesDataModel(context: context)
@@ -78,15 +87,6 @@ final class DetailViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-    }
-    
-    private func setupBarButtonItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "arrow.up.heart.fill"),
-            style: .plain,
-            target: self,
-            action: #selector(saveSerieFavorite)
-        )
     }
     
     private func setupImage() {

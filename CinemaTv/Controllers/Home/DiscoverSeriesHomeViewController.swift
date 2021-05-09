@@ -34,9 +34,7 @@ final class DiscoverSeriesHomeViewController: UIViewController, Storyboaded {
         configureNavbar()
         mainViewModel = SeriesViewModel()
         mainViewModel?.delegate = self
-        mainViewModel?.fetchPopularSeries()
-        mainViewModel?.fetchSeriesOnAir()
-        mainViewModel?.fetchDiscoverSeries()
+        mainViewModel?.fetchSeries()
     }
     
     func saveSerieFavorite(indexPath: IndexPath) {
@@ -108,13 +106,13 @@ final class DiscoverSeriesHomeViewController: UIViewController, Storyboaded {
 extension DiscoverSeriesHomeViewController: MainViewModelDelegate {
     func successList() {
         self.showSimpleHUD()
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             self.configCollections()
             self.discoverCollectionView.reloadData()
             self.onAirCollectionView.reloadData()
             self.popularCollectionView.reloadData()
             self.hud.dismiss()
-        }
+//        }
     }
 
     func errorList() {

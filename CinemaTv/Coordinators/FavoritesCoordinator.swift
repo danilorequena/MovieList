@@ -22,7 +22,6 @@ class FavoritesCoordinator: NSObject, Coordinator, UINavigationControllerDelegat
     func start() {
         navigationController.delegate = self
         let vc = FavoritesMoviesViewController()
-        vc.loadFavorites()
         vc.tabBarItem = UITabBarItem(title: "favorites", image: UIImage(systemName: "heart.fill"), tag: 2)
         navigationController.pushViewController(vc, animated: true)
     }

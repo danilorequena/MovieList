@@ -33,23 +33,21 @@ final class FavoritesManager: NSObject, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesMoviesCell.identifier, for: indexPath) as! FavoritesMoviesCell
-        guard let model = fetchedResultsController.fetchedObjects?[indexPath.section] else {
+        guard let model = fetchedResultsController.fetchedObjects?[indexPath.row] else {
             return cell
         }
         cell.model = model
         return cell
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "delete") { (action, view, actionPerformed: (Bool) -> ()) in
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
             guard let favorite = self.fetchedResultsController.fetchedObjects?[indexPath.row] else { return }
             self.context.delete(favorite)
-            actionPerformed(true)
+        default:
+            break
         }
-        delete.image = UIImage(systemName: "trash")
-        let config = UISwipeActionsConfiguration(actions: [delete])
-        return config
     }
-    
     
 }

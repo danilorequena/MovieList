@@ -33,7 +33,7 @@ final class FavoritesMoviesViewController: UIViewController {
         textColor: .white
     )
     
-    private lazy var tableView: UITableView = {
+    private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(FavoritesMoviesCell.self)
         tableView.separatorStyle = .none
@@ -66,8 +66,7 @@ final class FavoritesMoviesViewController: UIViewController {
     }
     
     private func showEmptyMessage() {
-        let items = fetchedResultsController.fetchedObjects?.count
-        if items == 0 {
+        if let objects = fetchedResultsController.fetchedObjects,  objects.isEmpty {
             tableView.isHidden = true
             emptyMessage.isHidden = false
         } else {

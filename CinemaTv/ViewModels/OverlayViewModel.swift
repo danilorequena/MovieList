@@ -23,7 +23,7 @@ class OverlayViewModel: OverlayViewModelProtocol {
     var details: PopularSeriesDetails?
     var createdBy: [CreatedBy] = []
     var genre: [Genre] = []
-    var networks: [Network] = []
+    var providers: [Network] = []
     var season: [Season] = []
     var cast: [CastElement] = []
     weak var delegate: OverlayViewModelDelegate?
@@ -32,7 +32,7 @@ class OverlayViewModel: OverlayViewModelProtocol {
         RequestAPITVShows.loadPopularSeriesDetails(id: id) { (series) in
             self.createdBy += series?.createdBy ?? []
             self.genre += series?.genres ?? []
-            self.networks += series?.networks ?? []
+            self.providers += series?.networks ?? []
             self.season += series?.seasons ?? []
             self.details = series
             self.delegate?.successList()

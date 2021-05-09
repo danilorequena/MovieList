@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class NetworksManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+final class ProvidersManager: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
     private var viewModel: OverlayViewModel
     
     init(viewModel: OverlayViewModel) {
@@ -16,13 +16,13 @@ final class NetworksManager: NSObject, UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.networks.count
+        viewModel.providers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         collectionView.register(NetworkCollectionViewCell.loadNib(), forCellWithReuseIdentifier: NetworkCollectionViewCell.identifier())
         let cell: NetworkCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let cast = viewModel.networks[indexPath.item]
+        let cast = viewModel.providers[indexPath.item]
         cell.prepareCell(with: cast)
         return cell
     }

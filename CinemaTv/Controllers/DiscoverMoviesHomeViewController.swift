@@ -133,11 +133,6 @@ extension DiscoverMoviesHomeViewController: DiscoverMoviesSectionDelegate {
         let movie = viewModel.discoverMovies[indexPath.item]
         let coordinator = MainCoordinator(navigationController: self.navigationController!)
         coordinator.detailDiscover(discoverMovies: movie)
-//        saveSerieFavorite(indexPath: indexPath)
-//        let alert = UIAlertController(title: "atenção", message: "Filme gravado nos favoritos", preferredStyle: .alert)
-//        alert.addAction(.init(title: "Ok", style: .default, handler: nil))
-//        present(alert, animated: true, completion: nil)
-        
     }
 }
 
@@ -145,7 +140,7 @@ extension DiscoverMoviesHomeViewController: DiscoverViewModelDelegate {
     func successDiscoverList() {
         self.showSimpleHUD()
         DispatchQueue.main.async {
-            self.showMovies(self.viewModel.discoverMovies )
+            self.showMovies(self.viewModel.discoverMovies)
             self.configureCollectionDataSource()
             self.hud.dismiss()
         }
