@@ -46,6 +46,7 @@ final class FavoritesMoviesViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         loadFavorites()
+        setupBarButtonItem()
         moviesData = [MoviesDataModel]()
     }
     
@@ -53,6 +54,33 @@ final class FavoritesMoviesViewController: UIViewController {
         super.viewWillAppear(animated)
         loadFavorites()
         setupTableView()
+    }
+    
+    private func setupBarButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.trash.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(removeAllFavorites)
+        )
+    }
+    
+    @objc
+    private func removeAllFavorites() {
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "MoviesDataModel") // Find this name in your .xcdatamodeld file
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+        } catch let error as NSError {
+            // TODO: handle the error
+            print(error.localizedDescription)
+        }
     }
     
     private func setupTableView() {

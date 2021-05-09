@@ -45,8 +45,26 @@ final class FavoritesManager: NSObject, UITableViewDelegate, UITableViewDataSour
         case .delete:
             guard let favorite = self.fetchedResultsController.fetchedObjects?[indexPath.row] else { return }
             self.context.delete(favorite)
+             try? self.context.save()
         default:
             break
+        }
+    }
+    
+    private func removeAllFavorites() {
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "MoviesDataModel") // Find this name in your .xcdatamodeld file
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+        } catch let error as NSError {
+            // TODO: handle the error
+            print(error.localizedDescription)
         }
     }
     
