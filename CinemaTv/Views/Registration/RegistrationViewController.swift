@@ -45,7 +45,7 @@ extension RegistrationViewController: RegistrationViewDelegate {
         
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] result, error in
             
-            guard let strongSelf = self else {
+            guard self != nil else {
                 return
             }
             

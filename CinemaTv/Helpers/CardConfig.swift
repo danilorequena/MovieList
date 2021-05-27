@@ -14,6 +14,7 @@ enum CardState {
 
 final class CardConfig {
     var viewModel: DetailViewModel?
+    var overlayViewModel = OverlayViewModel()
     var runningAnimations = [UIViewPropertyAnimator]()
     var cardVisible = false
     var cardViewController: OverlayViewController!
@@ -38,7 +39,7 @@ final class CardConfig {
         visualEffectView.frame = view.frame
         view.addSubview(visualEffectView)
         
-        cardViewController = OverlayViewController(discoverMovies: infos)
+        cardViewController = OverlayViewController(discoverMovies: infos, overlayViewModel: overlayViewModel)
         view.addSubview(cardViewController.view)
         cardViewController.view.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
@@ -59,7 +60,7 @@ final class CardConfig {
         visualEffectView.frame = view.frame
         view.addSubview(visualEffectView)
         
-        cardViewController = OverlayViewController(seriesPop: infos)
+        cardViewController = OverlayViewController(seriesPop: infos, overlayViewModel: overlayViewModel)
         view.addSubview(cardViewController.view)
         cardViewController.view.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
@@ -80,7 +81,7 @@ final class CardConfig {
         visualEffectView.frame = view.frame
         view.addSubview(visualEffectView)
         
-        cardViewController = OverlayViewController(discoverSeries: infos)
+        cardViewController = OverlayViewController(discoverSeries: infos, overlayViewModel: overlayViewModel)
         view.addSubview(cardViewController.view)
         cardViewController.view.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
@@ -101,7 +102,7 @@ final class CardConfig {
         visualEffectView.frame = view.frame
         view.addSubview(visualEffectView)
         
-        cardViewController = OverlayViewController(seriesOnAir: infos)
+        cardViewController = OverlayViewController(seriesOnAir: infos, overlayViewModel: overlayViewModel)
         view.addSubview(cardViewController.view)
         cardViewController.view.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true
@@ -122,7 +123,7 @@ final class CardConfig {
         visualEffectView.frame = view.frame
         view.addSubview(visualEffectView)
         
-        cardViewController = OverlayViewController(discoverSeries: infos)
+        cardViewController = OverlayViewController(discoverSeries: infos, overlayViewModel: overlayViewModel)
         view.addSubview(cardViewController.view)
         cardViewController.view.frame = CGRect(x: 0, y: view.frame.height / 2, width: view.bounds.width, height: endCardHeight)
         cardViewController.view.clipsToBounds = true

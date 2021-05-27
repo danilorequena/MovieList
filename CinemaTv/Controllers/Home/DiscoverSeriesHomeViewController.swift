@@ -34,9 +34,7 @@ final class DiscoverSeriesHomeViewController: UIViewController, Storyboaded {
         configureNavbar()
         mainViewModel = SeriesViewModel()
         mainViewModel?.delegate = self
-        mainViewModel?.fetchPopularSeries()
-        mainViewModel?.fetchSeriesOnAir()
-        mainViewModel?.fetchDiscoverSeries()
+        mainViewModel?.fetchSeries()
     }
     
     func saveSerieFavorite(indexPath: IndexPath) {

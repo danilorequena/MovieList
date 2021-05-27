@@ -18,7 +18,7 @@ protocol LoginProtocol: AnyObject {
 final class LoginViewModel: LoginProtocol {
     func signin(buttonLogin: UIButton, user: String, password: String) {
         FirebaseAuth.Auth.auth().signIn(withEmail: user, password: password, completion: {[weak self] result, error in
-            guard let strongSelf = self else { return }
+            guard self != nil else { return }
             
             guard error == nil else {
                 print("Without registration") 
@@ -29,19 +29,10 @@ final class LoginViewModel: LoginProtocol {
     
     func signout() {}
     
-    func createUser() {
-//        FirebaseAuth.Auth.auth().createUser(withEmail: user, password: password) { (result, error) in
-//            guard error == nil else {
-//                print("Account creation Failed") // TODO: - Tratar com um alert
-//                return
-//            }
-//        }
-    }
-    
     @objc
     func signin(user: String, password: String, present: UIViewController) {
         FirebaseAuth.Auth.auth().signIn(withEmail: user, password: password, completion: {[weak self] result, error in
-            guard let strongSelf = self else { return }
+            guard self != nil else { return }
             
             guard error == nil else {
                 print("Without registration")

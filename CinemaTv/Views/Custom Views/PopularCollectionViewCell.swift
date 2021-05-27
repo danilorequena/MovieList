@@ -38,7 +38,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
                 options: [
                     .processor(processor),
                     .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
+                    .transition(.fade(0.3)),
                     .cacheOriginalImage
                 ], completionHandler:
                     {
