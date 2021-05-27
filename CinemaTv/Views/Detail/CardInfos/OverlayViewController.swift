@@ -27,14 +27,32 @@ class OverlayViewController: UIViewController {
     private var overlayViewModel: OverlayViewModel?
     
     private var castManager: CastManager?
-    private var networksManager: NetworksManager?
+    private var networksManager: ProvidersManager?
+    
+    required init(
+        seriesPop: ResultPopularSeries? = nil,
+        seriesOnAir: ResultSeriesOnAir? = nil,
+        discoverMovies: ResultDiscover? = nil,
+        discoverSeries: ResultDiscoverSeries? = nil,
+        overlayViewModel: OverlayViewModel
+    ) {
+        super.init(nibName: nib, bundle: Bundle(for: OverlayViewController.self))
+        self.seriesPop = seriesPop
+        self.seriesOnAir = seriesOnAir
+        self.discoverMovies = discoverMovies
+        self.discoverSeries = discoverSeries
+        self.overlayViewModel = overlayViewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLabels()
         overlayViewModel = OverlayViewModel()
         overlayViewModel?.delegate = self
-        overlayViewModel?.fetchDetailsSeries(id: seriesPop?.id ?? 0)
         if discoverMovies != nil {
             overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
         } else if seriesPop != nil {
@@ -45,21 +63,6 @@ class OverlayViewController: UIViewController {
             overlayViewModel?.fetchSeriesCast(id: discoverSeries?.id ?? 0)
         }
         setupCollections()
-    }
-    
-    required init(seriesPop: ResultPopularSeries? = nil,
-                  seriesOnAir: ResultSeriesOnAir? = nil,
-                  discoverMovies: ResultDiscover? = nil,
-                  discoverSeries: ResultDiscoverSeries? = nil ) {
-        super.init(nibName: nib, bundle: Bundle(for: OverlayViewController.self))
-        self.seriesPop = seriesPop
-        self.seriesOnAir = seriesOnAir
-        self.discoverMovies = discoverMovies
-        self.discoverSeries = discoverSeries
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setupLabels() {
@@ -137,7 +140,7 @@ class OverlayViewController: UIViewController {
     }
     
     private func setupCollections() {
-        networksManager = NetworksManager(viewModel: overlayViewModel!)
+        networksManager = ProvidersManager(viewModel: overlayViewModel!)
         networksCollectionView.dataSource = networksManager
         networksCollectionView.delegate = networksManager
         

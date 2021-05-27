@@ -25,10 +25,16 @@ class DiscoverViewModel: DiscoverProtocol, ObservableObject {
     @Published var topRatedMovies: [Result] = []
     var discoverPage = 1
     var topRatedPage = 1
+    let group = DispatchGroup()
     
     func fetchMovies() {
+        group.enter()
         fetchDiscoverMovies()
+        group.leave()
+        
+        group.enter()
         fetchTopRatedMovies()
+        group.leave()
     }
     
     func fetchDiscoverMovies() {
