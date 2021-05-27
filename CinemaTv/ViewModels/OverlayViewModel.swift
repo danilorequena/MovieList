@@ -19,20 +19,21 @@ protocol OverlayViewModelDelegate: AnyObject {
 }
 
 class OverlayViewModel: OverlayViewModelProtocol {
-    var infos: ResultSeries?
+    var infos: ResultPopularSeries?
     var details: PopularSeriesDetails?
     var createdBy: [CreatedBy] = []
     var genre: [Genre] = []
-    var networks: [Network] = []
+    var providers: [Network] = []
     var season: [Season] = []
     var cast: [CastElement] = []
     weak var delegate: OverlayViewModelDelegate?
     
     func fetchDetailsSeries(id: Int) {
-        RequestAPITVShows.loadPopularSeriesDetails(id: id) { (series) in
+        RequestAPITVShows.loadPopularSeriesDetails(id: id) { [weak self] (series) in
+            guard let self = self else { return }
             self.createdBy += series?.createdBy ?? []
             self.genre += series?.genres ?? []
-            self.networks += series?.networks ?? []
+            self.providers += series?.networks ?? []
             self.season += series?.seasons ?? []
             self.details = series
             self.delegate?.successList()
@@ -42,19 +43,20 @@ class OverlayViewModel: OverlayViewModelProtocol {
     }
     
     func fetchCastMovies(id: Int) {
-        
-        RequestCastService.loadMoviesCast(endpoint: .credits(movie: id)) { (movies: Cast) in
-            self.cast += movies.cast ?? []
+        RequestCastService.loadMoviesCast(endpoint: .credits(movie: id)) { [weak self] (movies: Cast) in
+            guard let self = self else { return }
+            self.cast = movies.cast ?? []
             self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }
-
     }
     
     func fetchSeriesCast(id: Int) {
-        RequestCastService.loadSeriesCast(endpoint: .credits(tvID: id)) { (series: Cast) in
+        RequestCastService.loadSeriesCast(endpoint: .credits(tvID: id)) { [weak self] (series: Cast) in
+            guard let self = self else { return }
             self.cast += series.cast ?? []
+            self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }

@@ -16,7 +16,6 @@ class CastCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         self.shadowDefault()
     }
     
@@ -28,8 +27,6 @@ class CastCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    
-    
     func prepareCell(with serie: CastElement) {
         if let logoPath = serie.profilePath {
             guard let logoURL = URL(string: "https://image.tmdb.org/t/p/w92" + logoPath) else { return }
@@ -40,7 +37,6 @@ class CastCollectionViewCell: UICollectionViewCell {
                 options: [
                     .processor(processor),
                     .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
                     .cacheOriginalImage
                 ], completionHandler:
                     {

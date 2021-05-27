@@ -13,15 +13,16 @@ protocol DetailViewModelProtocol: AnyObject {
     func fetchDetails(id: Int)
 }
 
-class DetailViewModel: DetailViewModelProtocol {
+final class DetailViewModel: DetailViewModelProtocol {
     
-    var seriesPop: ResultSeries?
+    var seriesPop: ResultPopularSeries?
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
     var createdBy: [CreatedBy] = []
     var genre: [Genre] = []
     var networks: [Network] = []
     var season: [Season] = []
+    var cardConfig: CardConfig?
     
     func fetchDetails(id: Int) {
         RequestAPITVShows.loadPopularSeriesDetails(id: id) { (series) in
@@ -36,5 +37,9 @@ class DetailViewModel: DetailViewModelProtocol {
     
     func setNavigation(controller: UIViewController, title: String) {
         controller.configureNavigationBar(largeTitleColor: .white, backgoundColor: #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1), tintColor: .white, title: title, preferredLargeTitle: true)
+    }
+    
+    func configCard(view: UIView, infos: ResultDiscover) {
+        cardConfig?.setupCardMovies(infos: infos)
     }
 }

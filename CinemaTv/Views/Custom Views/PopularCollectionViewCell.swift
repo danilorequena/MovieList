@@ -26,7 +26,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    func prepareCell(with serie: ResultSeries) {
+    func prepareCell(with serie: ResultPopularSeries) {
         if let posterPath = serie.posterPath {
             let posterURL = URL(string: "https://image.tmdb.org/t/p/w200" + posterPath)
 //            guard let data = try? Data(contentsOf: posterURL!) else { return }
@@ -38,7 +38,7 @@ class PopularCollectionViewCell: UICollectionViewCell {
                 options: [
                     .processor(processor),
                     .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
+                    .transition(.fade(0.3)),
                     .cacheOriginalImage
                 ], completionHandler:
                     {

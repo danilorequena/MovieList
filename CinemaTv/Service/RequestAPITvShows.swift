@@ -28,7 +28,8 @@ final class RequestAPITVShows {
         var components = URLComponents(url: queryURL, resolvingAgainstBaseURL: true)!
         components.queryItems = [
             URLQueryItem(name: "api_key", value: Constants.apiKey),
-            URLQueryItem(name: "language", value: Locale.preferredLanguages[0])
+            URLQueryItem(name: "language", value: Locale.preferredLanguages[0]),
+            URLQueryItem(name: "region", value: Locale.current.regionCode)
         ]
         
         if let params = params {
@@ -70,7 +71,7 @@ final class RequestAPITVShows {
     }
     
     class func loadPopularSeriesDetails(id: Int, onComplete: @escaping (PopularSeriesDetails?) -> Void, onError: @escaping (APIServiceError) -> Void) {
-        let stringURL = "https://api.themoviedb.org/3/tv/\(id)?api_key=\(Constants.apiKey)&language=en-US"
+        let stringURL = "https://api.themoviedb.org/3/tv/\(id)?api_key=\(Constants.apiKey)&language=pt-BR"
         guard let url = URL(string: stringURL) else {
             onError(.url)
             return

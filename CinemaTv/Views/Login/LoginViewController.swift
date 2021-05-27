@@ -9,13 +9,10 @@
 import Foundation
 import UIKit
 import FirebaseAuth
-import SnapKit
 
 
 final class LoginViewController: UIViewController, Storyboaded {
     weak var coordinator: MainCoordinator?
-    
-    var viewModel: LoginViewModel!
     
     private lazy var loginView: LoginView = {
        let view = LoginView()
@@ -26,23 +23,14 @@ final class LoginViewController: UIViewController, Storyboaded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        viewModel = LoginViewModel()
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-    
-    private func setupView() {
-        view.addSubview(loginView)
-        
-        loginView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+    override func loadView() {
+        view = loginView
+        view.accessibilityIdentifier = "registrationViewController"
+        loginView.accessibilityIdentifier = "registrationView"
     }
 }
 
@@ -77,5 +65,4 @@ extension LoginViewController: LoginViewDelegate {
         let vc = RegistrationViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
 }

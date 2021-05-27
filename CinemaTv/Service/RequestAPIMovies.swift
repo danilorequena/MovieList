@@ -8,20 +8,21 @@
 
 import Foundation
 
-
-
  final class RequestAPIMovies {
-    
     private static let configuration: URLSessionConfiguration = {
         let config = URLSessionConfiguration.default
         config.httpMaximumConnectionsPerHost = 40
         return config
     }()
+    
     private static let session = URLSession(configuration: configuration)
 
-    class func loadMovies<T: Decodable>(page: String,
-                                        endPoint: MoviesEndpoint,
-                                        onComplete: @escaping (T) -> Void, onError: @escaping (APIServiceError) -> Void) {
+    class func loadMovies<T: Decodable>(
+        page: String,
+        endPoint: MoviesEndpoint,
+        onComplete: @escaping (T) -> Void,
+        onError: @escaping (APIServiceError) -> Void
+    ) {
         guard let queryURL = Constants.baseUrl?.appendingPathComponent(endPoint.path()) else {
             onError(.url)
             return
@@ -31,6 +32,7 @@ import Foundation
         components.queryItems = [
             URLQueryItem(name: "api_key", value: Constants.apiKey),
             URLQueryItem(name: "language", value: Locale.preferredLanguages[0]),
+            URLQueryItem(name: "region", value: Locale.current.regionCode),
             URLQueryItem(name: "page", value: page)
         ]
         var request = URLRequest(url: components.url!)
@@ -65,12 +67,15 @@ import Foundation
         dataTask.resume()
     }
     
-    class func loadVideos(url: String, onComplete: @escaping (Videos?) -> Void, onError: @escaping (APIServiceError) -> Void) {
+    class func loadVideos(
+        url: String,
+        onComplete: @escaping (Videos?) -> Void,
+        onError: @escaping (APIServiceError) -> Void
+    ) {
         guard let url = URL(string: url) else {
             onError(.url)
             return
         }
-        print("Videos", url)
         let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {
@@ -83,7 +88,6 @@ import Foundation
                     do {
                         let videos = try JSONDecoder().decode(Videos.self, from: data)
                         onComplete(videos)
-                        print("FetchOK")
                     } catch let jsonErr {
                         onError(.invalidJSON)
                         print("Error serializing json:", jsonErr)

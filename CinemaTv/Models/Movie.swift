@@ -22,7 +22,7 @@ struct Movie: Codable {
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Result: Codable, Hashable {
     let popularity: Double?
     let voteCount: Int?
     let video: Bool?
