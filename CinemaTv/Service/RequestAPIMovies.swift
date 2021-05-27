@@ -32,6 +32,7 @@ import Foundation
         components.queryItems = [
             URLQueryItem(name: "api_key", value: Constants.apiKey),
             URLQueryItem(name: "language", value: Locale.preferredLanguages[0]),
+            URLQueryItem(name: "region", value: Locale.current.regionCode),
             URLQueryItem(name: "page", value: page)
         ]
         var request = URLRequest(url: components.url!)

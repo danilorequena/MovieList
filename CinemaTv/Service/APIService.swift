@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol NetworkProtocolType: class {
+protocol NetworkProtocolType: AnyObject {
     func get<T: Decodable>(url: String, response: T.Type, completion: @escaping (Bool, T?)->Void)
     func post<T: Decodable, EncodableType: Encodable>(url: String, params: EncodableType?, response: T.Type, completion: @escaping (Bool, T?)->Void)
 }

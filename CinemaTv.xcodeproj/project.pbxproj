@@ -72,8 +72,6 @@
 		7DE2B13725DAD56B00FE65FB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 7DE2B13625DAD56B00FE65FB /* SwiftPackageProductDependency */; };
 		7DF73728262264CF00CABC6B /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF73727262264CF00CABC6B /* UIEdgeInsets.swift */; };
 		7DFEFEE8260FAF3A0052D8E5 /* TableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFEFEE7260FAF390052D8E5 /* TableViewManager.swift */; };
-		848F7CFB9A27A5850D5E8058 /* Pods_CinemaTv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29BA626322AE246CBE80FE08 /* Pods_CinemaTv.framework */; };
-		95213DEE6DE21D294FE08E1B /* Pods_CinemaTv_CinemaTvTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029B4F4A401FFE30C5BAB3E6 /* Pods_CinemaTv_CinemaTvTests.framework */; };
 		FF08C6CB250B29920007F26F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08C6CA250B29920007F26F /* UIViewController+Extension.swift */; };
 		FF0D460725200CF40069A74A /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D460625200CF40069A74A /* DiscoverViewModel.swift */; };
 		FF0D4609252013230069A74A /* DiscoverMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D4608252013230069A74A /* DiscoverMovies.swift */; };
@@ -158,6 +156,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7D25AADA2648CFC70085FEDE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FFB64F20251D6C1400E5C2EA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,9 +180,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		029B4F4A401FFE30C5BAB3E6 /* Pods_CinemaTv_CinemaTvTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTv_CinemaTvTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AA2DFC45DB7C58094CB6ACB /* Pods-CinemaTv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv.release.xcconfig"; path = "Target Support Files/Pods-CinemaTv/Pods-CinemaTv.release.xcconfig"; sourceTree = "<group>"; };
-		29BA626322AE246CBE80FE08 /* Pods_CinemaTv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CinemaTv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D044F7E25C75F4B00E8A4C9 /* MoviesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesEndpoint.swift; sourceTree = "<group>"; };
 		7D0F9C4725D0BFCC00E0A129 /* RequestCastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCastService.swift; sourceTree = "<group>"; };
 		7D0F9C5725D0DB4200E0A129 /* CinemaTvCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaTvCollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -184,6 +189,8 @@
 		7D22EC1025E3281C00BC6A13 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		7D22EC1C25E404B300BC6A13 /* CinemaTv.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CinemaTv.xcdatamodel; sourceTree = "<group>"; };
 		7D22ED0B25E44A5C00BC6A13 /* UIView+DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DropShadow.swift"; sourceTree = "<group>"; };
+		7D25AACA2648CFC60085FEDE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7D25AACC2648CFC60085FEDE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		7D3A0EF525D20B2B00D8BC5E /* ListMoviesSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesSwiftUI.swift; sourceTree = "<group>"; };
 		7D3A0F0025D20D8400D8BC5E /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		7D3A0F2125D21E4E00D8BC5E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -224,9 +231,6 @@
 		7DD3FE0625CA153800A101AC /* SeriesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesEndpoint.swift; sourceTree = "<group>"; };
 		7DF73727262264CF00CABC6B /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		7DFEFEE7260FAF390052D8E5 /* TableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewManager.swift; sourceTree = "<group>"; };
-		BEC43A593A680A6C33FE8BBA /* Pods-CinemaTv-CinemaTvTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv-CinemaTvTests.release.xcconfig"; path = "Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests.release.xcconfig"; sourceTree = "<group>"; };
-		CFCB3C8528EBD6BD0788A083 /* Pods-CinemaTv-CinemaTvTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv-CinemaTvTests.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D69902563E2ADD6542D89AAC /* Pods-CinemaTv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CinemaTv.debug.xcconfig"; path = "Target Support Files/Pods-CinemaTv/Pods-CinemaTv.debug.xcconfig"; sourceTree = "<group>"; };
 		FF08C6CA250B29920007F26F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		FF0D460625200CF40069A74A /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
 		FF0D4608252013230069A74A /* DiscoverMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverMovies.swift; sourceTree = "<group>"; };
@@ -300,7 +304,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95213DEE6DE21D294FE08E1B /* Pods_CinemaTv_CinemaTvTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +323,6 @@
 				7DE2B11725DAD38500FE65FB /* BuildFile in Frameworks */,
 				7DE2B12325DAD38500FE65FB /* BuildFile in Frameworks */,
 				7DE2B13725DAD56B00FE65FB /* BuildFile in Frameworks */,
-				848F7CFB9A27A5850D5E8058 /* Pods_CinemaTv.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,10 +339,6 @@
 		295D6DB3E9B37497304D8213 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D69902563E2ADD6542D89AAC /* Pods-CinemaTv.debug.xcconfig */,
-				1AA2DFC45DB7C58094CB6ACB /* Pods-CinemaTv.release.xcconfig */,
-				CFCB3C8528EBD6BD0788A083 /* Pods-CinemaTv-CinemaTvTests.debug.xcconfig */,
-				BEC43A593A680A6C33FE8BBA /* Pods-CinemaTv-CinemaTvTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -474,8 +472,8 @@
 		C3D037F41B309278C52C5499 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29BA626322AE246CBE80FE08 /* Pods_CinemaTv.framework */,
-				029B4F4A401FFE30C5BAB3E6 /* Pods_CinemaTv_CinemaTvTests.framework */,
+				7D25AACA2648CFC60085FEDE /* WidgetKit.framework */,
+				7D25AACC2648CFC60085FEDE /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -740,11 +738,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF34C62125A25C05004337C2 /* Build configuration list for PBXNativeTarget "CinemaTvTests" */;
 			buildPhases = (
-				EC79B5CE83F821BBC3CFA584 /* [CP] Check Pods Manifest.lock */,
 				FF34C61425A25C05004337C2 /* Sources */,
 				FF34C61525A25C05004337C2 /* Frameworks */,
 				FF34C61625A25C05004337C2 /* Resources */,
-				59FC0590AA2B4A23736A229D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -761,11 +757,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF95B22D242ED05000C5FF83 /* Build configuration list for PBXNativeTarget "CinemaTv" */;
 			buildPhases = (
-				B59DCAB66655544290994336 /* [CP] Check Pods Manifest.lock */,
 				FF95B212242ED04300C5FF83 /* Sources */,
 				FF95B213242ED04300C5FF83 /* Frameworks */,
 				FF95B214242ED04300C5FF83 /* Resources */,
 				FFB64F20251D6C1400E5C2EA /* Embed Frameworks */,
+				7D25AADA2648CFC70085FEDE /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -814,7 +810,7 @@
 		FF95B20E242ED04300C5FF83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Danilo Requena";
 				TargetAttributes = {
@@ -893,70 +889,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		59FC0590AA2B4A23736A229D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CinemaTv-CinemaTvTests/Pods-CinemaTv-CinemaTvTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B59DCAB66655544290994336 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CinemaTv-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC79B5CE83F821BBC3CFA584 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CinemaTv-CinemaTvTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF34C61425A25C05004337C2 /* Sources */ = {
@@ -1118,7 +1050,6 @@
 /* Begin XCBuildConfiguration section */
 		FF34C61F25A25C05004337C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFCB3C8528EBD6BD0788A083 /* Pods-CinemaTv-CinemaTvTests.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1143,7 +1074,6 @@
 		};
 		FF34C62025A25C05004337C2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEC43A593A680A6C33FE8BBA /* Pods-CinemaTv-CinemaTvTests.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1289,7 +1219,6 @@
 		};
 		FF95B22E242ED05000C5FF83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D69902563E2ADD6542D89AAC /* Pods-CinemaTv.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1299,7 +1228,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CinemaTv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1316,7 +1245,6 @@
 		};
 		FF95B22F242ED05000C5FF83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AA2DFC45DB7C58094CB6ACB /* Pods-CinemaTv.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1326,7 +1254,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CinemaTv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

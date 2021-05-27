@@ -56,7 +56,8 @@ final class SeriesViewModel: SeriesViewModelProtocol {
                      "include_video" : "true",
                      "primary_release_date.gte" : "2018-01-01",
                      "language" : "pt-BR"],
-            endpoint: .popular) { (series: PopularSeries) in
+            endpoint: .popular) { [weak self] (series: PopularSeries) in
+            guard let self = self else { return }
             self.seriesPopular += series.results
             self.totalPopular = series.totalResults ?? 0
             self.delegate?.successList()
@@ -73,7 +74,8 @@ final class SeriesViewModel: SeriesViewModelProtocol {
                      "include_video" : "true",
                      "primary_release_date.gte" : "2018-01-01",
                      "language" : "pt-BR"],
-            endpoint: .onAir) { (series: SeriesOnAir) in
+            endpoint: .onAir) { [weak self] (series: SeriesOnAir) in
+            guard let self = self else { return }
             self.seriesOnAir += series.results
             self.totalSeriesOnAir = series.totalResults ?? 0
             self.delegate?.successList()
@@ -90,7 +92,8 @@ final class SeriesViewModel: SeriesViewModelProtocol {
                      "page" : "\(discoverPage)",
                      "primary_release_date.gte" : "2018-01-01",
                      "language" : "pt-BR"],
-            endpoint: .discover) { (series: DiscoverSeries) in
+            endpoint: .discover) { [weak self] (series: DiscoverSeries) in
+            guard let self = self else { return }
             self.discoverSeries += series.results ?? []
             self.delegate?.successList()
         } onError: { (error) in
