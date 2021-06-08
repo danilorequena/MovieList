@@ -22,7 +22,7 @@ protocol DiscoverViewModelDelegate: AnyObject {
 class DiscoverViewModel: DiscoverProtocol, ObservableObject {
     weak var delegate: DiscoverViewModelDelegate?
     @Published var discoverMovies: [ResultDiscover] = []
-    @Published var topRatedMovies: [Result] = []
+    @Published var topRatedMovies: [MovieResult] = []
     var discoverPage = 1
     var topRatedPage = 1
     let group = DispatchGroup()

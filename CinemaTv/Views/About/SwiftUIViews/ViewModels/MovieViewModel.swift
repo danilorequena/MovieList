@@ -9,7 +9,7 @@
 import Foundation
 
 class MovieListViewModel: ObservableObject {
-    @Published var movies = [Result]()
+    @Published var movies = [MovieResult]()
     @Published var image = ImageLoader()
     
     init() {
@@ -22,9 +22,9 @@ class MovieListViewModel: ObservableObject {
 }
 
 struct MovieViewModel {
-    var movie: Result
+    var movie: MovieResult
     
-    init(movie: Result) {
+    init(movie: MovieResult) {
         self.movie = movie
     }
     

@@ -13,8 +13,8 @@ struct NewAbout: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
                 MyImage()
+                Spacer(minLength: 45)
                 Divider()
                 VStack {
                     VStack(alignment: .leading) {

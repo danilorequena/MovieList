@@ -36,7 +36,7 @@ final class TopRatedMovieCell: UICollectionViewCell {
         return String(describing: self)
     }
     
-    func setupCell(movie: Result) {
+    func setupCell(movie: MovieResult) {
         if let posterPath = movie.posterPath {
             let posterURL = URL(string: Constants.basePosters + posterPath)
             imgMovie.kf.setImage(with: posterURL)

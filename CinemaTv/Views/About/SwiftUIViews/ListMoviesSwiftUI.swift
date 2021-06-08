@@ -23,7 +23,6 @@ struct ListMoviesSwiftUI: View {
             
             List(self.moviesListViewModel.movies, id: \.title) { movies in
                 VStack {
-                        
                     Text(movies.title ?? "não foi dessa vez")
                         .bold()
                         .padding(.top)

@@ -15,8 +15,8 @@ protocol DiscoverMoviesHomeViewControllerProtocol: AnyObject {
 }
 
 final class DiscoverMoviesHomeViewController: UIViewController, UICollectionViewDelegate {
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, Result>
-    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Result>
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, MovieResult>
+    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, MovieResult>
     
     weak var coordinator: MainCoordinator?
 
@@ -88,7 +88,7 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
         applySnapshot(result: viewModel.topRatedMovies )
     }
 
-    private func applySnapshot(result: [Result]) {
+    private func applySnapshot(result: [MovieResult]) {
         snapshot = DataSourceSnapshot()
         snapshot.appendSections([Section.main])
         snapshot.appendItems(result)
