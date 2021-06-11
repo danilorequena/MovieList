@@ -37,6 +37,11 @@ final class DiscoverSeriesHomeViewController: UIViewController, Storyboaded {
         mainViewModel?.fetchSeries()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func saveSerieFavorite(indexPath: IndexPath) {
         guard let viewModel = mainViewModel else { return }
         let data = viewModel.discoverSeries[indexPath.row]

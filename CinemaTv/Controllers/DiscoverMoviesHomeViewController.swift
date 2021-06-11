@@ -61,10 +61,14 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
         viewModel.fetchMovies()
         viewModel.delegate = self
         viewModel.configureNavigate(controller: self)
-        tabBarController?.tabBar.isHidden = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(goToFavorites))
         setupView()
         setupSearch()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     @objc func goToFavorites() {

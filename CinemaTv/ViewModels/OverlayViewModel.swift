@@ -9,7 +9,6 @@
 import Foundation
 
 protocol OverlayViewModelProtocol: AnyObject {
-    func fetchDetailsSeries(id: Int)
     func fetchCastMovies(id: Int)
     func fetchWatchProviders(id: Int)
 }
@@ -28,19 +27,6 @@ class OverlayViewModel: OverlayViewModelProtocol {
     var season: [Season] = []
     var cast: [CastElement] = []
     weak var delegate: OverlayViewModelDelegate?
-    
-    func fetchDetailsSeries(id: Int) {
-        RequestAPITVShows.loadPopularSeriesDetails(id: id) { [weak self] (series) in
-            guard let self = self else { return }
-            self.createdBy += series?.createdBy ?? []
-            self.genre += series?.genres ?? []
-            self.season += series?.seasons ?? []
-            self.details = series
-            self.delegate?.successList()
-        } onError: { (error) in
-            self.delegate?.errorList()
-        }
-    }
     
     func fetchCastMovies(id: Int) {
         RequestCastService.loadMoviesCast(endpoint: .credits(movie: id)) { [weak self] (movies: Cast) in

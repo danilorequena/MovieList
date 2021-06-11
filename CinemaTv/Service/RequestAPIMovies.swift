@@ -20,11 +20,10 @@ import Foundation
     class func loadMovies<T: Decodable>(
         page: String,
         endPoint: MoviesEndpoint,
-        onComplete: @escaping (T) -> Void,
-        onError: @escaping (APIServiceError) -> Void
+        complitionHandler: @escaping (Result<T, APIServiceError>) -> ()
     ) {
         guard let queryURL = Constants.baseUrl?.appendingPathComponent(endPoint.path()) else {
-            onError(.url)
+            complitionHandler(.failure(.url))
             return
         }
         var components = URLComponents(url: queryURL,
@@ -44,7 +43,7 @@ import Foundation
         let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {
-                    onError(.noResponse)
+                    complitionHandler(.failure(.noResponse))
                     print("No Error")
                     return
                 }
@@ -52,18 +51,18 @@ import Foundation
                     guard let data = data else { return }
                     do {
                         let movies = try JSONDecoder().decode(T.self, from: data)
-                        onComplete(movies)
+                        complitionHandler(.success(movies))
                         print("FetchOK")
                     } catch let jsonErr {
-                        onError(.invalidJSON)
+                        complitionHandler(.failure(.invalidJSON))
                         print("Error serializing json:", jsonErr)
                     }
                 } else {
-                   onError(.responseStatusCode(code: response.statusCode))
+                    complitionHandler(.failure(.responseStatusCode(code: response.statusCode)))
                     print("Algo deu Errado no servidor dos Movies")
                 }
             } else {
-                onError(.taskError(error: error!))
+                complitionHandler(.failure(.taskError(error: error!)))
                 print("Algo errado")
             }
         }
@@ -72,17 +71,16 @@ import Foundation
     
     class func loadVideos(
         url: String,
-        onComplete: @escaping (Videos?) -> Void,
-        onError: @escaping (APIServiceError) -> Void
+        complitionHandler: @escaping (Result<Videos?, APIServiceError>) -> ()
     ) {
         guard let url = URL(string: url) else {
-            onError(.url)
+            complitionHandler(.failure(.url))
             return
         }
         let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {
-                    onError(.noResponse)
+                    complitionHandler(.failure(.noResponse))
                     print("No Error")
                     return
                 }
@@ -90,17 +88,17 @@ import Foundation
                     guard let data = data else { return }
                     do {
                         let videos = try JSONDecoder().decode(Videos.self, from: data)
-                        onComplete(videos)
+                        complitionHandler(.success(videos))
                     } catch let jsonErr {
-                        onError(.invalidJSON)
+                        complitionHandler(.failure(.invalidJSON))
                         print("Error serializing json:", jsonErr)
                     }
                 } else {
-                   onError(.responseStatusCode(code: response.statusCode))
+                    complitionHandler(.failure(.responseStatusCode(code: response.statusCode)))
                     print("Algo deu Errado no servidor")
                 }
             } else {
-                onError(.taskError(error: error!))
+                complitionHandler(.failure(.taskError(error: error!)))
                 print("Algo errado")
             }
         }
