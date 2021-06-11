@@ -8,46 +8,92 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, Storyboaded {
-
-    @IBOutlet weak var imgBackdrop: UIImageView!
+final class DetailViewController: UIViewController {
     
     weak var coordinator: DetailCoordinator?
     var titleNavigation: String?
     var titleSeriesNav: String?
-    var seriesPop: ResultSeries?
+    var seriesPop: ResultPopularSeries?
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
     var discoverSeries: ResultDiscoverSeries?
-    var cardInfos: CardInfos?
-    var viewModel: DetailViewModel?
+    var viewModel: DetailViewModel
+    private var favoriteMovies: MoviesDataModel?
+    
+    private var imgBackdrop = UIImageView.Factory.build(
+        contentMode: .scaleAspectFill,
+        accessibilityIdentifier: "imgBackdrop"
+    )
+    
+    init(
+        discoverMovies: ResultDiscover? = nil,
+        seriesPop: ResultPopularSeries? = nil,
+        seriesOnAir: ResultSeriesOnAir? = nil,
+        discoverSeries: ResultDiscoverSeries? = nil,
+        viewModel: DetailViewModel
+    ) {
+        self.discoverMovies = discoverMovies
+        self.seriesPop = seriesPop
+        self.seriesOnAir = seriesOnAir
+        self.discoverSeries = discoverSeries
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+        setupView()
+        setupBarButtonItem()
         viewModel = DetailViewModel()
-//        viewModel?.fetchDetails(id: viewModel?.discoverMovies?.id ?? 0)
-        viewModel?.setNavigation(controller: self, title: titleNavigation ?? "")
-        cardInfos = CardInfos()
+        viewModel.setNavigation(controller: self, title: titleNavigation ?? "")
+        viewModel.cardConfig = CardConfig(view: self.view)
         loadCard()
     }
     
-    func loadCard() {
+    private func loadCard() {
         if discoverMovies != nil {
-            cardInfos?.setupCardMovies(mainView: self.view, infos: discoverMovies!)
+            viewModel.cardConfig?.setupCardMovies(infos: discoverMovies!)
         } else if seriesPop != nil {
-            cardInfos?.setupCardPop(mainView: self.view, infos: seriesPop!)
+            viewModel.cardConfig?.setupCardPop(mainView: self.view, infos: seriesPop!)
         } else if seriesOnAir != nil {
-            cardInfos?.setupCardOnAir(mainView: self.view, infos: seriesOnAir!)
+            viewModel.cardConfig?.setupCardOnAir(mainView: self.view, infos: seriesOnAir!)
         } else if discoverSeries != nil {
-            cardInfos?.setupCardDiscoverSeries(mainView: self.view, infos: discoverSeries!)
+            viewModel.cardConfig?.setupCardDiscoverSeries(mainView: self.view, infos: discoverSeries!)
         }
         setupImage()
     }
     
-    func setupImage() {
+    private func setupBarButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.up.heart.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(saveSerieFavorite)
+        )
+    }
+    
+    @objc
+    private func saveSerieFavorite() {
+        favoriteMovies = MoviesDataModel(context: context)
+        favoriteMovies?.movieName = discoverMovies?.title
+        favoriteMovies?.movieImage = discoverMovies?.backdropPath
+        favoriteMovies?.movieDescription = discoverMovies?.overview
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func setupImage() {
         if seriesPop?.backdropPath != nil {
-            if let backdropPath = seriesPop?.backdropPath {
-                guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
+            if let posterPath = seriesPop?.posterPath {
+                guard let posterURL = URL(string: Constants.basePosters + posterPath) else {return}
                 do {
                     let data = try Data(contentsOf: posterURL)
                     self.imgBackdrop.image = UIImage(data: data)
@@ -56,8 +102,8 @@ class DetailViewController: UIViewController, Storyboaded {
                 }
             }
         } else if discoverMovies?.backdropPath != nil {
-            if let backdropPath = discoverMovies?.backdropPath {
-                guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
+            if let posterPath = discoverMovies?.posterPath {
+                guard let posterURL = URL(string: Constants.basePosters + posterPath) else {return}
                 do {
                     let data = try Data(contentsOf: posterURL)
                     self.imgBackdrop.image = UIImage(data: data)
@@ -66,8 +112,8 @@ class DetailViewController: UIViewController, Storyboaded {
                 }
             }
         } else if seriesOnAir?.backdropPath != nil {
-            if let backdropPath = seriesOnAir?.backdropPath {
-                guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
+            if let posterPath = seriesOnAir?.posterPath {
+                guard let posterURL = URL(string: Constants.basePosters + posterPath) else {return}
                 do {
                     let data = try Data(contentsOf: posterURL)
                     self.imgBackdrop.image = UIImage(data: data)
@@ -76,8 +122,8 @@ class DetailViewController: UIViewController, Storyboaded {
                 }
             }
         } else if discoverSeries?.backdropPath != nil {
-            if let backdropPath = discoverSeries?.backdropPath {
-                guard let posterURL = URL(string: "https://image.tmdb.org/t/p/original/" + backdropPath) else {return}
+            if let posterPath = discoverSeries?.posterPath {
+                guard let posterURL = URL(string: Constants.basePosters + posterPath) else {return}
                 do {
                     let data = try Data(contentsOf: posterURL)
                     self.imgBackdrop.image = UIImage(data: data)
@@ -86,5 +132,15 @@ class DetailViewController: UIViewController, Storyboaded {
                 }
             }
         }
+    }
+}
+
+extension DetailViewController: CodeView {
+    func buildViewHierarchy() {
+        view.addSubview(imgBackdrop)
+    }
+    
+    func setupConstraints() {
+        imgBackdrop.bindFrameToSuperviewSafeBounds()
     }
 }

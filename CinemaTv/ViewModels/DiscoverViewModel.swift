@@ -19,17 +19,51 @@ protocol DiscoverViewModelDelegate: AnyObject {
     func errorList()
 }
 
-class DiscoverViewModel: DiscoverProtocol {
-    var delegate: DiscoverViewModelDelegate?
-    var movies: [ResultDiscover] = []
-    private var page = 1
+class DiscoverViewModel: DiscoverProtocol, ObservableObject {
+    weak var delegate: DiscoverViewModelDelegate?
+    @Published var discoverMovies: [ResultDiscover] = []
+    @Published var topRatedMovies: [MovieResult] = []
+    var discoverPage = 1
+    var topRatedPage = 1
+    let group = DispatchGroup()
+    
+    func fetchMovies() {
+        group.enter()
+        fetchDiscoverMovies()
+        group.leave()
+        
+        group.enter()
+        fetchTopRatedMovies()
+        group.leave()
+    }
     
     func fetchDiscoverMovies() {
-        RequestAPIMovies.loadDiscoverMovies(page: page) { (movies) in
-            self.movies += movies?.results ?? []
-            self.delegate?.successDiscoverList()
-        } onError: { (error) in
-            self.delegate?.errorList()
+        RequestAPIMovies.loadMovies(
+            page: "\(discoverPage)",
+            endPoint: .discover
+        ) { (result: Result<DiscoverMovies, APIServiceError>) in
+            switch result {
+            case .success(let movies):
+                self.discoverMovies += movies.results ?? []
+                self.delegate?.successDiscoverList()
+            case .failure:
+                self.delegate?.errorList()
+            }
+        }
+    }
+
+    func fetchTopRatedMovies() {
+        RequestAPIMovies.loadMovies(
+            page: "\(topRatedPage)",
+            endPoint: .toRated
+        ) { (result: Result<Movie, APIServiceError>) in
+            switch result {
+            case .success(let movies):
+                self.topRatedMovies += movies.results
+                self.delegate?.successDiscoverList()
+            case .failure:
+                self.delegate?.errorList()
+            }
         }
     }
     

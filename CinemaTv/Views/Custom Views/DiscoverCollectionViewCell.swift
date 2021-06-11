@@ -29,9 +29,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell {
     
     func setupCell(movie: ResultDiscover) {
         if let posterPath = movie.posterPath {
-            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
-//            guard let data = try? Data(contentsOf: posterURL!) else { return }
-//            self.popularImage.image = UIImage(data: data)
+            let posterURL = URL(string: Constants.basePosters + posterPath)
             let processor = DownsamplingImageProcessor(size: imgDiscover.bounds.size)
             self.imgDiscover.kf.setImage(
                 with: posterURL,
@@ -39,7 +37,7 @@ class DiscoverCollectionViewCell: UICollectionViewCell {
                 options: [
                     .processor(processor),
                     .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
+                    .transition(.fade(0.3)),
                     .cacheOriginalImage
                 ], completionHandler:
                     {
@@ -55,5 +53,5 @@ class DiscoverCollectionViewCell: UICollectionViewCell {
             self.imgDiscover.layer.cornerRadius = 10
         }
     }
-
 }
+

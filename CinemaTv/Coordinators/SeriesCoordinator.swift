@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SeriesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
+final class SeriesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -19,7 +19,7 @@ class SeriesCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
     func start() {
         navigationController.delegate = self
-        let vc = HomeSeriesViewController.instantiateSeries()
+        let vc = DiscoverSeriesHomeViewController.instantiateSeries()
         vc.tabBarItem = UITabBarItem(title: "tab.tvShows".localized, image: UIImage(named: "serie"), tag: 1)
         navigationController.pushViewController(vc, animated: false)
     }

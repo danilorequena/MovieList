@@ -9,8 +9,8 @@
 import Foundation
 
 protocol OverlayViewModelProtocol: AnyObject {
-    func fetchDetailsSeries(id: Int)
     func fetchCastMovies(id: Int)
+    func fetchWatchProviders(id: Int)
 }
 
 protocol OverlayViewModelDelegate: AnyObject {
@@ -19,31 +19,19 @@ protocol OverlayViewModelDelegate: AnyObject {
 }
 
 class OverlayViewModel: OverlayViewModelProtocol {
-    var infos: ResultSeries?
+    var infos: ResultPopularSeries?
     var details: PopularSeriesDetails?
     var createdBy: [CreatedBy] = []
     var genre: [Genre] = []
-    var networks: [Network] = []
+    var providers: US?
     var season: [Season] = []
     var cast: [CastElement] = []
     weak var delegate: OverlayViewModelDelegate?
     
-    func fetchDetailsSeries(id: Int) {
-        RequestAPITVShows.loadPopularSeriesDetails(id: id) { (series) in
-            self.createdBy += series?.createdBy ?? []
-            self.genre += series?.genres ?? []
-            self.networks += series?.networks ?? []
-            self.season += series?.seasons ?? []
-            self.details = series
-            self.delegate?.successList()
-        } onError: { (error) in
-            self.delegate?.errorList()
-        }
-    }
-    
     func fetchCastMovies(id: Int) {
-        RequestAPIMovies.loadMovieCast(movieID: id) { (movie) in
-            self.cast += movie?.cast ?? []
+        RequestCastService.loadMoviesCast(endpoint: .credits(movie: id)) { [weak self] (movies: Cast) in
+            guard let self = self else { return }
+            self.cast = movies.cast ?? []
             self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
@@ -51,13 +39,23 @@ class OverlayViewModel: OverlayViewModelProtocol {
     }
     
     func fetchSeriesCast(id: Int) {
-        RequestAPITVShows.loadSeriesCast(serieID: id) { (series) in
-            self.cast += series?.cast ?? []
+        RequestCastService.loadSeriesCast(endpoint: .credits(tvID: id)) { [weak self] (series: Cast) in
+            guard let self = self else { return }
+            self.cast += series.cast ?? []
             self.delegate?.successList()
         } onError: { (error) in
             self.delegate?.errorList()
         }
-
+    }
+    
+    func fetchWatchProviders(id: Int) {
+        WatchProvidersService.loadProviders(endPoint: .watchProviders(movieID: id)) { [weak self] (providers: WatchProviders) in
+            guard let self = self else { return }
+            self.providers = providers.results.US
+            self.delegate?.successList()
+        } onError: { (error) in
+            self.delegate?.errorList()
+        }
     }
 }
 

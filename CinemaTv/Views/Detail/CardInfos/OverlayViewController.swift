@@ -15,48 +15,58 @@ class OverlayViewController: UIViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelOverview: UILabel!
     @IBOutlet weak var labelAverage: UILabel!
-    @IBOutlet weak var wereWatchCollectionView: UICollectionView!
+    @IBOutlet weak var networksCollectionView: UICollectionView!
     @IBOutlet weak var castCollectionView: UICollectionView!
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
-    let nib = "OverlayViewController"
-    var seriesPop: ResultSeries?
-    var seriesOnAir: ResultSeriesOnAir!
-    var discoverMovies: ResultDiscover!
-    var discoverSeries: ResultDiscoverSeries!
-    var overlayViewModel: OverlayViewModel?
+    private let nib = "OverlayViewController"
+    private var seriesPop: ResultPopularSeries?
+    private var seriesOnAir: ResultSeriesOnAir!
+    private var discoverMovies: ResultDiscover!
+    private var discoverSeries: ResultDiscoverSeries!
+    private var overlayViewModel: OverlayViewModel?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupLabels()
-        setupCollections()
-        overlayViewModel = OverlayViewModel()
-        overlayViewModel?.delegate = self
-        overlayViewModel?.fetchDetailsSeries(id: seriesPop?.id ?? 0)
-        if discoverMovies != nil {
-            overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
-        } else if seriesPop != nil {
-            overlayViewModel?.fetchSeriesCast(id: seriesPop?.id ?? 0)
-        } else if seriesOnAir != nil {
-            overlayViewModel?.fetchSeriesCast(id: seriesOnAir.id ?? 0)
-        } else if discoverSeries != nil {
-            overlayViewModel?.fetchSeriesCast(id: discoverSeries?.id ?? 0)
-        }
-    }
+    private var castManager: CastManager?
+    private var networksManager: ProvidersManager?
     
-    required init(seriesPop: ResultSeries? = nil,
-                  seriesOnAir: ResultSeriesOnAir? = nil,
-                  discoverMovies: ResultDiscover? = nil,
-                  discoverSeries: ResultDiscoverSeries? = nil ) {
+    required init(
+        seriesPop: ResultPopularSeries? = nil,
+        seriesOnAir: ResultSeriesOnAir? = nil,
+        discoverMovies: ResultDiscover? = nil,
+        discoverSeries: ResultDiscoverSeries? = nil,
+        overlayViewModel: OverlayViewModel
+    ) {
         super.init(nibName: nib, bundle: Bundle(for: OverlayViewController.self))
         self.seriesPop = seriesPop
         self.seriesOnAir = seriesOnAir
         self.discoverMovies = discoverMovies
         self.discoverSeries = discoverSeries
+        self.overlayViewModel = overlayViewModel
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupLabels()
+        overlayViewModel = OverlayViewModel()
+        overlayViewModel?.delegate = self
+        if discoverMovies != nil {
+            overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: discoverMovies.id ?? 0)
+        } else if seriesPop != nil {
+            overlayViewModel?.fetchSeriesCast(id: seriesPop?.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: seriesPop?.id ?? 0)
+        } else if seriesOnAir != nil {
+            overlayViewModel?.fetchSeriesCast(id: seriesOnAir.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: seriesOnAir.id ?? 0)
+        } else if discoverSeries != nil {
+            overlayViewModel?.fetchSeriesCast(id: discoverSeries?.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: discoverSeries?.id ?? 0)
+        }
+        setupCollections()
     }
     
     func setupLabels() {
@@ -133,6 +143,16 @@ class OverlayViewController: UIViewController {
         }
     }
     
+    private func setupCollections() {
+        networksManager = ProvidersManager(viewModel: overlayViewModel!)
+        networksCollectionView.dataSource = networksManager
+        networksCollectionView.delegate = networksManager
+        
+        castManager = CastManager(viewModel: overlayViewModel!)
+        castCollectionView.delegate = castManager
+        castCollectionView.dataSource = castManager
+        (castCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 65, height: 75)
+    }
     
     @IBAction func goToTrailerTapped(_ sender: Any) {
         if seriesPop != nil {
@@ -151,67 +171,21 @@ class OverlayViewController: UIViewController {
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: true, completion: nil)
         }
-        
-    }
-    
-}
-
-extension OverlayViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func setupCollections() {
-        wereWatchCollectionView.dataSource = self
-        wereWatchCollectionView.delegate = self
-        wereWatchCollectionView.register(WereWatchCollectionViewCell.loadNib(), forCellWithReuseIdentifier: WereWatchCollectionViewCell.identifier())
-        (wereWatchCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 65, height: 55)
-        castCollectionView.delegate = self
-        castCollectionView.dataSource = self
-        castCollectionView.register(CastCollectionViewCell.loadNib(), forCellWithReuseIdentifier: CastCollectionViewCell.identifier())
-        (castCollectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 65, height: 75)
-
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == wereWatchCollectionView {
-            return overlayViewModel?.networks.count ?? 0
-        } else {
-            return overlayViewModel?.cast.count ?? 0
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == wereWatchCollectionView {
-            let cellWereWatch = collectionView.dequeueReusableCell(withReuseIdentifier: WereWatchCollectionViewCell.identifier(), for: indexPath) as! WereWatchCollectionViewCell
-            let serie = (overlayViewModel?.networks[indexPath.item])
-            cellWereWatch.prepareCell(with: serie!)
-            return cellWereWatch
-        } else {
-            let cellCast = collectionView.dequeueReusableCell(withReuseIdentifier: CastCollectionViewCell.identifier(), for: indexPath) as! CastCollectionViewCell
-            let cast = (overlayViewModel?.cast[indexPath.item])
-            cellCast.prepareCell(with: cast!)
-            
-            return cellCast
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let url = URL(string: overlayViewModel?.details?.homepage ?? "https://apple.com") else { return }
-
-        if UIApplication.shared.canOpenURL(url) {
-             UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
     }
 }
 
 extension OverlayViewController: OverlayViewModelDelegate {
     func successList() {
         DispatchQueue.main.async {
-            self.wereWatchCollectionView.reloadData()
+            self.networksCollectionView.reloadData()
             self.castCollectionView.reloadData()
         }
     }
     
     func errorList() {
-        
+        DispatchQueue.main.async {
+            self.networksCollectionView.reloadData()
+            self.castCollectionView.reloadData()
+        }
     }
-    
-    
 }

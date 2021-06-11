@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class DiscoverViewController: UIViewController, Storyboaded {
 
@@ -19,17 +20,22 @@ class DiscoverViewController: UIViewController, Storyboaded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "about", style: .plain, target: self, action: #selector(showAboutMe))
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.hidesBackButton = true
+        tabBarController?.tabBar.isHidden = false
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "about", style: .plain, target: self, action: #selector(goToFavorites))
         setupCollection()
         viewModel = DiscoverViewModel()
         viewModel?.delegate = self
-        viewModel?.configureNavigate(controller: self)
+//        viewModel?.configureNavigate(controller: self)
         viewModel?.fetchDiscoverMovies()
     }
     
     @objc func showAboutMe() {
         print("tapped")
-        let vc = AboutViewController()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let contentView = NewAbout().environment(\.managedObjectContext, context)
+        let vc = UIHostingController(rootView: contentView)
         navigationController?.present(vc, animated: true, completion: nil)
     }
     
@@ -48,20 +54,29 @@ extension DiscoverViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.movies.count ?? 0
+        return viewModel?.discoverMovies.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DiscoverCollectionViewCell.identifier(), for: indexPath) as! DiscoverCollectionViewCell
-        let movies = viewModel?.movies[indexPath.item]
+        let movies = viewModel?.discoverMovies[indexPath.item]
         cell.setupCell(movie: movies!)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let movie = viewModel?.movies[indexPath.item] else { return }
+        guard let movie = viewModel?.discoverMovies[indexPath.item] else { return }
         let coordinator = MainCoordinator(navigationController: self.navigationController!)
         coordinator.detailDiscover(discoverMovies: movie)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == discovercollectView {
+            if indexPath.item == (viewModel?.discoverMovies.count ?? 0) - 10 {
+                viewModel?.discoverPage += 1
+                viewModel?.fetchDiscoverMovies()
+            }
+        }
     }
     
     

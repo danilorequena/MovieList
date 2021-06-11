@@ -19,34 +19,65 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
     func start() {
         navigationController.delegate = self
-        let vc = DiscoverViewController.instantiate()
+        let vc = LoginViewController()
         vc.tabBarItem = UITabBarItem(title: "tab.discover".localized, image: UIImage(named: "movie"), tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }
     
+    func userLogged() {
+        navigationController.delegate = self
+        let viewModel = DiscoverViewModel()
+        let vc = DiscoverMoviesHomeViewController(viewModel: viewModel)
+        vc.tabBarItem = UITabBarItem(title: "tab.discover".localized, image: UIImage(named: "movie"), tag: 0)
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func favoritesMovies() {
+        let child = FavoritesCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        child.start()
+    }
+    
     func detailDiscover(discoverMovies: ResultDiscover) {
-        let child = DetailCoordinator(navigationController: navigationController, discoverMovies: discoverMovies)
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            discoverMovies: discoverMovies,
+            viewModel: DetailViewModel())
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
     }
     
-    func detailSeries(popSeries: ResultSeries) {
-        let child = DetailCoordinator(navigationController: navigationController, popSeries: popSeries)
+    func detailPopularSeries(popSeries: ResultPopularSeries) {
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            popSeries: popSeries,
+            viewModel: DetailViewModel()
+        )
+        
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
     }
     
     func detailSeriesOnAir(onAirSeries: ResultSeriesOnAir) {
-        let child = DetailCoordinator(navigationController: navigationController, onAirSeries: onAirSeries)
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            onAirSeries: onAirSeries,
+            viewModel: DetailViewModel()
+        )
+        
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
     }
     
     func detailDiscoverSeries(discoverSeries: ResultDiscoverSeries) {
-        let child = DetailCoordinator(navigationController: navigationController, discoverSeries: discoverSeries)
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            discoverSeries: discoverSeries,
+            viewModel: DetailViewModel()
+        )
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
