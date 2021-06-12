@@ -43,6 +43,7 @@ final class SeriesViewModel: SeriesViewModelProtocol {
         
         group.enter()
         fetchDiscoverSeries()
+        group.leave()
         
         group.enter()
         fetchSeriesOnAir()
@@ -51,53 +52,64 @@ final class SeriesViewModel: SeriesViewModelProtocol {
     
     func fetchPopularSeries() {
         RequestAPITVShows.loadSeries(
-            params: ["page" : "\(popularPage)",
-                     "include_adult" : "false",
-                     "include_video" : "true",
-                     "primary_release_date.gte" : "2018-01-01",
-                     "language" : "pt-BR"],
-            endpoint: .popular) { [weak self] (series: PopularSeries) in
-            guard let self = self else { return }
-            self.seriesPopular += series.results
-            self.totalPopular = series.totalResults ?? 0
-            self.delegate?.successList()
-        } onError: { (error) in
-            self.delegate?.errorList()
+            params: [
+                "page" : "\(popularPage)",
+                "include_adult" : "false",
+                "include_video" : "true",
+                "primary_release_date.gte" : "2018-01-01",
+                "language" : "pt-BR"
+            ],
+            endpoint: .popular) { (result: Result<PopularSeries, APIServiceError>) in
+            switch result {
+            case let .success(series):
+                self.seriesPopular += series.results
+                self.totalPopular = series.totalResults ?? 0
+                self.delegate?.successList()
+            case .failure:
+                self.delegate?.errorList()
+            }
         }
-        
     }
     
     func fetchSeriesOnAir() {
         RequestAPITVShows.loadSeries(
-            params: ["page" : "\(seriesOnAirPage)",
-                     "include_adult" : "false",
-                     "include_video" : "true",
-                     "primary_release_date.gte" : "2018-01-01",
-                     "language" : "pt-BR"],
-            endpoint: .onAir) { [weak self] (series: SeriesOnAir) in
-            guard let self = self else { return }
-            self.seriesOnAir += series.results
-            self.totalSeriesOnAir = series.totalResults ?? 0
-            self.delegate?.successList()
-        } onError: { (error) in
-            self.delegate?.errorList()
+            params: [
+                "page" : "\(seriesOnAirPage)",
+                "include_adult" : "false",
+                "include_video" : "true",
+                "primary_release_date.gte" : "2018-01-01",
+                "language" : "pt-BR"
+            ],
+            endpoint: .onAir) { (result: Result<SeriesOnAir, APIServiceError>) in
+            switch result {
+            case let .success(series):
+                self.seriesOnAir += series.results
+                self.totalSeriesOnAir = series.totalResults ?? 0
+                self.delegate?.successList()
+            case .failure:
+                self.delegate?.errorList()
+            }
         }
     }
     
     func fetchDiscoverSeries() {
         RequestAPITVShows.loadSeries(
-            params: ["sort_by" : "popularity.desc",
-                     "include_adult" : "false",
-                     "include_video" : "true",
-                     "page" : "\(discoverPage)",
-                     "primary_release_date.gte" : "2018-01-01",
-                     "language" : "pt-BR"],
-            endpoint: .discover) { [weak self] (series: DiscoverSeries) in
-            guard let self = self else { return }
-            self.discoverSeries += series.results ?? []
-            self.delegate?.successList()
-        } onError: { (error) in
-            self.delegate?.errorList()
+            params: [
+                "sort_by" : "popularity.desc",
+                "include_adult" : "false",
+                "include_video" : "true",
+                "page" : "\(discoverPage)",
+                "primary_release_date.gte" : "2018-01-01",
+                "language" : "pt-BR"
+            ],
+            endpoint: .discover) { (result: Result<DiscoverSeries, APIServiceError>) in
+            switch result {
+            case let .success(series):
+                self.discoverSeries += series.results ?? []
+                self.delegate?.successList()
+            case .failure:
+                self.delegate?.errorList()
+            }
         }
     }
 }

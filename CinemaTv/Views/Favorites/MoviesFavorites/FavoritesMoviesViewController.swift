@@ -14,8 +14,8 @@ protocol FavoriteViewProtocol: AnyObject {
 }
 
 final class FavoritesMoviesViewController: UIViewController {
-    typealias FavoriteDataSource = UITableViewDiffableDataSource<Section, Result>
-    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Result>
+    typealias FavoriteDataSource = UITableViewDiffableDataSource<Section, MovieResult>
+    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, MovieResult>
     
     enum Section {
         case main

@@ -55,12 +55,16 @@ class OverlayViewController: UIViewController {
         overlayViewModel?.delegate = self
         if discoverMovies != nil {
             overlayViewModel?.fetchCastMovies(id: discoverMovies.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: discoverMovies.id ?? 0)
         } else if seriesPop != nil {
             overlayViewModel?.fetchSeriesCast(id: seriesPop?.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: seriesPop?.id ?? 0)
         } else if seriesOnAir != nil {
             overlayViewModel?.fetchSeriesCast(id: seriesOnAir.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: seriesOnAir.id ?? 0)
         } else if discoverSeries != nil {
             overlayViewModel?.fetchSeriesCast(id: discoverSeries?.id ?? 0)
+            overlayViewModel?.fetchWatchProviders(id: discoverSeries?.id ?? 0)
         }
         setupCollections()
     }

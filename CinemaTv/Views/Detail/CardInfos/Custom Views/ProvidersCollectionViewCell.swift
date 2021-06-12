@@ -9,12 +9,11 @@
 import UIKit
 import Kingfisher
 
-class NetworkCollectionViewCell: UICollectionViewCell {
+class ProvidersCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var wereWatchImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         self.shadowDefault()
     }
     
@@ -28,10 +27,10 @@ class NetworkCollectionViewCell: UICollectionViewCell {
     
     
     
-    func prepareCell(with serie: Network) {
+    func prepareCell(with serie: ProvidersData) {
         if let logoPath = serie.logoPath {
             guard let logoURL = URL(string: "https://image.tmdb.org/t/p/w92" + logoPath) else { return }
-            let processor = DownsamplingImageProcessor(size: wereWatchImage.bounds.size)
+            let processor = DownsamplingImageProcessor(size: .init(width: 48, height: 48))
             self.wereWatchImage.kf.setImage(
                 with: logoURL,
                 placeholder: UIImage(named: "placeholderImage"),
@@ -52,7 +51,7 @@ class NetworkCollectionViewCell: UICollectionViewCell {
                     })
             self.wereWatchImage.kf.indicatorType = .activity
             self.wereWatchImage.clipsToBounds = true
-//            self.wereWatchImage.layer.cornerRadius = wereWatchImage.frame.size.height / 2
+            self.wereWatchImage.layer.cornerRadius = wereWatchImage.frame.size.height / 2
         }
     }
 
