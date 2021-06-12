@@ -26,15 +26,15 @@ class TrailerViewModel: TrailerViewModelProtocol {
     
     func fetchVideo(videoKey: Int, media: String) {
         let url = "https://api.themoviedb.org/3/\(media)/\(videoKey)/videos?api_key=\(Constants.apiKey)&language=en-US"
-        RequestAPIMovies.loadVideos(url: url) { (videos) in
-            if let videos = videos {
-                self.videos += videos.results ?? []
-                self.videoCode = videos.results?.first?.key
+        RequestAPIMovies.loadVideos(url: url) { (result: Result<Videos?, APIServiceError>) in
+            switch result {
+            case .success(let videos):
+                self.videos += videos?.results ?? []
+                self.videoCode = videos?.results?.first?.key
                 self.delegate?.successTrailer()
-//                self.getTrailer(videoCode: self.videoCode ?? "SmOUBXSVf24")
+            case .failure:
+                self.delegate?.errorTrailer()
             }
-        } onError: { (error) in
-            self.delegate?.errorTrailer()
         }
     }
     

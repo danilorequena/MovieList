@@ -15,8 +15,8 @@ protocol DiscoverMoviesHomeViewControllerProtocol: AnyObject {
 }
 
 final class DiscoverMoviesHomeViewController: UIViewController, UICollectionViewDelegate {
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, Result>
-    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Result>
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, MovieResult>
+    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, MovieResult>
     
     weak var coordinator: MainCoordinator?
 
@@ -28,6 +28,19 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
     private var dataSource: DataSource!
     private var snapshot: DataSourceSnapshot!
     private var favoriteMovies: MoviesDataModel?
+    private var searching = false
+    
+    private(set) lazy var searchController: UISearchController = {
+        let controller = UISearchController()
+        controller.delegate = self
+        controller.searchBar.delegate = self
+        controller.searchBar.placeholder = "Busca"
+        controller.searchBar.accessibilityIdentifier = "searchController"
+        controller.obscuresBackgroundDuringPresentation = true
+        controller.hidesBottomBarWhenPushed = true
+        controller.hidesNavigationBarDuringPresentation = true
+        return controller
+    }()
     
     private var viewModel: DiscoverViewModel
     private var newDiscoverView = NewDiscoverMoviesView()
@@ -48,9 +61,14 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
         viewModel.fetchMovies()
         viewModel.delegate = self
         viewModel.configureNavigate(controller: self)
-        tabBarController?.tabBar.isHidden = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(goToFavorites))
         setupView()
+        setupSearch()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     @objc func goToFavorites() {
@@ -74,7 +92,7 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
         applySnapshot(result: viewModel.topRatedMovies )
     }
 
-    private func applySnapshot(result: [Result]) {
+    private func applySnapshot(result: [MovieResult]) {
         snapshot = DataSourceSnapshot()
         snapshot.appendSections([Section.main])
         snapshot.appendItems(result)
@@ -102,6 +120,14 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    private func setupSearch() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
     }
 }
 
@@ -149,4 +175,23 @@ extension DiscoverMoviesHomeViewController: DiscoverViewModelDelegate {
     func errorList() {
         present(ErrorViewController(), animated: true, completion: nil)
     }
+}
+
+extension DiscoverMoviesHomeViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+//        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        searchGists = gistsData.filter({$0.owner.ownerName.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+//        tableView.reloadData()
+    }
+    
 }

@@ -22,7 +22,7 @@ protocol DiscoverViewModelDelegate: AnyObject {
 class DiscoverViewModel: DiscoverProtocol, ObservableObject {
     weak var delegate: DiscoverViewModelDelegate?
     @Published var discoverMovies: [ResultDiscover] = []
-    @Published var topRatedMovies: [Result] = []
+    @Published var topRatedMovies: [MovieResult] = []
     var discoverPage = 1
     var topRatedPage = 1
     let group = DispatchGroup()
@@ -38,20 +38,32 @@ class DiscoverViewModel: DiscoverProtocol, ObservableObject {
     }
     
     func fetchDiscoverMovies() {
-        RequestAPIMovies.loadMovies(page: "\(discoverPage)",endPoint: .discover) { (movies: DiscoverMovies) in
-            self.discoverMovies += movies.results ?? []
-            self.delegate?.successDiscoverList()
-        } onError: { (error) in
-            self.delegate?.errorList()
+        RequestAPIMovies.loadMovies(
+            page: "\(discoverPage)",
+            endPoint: .discover
+        ) { (result: Result<DiscoverMovies, APIServiceError>) in
+            switch result {
+            case .success(let movies):
+                self.discoverMovies += movies.results ?? []
+                self.delegate?.successDiscoverList()
+            case .failure:
+                self.delegate?.errorList()
+            }
         }
     }
-    
+
     func fetchTopRatedMovies() {
-        RequestAPIMovies.loadMovies(page: "\(topRatedPage)",endPoint: .toRated) { (movies: Movie) in
-            self.topRatedMovies += movies.results
-            self.delegate?.successDiscoverList()
-        } onError: { (error) in
-            self.delegate?.errorList()
+        RequestAPIMovies.loadMovies(
+            page: "\(topRatedPage)",
+            endPoint: .toRated
+        ) { (result: Result<Movie, APIServiceError>) in
+            switch result {
+            case .success(let movies):
+                self.topRatedMovies += movies.results
+                self.delegate?.successDiscoverList()
+            case .failure:
+                self.delegate?.errorList()
+            }
         }
     }
     

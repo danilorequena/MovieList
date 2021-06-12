@@ -9,22 +9,25 @@
 import Foundation
 
 class MovieListViewModel: ObservableObject {
-    @Published var movies = [Result]()
+    @Published var movies = [MovieResult]()
     @Published var image = ImageLoader()
     
     init() {
-        RequestAPIMovies.loadMovies(page: "1", endPoint: .discover) { (movies: Movie) in
-            self.movies = movies.results
-        } onError: { (error) in
-            print(error)
+        RequestAPIMovies.loadMovies(page: "1", endPoint: .discover) { (result: Result<Movie, APIServiceError>) in
+            switch result {
+            case .success(let movies):
+                self.movies = movies.results
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
         }
     }
 }
 
 struct MovieViewModel {
-    var movie: Result
+    var movie: MovieResult
     
-    init(movie: Result) {
+    init(movie: MovieResult) {
         self.movie = movie
     }
     
