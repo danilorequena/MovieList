@@ -46,6 +46,7 @@ final class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         setupView()
         setupBarButtonItem()
         viewModel = DetailViewModel()

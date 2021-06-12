@@ -16,19 +16,19 @@ final class ProvidersManager: NSObject, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.providers.count
+        viewModel.providers?.flatrate?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.register(NetworkCollectionViewCell.loadNib(), forCellWithReuseIdentifier: NetworkCollectionViewCell.identifier())
-        let cell: NetworkCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let cast = viewModel.providers[indexPath.item]
-        cell.prepareCell(with: cast)
+        collectionView.register(ProvidersCollectionViewCell.loadNib(), forCellWithReuseIdentifier: ProvidersCollectionViewCell.identifier())
+        let cell: ProvidersCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cast = viewModel.providers?.flatrate?[indexPath.item]
+        cell.prepareCell(with: cast!)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let url = URL(string: viewModel.details?.homepage ?? "https://apple.com") else { return }
+        guard let url = URL(string: viewModel.providers?.link ?? "") else { return }
 
         if UIApplication.shared.canOpenURL(url) {
              UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -36,7 +36,9 @@ final class ProvidersManager: NSObject, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: 65, height: 75)
+        .init(width: 48, height: 48)
     }
+    
+    
 }
 
