@@ -38,6 +38,12 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         child.start()
     }
     
+    func searchMovies() {
+        let child = MoviesSearchCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        child.start()
+    }
+    
     func detailDiscover(discoverMovies: ResultDiscover) {
         let child = DetailCoordinator(
             navigationController: navigationController,

@@ -38,6 +38,10 @@
 		7DA8C2CD2630C200005C1162 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8C2CC2630C200005C1162 /* UIButton+Extension.swift */; };
 		7DABFFAC25C7311E00FCAF94 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABFFAB25C7311E00FCAF94 /* NetworkProtocol.swift */; };
 		7DABFFDE25C7525F00FCAF94 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DABFFDD25C7525F00FCAF94 /* APIService.swift */; };
+		7DAF08732676BD1000F3D71C /* MoviesSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF08722676BD1000F3D71C /* MoviesSearchService.swift */; };
+		7DAF08752676C48800F3D71C /* MoviesSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF08742676C48800F3D71C /* MoviesSearchModel.swift */; };
+		7DAF08772676C66B00F3D71C /* MoviesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF08762676C66B00F3D71C /* MoviesSearchViewController.swift */; };
+		7DAF08792676CD4B00F3D71C /* MoviesSearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAF08782676CD4B00F3D71C /* MoviesSearchCoordinator.swift */; };
 		7DB75AF325CEDAE200E80A57 /* NewAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AF225CEDAE200E80A57 /* NewAbout.swift */; };
 		7DB75AF725CEE89900E80A57 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AF625CEE89900E80A57 /* MyImage.swift */; };
 		7DB75B0025CEF77800E80A57 /* SocialViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB75AFF25CEF77800E80A57 /* SocialViews.swift */; };
@@ -209,6 +213,10 @@
 		7DA8C2CC2630C200005C1162 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7DABFFAB25C7311E00FCAF94 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		7DABFFDD25C7525F00FCAF94 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		7DAF08722676BD1000F3D71C /* MoviesSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearchService.swift; sourceTree = "<group>"; };
+		7DAF08742676C48800F3D71C /* MoviesSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearchModel.swift; sourceTree = "<group>"; };
+		7DAF08762676C66B00F3D71C /* MoviesSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearchViewController.swift; sourceTree = "<group>"; };
+		7DAF08782676CD4B00F3D71C /* MoviesSearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesSearchCoordinator.swift; sourceTree = "<group>"; };
 		7DB75AF225CEDAE200E80A57 /* NewAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAbout.swift; sourceTree = "<group>"; };
 		7DB75AF625CEE89900E80A57 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		7DB75AFF25CEF77800E80A57 /* SocialViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViews.swift; sourceTree = "<group>"; };
@@ -491,6 +499,7 @@
 				FFDC28F125369DA0003B58B5 /* SeriesCoordinator.swift */,
 				FF271611252FD78200370ED1 /* DetailCoordinator.swift */,
 				7D22EC1025E3281C00BC6A13 /* FavoritesCoordinator.swift */,
+				7DAF08782676CD4B00F3D71C /* MoviesSearchCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -682,6 +691,7 @@
 			children = (
 				7D784410262CF5BB0046423B /* Managers */,
 				7DD3736325D85311001472B7 /* DiscoverMoviesHomeViewController.swift */,
+				7DAF08762676C66B00F3D71C /* MoviesSearchViewController.swift */,
 				FF80D589250EDC6400A15326 /* DiscoverSeriesHomeViewController.swift */,
 				FF6CDB9C253532FA002DC3B7 /* DetailViewController.swift */,
 			);
@@ -701,6 +711,7 @@
 				FF7B6A732518225800DEBA7E /* DetailsSeries.swift */,
 				FFBC3CEA255B228B00E059F6 /* DiscoverSeries.swift */,
 				7D31B8CE2661AA1600AAEB3D /* WatchProviders.swift */,
+				7DAF08742676C48800F3D71C /* MoviesSearchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -719,6 +730,7 @@
 			children = (
 				7DFA1E972631B04E00B803F7 /* Endpoints */,
 				FF95B23E2431582D00C5FF83 /* RequestAPIMovies.swift */,
+				7DAF08722676BD1000F3D71C /* MoviesSearchService.swift */,
 				7DABFFDD25C7525F00FCAF94 /* APIService.swift */,
 				FF164E54259CF6DC001536DA /* RequestAPITvShows.swift */,
 				7DD3FE0225CA0E4600A101AC /* APIServiceError.swift */,
@@ -925,6 +937,7 @@
 				7DB75B0025CEF77800E80A57 /* SocialViews.swift in Sources */,
 				FF80D58A250EDC6400A15326 /* DiscoverSeriesHomeViewController.swift in Sources */,
 				FF5AC11D250D90F500C780A6 /* TrailerViewController.swift in Sources */,
+				7DAF08792676CD4B00F3D71C /* MoviesSearchCoordinator.swift in Sources */,
 				FF11689E25070A2200F30652 /* Constants.swift in Sources */,
 				7DBDC77425DC3217005540F5 /* MovieTableViewCell.swift in Sources */,
 				7D784412262CF5CA0046423B /* DiscoverSeriesHomeManager.swift in Sources */,
@@ -956,9 +969,11 @@
 				7DA8C2CD2630C200005C1162 /* UIButton+Extension.swift in Sources */,
 				7D044F7F25C75F4B00E8A4C9 /* MoviesEndpoint.swift in Sources */,
 				7D67C46025DA289C00530E17 /* LoginViewModel.swift in Sources */,
+				7DAF08732676BD1000F3D71C /* MoviesSearchService.swift in Sources */,
 				FF6C37B6259F81A100EAFECE /* AboutViewController.swift in Sources */,
 				7DB75AF725CEE89900E80A57 /* MyImage.swift in Sources */,
 				7DC54D462607D38A0017C642 /* CardConfig.swift in Sources */,
+				7DAF08752676C48800F3D71C /* MoviesSearchModel.swift in Sources */,
 				FFE30A7625B5EC4D00E29825 /* LoginViewController.swift in Sources */,
 				7D22EC0925E2F9E100BC6A13 /* FavoritesMoviesDatasource.swift in Sources */,
 				7D94F20125DAF0E500E77DF8 /* CastCollectionViewCell.swift in Sources */,
@@ -990,6 +1005,7 @@
 				7DD3736025D84E47001472B7 /* CinemaTvCollectionView.swift in Sources */,
 				7DD3FE0725CA153800A101AC /* SeriesEndpoint.swift in Sources */,
 				7D5870EB25C392A000DE8D38 /* RegistrationView.swift in Sources */,
+				7DAF08772676C66B00F3D71C /* MoviesSearchViewController.swift in Sources */,
 				7D5870E725C3918B00DE8D38 /* RegistrationViewController.swift in Sources */,
 				FF0D4614252035EC0069A74A /* MainCoordinator.swift in Sources */,
 				7D22EC0D25E2FCD900BC6A13 /* FavoritesMoviesCell.swift in Sources */,
