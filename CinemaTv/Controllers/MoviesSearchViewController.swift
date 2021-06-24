@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 final class MoviesSearchViewController: UIViewController {
     private var searching = false
+    private let hud = JGProgressHUD()
     
     private(set) lazy var searchController: UISearchController = {
         let controller = UISearchController()
@@ -45,6 +47,16 @@ final class MoviesSearchViewController: UIViewController {
         navigationItem.searchController = searchController
         title = "Search"
     }
+    
+    private func showSimpleHUD() {
+        DispatchQueue.main.async {
+            self.hud.vibrancyEnabled = true
+            self.hud.textLabel.text = "Loading..."
+            self.hud.detailTextLabel.text = ""
+            self.hud.shadow = JGProgressHUDShadow(color: .black, offset: .zero, radius: 5.0, opacity: 0.2)
+            self.hud.show(in: self.view)
+        }
+    }
 }
 
 extension MoviesSearchViewController: CodeView {
@@ -72,5 +84,19 @@ extension MoviesSearchViewController: UISearchResultsUpdating, UISearchBarDelega
 //        searchGists = gistsData.filter({$0.owner.ownerName.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
 //        tableView.reloadData()
+    }
+}
+
+extension MoviesSearchViewController: MoviesSearchViewModelDelegate {
+    func successSearch() {
+        showSimpleHUD()
+        DispatchQueue.main.async {
+        //TODO: - IMPLEMENTAR O CODIGO AQUI
+            self.hud.dismiss()
+        }
+    }
+    
+    func errorSearch() {
+        print("deu erro")
     }
 }

@@ -34,10 +34,11 @@ final class FavoritesMoviesViewController: UIViewController {
     )
     
     private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(FavoritesMoviesCell.self)
         tableView.separatorStyle = .none
-        tableView.contentInsetAdjustmentBehavior = .automatic
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         tableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         return tableView
     }()
