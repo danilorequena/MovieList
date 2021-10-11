@@ -21,7 +21,8 @@ class MoviesSearchCoordinator: NSObject, Coordinator, UINavigationControllerDele
     
     func start() {
         navigationController.delegate = self
-        let vc = MoviesSearchViewController()
+        let viewModel = MoviesSearchViewModel()
+        let vc = MoviesSearchViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }
 }

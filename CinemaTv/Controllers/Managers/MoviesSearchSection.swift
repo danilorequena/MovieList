@@ -12,29 +12,32 @@ protocol MoviesSearchManagerDelegate: AnyObject {
     func didTapMovie(indexPath: IndexPath)
 }
 
-final class MoviesSearchManager: Section {
+final class MoviesSearchSection: Section {
     weak var delegate: MoviesSearchManagerDelegate?
     
-    let movies: MoviesSearchModel
+    private let movies: [ResultDiscover]
     
-    init(movies: MoviesSearchModel) {
+    init(movies: [ResultDiscover]) {
         self.movies = movies
     }
     
     func numberOfItemsInSection() -> Int {
-        return movies.results.count
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesSearchCell.identifier(), for: indexPath) as! MoviesSearchCell
+        let movies = movies[indexPath.item]
+        cell.prepareCell(with: movies)
+        return cell
     }
     
     func register(_ collectionView: UICollectionView) {
-        
+        collectionView.register(MoviesSearchCell.self)
     }
     
     func cellSize(with collectionViewBounds: CGRect, at indexPath: IndexPath) -> CGSize {
-        return .init(width: 100, height: 100)
+        .init(width: 180, height: 200)
     }
     
     func headerSize(width: CGFloat, in section: Int) -> CGSize {
@@ -46,7 +49,7 @@ final class MoviesSearchManager: Section {
     }
 }
 
-extension MoviesSearchManager: MoviesSearchManagerDelegate {
+extension MoviesSearchSection: MoviesSearchManagerDelegate {
     func didTapMovie(indexPath: IndexPath) {
         
     }

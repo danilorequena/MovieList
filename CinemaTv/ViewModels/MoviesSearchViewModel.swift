@@ -18,17 +18,18 @@ protocol MoviesSearchViewModelProtocol: AnyObject{
 }
 
 final class MoviesSearchViewModel: MoviesSearchViewModelProtocol {
-    private var movies: MoviesSearchModel?
+    var movies: [ResultDiscover] = []
     
-    private weak var delegate: MoviesSearchViewModelDelegate?
+    weak var delegate: MoviesSearchViewModelDelegate?
     
     func fetchSearch(movie: String) {
-        MoviesSearchService.loadMoviesSeach(page: "1", movie: movie, endpoint: .searchKeyword) { (result: Result<MoviesSearchModel, APIServiceError>) in
+        MoviesSearchService.loadMoviesSeach(page: "1", movie: movie, endpoint: .searchMovie) { (result: Result<DiscoverMovies, APIServiceError>) in
             switch result {
             case .success(let movies):
-                self.movies = movies
+                self.movies = movies.results ?? []
                 self.delegate?.successSearch()
-            case .failure:
+            case .failure(let error):
+                print(error)
                 self.delegate?.errorSearch()
             }
         }

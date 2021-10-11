@@ -14,7 +14,7 @@ protocol DiscoverMoviesHomeViewControllerProtocol: AnyObject {
     func showMovies(_ movieList: [ResultDiscover])
 }
 
-final class DiscoverMoviesHomeViewController: UIViewController, UICollectionViewDelegate {
+final class DiscoverMoviesHomeViewController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, MovieResult>
     typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, MovieResult>
     
@@ -63,12 +63,14 @@ final class DiscoverMoviesHomeViewController: UIViewController, UICollectionView
         navigationItem.rightBarButtonItems = [favoritesNavButton, searchNavButton]
     }
     
-    @objc func goToFavorites() {
+    @objc
+    private func goToFavorites() {
         let coordinator = MainCoordinator(navigationController: self.navigationController ?? UINavigationController())
         coordinator.favoritesMovies()
     }
     
-    @objc func goToMoviesSearch() {
+    @objc
+    private func goToMoviesSearch() {
         let coordinator = MainCoordinator(navigationController: self.navigationController ?? UINavigationController())
         coordinator.searchMovies()
     }
@@ -162,5 +164,13 @@ extension DiscoverMoviesHomeViewController: DiscoverViewModelDelegate {
     
     func errorList() {
         present(ErrorViewController(), animated: true, completion: nil)
+    }
+}
+
+extension DiscoverMoviesHomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let movie = dataSource.itemIdentifier(for: indexPath) else { return }
+        let coordinator = MainCoordinator(navigationController: self.navigationController!)
+        coordinator.detailDiscoverPop(discoverMovies: movie)
     }
 }

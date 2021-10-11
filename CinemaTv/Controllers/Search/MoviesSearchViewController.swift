@@ -9,9 +9,18 @@
 import UIKit
 import JGProgressHUD
 
-final class MoviesSearchViewController: UIViewController {
+protocol MoviesSearchViewControllerProtocol: AnyObject {
+    func showMovies(_ movieList: [ResultDiscover])
+}
+
+final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDelegate {
+    func didTapMovie(indexPath: IndexPath) {
+        
+    }
+    
     private var searching = false
     private let hud = JGProgressHUD()
+    private let viewModel: MoviesSearchViewModel
     
     private(set) lazy var searchController: UISearchController = {
         let controller = UISearchController()
@@ -25,17 +34,35 @@ final class MoviesSearchViewController: UIViewController {
         return controller
     }()
     
-    private let collectionMoviesSearch: UICollectionView = {
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: UICollectionViewFlowLayout()
+    private lazy var collectionMoviesSearch: CinemaTvCollectionView = {
+        let collectionView = CinemaTvCollectionView(
+            sections: [],
+            contentInset: .init(inset: 8),
+            flowLayout: UICollectionViewFlowLayout(),
+            minimumCellSpacing: 8,
+            minimumInterItemSpacing: 8
         )
-        
+        collectionView.setBackground(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.flowLayout.scrollDirection = .vertical
+        collectionView.flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         return collectionView
     }()
     
+    init(viewModel: MoviesSearchViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        viewModel.delegate = self
+        viewModel.fetchSearch(movie: "Lethal")
         setupSearch()
     }
     
@@ -67,6 +94,10 @@ extension MoviesSearchViewController: CodeView {
     func setupConstraints() {
         collectionMoviesSearch.bindFrameToSuperviewSafeBounds()
     }
+    
+    func setupAdditionalConfiguration() {
+        collectionMoviesSearch.backgroundColor = .white
+    }
 }
 
 extension MoviesSearchViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
@@ -75,15 +106,11 @@ extension MoviesSearchViewController: UISearchResultsUpdating, UISearchBarDelega
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-//        tableView.reloadData()
+        viewModel.fetchSearch(movie: "Jobs")
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        searchGists = gistsData.filter({$0.owner.ownerName.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        searching = true
-//        tableView.reloadData()
+        viewModel.fetchSearch(movie: searchText)
     }
 }
 
@@ -91,12 +118,20 @@ extension MoviesSearchViewController: MoviesSearchViewModelDelegate {
     func successSearch() {
         showSimpleHUD()
         DispatchQueue.main.async {
-        //TODO: - IMPLEMENTAR O CODIGO AQUI
+            self.showMovies(self.viewModel.movies)
             self.hud.dismiss()
         }
     }
     
     func errorSearch() {
         print("deu erro")
+    }
+}
+
+extension MoviesSearchViewController: MoviesSearchViewControllerProtocol {
+    func showMovies(_ movieList: [ResultDiscover]) {
+        let section = MoviesSearchSection(movies: movieList)
+        section.delegate = self
+        collectionMoviesSearch.update(sections: [section])
     }
 }

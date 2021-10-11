@@ -10,48 +10,68 @@ import Foundation
 
 // MARK: - MoviesSearch
 struct MoviesSearchModel: Codable {
-    let page: Int
-    let results: [MoviesSearchResult]
-    let totalPages, totalResults: Int
+    let page, totalResults, totalPages: Int?
+    let results: [MoviesSearchResult]?
 
     enum CodingKeys: String, CodingKey {
-        case page, results
+        case page
         case totalPages = "total_pages"
         case totalResults = "total_results"
+        case results
     }
 }
 
 // MARK: - Result
 struct MoviesSearchResult: Codable {
-    let adult: Bool
-    let backdropPath: String
-    let genreIDS: [Int]
-    let id: Int
-    let originalLanguage: OriginalLanguage
-    let originalTitle, overview: String
-    let popularity: Double
-    let posterPath, releaseDate, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
+//    var adult: Bool?
+//    var backdropPath: String
+//    var genreIDS: [Int]?
+//    var id: Int?
+//    var originalLanguage: String?
+//    var originalTitle, overview: String?
+//    var popularity: Double?
+//    var posterPath, releaseDate, title: String?
+//    var video: Bool?
+//    var voteAverage: Double?
+//    var voteCount: Int?
+    let popularity: Double?
+    let voteCount: Int?
+    let video: Bool?
+    let posterPath: String?
+    let id: Int?
+    let adult: Bool?
+    let backdropPath, originalLanguage, originalTitle: String
+    let genreIDS: [Int]?
+    let title: String?
+    let voteAverage: Double?
+    let overview, releaseDate: String?
 
     enum CodingKeys: String, CodingKey {
-        case adult
+//        case adult
+//        case backdropPath = "backdrop_path"
+//        case genreIDS = "genre_ids"
+//        case id
+//        case originalLanguage = "original_language"
+//        case originalTitle = "original_title"
+//        case overview, popularity
+//        case posterPath = "poster_path"
+//        case releaseDate = "release_date"
+//        case title, video
+//        case voteAverage = "vote_average"
+//        case voteCount = "vote_count"
+        case popularity
+        case voteCount = "vote_count"
+        case video
+        case posterPath = "poster_path"
+        case id, adult
         case backdropPath = "backdrop_path"
-        case genreIDS = "genre_ids"
-        case id
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
-        case overview, popularity
-        case posterPath = "poster_path"
-        case releaseDate = "release_date"
-        case title, video
+        case genreIDS = "genre_ids"
+        case title
         case voteAverage = "vote_average"
-        case voteCount = "vote_count"
+        case overview
+        case releaseDate = "release_date"
     }
-}
-
-enum OriginalLanguage: String, Codable {
-    case en = "en"
 }
 
