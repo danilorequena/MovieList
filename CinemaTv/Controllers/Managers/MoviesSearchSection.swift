@@ -37,15 +37,21 @@ final class MoviesSearchSection: Section {
     }
     
     func cellSize(with collectionViewBounds: CGRect, at indexPath: IndexPath) -> CGSize {
-        .init(width: 180, height: 200)
+        calculateCarouselItemSize(width: collectionViewBounds.width)
     }
     
     func headerSize(width: CGFloat, in section: Int) -> CGSize {
-        .init(width: 0, height: 0)
+        .zero
     }
     
     func headerInsets(in section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(inset: 0)
+        .zero
+    }
+    
+    private func calculateCarouselItemSize(width: CGFloat, horizontalInset: CGFloat = 0.0) -> CGSize {
+        let totalHorizontalInsets: CGFloat = 40
+        let itemWidth = (width - totalHorizontalInsets) / 2
+        return .init(width: itemWidth + horizontalInset, height: itemWidth * 1.85)
     }
 }
 
