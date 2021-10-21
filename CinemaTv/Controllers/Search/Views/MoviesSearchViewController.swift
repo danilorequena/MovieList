@@ -11,6 +11,7 @@ import JGProgressHUD
 
 protocol MoviesSearchViewControllerProtocol: AnyObject {
     func showMovies(_ movieList: [ResultDiscover])
+    func hideMovies()
 }
 
 final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDelegate {
@@ -28,7 +29,7 @@ final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDel
         controller.searchBar.delegate = self
         controller.searchBar.placeholder = "Busca"
         controller.searchBar.accessibilityIdentifier = "searchController"
-        controller.obscuresBackgroundDuringPresentation = true
+        controller.obscuresBackgroundDuringPresentation = false
         controller.hidesBottomBarWhenPushed = true
         controller.hidesNavigationBarDuringPresentation = true
         return controller
@@ -49,6 +50,8 @@ final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDel
         return collectionView
     }()
     
+    private let emptyView = EmptyStateView()
+    
     init(viewModel: MoviesSearchViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -62,7 +65,7 @@ final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDel
         super.viewDidLoad()
         setupView()
         viewModel.delegate = self
-        viewModel.fetchSearch(movie: "Lethal")
+        viewModel.fetchSearch(movie: "")
         setupSearch()
     }
     
@@ -71,6 +74,7 @@ final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDel
         searchController.searchBar.tintColor = .white
         searchController.searchBar.barTintColor = .white
         searchController.searchBar.delegate = self
+        navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         title = "Search"
     }
@@ -88,11 +92,12 @@ final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDel
 
 extension MoviesSearchViewController: CodeView {
     func buildViewHierarchy() {
-        view.addSubview(collectionMoviesSearch)
+        view.addSubviews(collectionMoviesSearch, emptyView)
     }
     
     func setupConstraints() {
-        collectionMoviesSearch.bindFrameToSuperviewSafeBounds()
+        collectionMoviesSearch.bindFrameToSuperviewBounds()
+        emptyView.bindFrameToSuperviewBounds()
     }
     
     func setupAdditionalConfiguration() {
@@ -118,8 +123,12 @@ extension MoviesSearchViewController: MoviesSearchViewModelDelegate {
     func successSearch() {
         showSimpleHUD()
         DispatchQueue.main.async {
-            self.showMovies(self.viewModel.movies)
-            self.hud.dismiss()
+            if !self.viewModel.movies.isEmpty {
+                self.showMovies(self.viewModel.movies)
+                self.hud.dismiss()
+            } else {
+                self.hideMovies()
+            }
         }
     }
     
@@ -130,8 +139,15 @@ extension MoviesSearchViewController: MoviesSearchViewModelDelegate {
 
 extension MoviesSearchViewController: MoviesSearchViewControllerProtocol {
     func showMovies(_ movieList: [ResultDiscover]) {
+        collectionMoviesSearch.isHidden = false
+        emptyView.isHidden = true
         let section = MoviesSearchSection(movies: movieList)
         section.delegate = self
         collectionMoviesSearch.update(sections: [section])
+    }
+    
+    func hideMovies() {
+        collectionMoviesSearch.isHidden = true
+        emptyView.isHidden = false
     }
 }

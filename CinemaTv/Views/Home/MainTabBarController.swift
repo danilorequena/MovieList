@@ -21,11 +21,6 @@ final class MainTabBarController: UITabBarController {
         viewControllers = [main.navigationController, serieCoord.navigationController, favoriteCoord.navigationController]
         self.tabBar.barTintColor = #colorLiteral(red: 0.1628865302, green: 0.1749416888, blue: 0.1923300922, alpha: 1)
         self.tabBar.unselectedItemTintColor = UIColor.white
-        self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        self.tabBar.layer.cornerRadius = 16
-        self.tabBar.layer.shadowColor = UIColor.black.cgColor
-        self.tabBar.layer.shadowOpacity = 0.1
-        self.tabBar.layer.shadowOffset = .zero
-        self.tabBar.clipsToBounds = true
+        self.tabBar.isTranslucent = true
     }
 }
