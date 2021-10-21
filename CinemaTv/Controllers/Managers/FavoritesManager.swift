@@ -19,9 +19,10 @@ final class FavoritesManager: NSObject, UITableViewDelegate, UITableViewDataSour
         return appDelegate.persistentContainer.viewContext
     }
     
-    init(moviesData: [MoviesDataModel],
-         fetchedResultsController: NSFetchedResultsController<MoviesDataModel>)
-    {
+    init(
+        moviesData: [MoviesDataModel],
+        fetchedResultsController: NSFetchedResultsController<MoviesDataModel>
+    ){
         self.moviesData = moviesData
         self.fetchedResultsController = fetchedResultsController
     }
@@ -49,6 +50,10 @@ final class FavoritesManager: NSObject, UITableViewDelegate, UITableViewDataSour
         default:
             break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
     
     private func removeAllFavorites() {
