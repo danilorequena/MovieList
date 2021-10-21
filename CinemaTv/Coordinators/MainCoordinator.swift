@@ -29,6 +29,7 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         let viewModel = DiscoverViewModel()
         let vc = DiscoverMoviesHomeViewController(viewModel: viewModel)
         vc.tabBarItem = UITabBarItem(title: "tab.discover".localized, image: UIImage(named: "movie"), tag: 0)
+        vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -38,11 +39,28 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         child.start()
     }
     
+    func searchMovies() {
+        let child = MoviesSearchCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        child.start()
+    }
+    
     func detailDiscover(discoverMovies: ResultDiscover) {
         let child = DetailCoordinator(
             navigationController: navigationController,
             discoverMovies: discoverMovies,
             viewModel: DetailViewModel())
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
+    }
+    
+    func detailDiscoverPop(discoverMovies: MovieResult) {
+        let child = DetailCoordinator(
+            navigationController: navigationController,
+            movie: discoverMovies,
+            viewModel: DetailViewModel()
+        )
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
