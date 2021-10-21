@@ -10,8 +10,8 @@ import UIKit
 import Kingfisher
 
 final class MoviesSearchCell: UICollectionViewCell {
-    private var image = UIImageView.Factory.build(
-        contentMode: .scaleAspectFit,
+    private let image = UIImageView.Factory.build(
+        contentMode: .scaleAspectFill,
         backgroundColor: .darkGray,
         tintColor: .black,
         accessibilityIdentifier: "imageSearch"
@@ -51,5 +51,10 @@ extension MoviesSearchCell: CodeView {
     
     func setupConstraints() {
         image.bindFrameToSuperviewBounds()
+    }
+    
+    func setupAdditionalConfiguration() {
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 16
     }
 }

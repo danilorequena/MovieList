@@ -45,8 +45,6 @@ final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDel
         )
         collectionView.setBackground(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.flowLayout.scrollDirection = .vertical
-        collectionView.flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         return collectionView
     }()
     
