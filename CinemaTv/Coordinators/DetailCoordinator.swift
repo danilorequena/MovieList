@@ -17,6 +17,7 @@ class DetailCoordinator: Coordinator {
     var seriesOnAir: ResultSeriesOnAir?
     var discoverMovies: ResultDiscover?
     var discoverSeries: ResultDiscoverSeries?
+    private var movie: MovieResult?
     var viewModel: DetailViewModel
     
     
@@ -26,6 +27,7 @@ class DetailCoordinator: Coordinator {
         popSeries: ResultPopularSeries? = nil,
         onAirSeries: ResultSeriesOnAir? = nil,
         discoverSeries: ResultDiscoverSeries? = nil,
+        movie: MovieResult? = nil,
         viewModel: DetailViewModel
     ) {
         self.navigationController = navigationController
@@ -33,6 +35,7 @@ class DetailCoordinator: Coordinator {
         self.seriesPop = popSeries
         self.seriesOnAir = onAirSeries
         self.discoverSeries = discoverSeries
+        self.movie = movie
         self.viewModel = viewModel
     }
     
