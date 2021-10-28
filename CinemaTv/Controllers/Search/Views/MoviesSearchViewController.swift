@@ -18,6 +18,7 @@ final class MoviesSearchViewController: UIViewController, MoviesSearchManagerDel
     func didTapMovie(indexPath: IndexPath) {
         
     }
+    weak var coordinator: MainCoordinator?
     
     private var searching = false
     private let hud = JGProgressHUD()

@@ -56,8 +56,7 @@ extension LoginViewController: LoginViewDelegate {
                 return
             }
             print("You have signed in")
-            let coordinator = MainCoordinator(navigationController: (self?.navigationController)!)
-            coordinator.userLogged()
+            self?.coordinator?.userLogged()
         })
     }
     

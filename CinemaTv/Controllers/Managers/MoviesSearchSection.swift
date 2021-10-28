@@ -57,6 +57,7 @@ final class MoviesSearchSection: Section {
 
 extension MoviesSearchSection: MoviesSearchManagerDelegate {
     func didTapMovie(indexPath: IndexPath) {
+
         
     }
 }

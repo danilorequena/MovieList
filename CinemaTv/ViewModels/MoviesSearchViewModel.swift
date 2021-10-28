@@ -19,11 +19,12 @@ protocol MoviesSearchViewModelProtocol: AnyObject{
 
 final class MoviesSearchViewModel: MoviesSearchViewModelProtocol {
     var movies: [ResultDiscover] = []
+    var page = 1
     
     weak var delegate: MoviesSearchViewModelDelegate?
     
     func fetchSearch(movie: String) {
-        MoviesSearchService.loadMoviesSeach(page: "1", movie: movie, endpoint: .searchMovie) { (result: Result<DiscoverMovies, APIServiceError>) in
+        MoviesSearchService.loadMoviesSearch(page: "\(page)", movie: movie, endpoint: .searchMovie) { (result: Result<DiscoverMovies, APIServiceError>) in
             switch result {
             case .success(let movies):
                 self.movies = movies.results ?? []

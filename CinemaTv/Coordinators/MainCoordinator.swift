@@ -13,13 +13,16 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
-    init(navigationController: UINavigationController) {
+    init(
+        navigationController: UINavigationController
+    ) {
         self.navigationController = navigationController
     }
     
     func start() {
         navigationController.delegate = self
         let vc = LoginViewController()
+        vc.coordinator = self
         vc.tabBarItem = UITabBarItem(title: "tab.discover".localized, image: UIImage(named: "movie"), tag: 0)
         navigationController.pushViewController(vc, animated: false)
     }
