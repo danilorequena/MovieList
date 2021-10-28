@@ -17,7 +17,7 @@ final class MoviesSearchService {
     
     private static let session = URLSession(configuration: configuration)
     
-    class func loadMoviesSeach<T: Decodable>(
+    class func loadMoviesSearch<T: Decodable>(
         page: String,
         movie: String,
         endpoint: MoviesEndpoint,
@@ -27,13 +27,13 @@ final class MoviesSearchService {
             complitionHandler(.failure(.url))
             return
         }
-        guard var components = URLComponents(url: queryURL,
-                                             resolvingAgainstBaseURL: true) else { return }
+        guard var components = URLComponents(url: queryURL, resolvingAgainstBaseURL: true) else { return }
         
         components.queryItems = [
             URLQueryItem(name: "api_key", value: Constants.apiKey),
             URLQueryItem(name: "query", value: movie),
-//            URLQueryItem(name: "region", value: Locale.current.regionCode),
+            URLQueryItem(name: "include_adult", value: "false"),
+            URLQueryItem(name: "region", value: Locale.current.regionCode),
             URLQueryItem(name: "page", value: page)
         ]
         var request = URLRequest(url: components.url!)

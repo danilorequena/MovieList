@@ -71,8 +71,7 @@ final class DiscoverMoviesHomeViewController: UIViewController {
     
     @objc
     private func goToMoviesSearch() {
-        let coordinator = MainCoordinator(navigationController: self.navigationController ?? UINavigationController())
-        coordinator.searchMovies()
+        coordinator?.searchMovies()
     }
     
     private func configureCollectionDataSource() {
